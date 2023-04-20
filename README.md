@@ -36,3 +36,18 @@ return (
     </>
 );
 ```
+
+The following are the `props` that can be passed to the component:
+
+```ts
+{
+    workspaceId: string;
+    categories?: string[];
+    external_xref?: string;
+    state?: string;
+    scopes?: string[];
+    success_redirect?: string;
+    failure_redirect?: string;
+    nostyle?: boolean;
+}
+```

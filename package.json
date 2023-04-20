@@ -8,7 +8,7 @@
     "type": "module",
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/unified-to/unified-react-integrations-directory-.git"
+        "url": "git+ssh://git@github.com/unified-to/unified-react-integrations-directory.git"
     },
     "keywords": [
         "unifiedapi"
@@ -16,9 +16,9 @@
     "author": "Unified API Inc.",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/unified-to/unified-react-integrations-directory-/issues"
+        "url": "https://github.com/unified-to/unified-react-integrations-directory/issues"
     },
-    "homepage": "https://github.com/unified-to/unified-react-integrations-directory-#readme",
+    "homepage": "https://github.com/unified-to/unified-react-integrations-directory#readme",
     "devDependencies": {
         "@rollup/plugin-commonjs": "^24.1.0",
         "@rollup/plugin-node-resolve": "^15.0.2",
