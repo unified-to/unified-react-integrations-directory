@@ -281,6 +281,8 @@ export interface IPlan {
 	price_per_mille_requests?: number;
 	custom_oauth?: boolean;
 	max_requests?: number;
+	test_stripe_product_id?: string;
+	test_stripe_plan_id?: string;
 }
 
 export interface IUser {
