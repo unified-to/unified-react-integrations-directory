@@ -18,7 +18,7 @@ const CATEGORY_MAP = {
     crm: 'CRM',
     martech: 'Marketing Tech',
     ticketing: 'Support Tickets',
-    auth: 'Authentication',
+    // auth: 'Authentication',
     uc: 'Unified Communications',
     enrich: 'Enrichment',
     ats: 'Applicant Tracking System',
@@ -136,6 +136,7 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
                             <div className="unified_vendor_name">{integration.name}</div>
                             {integration.categories
                                 .filter((c) => !CATEGORIES || CATEGORIES.indexOf(c) > -1)
+                                .filter((c) => CATEGORY_MAP[c])
                                 .map((cat) => (
                                     <div className="unified_vendor_cats">
                                         <span>{cat}</span>

@@ -1,9 +1,10 @@
 {
     "name": "unifiedapi-react-directory",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "React component for Unified.to's Integrations Directory",
     "scripts": {
-        "rollup": "rollup -c"
+        "rollup": "rollup -c",
+        "publish": "npm publish"
     },
     "type": "module",
     "repository": {
