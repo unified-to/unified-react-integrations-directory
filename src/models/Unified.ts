@@ -345,7 +345,7 @@ export interface IWorkspaceIntegration {
 
 export const Plans: IPlan[] = [
     { name: 'Tester', description: 'Test out our unified APIs in your development application.', max_connections: 20, price_per_mille_requests: 0, custom_oauth: false, max_requests: 7500 },
-    { name: 'Startup', description: 'Launch 100s of integrations in your production application.', min_price: 100, custom_oauth: true, price_per_mille_requests: 0.5, max_requests: 200000, stripe_product_id: 'prod_LsuGNJUgheY9FC', stripe_plan_id: 'price_1MLC84Cym65m1EMKSi160wJR' },
+    { name: 'Startup', description: 'Launch 100s of integrations in your production application.', min_price: 100, custom_oauth: true, price_per_mille_requests: 0.5, max_requests: 200000, stripe_product_id: 'prod_NpKIL9HEvIfdx2', stripe_plan_id: 'price_1N3fdgCym65m1EMKSjioHzB4', test_stripe_product_id: 'prod_Np1xniikGxq80G', test_stripe_plan_id: 'price_1N3NttCym65m1EMKareqBWRx' },
     { name: 'Growth', description: 'Your application is growing partially due to our integrations.', min_price: 500, stripe_product_id: 'prod_LsuPyC09siweo9', stripe_plan_id: 'price_1MLC93Cym65m1EMKbfFKOIF3', max_requests: 1250000, price_per_mille_requests: 0.4, custom_oauth: true },
     { name: 'Scale', description: 'Affordable when you scale and grow your company.', min_price: 1000, max_requests: 4000000, custom_oauth: true, price_per_mille_requests: 0.25 }
 ];
