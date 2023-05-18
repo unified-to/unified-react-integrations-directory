@@ -11,19 +11,19 @@
 Using NPM:
 
 ```bash
-$ npm install unifiedapi-react-directory
+$ npm install @unified-api/react-directory
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add unifiedapi-react-directory
+$ yarn add @unified-api/react-directory
 ```
 
 Once the package is installed, you can import the component using `import`
 
 ```ts
-import UnifiedDirectory from 'unifiedapi-react-directory';
+import UnifiedDirectory from '@unified-api/react-directory';
 ```
 
 ## Example

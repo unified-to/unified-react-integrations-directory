@@ -1,6 +1,6 @@
 {
-    "name": "unifiedapi-react-directory",
-    "version": "1.0.2",
+    "name": "@unified-api/react-directory",
+    "version": "1.0.1",
     "description": "React component for Unified.to's Integrations Directory",
     "scripts": {
         "rollup": "rollup -c",

@@ -11,6 +11,7 @@ export interface UnifiedDirectoryProps {
     success_redirect?: string;
     failure_redirect?: string;
     nostyle?: boolean;
+    environment: string;
 }
 
 const API_URL = 'https://api.unified.to';
@@ -46,6 +47,9 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
         if (props.scopes?.length) {
             url += `&scopes=${encodeURIComponent(props.scopes.join(','))}`;
         }
+        if (props.environment && props.environment !== 'Production') {
+            url += `&env=${encodeURIComponent(props.environment)}`;
+        }
         // if (this.success_redirect) {
         url += `&success_redirect=${encodeURIComponent(props.success_redirect || window.location.href)}`;
         // }
@@ -77,7 +81,7 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
         selectedCategory = undefined;
         const url = `${API_URL}/unified/integration/workspace/${props.workspaceId}?summary=1${
             props.categories?.length ? '&categories=' + props.categories.join(',') : ''
-        }`;
+        }${props.environment === 'Production' || !props.environment ? '' : '&env=' + encodeURIComponent(props.environment)}`;
 
         INTEGRATIONS = ((await load_data(url)) || []) as IIntegration[];
 
