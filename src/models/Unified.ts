@@ -80,14 +80,15 @@ export const IntegrationPermission = [
 export type TIntegrationPermission = typeof IntegrationPermission[number];
 
 export const IntegrationSupportWebhookType = [
-	'native',
 	'virtual',
-	'none'
+	'none',
+	'native'
 ] as const;
 
 export type TIntegrationSupportWebhookType = typeof IntegrationSupportWebhookType[number];
 
 export const ObjectType = [
+	'ats_scorecard',
 	'hris_employee',
 	'hris_group',
 	'uc_call',
@@ -210,6 +211,7 @@ export interface IIntegrationOauth {
 	needs_authorizeurl?: boolean;
 	needs_pem?: boolean;
 	needs_key?: boolean;
+	needs_subdomain?: boolean;
 }
 
 export interface IIntegrationSupport {
