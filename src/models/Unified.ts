@@ -225,6 +225,7 @@ export interface IIntegrationSupport {
 	list_company_id?: boolean;
 	list_contact_id?: boolean;
 	list_application_id?: boolean;
+	list_candidate_id?: boolean;
 	list_deal_id?: boolean;
 	list_order?: boolean;
 	list_query?: boolean;
