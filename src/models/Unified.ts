@@ -137,6 +137,7 @@ export interface IApiCall {
 	ip_address?: string;
 	type: TApiCallType; // The type of API Call being logged
 	method: string;
+	environment?: string;
 }
 
 export interface IConnection {
@@ -312,6 +313,7 @@ export interface IWebhook {
 	readonly checked_at: string | Date; // The last date/time that a check was done on this object
 	integration_type: string;
 	subscriptions?: string[]; // integration-specific subscriptions IDs
+	environment?: string;
 }
 
 export interface IWorkspace {
