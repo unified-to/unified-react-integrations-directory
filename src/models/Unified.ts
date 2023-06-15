@@ -151,6 +151,7 @@ export interface IConnection {
 	auth?: IConnectionAuth;
 	is_paused?: boolean; // Whether this integration has exceed the monthly limit of the plan
 	auth_aws_arn?: string; // the AWS ARN / secretID for the stored auth field
+	environment?: string;
 }
 
 export interface IConnectionAuth {
