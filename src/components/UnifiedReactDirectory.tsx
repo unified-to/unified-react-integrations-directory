@@ -11,19 +11,22 @@ export interface UnifiedDirectoryProps {
     success_redirect?: string;
     failure_redirect?: string;
     nostyle?: boolean;
-    environment: string;
+    environment?: string;
+    lang?: string;
+    notabs?: boolean;
+    nocategories?: boolean;
 }
 
 const API_URL = 'https://api.unified.to';
 const CATEGORY_MAP = {
     crm: 'CRM',
-    martech: 'Marketing Tech',
-    ticketing: 'Support Tickets',
+    martech: 'Marketing',
+    ticketing: 'Ticketing',
     // auth: 'Authentication',
     uc: 'Unified Communications',
     enrich: 'Enrichment',
-    ats: 'Applicant Tracking System',
-    hris: 'HR Information System',
+    ats: 'ATS',
+    hris: 'HR',
 } as { [path in string]: string };
 
 const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
@@ -50,6 +53,10 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
         if (props.environment && props.environment !== 'Production') {
             url += `&env=${encodeURIComponent(props.environment)}`;
         }
+        if (props.lang) {
+            url += `&lang=${props.lang}`;
+        }
+
         // if (this.success_redirect) {
         url += `&success_redirect=${encodeURIComponent(props.success_redirect || window.location.href)}`;
         // }
@@ -116,7 +123,7 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
 
     return (
         <div className="unified">
-            {CATEGORIES.length > 0 && filter(INTEGRATIONS).length && (
+            {!props.notabs && CATEGORIES.length > 0 && filter(INTEGRATIONS).length && (
                 <div className="unified_menu">
                     <button className={'unified_button unified_button_all' + selectedCategory ? '' : ' active'} onClick={() => unified_select_category()}>
                         All
@@ -135,17 +142,18 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
             <div className="unified_vendors">
                 {filter(INTEGRATIONS).map((integration) => (
                     <a href={unified_get_auth_url(integration)} className="unified_vendor">
-                        <img src={`https://api.unified.to${integration.logo_url}`} className="unified_image" />
+                        <img src={integration.logo_url} className="unified_image" />
                         <div className="unified_vendor_inner">
                             <div className="unified_vendor_name">{integration.name}</div>
-                            {integration.categories
-                                .filter((c) => !CATEGORIES || CATEGORIES.indexOf(c) > -1)
-                                .filter((c) => CATEGORY_MAP[c])
-                                .map((cat) => (
-                                    <div className="unified_vendor_cats">
-                                        <span>{cat}</span>
-                                    </div>
-                                ))}
+                            {!props.nocategories &&
+                                integration.categories
+                                    .filter((c) => !CATEGORIES || CATEGORIES.indexOf(c) > -1)
+                                    .filter((c) => CATEGORY_MAP[c])
+                                    .map((cat) => (
+                                        <div className="unified_vendor_cats">
+                                            <span>{CATEGORY_MAP[cat]}</span>
+                                        </div>
+                                    ))}
                         </div>
                     </a>
                 ))}

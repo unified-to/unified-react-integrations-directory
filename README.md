@@ -49,5 +49,10 @@ The following are the `props` that can be passed to the component:
     success_redirect?: string;
     failure_redirect?: string;
     nostyle?: boolean;
+    environment?: string;
+    lang?: string;
+    notabs?: boolean;
+    nocategories?: boolean;
+
 }
 ```
