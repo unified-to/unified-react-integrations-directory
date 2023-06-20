@@ -298,8 +298,8 @@ export interface IUser {
 	readonly email: string;
 	workspace_id: string; // The current workspace
 	workspace_ids: string[]; // A list of all of the user's workspaces
-	meta?: unknown;
 	environment?: string;
+	meta?: unknown;
 }
 
 export interface IWebhook {
