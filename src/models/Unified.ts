@@ -199,7 +199,6 @@ export interface IIntegration {
 	oauth?: IIntegrationOauth;
 	beta?: boolean; // This integration is new and is still considered "beta"
 	support: { [path in string]?: IIntegrationSupport };
-	auth_url?: string; // The URL to send the end-user to authorize this integration
 }
 
 export interface IIntegrationOauth {
