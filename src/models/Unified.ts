@@ -260,6 +260,7 @@ export interface INotification {
 	description?: string; // Longer description of this notification
 	icon?: string; // The icon name
 	link_url?: string; // Link to the event
+	user_id?: string;
 }
 
 export interface IPermission {
