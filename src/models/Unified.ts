@@ -261,6 +261,7 @@ export interface INotification {
 	icon?: string; // The icon name
 	link_url?: string; // Link to the event
 	user_id?: string;
+	user_name?: string;
 }
 
 export interface IPermission {
