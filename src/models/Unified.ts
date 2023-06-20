@@ -299,6 +299,7 @@ export interface IUser {
 	workspace_id: string; // The current workspace
 	workspace_ids: string[]; // A list of all of the user's workspaces
 	meta?: unknown;
+	environment?: string;
 }
 
 export interface IWebhook {
