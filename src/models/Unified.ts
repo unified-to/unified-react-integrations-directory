@@ -88,6 +88,7 @@ export const IntegrationSupportWebhookType = [
 export type TIntegrationSupportWebhookType = typeof IntegrationSupportWebhookType[number];
 
 export const ObjectType = [
+	'ats_application',
 	'ats_scorecard',
 	'hris_employee',
 	'hris_group',
