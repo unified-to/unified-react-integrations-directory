@@ -345,6 +345,7 @@ export interface IWorkspace {
 	datadog_apikey?: string;
 	environments?: string[]; // a list of authentication environments for the workspace integrations
 	add_ons?: string[];
+	checklist?: unknown;
 }
 
 export interface IWorkspaceIntegration {
