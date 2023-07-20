@@ -33,6 +33,10 @@ export const IntegrationCategory = [
 export type TIntegrationCategory = typeof IntegrationCategory[number];
 
 export const IntegrationPermission = [
+	'ats_scorecard_read',
+	'ats_scorecard_write',
+	'ats_application_read',
+	'ats_application_write',
 	'auth_login',
 	'crm_company_read',
 	'crm_company_write',
