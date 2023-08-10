@@ -252,7 +252,7 @@ export interface IIntegrationSupport {
 	inbound_fields?: { [path in string]?: boolean };
 	outbound_fields?: { [path in string]?: boolean };
 	webhook_type?: TIntegrationSupportWebhookType;
-	webhooks_events?: ( TWebhookEvent )[];
+	webhook_events?: ( TWebhookEvent )[];
 }
 
 export interface IInvoice {
