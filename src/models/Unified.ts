@@ -197,7 +197,6 @@ export interface IIntegration {
 	categories: ( TIntegrationCategory )[]; // The categories of support solutions that this integration has
 	api_docs_url?: string; // The URL of the integration's API documentation
 	logo_url?: string; // The URL of the integration's logo
-	auth_types: ( TIntegrationAuthType )[]; // The authentication method(s) that this integration supports
 	in_progress: boolean; // If this integration is not yet available as it is currently being built by unified.to
 	color?: string; // button background color for AUTH
 	text_color?: string; // text color for AUTH
@@ -206,7 +205,6 @@ export interface IIntegration {
 	token_instructions?: string[]; // instructions for the user on how to find the token/key
 	web_url?: string; // URL for the software vendor
 	rate_limit_description?: string;
-	oauth?: IIntegrationOauth;
 	beta?: boolean; // This integration is new and is still considered "beta"
 	support: { [path in string]?: IIntegrationSupport };
 }
