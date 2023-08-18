@@ -1,6 +1,6 @@
 {
     "name": "@unified-api/react-directory",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "React component for Unified.to's Integrations Directory",
     "scripts": {
         "publish": "npm publish",
@@ -33,7 +33,7 @@
     },
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
-    "types": "dist/esm/index.d.ts",
+    "types": "dist/index.d.ts",
     "files": [
         "dist",
         "src",
