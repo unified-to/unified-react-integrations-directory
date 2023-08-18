@@ -53,6 +53,7 @@ The following are the `props` that can be passed to the component:
     lang?: string;
     notabs?: boolean;
     nocategories?: boolean;
+    dc?: 'us'|'eu'; // data-region
 
 }
 ```

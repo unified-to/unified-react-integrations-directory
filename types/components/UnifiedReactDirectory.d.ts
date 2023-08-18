@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export interface UnifiedDirectoryProps {
     workspaceId: string;
     categories?: string[];
@@ -7,6 +8,10 @@ export interface UnifiedDirectoryProps {
     success_redirect?: string;
     failure_redirect?: string;
     nostyle?: boolean;
+    environment?: string;
+    lang?: string;
+    notabs?: boolean;
+    nocategories?: boolean;
+    dc?: 'us' | 'eu';
 }
-declare const UnifiedDirectory: (props: UnifiedDirectoryProps) => Promise<JSX.Element>;
-export default UnifiedDirectory;
+export default function UnifiedDirectory(props: UnifiedDirectoryProps): JSX.Element;

@@ -8,7 +8,15 @@ import packageJson from './package.json' assert { type: 'json' };
 export default [
     {
         input: 'src/index.ts',
+        external: ['react'],
         output: [
+            {
+                format: 'umd',
+                name: packageJson.main,
+                globals: {
+                    react: 'React',
+                },
+            },
             {
                 file: packageJson.main,
                 format: 'cjs',

@@ -1,1 +1,2 @@
-export { default as UnifiedReactDirectory } from './UnifiedReactDirectory';
+import UnifiedDirectory from './UnifiedReactDirectory';
+export { UnifiedDirectory };

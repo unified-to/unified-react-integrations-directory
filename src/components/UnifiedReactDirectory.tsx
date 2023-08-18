@@ -1,6 +1,27 @@
 import React from 'react';
+import { useState } from 'react';
 
-import { IIntegration, TIntegrationCategory } from '../models/Unified';
+interface IIntegration {
+    type: string; // Identifier for this integration
+    name: string; // The integration's name
+    categories: string[]; // The categories of support solutions that this integration has
+    logo_url?: string; // The URL of the integration's logo
+    color?: string; // button background color for AUTH
+    text_color?: string; // text color for AUTH
+}
+
+const API_NA_URL = 'https://api.unified.to';
+const API_EU_URL = 'https://api-eu.unified.to';
+
+const CATEGORY_MAP = {
+    crm: 'CRM',
+    martech: 'Marketing',
+    ticketing: 'Ticketing',
+    uc: 'Unified Communications',
+    enrich: 'Enrichment',
+    ats: 'ATS',
+    hris: 'HR',
+} as { [path in string]: string };
 
 export interface UnifiedDirectoryProps {
     workspaceId: string;
@@ -15,33 +36,23 @@ export interface UnifiedDirectoryProps {
     lang?: string;
     notabs?: boolean;
     nocategories?: boolean;
+    dc?: 'us' | 'eu'; // which data-center
 }
 
-const API_URL = 'https://api.unified.to';
-const CATEGORY_MAP = {
-    crm: 'CRM',
-    martech: 'Marketing',
-    ticketing: 'Ticketing',
-    // auth: 'Authentication',
-    uc: 'Unified Communications',
-    enrich: 'Enrichment',
-    ats: 'ATS',
-    hris: 'HR',
-} as { [path in string]: string };
+export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
+    const API_URL = props.dc === 'eu' ? API_EU_URL : API_NA_URL;
+    const [INTEGRATIONS, setIntegrations] = useState<IIntegration[]>([]);
+    const [CATEGORIES, setCategories] = useState<string[]>([]);
+    const [selectedCategory, setCategory] = useState<string>('');
 
-const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
-    let INTEGRATIONS = [] as IIntegration[];
-    let selectedCategory = undefined as TIntegrationCategory | undefined;
-    let CATEGORIES = [] as TIntegrationCategory[];
-
-    const filter = (integrations: IIntegration[]) => {
+    function filter(integrations: IIntegration[]) {
         return integrations?.filter((integration) => !selectedCategory || integration.categories.includes(selectedCategory)) || [];
-    };
+    }
 
-    const unified_get_auth_url = (integration: IIntegration) => {
-        let url = `${API_URL}/unified/integration/auth/${props.workspaceId}/${integration.type}?redirect=1`;
+    function unified_get_auth_url(integration: IIntegration) {
+        let url = `${API_URL}/unified/integration/auth/${props?.workspaceId}/${integration.type}?redirect=1`;
 
-        if (props.external_xref) {
+        if (props?.external_xref) {
             url += `&user_xref=${encodeURIComponent(props.external_xref)}`;
         }
         if (props.state) {
@@ -58,19 +69,25 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
         }
 
         // if (this.success_redirect) {
-        url += `&success_redirect=${encodeURIComponent(props.success_redirect || window.location.href)}`;
+        url += `&success_redirect=${encodeURIComponent(
+            props.success_redirect || '' //|| window.location.href
+        )}`;
         // }
         // if (this.failure_redirect) {
-        url += `&failure_redirect=${encodeURIComponent(props.failure_redirect || window.location.href)}`;
+        url += `&failure_redirect=${encodeURIComponent(
+            props.failure_redirect || '' //|| window.location.href
+        )}`;
         // }
         return url;
-    };
+    }
 
-    const unified_select_category = (category?: TIntegrationCategory) => {
-        selectedCategory = category;
-    };
+    async function load_data() {
+        const url = `${API_URL}/unified/integration/workspace/${props.workspaceId}?summary=1${
+            props.categories?.length ? '&categories=' + props.categories.join(',') : ''
+        }${props.environment === 'Production' || !props.environment ? '' : '&env=' + encodeURIComponent(props.environment)}`;
 
-    const load_data = async (url: string) => {
+        console.log('url', url);
+
         try {
             const response = await fetch(url, {
                 method: 'GET',
@@ -78,60 +95,60 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
                     'Content-Type': 'application/json',
                 },
             });
+
+            if (!response.ok) {
+                throw new Error(String(response.status));
+            }
+
             return response.json();
         } catch {
-            return;
+            return [];
         }
-    };
+    }
 
-    const setup = async () => {
-        selectedCategory = undefined;
-        const url = `${API_URL}/unified/integration/workspace/${props.workspaceId}?summary=1${
-            props.categories?.length ? '&categories=' + props.categories.join(',') : ''
-        }${props.environment === 'Production' || !props.environment ? '' : '&env=' + encodeURIComponent(props.environment)}`;
+    if (!INTEGRATIONS?.length) {
+        load_data().then((data: IIntegration[]) => {
+            data = data.filter((i) => !(i.categories.length === 1 && i.categories[0] === 'auth')) || [];
+            setIntegrations(data);
 
-        INTEGRATIONS = ((await load_data(url)) || []) as IIntegration[];
+            console.log('INTEGRATIONS.length', data.length);
 
-        CATEGORIES = [];
-        INTEGRATIONS.forEach((integration) => {
-            integration.categories?.forEach((c) => {
-                if (CATEGORY_MAP[c] && (!props.categories?.length || props.categories.includes(c))) {
-                    CATEGORIES.push(c);
-                }
+            let _CATEGORIES = [] as string[];
+            data.forEach((integration) => {
+                integration.categories?.forEach((c) => {
+                    if (CATEGORY_MAP[c] && (!props.categories?.length || props.categories.includes(c))) {
+                        _CATEGORIES!.push(c);
+                    }
+                });
             });
+
+            _CATEGORIES = [...new Set(_CATEGORIES)];
+
+            if (_CATEGORIES.length === 1) {
+                _CATEGORIES = [];
+            } else {
+                _CATEGORIES = _CATEGORIES.sort(function (a, b) {
+                    return a.localeCompare(b);
+                });
+            }
+            console.log('categories', _CATEGORIES);
+            setCategories(_CATEGORIES);
         });
-
-        CATEGORIES = [...new Set(CATEGORIES)];
-
-        if (CATEGORIES.length === 1) {
-            CATEGORIES = [];
-        } else {
-            CATEGORIES = CATEGORIES.sort(function (a, b) {
-                return a.localeCompare(b);
-            });
-        }
-
-        if (!props.nostyle) {
-            const link = document.createElement('link');
-            link.href = `${API_URL}/docs/unified.css`;
-            link.rel = 'stylesheet';
-            document.head.appendChild(link);
-        }
-    };
-
-    await setup();
+    }
 
     return (
         <div className="unified">
-            {!props.notabs && CATEGORIES.length > 0 && filter(INTEGRATIONS).length && (
+            {!props.nostyle && <style>@import url(https://api.unified.to/docs/unified.css)</style>}
+            {!props.notabs && CATEGORIES && CATEGORIES?.length > 0 && filter(INTEGRATIONS).length && (
                 <div className="unified_menu">
-                    <button className={'unified_button unified_button_all' + selectedCategory ? '' : ' active'} onClick={() => unified_select_category()}>
+                    <button className={`unified_button unified_button_all ${selectedCategory ? '' : ' active'}`} onClick={() => setCategory('')}>
                         All
                     </button>
                     {CATEGORIES.map((cat) => (
                         <button
+                            key={cat}
                             className={`unified_button unified_button_${cat} ${selectedCategory === cat ? 'active' : ''}`}
-                            onClick={() => unified_select_category(cat)}
+                            onClick={() => setCategory(cat)}
                         >
                             {CATEGORY_MAP[cat]}
                         </button>
@@ -141,8 +158,8 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
 
             <div className="unified_vendors">
                 {filter(INTEGRATIONS).map((integration) => (
-                    <a href={unified_get_auth_url(integration)} className="unified_vendor">
-                        <img src={integration.logo_url} className="unified_image" />
+                    <a key={integration.type} href={unified_get_auth_url(integration)} className="unified_vendor">
+                        <img alt={integration.name} src={integration.logo_url} className="unified_image" />
                         <div className="unified_vendor_inner">
                             <div className="unified_vendor_name">{integration.name}</div>
                             {!props.nocategories &&
@@ -150,18 +167,15 @@ const UnifiedDirectory = async (props: UnifiedDirectoryProps) => {
                                     .filter((c) => !CATEGORIES || CATEGORIES.indexOf(c) > -1)
                                     .filter((c) => CATEGORY_MAP[c])
                                     .map((cat) => (
-                                        <div className="unified_vendor_cats">
+                                        <div key={cat} className="unified_vendor_cats">
                                             <span>{CATEGORY_MAP[cat]}</span>
                                         </div>
                                     ))}
                         </div>
                     </a>
                 ))}
-
                 {filter(INTEGRATIONS).length === 0 && <div className="unified_vendor">No integrations available</div>}
             </div>
         </div>
     );
-};
-
-export default UnifiedDirectory;
+}

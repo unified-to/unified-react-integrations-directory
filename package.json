@@ -1,12 +1,13 @@
 {
     "name": "@unified-api/react-directory",
-    "version": "1.0.7",
+    "version": "1.1.0",
     "description": "React component for Unified.to's Integrations Directory",
     "scripts": {
-        "rollup": "rollup -c",
-        "publish": "npm publish"
+        "publish": "npm publish",
+        "build": "npm run build:esm && npm run build:cjs",
+        "build:esm": "tsc",
+        "build:cjs": "tsc --module commonjs --outDir dist/cjs"
     },
-    "type": "module",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/unified-to/unified-react-integrations-directory.git"
@@ -21,14 +22,9 @@
     },
     "homepage": "https://github.com/unified-to/unified-react-integrations-directory#readme",
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^24.1.0",
-        "@rollup/plugin-node-resolve": "^15.0.2",
-        "@rollup/plugin-typescript": "^11.1.0",
         "@types/react": "^18.0.37",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "rollup": "^3.20.6",
-        "rollup-plugin-dts": "^5.3.0",
         "tslib": "^2.5.0",
         "typescript": "^5.0.4"
     },
@@ -37,8 +33,10 @@
     },
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
+    "types": "dist/esm/index.d.ts",
     "files": [
-        "dist"
-    ],
-    "types": "dist/index.d.ts"
+        "dist",
+        "src",
+        "README.md"
+    ]
 }
