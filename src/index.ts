@@ -1,1 +1,2 @@
-export * from './components';
+import UnifiedDirectory from './UnifiedReactDirectory';
+export default UnifiedDirectory;
