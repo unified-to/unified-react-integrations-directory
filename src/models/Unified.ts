@@ -286,6 +286,8 @@ export interface IPlan {
 	test_stripe_product_id?: string;
 	test_stripe_plan_id?: string;
 	min_annual_price?: number;
+	stripe_annual_price_id?: string;
+	test_stripe_annual_price_id?: string;
 }
 
 export interface IUser {
