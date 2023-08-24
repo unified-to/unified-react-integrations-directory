@@ -53,7 +53,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
         let url = `${API_URL}/unified/integration/auth/${props?.workspaceId}/${integration.type}?redirect=1`;
 
         if (props?.external_xref) {
-            url += `&user_xref=${encodeURIComponent(props.external_xref)}`;
+            url += `&external_xref=${encodeURIComponent(props.external_xref)}`;
         }
         if (props.state) {
             url += `&state=${encodeURIComponent(props.state)}`;

@@ -48,7 +48,7 @@ The following are the `props` that can be passed to the component:
     scopes?: string[];      // An array of Unified.to permission scopes to request from OAUTH2-based integrations found at https://unified.to/apidocs#unified_object_connection
     success_redirect?: string;  // The URL where you want the user to be redirect to after a successful authentication. The Integration ID will be appended with (id=) to this URL, as will the state provided
     failure_redirect?: string;  // The URL where you want the user to be redirect to after an unsuccessful or aborted authorization.  An 'error' variable will be appended.
-    nostyle?: boolean;      // Do not include Unified.to's styles.  You must then define CSS styles for the embedded directory classes.
+    nostyle?: boolean;     
     environment?: string;   // The development environment (Eg. Production, Sandbox, ...)
     lang?: string;          // The language for the API Key authorization page.  (en, fr, es, it, pt, hi, zh)
     notabs?: boolean;       // Do not display tabs in the embedded directory
