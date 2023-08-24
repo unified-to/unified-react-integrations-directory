@@ -133,10 +133,18 @@ export const PlanTerm = [
 export type TPlanTerm = typeof PlanTerm[number];
 
 export const SupportInboundType = [
-	'new option1'
+	'supported-required',
+	'supported',
+	'not-supported'
 ] as const;
 
 export type TSupportInboundType = typeof SupportInboundType[number];
+
+export const SupportOutboundType = [
+	
+] as const;
+
+export type TSupportOutboundType = typeof SupportOutboundType[number];
 
 export const WebhookEvent = [
 	'updated',
