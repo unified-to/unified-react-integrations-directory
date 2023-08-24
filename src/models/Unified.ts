@@ -132,6 +132,12 @@ export const PlanTerm = [
 
 export type TPlanTerm = typeof PlanTerm[number];
 
+export const SupportInboundType = [
+	'new option1'
+] as const;
+
+export type TSupportInboundType = typeof SupportInboundType[number];
+
 export const WebhookEvent = [
 	'updated',
 	'created'
