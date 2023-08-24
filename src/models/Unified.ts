@@ -141,7 +141,8 @@ export const SupportInboundType = [
 export type TSupportInboundType = typeof SupportInboundType[number];
 
 export const SupportOutboundType = [
-	
+	'supported',
+	'not-supported'
 ] as const;
 
 export type TSupportOutboundType = typeof SupportOutboundType[number];
@@ -254,8 +255,8 @@ export interface IIntegrationSupport {
 	search_linkedin_url?: boolean;
 	search_email?: boolean;
 	search_domain?: boolean;
-	inbound_fields?: { [path in string]?: boolean };
-	outbound_fields?: { [path in string]?: boolean };
+	inbound_fields?: { [path in string]?: TSupportInboundType };
+	outbound_fields?: { [path in string]?: TSupportOutboundType };
 	webhook_type?: TIntegrationSupportWebhookType;
 	webhook_events?: ( TWebhookEvent )[];
 }
