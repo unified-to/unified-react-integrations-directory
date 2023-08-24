@@ -339,6 +339,7 @@ export interface IWorkspace {
 	environments?: string[]; // a list of authentication environments for the workspace integrations
 	add_ons?: string[];
 	checklist?: unknown;
+	plan_term?: string; // monthly or yearly
 }
 
 export interface IWorkspaceIntegration {
