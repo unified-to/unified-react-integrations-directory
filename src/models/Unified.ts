@@ -3,6 +3,7 @@ Unified
 ==============
 */
 export const ApiCallType = [
+	'login',
 	'webhook',
 	'inbound'
 ] as const;
