@@ -166,7 +166,7 @@ export interface IApiCall {
 	size?: number; // The size of the response
 	status: string; // The resulting HTTP status code (200)
 	error?: string; // The error description (if status code is >= 400)
-	connection_id: string;
+	connection_id?: string;
 	ip_address?: string;
 	type: TApiCallType; // The type of API Call being logged
 	method: string;
