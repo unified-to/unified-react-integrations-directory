@@ -125,6 +125,12 @@ export const ObjectType = [
 
 export type TObjectType = typeof ObjectType[number];
 
+export const PlanTerm = [
+	
+] as const;
+
+export type TPlanTerm = typeof PlanTerm[number];
+
 export const WebhookEvent = [
 	'updated',
 	'created'
