@@ -365,6 +365,7 @@ export interface IWorkspace {
 	add_ons?: string[];
 	checklist?: unknown;
 	plan_term?: TPlanTerm; // monthly or yearly
+	stripe_canceling_at?: string | Date;
 }
 
 export interface IWorkspaceIntegration {
