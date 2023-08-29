@@ -311,6 +311,7 @@ export interface IPlan {
 	min_annual_price?: number;
 	stripe_annual_price_id?: string;
 	test_stripe_annual_price_id?: string;
+	stripe_overage_price_id?: string;
 }
 
 export interface IUser {
