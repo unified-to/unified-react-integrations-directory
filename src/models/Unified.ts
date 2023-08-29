@@ -301,13 +301,13 @@ export interface IPlan {
 	description?: string; // description
 	max_connections?: number; // Maximum active connections (1+ API call per month)
 	stripe_product_id?: string;
-	stripe_plan_id?: string;
+	stripe_price_id?: string;
 	min_price?: number;
 	price_per_mille_requests?: number;
 	custom_oauth?: boolean;
 	max_requests?: number;
 	test_stripe_product_id?: string;
-	test_stripe_plan_id?: string;
+	test_stripe_price_id?: string;
 	min_annual_price?: number;
 	stripe_annual_price_id?: string;
 	test_stripe_annual_price_id?: string;
