@@ -341,6 +341,7 @@ export interface IWebhook {
 	integration_type: string;
 	subscriptions?: string[]; // integration-specific subscriptions IDs
 	environment?: string;
+	include_raw?: boolean;
 }
 
 export interface IWorkspace {
