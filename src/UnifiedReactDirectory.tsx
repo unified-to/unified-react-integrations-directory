@@ -44,9 +44,10 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const [INTEGRATIONS, setIntegrations] = useState<IIntegration[]>([]);
     const [CATEGORIES, setCategories] = useState<string[]>([]);
     const [selectedCategory, setCategory] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false);
 
     function filter(integrations: IIntegration[]) {
-        return integrations?.filter((integration) => !selectedCategory || integration.categories.includes(selectedCategory)) || [];
+        return integrations?.filter((integration) => !selectedCategory || integration.categories.indexOf(selectedCategory) !== -1) || [];
     }
 
     function unified_get_auth_url(integration: IIntegration) {
@@ -106,7 +107,8 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
         }
     }
 
-    if (!INTEGRATIONS?.length) {
+    if (!loading && !INTEGRATIONS?.length) {
+        setLoading(true);
         load_data().then((data: IIntegration[]) => {
             data = data.filter((i) => !(i.categories.length === 1 && i.categories[0] === 'auth')) || [];
             setIntegrations(data);
@@ -116,7 +118,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
             let _CATEGORIES = [] as string[];
             data.forEach((integration) => {
                 integration.categories?.forEach((c) => {
-                    if (CATEGORY_MAP[c] && (!props.categories?.length || props.categories.includes(c))) {
+                    if (CATEGORY_MAP[c] && (!props.categories?.length || props.categories.indexOf(c) !== -1)) {
                         _CATEGORIES!.push(c);
                     }
                 });
@@ -133,6 +135,8 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
             }
             console.log('categories', _CATEGORIES);
             setCategories(_CATEGORIES);
+
+            setLoading(false);
         });
     }
 
