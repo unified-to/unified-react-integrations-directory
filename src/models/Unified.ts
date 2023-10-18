@@ -110,7 +110,11 @@ export const ObjectType = [
 	'passthrough',
 	'ticketing_note',
 	'ticketing_ticket',
-	'uc_contact'
+	'ticketing_customer',
+	'uc_contact',
+	'uc_call',
+	'enrich_person',
+	'enrich_company'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
