@@ -106,21 +106,13 @@ export const ObjectType = [
 	'crm_file',
 	'crm_lead',
 	'crm_pipeline',
-	'crm_team',
-	'crm_user',
-	'enrich_company',
-	'enrich_person',
 	'hris_employee',
 	'hris_group',
 	'martech_list',
 	'martech_member',
 	'passthrough',
-	'ticketing_agent',
-	'ticketing_customer',
 	'ticketing_note',
 	'ticketing_ticket',
-	'uc_agent',
-	'uc_call',
 	'uc_contact'
 ] as const;
 
