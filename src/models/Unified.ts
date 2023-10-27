@@ -360,6 +360,7 @@ export interface IWorkspace {
 	checklist?: unknown;
 	plan_term?: TPlanTerm; // monthly or yearly
 	stripe_canceling_at?: string | Date;
+	domain?: string; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 }
 
 export interface IWorkspaceIntegration {
