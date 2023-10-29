@@ -202,6 +202,8 @@ export interface IConnectionAuth {
 	token_url?: string;
 	pem?: string; // the PEM X.509 certificate in Base64 ASCII format
 	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
+	refresh_token_expires_in?: number;
+	refresh_token_expires_date?: string | Date;
 }
 
 export interface IIntegration {
