@@ -242,6 +242,7 @@ export interface IIntegrationSupport {
 	list_candidate_id?: boolean;
 	list_deal_id?: boolean;
 	list_job_id?: boolean;
+	list_invoice_id?: boolean;
 	list_order?: boolean;
 	list_query?: boolean;
 	list_limit?: boolean;
