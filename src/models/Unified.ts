@@ -36,6 +36,12 @@ export type TIntegrationCategory = typeof IntegrationCategory[number];
 
 export const IntegrationPermission = [
 	'auth_login',
+	'accounting_invoice_read',
+	'accounting_invoice_write',
+	'accounting_customer_read',
+	'accounting_customer_write',
+	'accounting_payment_read',
+	'accounting_payment_write',
 	'ats_scorecard_read',
 	'ats_scorecard_write',
 	'ats_application_read',
