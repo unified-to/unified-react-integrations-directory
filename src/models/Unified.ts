@@ -350,6 +350,12 @@ export interface IWebhook {
 	include_raw?: boolean;
 }
 
+export interface IWebhookData {
+	id: string[];
+	created_at: string | Date;
+	updated_at: string | Date;
+}
+
 export interface IWorkspace {
 	readonly id?: string;
 	readonly created_at?: string | Date;
