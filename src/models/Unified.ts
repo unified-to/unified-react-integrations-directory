@@ -351,9 +351,9 @@ export interface IWebhook {
 }
 
 export interface IWebhookData {
-	id: string[];
-	created_at: string | Date;
-	updated_at: string | Date;
+	data: unknown[];
+	webhook: IWebhook;
+	nonce: string; // random string
 }
 
 export interface IWorkspace {
