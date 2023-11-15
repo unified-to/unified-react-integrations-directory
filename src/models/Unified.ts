@@ -218,7 +218,7 @@ export interface IConnectionAuth {
 
 export interface IIntegration {
 	type: string; // Identifier for this integration
-	created_at?: string | Date; // Date that this integration was supported
+	created_at: string; // Date that this integration was supported
 	updated_at?: string | Date;
 	name: string; // The integration's name
 	is_active?: boolean; // Is this integration active in this workspace
