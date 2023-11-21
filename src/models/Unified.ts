@@ -375,6 +375,7 @@ export interface IWorkspace {
 	aws_key?: string;
 	aws_secret?: string;
 	datadog_apikey?: string;
+	datadog_site?: string;
 	environments?: string[]; // a list of authentication environments for the workspace integrations
 	add_ons?: string[];
 	checklist?: unknown;
