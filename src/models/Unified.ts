@@ -97,6 +97,8 @@ export const IntegrationSupportWebhookType = [
 export type TIntegrationSupportWebhookType = typeof IntegrationSupportWebhookType[number];
 
 export const ObjectType = [
+	'accounting_account',
+	'accounting_transaction',
 	'accounting_customer',
 	'accounting_invoice',
 	'accounting_payment',
