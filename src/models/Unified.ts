@@ -196,6 +196,8 @@ export interface IConnection {
 	auth_aws_arn?: string; // the AWS ARN / secretID for the stored auth field
 	environment?: string;
 	last_healthy_at?: string | Date;
+	last_unhealthy_at?: string | Date;
+	cursors_cache?: unknown[];
 }
 
 export interface IConnectionAuth {
