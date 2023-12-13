@@ -50,6 +50,7 @@ export const IntegrationPermission = [
 	'ats_scorecard_write',
 	'ats_application_read',
 	'ats_application_write',
+	'ats_applicationstatus_read',
 	'ats_candidate_read',
 	'ats_candidate_write',
 	'ats_interview_read',
