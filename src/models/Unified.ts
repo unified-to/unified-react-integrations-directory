@@ -355,15 +355,15 @@ export interface IWebhook {
 	object_type: TObjectType; // The object to return (eg. CRM "contact")
 	interval: number; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
 	readonly checked_at: string | Date; // The last date/time that a check was done on this object
-	integration_type: string;
-	subscriptions?: string[]; // integration-specific subscriptions IDs
-	environment?: string;
+	readonly integration_type: string;
+	readonly subscriptions?: string[]; // integration-specific subscriptions IDs
+	readonly environment?: string;
 	include_raw?: boolean;
 	event: TWebhookEvent;
 	runs?: string[]; // An array of the most revent virtual webhook runs
 	fields?: string;
-	webhook_type?: TIntegrationSupportWebhookType;
-	meta?: unknown;
+	readonly webhook_type?: TIntegrationSupportWebhookType;
+	readonly meta?: unknown;
 }
 
 export interface IWebhookData {
