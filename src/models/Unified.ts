@@ -348,8 +348,8 @@ export interface IWebhook {
 	readonly id?: string;
 	readonly created_at?: string | Date;
 	updated_at?: string | Date;
-	workspace_id: string;
-	connection_id: string;
+	readonly workspace_id: string;
+	readonly connection_id: string;
 	hook_url: string; // The URL of the webhook
 	events: ( TWebhookEvent )[];
 	object_type: TObjectType; // The object to return (eg. CRM "contact")
