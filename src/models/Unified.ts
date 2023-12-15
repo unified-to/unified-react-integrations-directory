@@ -359,6 +359,7 @@ export interface IWebhook {
 	subscriptions?: string[]; // integration-specific subscriptions IDs
 	environment?: string;
 	include_raw?: boolean;
+	event: TWebhookEvent;
 }
 
 export interface IWebhookData {
