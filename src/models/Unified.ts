@@ -360,6 +360,9 @@ export interface IWebhook {
 	environment?: string;
 	include_raw?: boolean;
 	event: TWebhookEvent;
+	runs?: string[];
+	fields?: string;
+	meta?: unknown;
 }
 
 export interface IWebhookData {
