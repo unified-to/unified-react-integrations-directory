@@ -107,6 +107,7 @@ export const ObjectType = [
 	'accounting_customer',
 	'accounting_invoice',
 	'accounting_payment',
+	'accounting_taxrate',
 	'ats_application',
 	'ats_applicationstatus',
 	'ats_candidate',
