@@ -369,7 +369,7 @@ export interface IWebhook {
 	fields?: string;
 	readonly webhook_type?: TIntegrationSupportWebhookType;
 	readonly meta?: unknown;
-	NewField_116: string;
+	is_healthy?: string;
 }
 
 export interface IWebhookData {
