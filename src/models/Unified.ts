@@ -49,6 +49,7 @@ export const IntegrationPermission = [
 	'accounting_taxrate_read',
 	'accounting_taxrate_write',
 	'accounting_organization_read',
+	'accounting_item_read',
 	'ats_scorecard_read',
 	'ats_scorecard_write',
 	'ats_application_read',
