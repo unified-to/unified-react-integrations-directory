@@ -362,7 +362,6 @@ export interface IWebhook {
 	interval: number; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
 	readonly checked_at: string | Date; // The last date/time that a check was done on this object
 	readonly integration_type: string;
-	readonly subscriptions?: string[]; // integration-specific subscriptions IDs
 	readonly environment?: string;
 	include_raw?: boolean;
 	event: TWebhookEvent;
