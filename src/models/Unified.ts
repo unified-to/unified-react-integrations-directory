@@ -363,7 +363,6 @@ export interface IWebhook {
 	readonly checked_at: string | Date; // The last date/time that a check was done on this object
 	readonly integration_type: string;
 	readonly environment?: string;
-	include_raw?: boolean;
 	event: TWebhookEvent;
 	runs?: string[]; // An array of the most revent virtual webhook runs
 	fields?: string;
