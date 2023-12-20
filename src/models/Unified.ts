@@ -364,7 +364,7 @@ export interface IWebhook {
 	readonly integration_type: string;
 	readonly environment?: string;
 	event: TWebhookEvent;
-	runs?: string[]; // An array of the most revent virtual webhook runs
+	readonly runs?: string[]; // An array of the most revent virtual webhook runs
 	fields?: string;
 	readonly webhook_type?: TIntegrationSupportWebhookType;
 	readonly meta?: unknown;
