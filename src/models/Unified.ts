@@ -29,7 +29,8 @@ export const IntegrationCategory = [
 	'martech',
 	'ticketing',
 	'uc',
-	'accounting'
+	'accounting',
+	'storage'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
