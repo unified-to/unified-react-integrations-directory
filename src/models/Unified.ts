@@ -288,6 +288,7 @@ export interface IIntegrationSupport {
 	outbound_fields?: { [path in string]?: TSupportOutboundType };
 	webhook_type?: TIntegrationSupportWebhookType;
 	webhook_events?: ( TWebhookEvent )[];
+	list_parent_id?: boolean;
 }
 
 export interface IInvoice {
