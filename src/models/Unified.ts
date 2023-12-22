@@ -92,6 +92,8 @@ export const IntegrationPermission = [
 	'hris_group_read',
 	'hris_group_write',
 	'uc_call_read',
+	'storage_file_read',
+	'storage_file_write',
 	'webhook'
 ] as const;
 
