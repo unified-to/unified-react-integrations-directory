@@ -139,7 +139,8 @@ export const ObjectType = [
 	'uc_contact',
 	'uc_call',
 	'enrich_person',
-	'enrich_company'
+	'enrich_company',
+	'storage_file'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
