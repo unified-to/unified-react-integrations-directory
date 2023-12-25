@@ -21,10 +21,13 @@ const CATEGORY_MAP = {
     enrich: 'Enrichment',
     ats: 'ATS',
     hris: 'HR',
+    accounting: 'Accounting',
+    storage: 'Storage',
 } as { [path in string]: string };
 
 export interface UnifiedDirectoryProps {
-    workspaceId: string;
+    workspaceId?: string;
+    workspace_id?: string;
     categories?: string[];
     external_xref?: string;
     state?: string;
@@ -51,7 +54,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     }
 
     function unified_get_auth_url(integration: IIntegration) {
-        let url = `${API_URL}/unified/integration/auth/${props?.workspaceId}/${integration.type}?redirect=1`;
+        let url = `${API_URL}/unified/integration/auth/${props.workspaceId || props.workspace_id}/${integration.type}?redirect=1`;
 
         if (props?.external_xref) {
             url += `&external_xref=${encodeURIComponent(props.external_xref)}`;
@@ -83,7 +86,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     }
 
     async function load_data() {
-        const url = `${API_URL}/unified/integration/workspace/${props.workspaceId}?summary=1${
+        const url = `${API_URL}/unified/integration/workspace/${props.workspaceId || props.workspace_id}?summary=1${
             props.categories?.length ? '&categories=' + props.categories.join(',') : ''
         }${props.environment === 'Production' || !props.environment ? '' : '&env=' + encodeURIComponent(props.environment)}`;
 
