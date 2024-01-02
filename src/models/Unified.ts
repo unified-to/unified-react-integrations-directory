@@ -424,6 +424,7 @@ export interface IWorkspaceIntegration {
 	pem?: string; // the PEM X.509 certificate in Base64 ASCII format
 	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
 	environment?: string; // authentication environment
+	categories?: ( TIntegrationCategory )[];
 }
 
 export const Plans: IPlan[] = [
