@@ -266,7 +266,7 @@ export interface IIntegrationSupport {
 	list_sort_by_created_at?: boolean;
 	list_sort_by_updated_at?: boolean;
 	list_updated_gte?: boolean;
-	list_agent_id?: boolean;
+	list_user_id?: boolean;
 	list_customer_id?: boolean;
 	list_company_id?: boolean;
 	list_contact_id?: boolean;
