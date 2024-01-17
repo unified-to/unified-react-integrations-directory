@@ -126,7 +126,6 @@ export const ObjectType = [
 	'crm_contact',
 	'crm_deal',
 	'crm_event',
-	'crm_file',
 	'crm_lead',
 	'crm_pipeline',
 	'hris_employee',
