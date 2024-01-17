@@ -74,8 +74,6 @@ export const IntegrationPermission = [
 	'crm_event_write',
 	'crm_lead_read',
 	'crm_lead_write',
-	'crm_file_read',
-	'crm_file_write',
 	'crm_pipeline_read',
 	'crm_pipeline_write',
 	'martech_list_read',
