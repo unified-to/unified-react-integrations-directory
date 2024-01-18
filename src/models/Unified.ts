@@ -387,7 +387,7 @@ export interface IWebhookData {
 	webhook: IWebhook; // The webhook object
 	nonce: string; // random string
 	sig: string; // HMAC-SHA1(workspace.secret, data + nonce)
-	type: string;
+	type: IWebhookDataType;
 }
 
 export interface IWorkspace {
