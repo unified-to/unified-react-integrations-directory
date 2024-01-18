@@ -106,15 +106,6 @@ export const IntegrationSupportWebhookType = [
 
 export type TIntegrationSupportWebhookType = typeof IntegrationSupportWebhookType[number];
 
-export const WebhookDataType = [
-	'INITIAL-PARTIAL',
-	'INITIAL-COMPLETE',
-	'VIRTUAL',
-	'NATIVE'
-] as const;
-
-export type TWebhookDataType = typeof WebhookDataType[number];
-
 export const ObjectType = [
 	'accounting_account',
 	'accounting_transaction',
@@ -175,6 +166,15 @@ export const SupportOutboundType = [
 ] as const;
 
 export type TSupportOutboundType = typeof SupportOutboundType[number];
+
+export const WebhookDataType = [
+	'INITIAL-PARTIAL',
+	'INITIAL-COMPLETE',
+	'VIRTUAL',
+	'NATIVE'
+] as const;
+
+export type TWebhookDataType = typeof WebhookDataType[number];
 
 export const WebhookEvent = [
 	'updated',
