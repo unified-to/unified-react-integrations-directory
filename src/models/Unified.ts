@@ -295,6 +295,7 @@ export interface IIntegrationSupport {
 	webhook_type?: TIntegrationSupportWebhookType;
 	webhook_events?: ( TWebhookEvent )[];
 	list_parent_id?: boolean;
+	list_account_id?: boolean;
 }
 
 export interface IInvoice {
