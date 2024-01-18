@@ -106,6 +106,15 @@ export const IntegrationSupportWebhookType = [
 
 export type TIntegrationSupportWebhookType = typeof IntegrationSupportWebhookType[number];
 
+export const NewEnum11 = [
+	'INITIAL-PARTIAL',
+	'INITIAL-COMPLETE',
+	'VIRTUAL',
+	'NATIVE'
+] as const;
+
+export type TNewEnum11 = typeof NewEnum11[number];
+
 export const ObjectType = [
 	'accounting_account',
 	'accounting_transaction',
