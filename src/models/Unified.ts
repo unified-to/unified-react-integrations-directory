@@ -106,14 +106,14 @@ export const IntegrationSupportWebhookType = [
 
 export type TIntegrationSupportWebhookType = typeof IntegrationSupportWebhookType[number];
 
-export const NewEnum11 = [
+export const WebhookDataType = [
 	'INITIAL-PARTIAL',
 	'INITIAL-COMPLETE',
 	'VIRTUAL',
 	'NATIVE'
 ] as const;
 
-export type TNewEnum11 = typeof NewEnum11[number];
+export type TWebhookDataType = typeof WebhookDataType[number];
 
 export const ObjectType = [
 	'accounting_account',
@@ -387,7 +387,7 @@ export interface IWebhookData {
 	webhook: IWebhook; // The webhook object
 	nonce: string; // random string
 	sig: string; // HMAC-SHA1(workspace.secret, data + nonce)
-	type: IWebhookDataType;
+	type: TWebhookDataType;
 }
 
 export interface IWorkspace {
