@@ -297,6 +297,7 @@ export interface IIntegrationSupport {
 	list_parent_id?: boolean;
 	list_account_id?: boolean;
 	list_interview_id?: boolean;
+	list_list_id?: boolean;
 }
 
 export interface IInvoice {
