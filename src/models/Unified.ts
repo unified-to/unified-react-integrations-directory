@@ -129,6 +129,7 @@ export const ObjectType = [
 	'crm_lead',
 	'crm_pipeline',
 	'hris_employee',
+	'hris_user',
 	'hris_group',
 	'martech_list',
 	'martech_member',
