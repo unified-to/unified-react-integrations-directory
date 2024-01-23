@@ -1,0 +1,1043 @@
+// Unified
+
+enum ENUM_ApiCallType {
+	login
+	webhook
+	inbound
+}
+
+enum ENUM_IntegrationAuthType {
+	oauth1
+	oauth2
+	other
+	token
+}
+
+enum ENUM_IntegrationCategory {
+	passthrough
+	hris
+	ats
+	auth
+	crm
+	enrich
+	martech
+	ticketing
+	uc
+	accounting
+	storage
+}
+
+enum ENUM_IntegrationPermission {
+	auth_login
+	accounting_account_read
+	accounting_account_write
+	accounting_transaction_read
+	accounting_transaction_write
+	accounting_invoice_read
+	accounting_invoice_write
+	accounting_contact_read
+	accounting_contact_write
+	accounting_payment_read
+	accounting_payment_write
+	accounting_taxrate_read
+	accounting_taxrate_write
+	accounting_organization_read
+	accounting_item_read
+	ats_scorecard_read
+	ats_scorecard_write
+	ats_application_read
+	ats_application_write
+	ats_applicationstatus_read
+	ats_candidate_read
+	ats_candidate_write
+	ats_interview_read
+	ats_interview_write
+	ats_job_read
+	ats_job_write
+	ats_document_read
+	ats_document_write
+	crm_company_read
+	crm_company_write
+	crm_contact_read
+	crm_contact_write
+	crm_deal_read
+	crm_deal_write
+	crm_event_read
+	crm_event_write
+	crm_lead_read
+	crm_lead_write
+	crm_pipeline_read
+	crm_pipeline_write
+	martech_list_read
+	martech_list_write
+	martech_member_read
+	martech_member_write
+	ticketing_customer_read
+	ticketing_customer_write
+	ticketing_ticket_read
+	ticketing_ticket_write
+	ticketing_note_read
+	ticketing_note_write
+	hris_employee_read
+	hris_employee_write
+	hris_group_read
+	hris_group_write
+	uc_call_read
+	storage_file_read
+	storage_file_write
+	webhook
+}
+
+enum ENUM_IntegrationSupportWebhookType {
+	virtual
+	none
+	native
+}
+
+enum ENUM_ObjectType {
+	accounting_account
+	accounting_transaction
+	accounting_contact
+	accounting_invoice
+	accounting_payment
+	accounting_taxrate
+	accounting_organization
+	accounting_item
+	ats_application
+	ats_applicationstatus
+	ats_candidate
+	ats_document
+	ats_interview
+	ats_job
+	ats_scorecard
+	crm_company
+	crm_contact
+	crm_deal
+	crm_event
+	crm_lead
+	crm_pipeline
+	hris_employee
+	hris_group
+	martech_list
+	martech_member
+	passthrough
+	ticketing_note
+	ticketing_ticket
+	ticketing_customer
+	uc_contact
+	uc_call
+	enrich_person
+	enrich_company
+	storage_file
+}
+
+enum ENUM_PlanTerm {
+	monthly
+	yearly
+}
+
+enum ENUM_SupportInboundType {
+	supported-required
+	supported
+	not-supported
+}
+
+enum ENUM_SupportOutboundType {
+	supported
+	not-supported
+}
+
+enum ENUM_WebhookDataType {
+	INITIAL-PARTIAL
+	INITIAL-COMPLETE
+	VIRTUAL
+	NATIVE
+}
+
+enum ENUM_WebhookEvent {
+	updated
+	created
+}
+
+"""
+generated model for Map(IntegrationSupport,string)
+"""
+input Map_string_IntegrationSupport_Input {
+}
+
+type Map_string_IntegrationSupport {
+}
+
+"""
+generated model for Map(boolean,string)
+"""
+input Map_string_boolean_Input {
+}
+
+type Map_string_boolean {
+}
+
+"""
+generated model for Map(SupportInboundType,string)
+"""
+input Map_string_SupportInboundType_Input {
+}
+
+type Map_string_SupportInboundType {
+}
+
+"""
+generated model for Map(SupportOutboundType,string)
+"""
+input Map_string_SupportOutboundType_Input {
+}
+
+type Map_string_SupportOutboundType {
+}
+
+input ApiCall_Input {
+	workspace_id: ID!
+"""
+The integration type
+"""
+	integration_type: String!
+"""
+your customer's user ID
+"""
+	external_xref: String
+"""
+The called name of the API method
+"""
+	name: String!
+"""
+The called API method's HTTP verb and route path (PUT /crm/{integration}/deak/{id})
+"""
+	path: String!
+"""
+The size of the response
+"""
+	size: Int
+"""
+The resulting HTTP status code (200)
+"""
+	status: String!
+"""
+The error description (if status code is >= 400)
+"""
+	error: String
+	connection_id: ID
+	ip_address: String
+"""
+The type of API Call being logged
+"""
+	type: ENUM_ApiCallType!
+	method: String!
+	environment: String
+}
+
+type ApiCall {
+"""
+Unique identifier for this API call
+"""
+	id: ID
+"""
+The date that this object was created
+"""
+	created_at: DateTime
+	workspace_id: ID!
+"""
+The integration type
+"""
+	integration_type: String!
+"""
+your customer's user ID
+"""
+	external_xref: String
+"""
+The called name of the API method
+"""
+	name: String!
+"""
+The called API method's HTTP verb and route path (PUT /crm/{integration}/deak/{id})
+"""
+	path: String!
+"""
+The size of the response
+"""
+	size: Int
+"""
+The resulting HTTP status code (200)
+"""
+	status: String!
+"""
+The error description (if status code is >= 400)
+"""
+	error: String
+	connection_id: ID
+	ip_address: String
+"""
+The type of API Call being logged
+"""
+	type: ENUM_ApiCallType!
+	method: String!
+	environment: String
+}
+
+"""
+A connection represents a specific authentication of an integration.
+"""
+input Connection_Input {
+"""
+The integration type
+"""
+	integration_type: String!
+"""
+customer's user ID
+"""
+	external_xref: String
+	permissions: [ENUM_IntegrationPermission]!
+"""
+The Integration categories that this connection supports
+"""
+	categories: [ENUM_IntegrationCategory]!
+	auth: ConnectionAuth_Input
+"""
+Whether this integration has exceed the monthly limit of the plan
+"""
+	is_paused: Boolean
+"""
+the AWS ARN / secretID for the stored auth field
+"""
+	auth_aws_arn: String
+	environment: String
+	last_healthy_at: DateTime
+	last_unhealthy_at: DateTime
+	cursors_cache: [object]
+}
+
+type Connection {
+"""
+Unique identifier for this integration object
+"""
+	id: ID
+"""
+The date that this integration object was created
+"""
+	created_at: DateTime
+"""
+The last date that this integration object was updated
+"""
+	updated_at: DateTime
+	workspace_id: ID!
+"""
+The integration type
+"""
+	integration_type: String!
+"""
+customer's user ID
+"""
+	external_xref: String
+	permissions: [ENUM_IntegrationPermission]!
+"""
+The Integration categories that this connection supports
+"""
+	categories: [ENUM_IntegrationCategory]!
+	auth: ConnectionAuth
+"""
+Whether this integration has exceed the monthly limit of the plan
+"""
+	is_paused: Boolean
+"""
+the AWS ARN / secretID for the stored auth field
+"""
+	auth_aws_arn: String
+	environment: String
+	last_healthy_at: DateTime
+	last_unhealthy_at: DateTime
+	cursors_cache: [object]
+}
+
+"""
+An authentication object that represents a specific authorized user's connection to an integration.
+"""
+input ConnectionAuth_Input {
+	token: String
+	access_token: String
+	refresh_token: String
+	expiry_date: DateTime
+	expires_in: Int
+	emails: [String]
+	name: String
+	app_id: String
+	client_id: String
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+	meta: object
+	state: String
+"""
+When integration.auth_type = "other", this field contains the authentication credentials in the same order as token_names
+"""
+	other_auth_info: [String]
+	api_url: String
+	authorize_url: String
+	token_url: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+	refresh_token_expires_in: Int
+	refresh_token_expires_date: DateTime
+}
+
+type ConnectionAuth {
+	token: String
+	access_token: String
+	refresh_token: String
+	expiry_date: DateTime
+	expires_in: Int
+	emails: [String]
+	name: String
+	app_id: String
+	client_id: String
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+	meta: object
+	state: String
+"""
+When integration.auth_type = "other", this field contains the authentication credentials in the same order as token_names
+"""
+	other_auth_info: [String]
+	api_url: String
+	authorize_url: String
+	token_url: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+	refresh_token_expires_in: Int
+	refresh_token_expires_date: DateTime
+}
+
+"""
+Informational object for supported integrations.
+"""
+input Integration_Input {
+"""
+Identifier for this integration
+"""
+	type: String!
+"""
+Date that this integration was supported (YYYY-MM-DD)
+"""
+	created_at: String
+"""
+YYYY-MM-DD
+"""
+	updated_at: String
+"""
+The integration's name
+"""
+	name: String!
+"""
+Is this integration active in this workspace
+"""
+	is_active: Boolean
+"""
+The categories of support solutions that this integration has
+"""
+	categories: [ENUM_IntegrationCategory]!
+"""
+The URL of the integration's API documentation
+"""
+	api_docs_url: String
+"""
+The URL of the integration's logo
+"""
+	logo_url: String
+"""
+If this integration is not yet available as it is currently being built by unified.to
+"""
+	in_progress: Boolean!
+"""
+button background color for AUTH
+"""
+	color: String
+"""
+text color for AUTH
+"""
+	text_color: String
+"""
+font-awesome icon
+"""
+	fa_icon: String
+"""
+if auth_types = 'token'
+"""
+	token_names: [String]
+"""
+instructions for the user on how to find the token/key
+"""
+	token_instructions: [String]
+"""
+URL for the software vendor
+"""
+	web_url: String
+	rate_limit_description: String
+"""
+This integration is new and is still considered "beta"
+"""
+	beta: Boolean
+	support: Map_string_IntegrationSupport!
+	tested_at: DateTime
+}
+
+type Integration {
+"""
+Identifier for this integration
+"""
+	type: String!
+"""
+Date that this integration was supported (YYYY-MM-DD)
+"""
+	created_at: String
+"""
+YYYY-MM-DD
+"""
+	updated_at: String
+"""
+The integration's name
+"""
+	name: String!
+"""
+Is this integration active in this workspace
+"""
+	is_active: Boolean
+"""
+The categories of support solutions that this integration has
+"""
+	categories: [ENUM_IntegrationCategory]!
+"""
+The URL of the integration's API documentation
+"""
+	api_docs_url: String
+"""
+The URL of the integration's logo
+"""
+	logo_url: String
+"""
+If this integration is not yet available as it is currently being built by unified.to
+"""
+	in_progress: Boolean!
+"""
+button background color for AUTH
+"""
+	color: String
+"""
+text color for AUTH
+"""
+	text_color: String
+"""
+font-awesome icon
+"""
+	fa_icon: String
+"""
+if auth_types = 'token'
+"""
+	token_names: [String]
+"""
+instructions for the user on how to find the token/key
+"""
+	token_instructions: [String]
+"""
+URL for the software vendor
+"""
+	web_url: String
+	rate_limit_description: String
+"""
+This integration is new and is still considered "beta"
+"""
+	beta: Boolean
+	support: Map_string_IntegrationSupport!
+	tested_at: DateTime
+}
+
+input IntegrationSupport_Input {
+	methods: Map_string_boolean
+	list_sort_by_name: Boolean
+	list_sort_by_created_at: Boolean
+	list_sort_by_updated_at: Boolean
+	list_updated_gte: Boolean
+	list_user_id: Boolean
+	list_customer_id: Boolean
+	list_company_id: Boolean
+	list_contact_id: Boolean
+	list_application_id: Boolean
+	list_candidate_id: Boolean
+	list_deal_id: Boolean
+	list_job_id: Boolean
+	list_invoice_id: Boolean
+	list_order: Boolean
+	list_query: Boolean
+	list_limit: Boolean
+	list_offset: Boolean
+	search_twitter: Boolean
+	search_name: Boolean
+	search_linkedin_url: Boolean
+	search_email: Boolean
+	search_domain: Boolean
+	inbound_fields: Map_string_SupportInboundType
+	outbound_fields: Map_string_SupportOutboundType
+	webhook_type: ENUM_IntegrationSupportWebhookType
+	webhook_events: [ENUM_WebhookEvent]
+	list_parent_id: Boolean
+	list_account_id: Boolean
+	list_interview_id: Boolean
+	list_list_id: Boolean
+	list_ticket_id: Boolean
+}
+
+type IntegrationSupport {
+	methods: Map_string_boolean
+	list_sort_by_name: Boolean
+	list_sort_by_created_at: Boolean
+	list_sort_by_updated_at: Boolean
+	list_updated_gte: Boolean
+	list_user_id: Boolean
+	list_customer_id: Boolean
+	list_company_id: Boolean
+	list_contact_id: Boolean
+	list_application_id: Boolean
+	list_candidate_id: Boolean
+	list_deal_id: Boolean
+	list_job_id: Boolean
+	list_invoice_id: Boolean
+	list_order: Boolean
+	list_query: Boolean
+	list_limit: Boolean
+	list_offset: Boolean
+	search_twitter: Boolean
+	search_name: Boolean
+	search_linkedin_url: Boolean
+	search_email: Boolean
+	search_domain: Boolean
+	inbound_fields: Map_string_SupportInboundType
+	outbound_fields: Map_string_SupportOutboundType
+	webhook_type: ENUM_IntegrationSupportWebhookType
+	webhook_events: [ENUM_WebhookEvent]
+	list_parent_id: Boolean
+	list_account_id: Boolean
+	list_interview_id: Boolean
+	list_list_id: Boolean
+	list_ticket_id: Boolean
+}
+
+input Invoice_Input {
+	stripe_id: String!
+	created_at: DateTime!
+	amount: Int!
+	connections: Int!
+	plan: String!
+}
+
+type Invoice {
+	stripe_id: String!
+	created_at: DateTime!
+	amount: Int!
+	connections: Int!
+	plan: String!
+}
+
+"""
+A notification of an event that occurred in you account.
+"""
+input Notification_Input {
+"""
+The title of the notification
+"""
+	title: String!
+"""
+Longer description of this notification
+"""
+	description: String
+"""
+The icon name
+"""
+	icon: String
+"""
+Link to the event
+"""
+	link_url: String
+	user_id: ID
+	user_name: String
+}
+
+type Notification {
+"""
+Unique identifier for this notification object
+"""
+	id: ID
+"""
+The date that this integration object was created
+"""
+	created_at: DateTime
+	workspace_id: ID
+"""
+The title of the notification
+"""
+	title: String!
+"""
+Longer description of this notification
+"""
+	description: String
+"""
+The icon name
+"""
+	icon: String
+"""
+Link to the event
+"""
+	link_url: String
+	user_id: ID
+	user_name: String
+}
+
+input Permission_Input {
+}
+
+type Permission {
+	can_create_org: Boolean!
+	can_leave_org: Boolean!
+	can_downgrade: Boolean!
+	can_invite: Boolean!
+	can_update_org: Boolean!
+	can_add_and_remove_admin: Boolean!
+	can_accept_invite: Boolean!
+	can_reject_invite: Boolean!
+	can_pay: Boolean!
+	can_get_invoices: Boolean!
+	is_admin: Boolean!
+}
+
+input Plan_Input {
+	name: String!
+"""
+description
+"""
+	description: String
+"""
+Maximum active connections (1+ API call per month)
+"""
+	max_connections: Int
+	stripe_product_id: String
+	stripe_price_id: String
+	min_price: Int
+	price_per_mille_requests: Int
+	custom_oauth: Boolean
+	max_requests: Int
+	test_stripe_product_id: String
+	test_stripe_price_id: String
+	min_annual_price: Int
+	stripe_annual_price_id: String
+	test_stripe_annual_price_id: String
+	stripe_overage_price_id: String
+	test_stripe_overage_price_id: String
+}
+
+type Plan {
+	name: String!
+"""
+description
+"""
+	description: String
+"""
+Maximum active connections (1+ API call per month)
+"""
+	max_connections: Int
+	stripe_product_id: String
+	stripe_price_id: String
+	min_price: Int
+	price_per_mille_requests: Int
+	custom_oauth: Boolean
+	max_requests: Int
+	test_stripe_product_id: String
+	test_stripe_price_id: String
+	min_annual_price: Int
+	stripe_annual_price_id: String
+	test_stripe_annual_price_id: String
+	stripe_overage_price_id: String
+	test_stripe_overage_price_id: String
+}
+
+"""
+The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
+"""
+input User_Input {
+	name: String!
+"""
+The current workspace
+"""
+	workspace_id: ID!
+"""
+A list of all of the user's workspaces
+"""
+	workspace_ids: [ID]!
+	environment: String
+	meta: object
+}
+
+type User {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	name: String!
+	email: String!
+"""
+The current workspace
+"""
+	workspace_id: ID!
+"""
+A list of all of the user's workspaces
+"""
+	workspace_ids: [ID]!
+	environment: String
+	meta: object
+}
+
+"""
+A webhook is used to POST new/updated information to your server.
+"""
+input Webhook_Input {
+	updated_at: DateTime
+	connection_id: ID!
+"""
+The URL of the webhook
+"""
+	hook_url: String!
+"""
+The object to return (eg. CRM "contact")
+"""
+	object_type: ENUM_ObjectType!
+"""
+The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
+"""
+	interval: Int!
+	event: ENUM_WebhookEvent!
+	fields: String
+	is_healthy: Boolean
+}
+
+type Webhook {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	workspace_id: ID
+	connection_id: ID!
+"""
+The URL of the webhook
+"""
+	hook_url: String!
+"""
+The object to return (eg. CRM "contact")
+"""
+	object_type: ENUM_ObjectType!
+"""
+The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
+"""
+	interval: Int!
+"""
+The last date/time that a check was done on this object
+"""
+	checked_at: DateTime!
+	integration_type: String!
+	environment: String
+	event: ENUM_WebhookEvent!
+"""
+An array of the most revent virtual webhook runs
+"""
+	runs: [String]
+	fields: String
+	webhook_type: ENUM_IntegrationSupportWebhookType
+	meta: object
+	is_healthy: Boolean
+}
+
+input WebhookData_Input {
+"""
+The data array will contact an array of specific objects according to the webhook's connection. (eg. CRM Contacts)
+"""
+	data: [object]!
+"""
+The webhook object
+"""
+	webhook: Webhook_Input!
+"""
+random string
+"""
+	nonce: String!
+"""
+HMAC-SHA1(workspace.secret, data + nonce)
+"""
+	sig: String!
+	type: ENUM_WebhookDataType!
+}
+
+type WebhookData {
+"""
+The data array will contact an array of specific objects according to the webhook's connection. (eg. CRM Contacts)
+"""
+	data: [object]!
+"""
+The webhook object
+"""
+	webhook: Webhook!
+"""
+random string
+"""
+	nonce: String!
+"""
+HMAC-SHA1(workspace.secret, data + nonce)
+"""
+	sig: String!
+	type: ENUM_WebhookDataType!
+}
+
+"""
+The User's workspace object. A workspace is like an organization that one or more users belong to.
+"""
+input Workspace_Input {
+	name: String!
+"""
+a list of IP addresses that are allowed to access this workspace
+"""
+	ip_addresses: [String]
+	aws_region: String
+	aws_key: String
+	aws_secret: String
+	datadog_apikey: String
+	datadog_site: String
+"""
+a list of authentication environments for the workspace integrations
+"""
+	environments: [String]
+	add_ons: [String]
+	checklist: object
+"""
+monthly or yearly
+"""
+	plan_term: ENUM_PlanTerm
+	stripe_canceling_at: DateTime
+"""
+when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
+"""
+	domain: String
+}
+
+type Workspace {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	name: String!
+"""
+Only these users can add additional admins and invite other users
+"""
+	admin_ids: [ID]
+	invited_emails: [String]
+	pay_user_id: String
+	plan: String
+	stripe_customer: String
+	stripe_subscriptions: [String]
+	stripe_prices: [String]
+"""
+Workspace API secret
+"""
+	secret: String
+"""
+Workspace active integrations
+"""
+	integrations: [WorkspaceIntegration]
+"""
+a list of IP addresses that are allowed to access this workspace
+"""
+	ip_addresses: [String]
+	aws_region: String
+	aws_key: String
+	aws_secret: String
+	datadog_apikey: String
+	datadog_site: String
+"""
+a list of authentication environments for the workspace integrations
+"""
+	environments: [String]
+	add_ons: [String]
+	checklist: object
+"""
+monthly or yearly
+"""
+	plan_term: ENUM_PlanTerm
+	stripe_canceling_at: DateTime
+"""
+when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
+"""
+	domain: String
+}
+
+input WorkspaceIntegration_Input {
+	integration_type: String!
+	client_id: String
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+	is_active: Boolean!
+	api_url: String
+	authorize_url: String
+	token_url: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+"""
+authentication environment
+"""
+	environment: String
+	categories: [ENUM_IntegrationCategory]
+}
+
+type WorkspaceIntegration {
+	integration_type: String!
+	client_id: String
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+	is_active: Boolean!
+	api_url: String
+	authorize_url: String
+	token_url: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+"""
+authentication environment
+"""
+	environment: String
+	categories: [ENUM_IntegrationCategory]
+}
+
