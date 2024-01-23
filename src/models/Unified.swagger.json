@@ -1,0 +1,103 @@
+{
+	"swagger": "2.0",
+	"definitions": {
+		"IntegrationPermission": {
+			"type": "string",
+			"enum": [
+				"auth_login",
+				"accounting_account_read",
+				"accounting_account_write",
+				"accounting_transaction_read",
+				"accounting_transaction_write",
+				"accounting_invoice_read",
+				"accounting_invoice_write",
+				"accounting_contact_read",
+				"accounting_contact_write",
+				"accounting_payment_read",
+				"accounting_payment_write",
+				"accounting_taxrate_read",
+				"accounting_taxrate_write",
+				"accounting_organization_read",
+				"accounting_item_read",
+				"ats_scorecard_read",
+				"ats_scorecard_write",
+				"ats_application_read",
+				"ats_application_write",
+				"ats_applicationstatus_read",
+				"ats_candidate_read",
+				"ats_candidate_write",
+				"ats_interview_read",
+				"ats_interview_write",
+				"ats_job_read",
+				"ats_job_write",
+				"ats_document_read",
+				"ats_document_write",
+				"crm_company_read",
+				"crm_company_write",
+				"crm_contact_read",
+				"crm_contact_write",
+				"crm_deal_read",
+				"crm_deal_write",
+				"crm_event_read",
+				"crm_event_write",
+				"crm_lead_read",
+				"crm_lead_write",
+				"crm_pipeline_read",
+				"crm_pipeline_write",
+				"martech_list_read",
+				"martech_list_write",
+				"martech_member_read",
+				"martech_member_write",
+				"ticketing_customer_read",
+				"ticketing_customer_write",
+				"ticketing_ticket_read",
+				"ticketing_ticket_write",
+				"ticketing_note_read",
+				"ticketing_note_write",
+				"hris_employee_read",
+				"hris_employee_write",
+				"hris_group_read",
+				"hris_group_write",
+				"uc_call_read",
+				"storage_file_read",
+				"storage_file_write",
+				"webhook"
+			]
+		},
+		"ApiCall": {
+			"type": "object",
+			"description": "",
+			"properties": {
+				"id": {
+					"type": "string",
+					"description": "Unique identifier for this API call"
+				},
+				"created_at": {
+					"type": "string",
+					"description": "The date that this object was created"
+				},
+				"workspace_id": {
+					"type": "string",
+					"description": ""
+				},
+				"type": {
+					"$ref": "#/definitions/ApiCallType",
+					"description": "The type of API Call being logged"
+				},
+				"method": {
+					"type": "string",
+					"description": ""
+				},
+				"environment": {
+					"type": "string",
+					"description": ""
+				}
+			},
+			"required": [
+				"workspace_id",
+				"type",
+				"method"
+			]
+		}
+	}
+}
