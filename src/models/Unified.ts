@@ -109,7 +109,7 @@ export type TIntegrationSupportWebhookType = typeof IntegrationSupportWebhookTyp
 export const ObjectType = [
 	'accounting_account',
 	'accounting_transaction',
-	'accounting_customer',
+	'accounting_contact',
 	'accounting_invoice',
 	'accounting_payment',
 	'accounting_taxrate',
