@@ -1,0 +1,274 @@
+syntax = "proto3";
+
+// Unified
+
+import "google/protobuf/struct.proto";
+
+message ApiCall {
+	optional string id = 1; // Unique identifier for this API call
+	optional string created_at = 2; // The date that this object was created
+	string workspace_id = 3;
+	string integration_type = 4; // The integration type
+	optional string external_xref = 5; // your customer's user ID
+	string name = 6; // The called name of the API method
+	string path = 7; // The called API method's HTTP verb and route path (PUT /crm/{integration}/deak/{id})
+	optional int32 size = 8; // The size of the response
+	string status = 9; // The resulting HTTP status code (200)
+	optional string error = 10; // The error description (if status code is >= 400)
+	optional string connection_id = 11;
+	optional string ip_address = 12;
+	string type = 13; // The type of API Call being logged Valid values: login, webhook, inbound
+	string method = 14;
+	optional string environment = 15;
+}
+
+// An authentication object that represents a specific authorized user's connection to an integration.
+
+message ConnectionAuth {
+	optional string token = 1;
+	optional string access_token = 2;
+	optional string refresh_token = 3;
+	optional string expiry_date = 4;
+	optional int32 expires_in = 5;
+	repeated string emails = 6;
+	optional string name = 7;
+	optional string app_id = 8;
+	optional string client_id = 9;
+	optional string client_secret = 10;
+	optional string consumer_key = 11;
+	optional string consumer_secret = 12;
+	optional google.protobuf.Struct meta = 13;
+	optional string state = 14;
+	repeated string other_auth_info = 15; // When integration.auth_type = "other", this field contains the authentication credentials in the same order as token_names
+	optional string api_url = 16;
+	optional string authorize_url = 17;
+	optional string token_url = 18;
+	optional string pem = 19; // the PEM X.509 certificate in Base64 ASCII format
+	optional string key = 20; // the private KEY X.509 certificate in Base64 ASCII format
+	optional int32 refresh_token_expires_in = 21;
+	optional string refresh_token_expires_date = 22;
+}
+
+// A connection represents a specific authentication of an integration.
+
+message Connection {
+	optional string id = 1; // Unique identifier for this integration object
+	optional string created_at = 2; // The date that this integration object was created
+	optional string updated_at = 3; // The last date that this integration object was updated
+	string workspace_id = 4;
+	string integration_type = 5; // The integration type
+	optional string external_xref = 6; // customer's user ID
+	repeated string permissions = 7;
+	repeated string categories = 8; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage
+	optional ConnectionAuth auth = 9;
+	optional bool is_paused = 10; // Whether this integration has exceed the monthly limit of the plan
+	optional string auth_aws_arn = 11; // the AWS ARN / secretID for the stored auth field
+	optional string environment = 12;
+	optional string last_healthy_at = 13;
+	optional string last_unhealthy_at = 14;
+	repeated google.protobuf.Struct cursors_cache = 15;
+}
+
+message IntegrationSupport {
+	map<string, bool> methods = 1;
+	optional bool list_sort_by_name = 2;
+	optional bool list_sort_by_created_at = 3;
+	optional bool list_sort_by_updated_at = 4;
+	optional bool list_updated_gte = 5;
+	optional bool list_user_id = 6;
+	optional bool list_customer_id = 7;
+	optional bool list_company_id = 8;
+	optional bool list_contact_id = 9;
+	optional bool list_application_id = 10;
+	optional bool list_candidate_id = 11;
+	optional bool list_deal_id = 12;
+	optional bool list_job_id = 13;
+	optional bool list_invoice_id = 14;
+	optional bool list_order = 15;
+	optional bool list_query = 16;
+	optional bool list_limit = 17;
+	optional bool list_offset = 18;
+	optional bool search_twitter = 19;
+	optional bool search_name = 20;
+	optional bool search_linkedin_url = 21;
+	optional bool search_email = 22;
+	optional bool search_domain = 23;
+	map<string, string> inbound_fields = 24;
+	map<string, string> outbound_fields = 25;
+	optional string webhook_type = 26;
+	repeated string webhook_events = 27;
+	optional bool list_parent_id = 28;
+	optional bool list_account_id = 29;
+	optional bool list_interview_id = 30;
+	optional bool list_list_id = 31;
+	optional bool list_ticket_id = 32;
+}
+
+// Informational object for supported integrations.
+
+message Integration {
+	string type = 1; // Identifier for this integration
+	optional string created_at = 2; // Date that this integration was supported (YYYY-MM-DD)
+	optional string updated_at = 3; // YYYY-MM-DD
+	string name = 4; // The integration's name
+	optional bool is_active = 5; // Is this integration active in this workspace
+	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage
+	optional string api_docs_url = 7; // The URL of the integration's API documentation
+	optional string logo_url = 8; // The URL of the integration's logo
+	bool in_progress = 9; // If this integration is not yet available as it is currently being built by unified.to
+	optional string color = 10; // button background color for AUTH
+	optional string text_color = 11; // text color for AUTH
+	optional string fa_icon = 12; // font-awesome icon
+	repeated string token_names = 13; // if auth_types = 'token'
+	repeated string token_instructions = 14; // instructions for the user on how to find the token/key
+	optional string web_url = 15; // URL for the software vendor
+	optional string rate_limit_description = 16;
+	optional bool beta = 17; // This integration is new and is still considered "beta"
+	map<string, IntegrationSupport> support = 18;
+	optional string tested_at = 19;
+}
+
+message Invoice {
+	string stripe_id = 1;
+	string created_at = 2;
+	int32 amount = 3;
+	int32 connections = 4;
+	string plan = 5;
+}
+
+// A notification of an event that occurred in you account.
+
+message Notification {
+	optional string id = 1; // Unique identifier for this notification object
+	optional string created_at = 2; // The date that this integration object was created
+	optional string workspace_id = 3;
+	string title = 4; // The title of the notification
+	optional string description = 5; // Longer description of this notification
+	optional string icon = 6; // The icon name
+	optional string link_url = 7; // Link to the event
+	optional string user_id = 8;
+	optional string user_name = 9;
+}
+
+message Permission {
+	bool can_create_org = 1;
+	bool can_leave_org = 2;
+	bool can_downgrade = 3;
+	bool can_invite = 4;
+	bool can_update_org = 5;
+	bool can_add_and_remove_admin = 6;
+	bool can_accept_invite = 7;
+	bool can_reject_invite = 8;
+	bool can_pay = 9;
+	bool can_get_invoices = 10;
+	bool is_admin = 11;
+}
+
+message Plan {
+	string name = 1;
+	optional string description = 2; // description
+	optional int32 max_connections = 3; // Maximum active connections (1+ API call per month)
+	optional string stripe_product_id = 4;
+	optional string stripe_price_id = 5;
+	optional int32 min_price = 6;
+	optional int32 price_per_mille_requests = 7;
+	optional bool custom_oauth = 8;
+	optional int32 max_requests = 9;
+	optional string test_stripe_product_id = 10;
+	optional string test_stripe_price_id = 11;
+	optional int32 min_annual_price = 12;
+	optional string stripe_annual_price_id = 13;
+	optional string test_stripe_annual_price_id = 14;
+	optional string stripe_overage_price_id = 15;
+	optional string test_stripe_overage_price_id = 16;
+}
+
+// The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
+
+message User {
+	optional string id = 1;
+	optional string created_at = 2;
+	optional string updated_at = 3;
+	string name = 4;
+	string email = 5;
+	string workspace_id = 6; // The current workspace
+	repeated string workspace_ids = 7; // A list of all of the user's workspaces
+	optional string environment = 8;
+	optional google.protobuf.Struct meta = 9;
+}
+
+// A webhook is used to POST new/updated information to your server.
+
+message Webhook {
+	optional string id = 1;
+	optional string created_at = 2;
+	optional string updated_at = 3;
+	optional string workspace_id = 4;
+	string connection_id = 5;
+	string hook_url = 6; // The URL of the webhook
+	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_contact, accounting_invoice, accounting_payment, accounting_taxrate, accounting_organization, accounting_item, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, uc_contact, uc_call, enrich_person, enrich_company, storage_file
+	int32 interval = 8; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
+	string checked_at = 9; // The last date/time that a check was done on this object
+	string integration_type = 10;
+	optional string environment = 11;
+	string event = 12;
+	repeated string runs = 13; // An array of the most revent virtual webhook runs
+	optional string fields = 14;
+	optional string webhook_type = 15;
+	optional google.protobuf.Struct meta = 16;
+	optional bool is_healthy = 17;
+}
+
+message WebhookData {
+	repeated google.protobuf.Struct data = 1; // The data array will contact an array of specific objects according to the webhook's connection. (eg. CRM Contacts)
+	Webhook webhook = 2; // The webhook object
+	string nonce = 3; // random string
+	string sig = 4; // HMAC-SHA1(workspace.secret, data + nonce)
+	string type = 5;
+}
+
+message WorkspaceIntegration {
+	string integration_type = 1;
+	optional string client_id = 2;
+	optional string client_secret = 3;
+	optional string consumer_key = 4;
+	optional string consumer_secret = 5;
+	bool is_active = 6;
+	optional string api_url = 7;
+	optional string authorize_url = 8;
+	optional string token_url = 9;
+	optional string pem = 10; // the PEM X.509 certificate in Base64 ASCII format
+	optional string key = 11; // the private KEY X.509 certificate in Base64 ASCII format
+	optional string environment = 12; // authentication environment Default value: Production
+	repeated string categories = 13;
+}
+
+// The User's workspace object. A workspace is like an organization that one or more users belong to.
+
+message Workspace {
+	optional string id = 1;
+	optional string created_at = 2;
+	optional string updated_at = 3;
+	string name = 4;
+	repeated string admin_ids = 5; // Only these users can add additional admins and invite other users
+	repeated string invited_emails = 6;
+	optional string pay_user_id = 7;
+	optional string plan = 8;
+	optional string stripe_customer = 9;
+	repeated string stripe_subscriptions = 10;
+	repeated string stripe_prices = 11;
+	optional string secret = 12; // Workspace API secret
+	repeated string ip_addresses = 13; // a list of IP addresses that are allowed to access this workspace
+	optional string aws_region = 14;
+	optional string aws_key = 15;
+	optional string aws_secret = 16;
+	optional string datadog_apikey = 17;
+	optional string datadog_site = 18;
+	repeated string environments = 19; // a list of authentication environments for the workspace integrations
+	repeated string add_ons = 20;
+	optional google.protobuf.Struct checklist = 21;
+	optional string plan_term = 22; // monthly or yearly Valid values: monthly, yearly Default value: monthly
+	optional string stripe_canceling_at = 23;
+	optional string domain = 24; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
+}
+
