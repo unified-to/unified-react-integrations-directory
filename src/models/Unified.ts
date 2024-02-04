@@ -133,6 +133,7 @@ export const ObjectType = [
 	'ats_interview',
 	'ats_job',
 	'ats_scorecard',
+	'ats_company',
 	'crm_company',
 	'crm_contact',
 	'crm_deal',
