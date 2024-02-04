@@ -70,6 +70,7 @@ export const IntegrationPermission = [
 	'ats_interview_write',
 	'ats_job_read',
 	'ats_job_write',
+	'ats_company_read',
 	'ats_document_read',
 	'ats_document_write',
 	'crm_company_read',
