@@ -397,6 +397,7 @@ export interface IWebhook {
 	readonly webhook_type?: TIntegrationSupportWebhookType;
 	readonly meta?: unknown;
 	is_healthy?: boolean;
+	page_max_limit?: number;
 }
 
 export interface IWebhookData {
