@@ -333,14 +333,6 @@ export interface IIntegrationSupport {
 	list_ticket_id?: boolean;
 }
 
-export interface IInvoice {
-	stripe_id: string;
-	created_at: string | Date;
-	amount: number;
-	connections: number;
-	plan: string;
-}
-
 export interface IIssue {
 	id?: string;
 	created_at?: string;
