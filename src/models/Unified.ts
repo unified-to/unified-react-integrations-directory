@@ -349,7 +349,7 @@ export interface IIssue {
 	status: TIssueStatus;
 	url?: string;
 	workspace_id: string;
-	type: string;
+	type: TIssueType;
 	resolution_time?: number;
 }
 
