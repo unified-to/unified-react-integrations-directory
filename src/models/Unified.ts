@@ -116,7 +116,12 @@ export const IntegrationSupportWebhookType = [
 export type TIntegrationSupportWebhookType = typeof IntegrationSupportWebhookType[number];
 
 export const IssueStatus = [
-	
+	'ON_HOLD',
+	'NEW',
+	'IN_PROGRESS',
+	'VALIDATING',
+	'COMPLETE',
+	'REJECTED'
 ] as const;
 
 export type TIssueStatus = typeof IssueStatus[number];
