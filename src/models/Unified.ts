@@ -341,7 +341,7 @@ export interface IIssue {
 	status: TIssueStatus;
 	url?: string;
 	workspace_id: string;
-	type: I'BUG' | 'FEATURE_REQUEST' | 'INQUIRY';
+	type: string;
 	resolution_time?: number;
 }
 
