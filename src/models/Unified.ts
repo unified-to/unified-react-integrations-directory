@@ -115,11 +115,11 @@ export const IntegrationSupportWebhookType = [
 
 export type TIntegrationSupportWebhookType = typeof IntegrationSupportWebhookType[number];
 
-export const NewEnum12 = [
+export const IssueStatus = [
 	
 ] as const;
 
-export type TNewEnum12 = typeof NewEnum12[number];
+export type TIssueStatus = typeof IssueStatus[number];
 
 export const ObjectType = [
 	'accounting_account',
