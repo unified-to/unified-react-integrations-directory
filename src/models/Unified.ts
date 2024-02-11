@@ -126,6 +126,12 @@ export const IssueStatus = [
 
 export type TIssueStatus = typeof IssueStatus[number];
 
+export const NewEnum13 = [
+	
+] as const;
+
+export type TNewEnum13 = typeof NewEnum13[number];
+
 export const ObjectType = [
 	'accounting_account',
 	'accounting_transaction',
