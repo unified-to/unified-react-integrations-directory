@@ -452,6 +452,18 @@ export interface IWorkspaceIntegration {
 	categories?: ( TIntegrationCategory )[];
 }
 
+export interface IUnifiedIssue {
+	id?: string;
+	created_at: string;
+	updated_at?: string;
+	title: string;
+	status: I'ON_HOLD' | 'NEW' | 'IN_PROGRESS' | 'VALIDATING' | 'COMPLETE' | 'REJECTED';
+	url?: string;
+	workspace_id: string;
+	type: I'BUG' | 'FEATURE_REQUEST' | 'INQUIRY';
+	resolution_time?: number;
+}
+
 export const Plans: IPlan[] = [
     { name: 'Tester', description: 'Test out our unified APIs in your development application.', max_connections: 20, price_per_mille_requests: 0, custom_oauth: false, max_requests: 7500 },
     { name: 'Startup', description: 'Launch 100s of integrations in your production application.', min_price: 250, custom_oauth: true, price_per_mille_requests: 1, max_requests: 250000, stripe_product_id: 'prod_NpKIL9HEvIfdx2', test_stripe_product_id: 'prod_Np1xniikGxq80G', stripe_annual_price_id: 'price_1NiQOiCym65m1EMKfAvlrjq4', min_annual_price: 2500, stripe_price_id: 'price_1NkJPLCym65m1EMKSLqJhKQj', test_stripe_price_id: 'price_1NkISrCym65m1EMKRV9bJsqI', test_stripe_annual_price_id: 'price_1NkFggCym65m1EMKQ88k8pZo', stripe_overage_price_id: 'price_1Ng64NCym65m1EMKHL3m8vq1', test_stripe_overage_price_id: 'price_1NkH5QCym65m1EMKmx9QKFl4' },
