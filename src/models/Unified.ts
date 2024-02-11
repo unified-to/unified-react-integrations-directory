@@ -367,6 +367,18 @@ export interface IPlan {
 	test_stripe_overage_price_id?: string;
 }
 
+export interface IIssue {
+	id?: string;
+	created_at: string;
+	updated_at?: string;
+	title: string;
+	status: I'ON_HOLD' | 'NEW' | 'IN_PROGRESS' | 'VALIDATING' | 'COMPLETE' | 'REJECTED';
+	url?: string;
+	workspace_id: string;
+	type: I'BUG' | 'FEATURE_REQUEST' | 'INQUIRY';
+	resolution_time?: number;
+}
+
 export interface IUser {
 	readonly id?: string;
 	readonly created_at?: string | Date;
@@ -450,18 +462,6 @@ export interface IWorkspaceIntegration {
 	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
-}
-
-export interface IUnifiedIssue {
-	id?: string;
-	created_at: string;
-	updated_at?: string;
-	title: string;
-	status: I'ON_HOLD' | 'NEW' | 'IN_PROGRESS' | 'VALIDATING' | 'COMPLETE' | 'REJECTED';
-	url?: string;
-	workspace_id: string;
-	type: I'BUG' | 'FEATURE_REQUEST' | 'INQUIRY';
-	resolution_time?: number;
 }
 
 export const Plans: IPlan[] = [
