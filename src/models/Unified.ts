@@ -335,7 +335,7 @@ export interface IInvoice {
 
 export interface IIssue {
 	id?: string;
-	created_at: string;
+	created_at?: string;
 	updated_at?: string;
 	title: string;
 	status: TIssueStatus;
