@@ -372,7 +372,7 @@ export interface IIssue {
 	created_at: string;
 	updated_at?: string;
 	title: string;
-	status: I'ON_HOLD' | 'NEW' | 'IN_PROGRESS' | 'VALIDATING' | 'COMPLETE' | 'REJECTED';
+	status: string;
 	url?: string;
 	workspace_id: string;
 	type: I'BUG' | 'FEATURE_REQUEST' | 'INQUIRY';
