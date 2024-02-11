@@ -333,6 +333,18 @@ export interface IInvoice {
 	plan: string;
 }
 
+export interface IIssue {
+	id?: string;
+	created_at: string;
+	updated_at?: string;
+	title: string;
+	status: TIssueStatus;
+	url?: string;
+	workspace_id: string;
+	type: I'BUG' | 'FEATURE_REQUEST' | 'INQUIRY';
+	resolution_time?: number;
+}
+
 export interface INotification {
 	readonly id?: string; // Unique identifier for this notification object
 	readonly created_at?: string | Date; // The date that this integration object was created
@@ -376,18 +388,6 @@ export interface IPlan {
 	test_stripe_annual_price_id?: string;
 	stripe_overage_price_id?: string;
 	test_stripe_overage_price_id?: string;
-}
-
-export interface IIssue {
-	id?: string;
-	created_at: string;
-	updated_at?: string;
-	title: string;
-	status: string;
-	url?: string;
-	workspace_id: string;
-	type: I'BUG' | 'FEATURE_REQUEST' | 'INQUIRY';
-	resolution_time?: number;
 }
 
 export interface IUser {
