@@ -51,6 +51,8 @@ export const IntegrationPermission = [
 	'accounting_taxrate_read',
 	'accounting_taxrate_write',
 	'accounting_organization_read',
+	'accounting_payout_read',
+	'accounting_refund_read',
 	'commerce_item_read',
 	'commerce_item_write',
 	'commerce_collection_read',
