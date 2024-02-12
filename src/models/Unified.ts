@@ -418,7 +418,7 @@ export interface IWebhook {
 	connection_id: string;
 	hook_url: string; // The URL of the webhook
 	object_type: TObjectType; // The object to return (eg. CRM "contact")
-	interval: number; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
+	interval?: number; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
 	readonly checked_at: string | Date; // The last date/time that a check was done on this object
 	readonly integration_type: string;
 	readonly environment?: string;
