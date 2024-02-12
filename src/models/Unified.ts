@@ -142,6 +142,8 @@ export const ObjectType = [
 	'accounting_payment',
 	'accounting_taxrate',
 	'accounting_organization',
+	'accounting_payout',
+	'accounting_refund',
 	'commerce_item',
 	'commerce_collection',
 	'commerce_inventory',
