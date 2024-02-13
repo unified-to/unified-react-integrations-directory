@@ -25,6 +25,7 @@ enum ENUM_IntegrationCategory {
 	uc
 	accounting
 	storage
+	commerce
 }
 
 enum ENUM_IntegrationPermission {
@@ -42,7 +43,16 @@ enum ENUM_IntegrationPermission {
 	accounting_taxrate_read
 	accounting_taxrate_write
 	accounting_organization_read
-	accounting_item_read
+	accounting_payout_read
+	accounting_refund_read
+	commerce_item_read
+	commerce_item_write
+	commerce_collection_read
+	commerce_collection_write
+	commerce_inventory_read
+	commerce_inventory_write
+	commerce_location_read
+	commerce_location_write
 	ats_scorecard_read
 	ats_scorecard_write
 	ats_application_read
@@ -54,6 +64,7 @@ enum ENUM_IntegrationPermission {
 	ats_interview_write
 	ats_job_read
 	ats_job_write
+	ats_company_read
 	ats_document_read
 	ats_document_write
 	crm_company_read
@@ -94,6 +105,21 @@ enum ENUM_IntegrationSupportWebhookType {
 	native
 }
 
+enum ENUM_IssueStatus {
+	ON_HOLD
+	NEW
+	IN_PROGRESS
+	VALIDATING
+	COMPLETE
+	REJECTED
+}
+
+enum ENUM_IssueType {
+	BUG
+	FEATURE_REQUEST
+	INQUIRY
+}
+
 enum ENUM_ObjectType {
 	accounting_account
 	accounting_transaction
@@ -102,7 +128,12 @@ enum ENUM_ObjectType {
 	accounting_payment
 	accounting_taxrate
 	accounting_organization
-	accounting_item
+	accounting_payout
+	accounting_refund
+	commerce_item
+	commerce_collection
+	commerce_inventory
+	commerce_location
 	ats_application
 	ats_applicationstatus
 	ats_candidate
@@ -110,6 +141,7 @@ enum ENUM_ObjectType {
 	ats_interview
 	ats_job
 	ats_scorecard
+	ats_company
 	crm_company
 	crm_contact
 	crm_deal
@@ -657,58 +689,28 @@ type Invoice {
 	plan: String!
 }
 
-"""
-A notification of an event that occurred in you account.
-"""
-input Notification_Input {
-"""
-The title of the notification
-"""
+input Issue_Input {
+	id: ID
+	created_at: String
+	updated_at: String
 	title: String!
-"""
-Longer description of this notification
-"""
-	description: String
-"""
-The icon name
-"""
-	icon: String
-"""
-Link to the event
-"""
-	link_url: String
-	user_id: ID
-	user_name: String
+	status: ENUM_IssueStatus!
+	url: String
+	workspace_id: ID!
+	type: ENUM_IssueType!
+	resolution_time: Int
 }
 
-type Notification {
-"""
-Unique identifier for this notification object
-"""
+type Issue {
 	id: ID
-"""
-The date that this integration object was created
-"""
-	created_at: DateTime
-	workspace_id: ID
-"""
-The title of the notification
-"""
+	created_at: String
+	updated_at: String
 	title: String!
-"""
-Longer description of this notification
-"""
-	description: String
-"""
-The icon name
-"""
-	icon: String
-"""
-Link to the event
-"""
-	link_url: String
-	user_id: ID
-	user_name: String
+	status: ENUM_IssueStatus!
+	url: String
+	workspace_id: ID!
+	type: ENUM_IssueType!
+	resolution_time: Int
 }
 
 input Permission_Input {
@@ -830,10 +832,11 @@ The object to return (eg. CRM "contact")
 """
 The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
 """
-	interval: Int!
+	interval: Int
 	event: ENUM_WebhookEvent!
 	fields: String
 	is_healthy: Boolean
+	page_max_limit: Int
 }
 
 type Webhook {
@@ -853,7 +856,7 @@ The object to return (eg. CRM "contact")
 """
 The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
 """
-	interval: Int!
+	interval: Int
 """
 The last date/time that a check was done on this object
 """
@@ -869,6 +872,7 @@ An array of the most revent virtual webhook runs
 	webhook_type: ENUM_IntegrationSupportWebhookType
 	meta: object
 	is_healthy: Boolean
+	page_max_limit: Int
 }
 
 input WebhookData_Input {
