@@ -59,7 +59,7 @@ message Connection {
 	string integration_type = 5; // The integration type
 	optional string external_xref = 6; // customer's user ID
 	repeated string permissions = 7;
-	repeated string categories = 8; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage
+	repeated string categories = 8; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce
 	optional ConnectionAuth auth = 9;
 	optional bool is_paused = 10; // Whether this integration has exceed the monthly limit of the plan
 	optional string auth_aws_arn = 11; // the AWS ARN / secretID for the stored auth field
@@ -112,7 +112,7 @@ message Integration {
 	optional string updated_at = 3; // YYYY-MM-DD
 	string name = 4; // The integration's name
 	optional bool is_active = 5; // Is this integration active in this workspace
-	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage
+	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce
 	optional string api_docs_url = 7; // The URL of the integration's API documentation
 	optional string logo_url = 8; // The URL of the integration's logo
 	bool in_progress = 9; // If this integration is not yet available as it is currently being built by unified.to
@@ -136,18 +136,16 @@ message Invoice {
 	string plan = 5;
 }
 
-// A notification of an event that occurred in you account.
-
-message Notification {
-	optional string id = 1; // Unique identifier for this notification object
-	optional string created_at = 2; // The date that this integration object was created
-	optional string workspace_id = 3;
-	string title = 4; // The title of the notification
-	optional string description = 5; // Longer description of this notification
-	optional string icon = 6; // The icon name
-	optional string link_url = 7; // Link to the event
-	optional string user_id = 8;
-	optional string user_name = 9;
+message Issue {
+	optional string id = 1;
+	optional string created_at = 2;
+	optional string updated_at = 3;
+	string title = 4;
+	string status = 5;
+	optional string url = 6;
+	string workspace_id = 7;
+	string type = 8;
+	optional int32 resolution_time = 9;
 }
 
 message Permission {
@@ -206,8 +204,8 @@ message Webhook {
 	optional string workspace_id = 4;
 	string connection_id = 5;
 	string hook_url = 6; // The URL of the webhook
-	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_contact, accounting_invoice, accounting_payment, accounting_taxrate, accounting_organization, accounting_item, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, uc_contact, uc_call, enrich_person, enrich_company, storage_file
-	int32 interval = 8; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
+	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_contact, accounting_invoice, accounting_payment, accounting_taxrate, accounting_organization, accounting_payout, accounting_refund, commerce_item, commerce_collection, commerce_inventory, commerce_location, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, ats_company, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, uc_contact, uc_call, enrich_person, enrich_company, storage_file
+	optional int32 interval = 8; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
 	string checked_at = 9; // The last date/time that a check was done on this object
 	string integration_type = 10;
 	optional string environment = 11;
@@ -217,6 +215,7 @@ message Webhook {
 	optional string webhook_type = 15;
 	optional google.protobuf.Struct meta = 16;
 	optional bool is_healthy = 17;
+	optional int32 page_max_limit = 18;
 }
 
 message WebhookData {
