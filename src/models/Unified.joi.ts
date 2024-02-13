@@ -26,7 +26,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'ticketing',
 	'uc',
 	'accounting',
-	'storage');
+	'storage',
+	'commerce');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'auth_login',
@@ -43,7 +44,16 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_taxrate_read',
 	'accounting_taxrate_write',
 	'accounting_organization_read',
-	'accounting_item_read',
+	'accounting_payout_read',
+	'accounting_refund_read',
+	'commerce_item_read',
+	'commerce_item_write',
+	'commerce_collection_read',
+	'commerce_collection_write',
+	'commerce_inventory_read',
+	'commerce_inventory_write',
+	'commerce_location_read',
+	'commerce_location_write',
 	'ats_scorecard_read',
 	'ats_scorecard_write',
 	'ats_application_read',
@@ -55,6 +65,7 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'ats_interview_write',
 	'ats_job_read',
 	'ats_job_write',
+	'ats_company_read',
 	'ats_document_read',
 	'ats_document_write',
 	'crm_company_read',
@@ -93,6 +104,19 @@ export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'none',
 	'native');
 
+export const joiIssueStatus = Joi.string().valid(
+	'ON_HOLD',
+	'NEW',
+	'IN_PROGRESS',
+	'VALIDATING',
+	'COMPLETE',
+	'REJECTED');
+
+export const joiIssueType = Joi.string().valid(
+	'BUG',
+	'FEATURE_REQUEST',
+	'INQUIRY');
+
 export const joiObjectType = Joi.string().valid(
 	'accounting_account',
 	'accounting_transaction',
@@ -101,7 +125,12 @@ export const joiObjectType = Joi.string().valid(
 	'accounting_payment',
 	'accounting_taxrate',
 	'accounting_organization',
-	'accounting_item',
+	'accounting_payout',
+	'accounting_refund',
+	'commerce_item',
+	'commerce_collection',
+	'commerce_inventory',
+	'commerce_location',
 	'ats_application',
 	'ats_applicationstatus',
 	'ats_candidate',
@@ -109,6 +138,7 @@ export const joiObjectType = Joi.string().valid(
 	'ats_interview',
 	'ats_job',
 	'ats_scorecard',
+	'ats_company',
 	'crm_company',
 	'crm_contact',
 	'crm_deal',
@@ -278,6 +308,18 @@ export const joiInvoice = Joi.object({
 	plan: Joi.string().required().allow(''),
 }).label('Invoice');
 
+export const joiIssue = Joi.object({
+	id: Joi.string().optional(),
+	created_at: Joi.string().optional().allow(null, ''),
+	updated_at: Joi.string().optional().allow(null, ''),
+	title: Joi.string().required().allow(''),
+	status: joiIssueStatus.required(),
+	url: Joi.string().uri().optional().allow(null, ''),
+	workspace_id: Joi.string().required(),
+	type: joiIssueType.required(),
+	resolution_time: Joi.number().optional(),
+}).label('Issue');
+
 export const joiNotification = Joi.object({
 	id: Joi.string().meta( { readonly: true }).optional().description('Unique identifier for this notification object'),
 	created_at: Joi.date().meta( { readonly: true }).optional().description('The date that this integration object was created'),
@@ -334,7 +376,7 @@ export const joiWebhook = Joi.object({
 	connection_id: Joi.string().required(),
 	hook_url: Joi.string().uri().required().allow('').description('The URL of the webhook'),
 	object_type: joiObjectType.required().description('The object to return (eg. CRM "contact")'),
-	interval: Joi.number().required().description('The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.'),
+	interval: Joi.number().optional().description('The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.'),
 	checked_at: Joi.date().meta( { readonly: true }).optional().description('The last date/time that a check was done on this object'),
 	integration_type: Joi.string().meta( { readonly: true }).optional().allow(''),
 	environment: Joi.string().meta( { readonly: true }).optional().allow(null, '').default('Production'),
@@ -344,6 +386,7 @@ export const joiWebhook = Joi.object({
 	webhook_type: joiIntegrationSupportWebhookType.meta( { readonly: true }).optional(),
 	meta: Joi.object().meta( { readonly: true }).optional(),
 	is_healthy: Joi.boolean().optional(),
+	page_max_limit: Joi.number().optional(),
 }).label('Webhook').description('A webhook is used to POST new/updated information to your server.');
 
 export const joiWebhookData = Joi.object({
