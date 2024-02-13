@@ -32,6 +32,7 @@ components:
       - uc
       - accounting
       - storage
+      - commerce
     IntegrationPermission:
       type: string
       enum:
@@ -49,7 +50,16 @@ components:
       - accounting_taxrate_read
       - accounting_taxrate_write
       - accounting_organization_read
-      - accounting_item_read
+      - accounting_payout_read
+      - accounting_refund_read
+      - commerce_item_read
+      - commerce_item_write
+      - commerce_collection_read
+      - commerce_collection_write
+      - commerce_inventory_read
+      - commerce_inventory_write
+      - commerce_location_read
+      - commerce_location_write
       - ats_scorecard_read
       - ats_scorecard_write
       - ats_application_read
@@ -61,6 +71,7 @@ components:
       - ats_interview_write
       - ats_job_read
       - ats_job_write
+      - ats_company_read
       - ats_document_read
       - ats_document_write
       - crm_company_read
@@ -99,6 +110,21 @@ components:
       - virtual
       - none
       - native
+    IssueStatus:
+      type: string
+      enum:
+      - ON_HOLD
+      - NEW
+      - IN_PROGRESS
+      - VALIDATING
+      - COMPLETE
+      - REJECTED
+    IssueType:
+      type: string
+      enum:
+      - BUG
+      - FEATURE_REQUEST
+      - INQUIRY
     ObjectType:
       type: string
       enum:
@@ -109,7 +135,12 @@ components:
       - accounting_payment
       - accounting_taxrate
       - accounting_organization
-      - accounting_item
+      - accounting_payout
+      - accounting_refund
+      - commerce_item
+      - commerce_collection
+      - commerce_inventory
+      - commerce_location
       - ats_application
       - ats_applicationstatus
       - ats_candidate
@@ -117,6 +148,7 @@ components:
       - ats_interview
       - ats_job
       - ats_scorecard
+      - ats_company
       - crm_company
       - crm_contact
       - crm_deal
@@ -486,37 +518,32 @@ components:
         - amount
         - connections
         - plan
-    Notification:
+    Issue:
       type: object
-      description: A notification of an event that occurred in you account.
       properties:
         id:
           type: string
-          description: Unique identifier for this notification object
         created_at:
           type: string
-          format: date-time
-          description: The date that this integration object was created
-        workspace_id:
+        updated_at:
           type: string
         title:
           type: string
-          description: The title of the notification
-        description:
+        status:
+          $ref: "#/components/schemas/IssueStatus"
+        url:
           type: string
-          description: Longer description of this notification
-        icon:
+        workspace_id:
           type: string
-          description: The icon name
-        link_url:
-          type: string
-          description: Link to the event
-        user_id:
-          type: string
-        user_name:
-          type: string
+        type:
+          $ref: "#/components/schemas/IssueType"
+        resolution_time:
+          type: integer
       required:
         - title
+        - status
+        - workspace_id
+        - type
     Permission:
       type: object
       properties:
@@ -672,11 +699,12 @@ components:
           type: object
         is_healthy:
           type: boolean
+        page_max_limit:
+          type: integer
       required:
         - connection_id
         - hook_url
         - object_type
-        - interval
         - checked_at
         - integration_type
         - event
