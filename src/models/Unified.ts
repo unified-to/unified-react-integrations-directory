@@ -214,7 +214,8 @@ export type TWebhookDataType = typeof WebhookDataType[number];
 
 export const WebhookEvent = [
 	'updated',
-	'created'
+	'created',
+	'deleted'
 ] as const;
 
 export type TWebhookEvent = typeof WebhookEvent[number];
@@ -488,9 +489,9 @@ export interface IWorkspaceIntegration {
 }
 
 export const Plans: IPlan[] = [
-    { name: 'Tester', description: 'Test out our unified APIs in your development application.', max_connections: 20, price_per_mille_requests: 0, custom_oauth: false, max_requests: 7500 },
-    { name: 'Startup', description: 'Launch 100s of integrations in your production application.', min_price: 250, custom_oauth: true, price_per_mille_requests: 1, max_requests: 250000, stripe_product_id: 'prod_NpKIL9HEvIfdx2', test_stripe_product_id: 'prod_Np1xniikGxq80G', stripe_annual_price_id: 'price_1NiQOiCym65m1EMKfAvlrjq4', min_annual_price: 2500, stripe_price_id: 'price_1NkJPLCym65m1EMKSLqJhKQj', test_stripe_price_id: 'price_1NkISrCym65m1EMKRV9bJsqI', test_stripe_annual_price_id: 'price_1NkFggCym65m1EMKQ88k8pZo', stripe_overage_price_id: 'price_1Ng64NCym65m1EMKHL3m8vq1', test_stripe_overage_price_id: 'price_1NkH5QCym65m1EMKmx9QKFl4' },
-    { name: 'Growth', description: 'Your application is growing partially due to our integrations.', min_price: 500, stripe_product_id: 'prod_NpKIvppVcyFEy6', max_requests: 1250000, price_per_mille_requests: 0.4, custom_oauth: true, test_stripe_product_id: 'prod_OXNbPZfryQINTy', min_annual_price: 5000, stripe_annual_price_id: 'price_1NkEWJCym65m1EMKalcplitD', stripe_price_id: 'price_1NkJXtCym65m1EMKFb6zMvGj', test_stripe_price_id: 'price_1NkIq7Cym65m1EMKFAFYEAeT', test_stripe_annual_price_id: 'price_1NkIq8Cym65m1EMKv84PiotO', stripe_overage_price_id: 'price_1NkJYbCym65m1EMKIUQ5g96B', test_stripe_overage_price_id: 'price_1NkIq7Cym65m1EMKh3nXHWaS' },
-    { name: 'Scale', description: 'Affordable when you scale and grow your company.', min_price: 1000, max_requests: 4000000, custom_oauth: true, price_per_mille_requests: 0.25, stripe_product_id: 'prod_NpKIcO1Qitzh3t', test_stripe_product_id: 'prod_NpKHMlZb3JXloL', stripe_annual_price_id: 'price_1NiQMgCym65m1EMKYgaEaD0r', min_annual_price: 10000, stripe_price_id: 'price_1NkJdPCym65m1EMKIXLloDTw', test_stripe_price_id: 'price_1NkISrCym65m1EMKRV9bJsqI', test_stripe_annual_price_id: 'price_1NkFggCym65m1EMKQ88k8pZo', stripe_overage_price_id: 'price_1NkJdxCym65m1EMKSVPIH4Vm', test_stripe_overage_price_id: 'price_1NkH5QCym65m1EMKmx9QKFl4' }
+    { name: 'Tester', description: 'For testing unified APIs in non-production applications. Free forever.', max_connections: 20, price_per_mille_requests: 0, custom_oauth: false, max_requests: 7500 },
+    { name: 'Startup', description: 'For launching unified APIs in production applications.', min_price: 250, custom_oauth: true, price_per_mille_requests: 1, max_requests: 250000, stripe_product_id: 'prod_NpKIL9HEvIfdx2', test_stripe_product_id: 'prod_Np1xniikGxq80G', stripe_annual_price_id: 'price_1NiQOiCym65m1EMKfAvlrjq4', min_annual_price: 2500, stripe_price_id: 'price_1NkJPLCym65m1EMKSLqJhKQj', test_stripe_price_id: 'price_1NkISrCym65m1EMKRV9bJsqI', test_stripe_annual_price_id: 'price_1NkFggCym65m1EMKQ88k8pZo', stripe_overage_price_id: 'price_1Ng64NCym65m1EMKHL3m8vq1', test_stripe_overage_price_id: 'price_1NkH5QCym65m1EMKmx9QKFl4' },
+    { name: 'Growth', description: 'For production applications with growing customer usage.', min_price: 500, stripe_product_id: 'prod_NpKIvppVcyFEy6', max_requests: 1250000, price_per_mille_requests: 0.4, custom_oauth: true, test_stripe_product_id: 'prod_OXNbPZfryQINTy', min_annual_price: 5000, stripe_annual_price_id: 'price_1NkEWJCym65m1EMKalcplitD', stripe_price_id: 'price_1NkJXtCym65m1EMKFb6zMvGj', test_stripe_price_id: 'price_1NkIq7Cym65m1EMKFAFYEAeT', test_stripe_annual_price_id: 'price_1NkIq8Cym65m1EMKv84PiotO', stripe_overage_price_id: 'price_1NkJYbCym65m1EMKIUQ5g96B', test_stripe_overage_price_id: 'price_1NkIq7Cym65m1EMKh3nXHWaS' },
+    { name: 'Scale', description: 'For large-scale applications with high customer usage.', min_price: 1000, max_requests: 4000000, custom_oauth: true, price_per_mille_requests: 0.25, stripe_product_id: 'prod_NpKIcO1Qitzh3t', test_stripe_product_id: 'prod_NpKHMlZb3JXloL', stripe_annual_price_id: 'price_1NiQMgCym65m1EMKYgaEaD0r', min_annual_price: 10000, stripe_price_id: 'price_1NkJdPCym65m1EMKIXLloDTw', test_stripe_price_id: 'price_1NkISrCym65m1EMKRV9bJsqI', test_stripe_annual_price_id: 'price_1NkFggCym65m1EMKQ88k8pZo', stripe_overage_price_id: 'price_1NkJdxCym65m1EMKSVPIH4Vm', test_stripe_overage_price_id: 'price_1NkH5QCym65m1EMKmx9QKFl4' }
 ];
 
