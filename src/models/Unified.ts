@@ -487,6 +487,7 @@ export interface IWorkspaceIntegration {
 	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
+	dev_api_key?: string;
 }
 
 export const Plans: IPlan[] = [
