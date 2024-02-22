@@ -279,6 +279,7 @@ export interface IConnectionAuth {
 	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
 	refresh_token_expires_in?: number;
 	refresh_token_expires_date?: string | Date;
+	dev_api_key?: string;
 }
 
 export interface IIntegration {
