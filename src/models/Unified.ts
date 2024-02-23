@@ -152,6 +152,7 @@ export const ObjectType = [
 	'commerce_collection',
 	'commerce_inventory',
 	'commerce_location',
+	'ats_activity',
 	'ats_application',
 	'ats_applicationstatus',
 	'ats_candidate',
