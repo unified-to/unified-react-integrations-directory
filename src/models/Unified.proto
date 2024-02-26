@@ -47,6 +47,7 @@ message ConnectionAuth {
 	optional string key = 20; // the private KEY X.509 certificate in Base64 ASCII format
 	optional int32 refresh_token_expires_in = 21;
 	optional string refresh_token_expires_date = 22;
+	optional string dev_api_key = 23;
 }
 
 // A connection represents a specific authentication of an integration.
@@ -59,7 +60,7 @@ message Connection {
 	string integration_type = 5; // The integration type
 	optional string external_xref = 6; // customer's user ID
 	repeated string permissions = 7;
-	repeated string categories = 8; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce
+	repeated string categories = 8; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment
 	optional ConnectionAuth auth = 9;
 	optional bool is_paused = 10; // Whether this integration has exceed the monthly limit of the plan
 	optional string auth_aws_arn = 11; // the AWS ARN / secretID for the stored auth field
@@ -112,7 +113,7 @@ message Integration {
 	optional string updated_at = 3; // YYYY-MM-DD
 	string name = 4; // The integration's name
 	optional bool is_active = 5; // Is this integration active in this workspace
-	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce
+	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment
 	optional string api_docs_url = 7; // The URL of the integration's API documentation
 	optional string logo_url = 8; // The URL of the integration's logo
 	bool in_progress = 9; // If this integration is not yet available as it is currently being built by unified.to
@@ -204,7 +205,7 @@ message Webhook {
 	optional string workspace_id = 4;
 	string connection_id = 5;
 	string hook_url = 6; // The URL of the webhook
-	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_contact, accounting_invoice, accounting_payment, accounting_taxrate, accounting_organization, accounting_payout, accounting_refund, commerce_item, commerce_collection, commerce_inventory, commerce_location, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, ats_company, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, uc_contact, uc_call, enrich_person, enrich_company, storage_file
+	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_contact, accounting_invoice, accounting_taxrate, accounting_organization, payment_payment, payment_link, payment_payout, payment_refund, commerce_item, commerce_collection, commerce_inventory, commerce_location, ats_activity, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, ats_company, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, uc_contact, uc_call, enrich_person, enrich_company, storage_file
 	optional int32 interval = 8; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
 	string checked_at = 9; // The last date/time that a check was done on this object
 	string integration_type = 10;
@@ -240,6 +241,7 @@ message WorkspaceIntegration {
 	optional string key = 11; // the private KEY X.509 certificate in Base64 ASCII format
 	optional string environment = 12; // authentication environment Default value: Production
 	repeated string categories = 13;
+	optional string dev_api_key = 14;
 }
 
 // The User's workspace object. A workspace is like an organization that one or more users belong to.
