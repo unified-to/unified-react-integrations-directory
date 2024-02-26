@@ -33,6 +33,7 @@ components:
       - accounting
       - storage
       - commerce
+      - payment
     IntegrationPermission:
       type: string
       enum:
@@ -45,13 +46,15 @@ components:
       - accounting_invoice_write
       - accounting_contact_read
       - accounting_contact_write
-      - accounting_payment_read
-      - accounting_payment_write
       - accounting_taxrate_read
       - accounting_taxrate_write
       - accounting_organization_read
-      - accounting_payout_read
-      - accounting_refund_read
+      - payment_payment_read
+      - payment_payment_write
+      - payment_payout_read
+      - payment_refund_read
+      - payment_link_read
+      - payment_link_write
       - commerce_item_read
       - commerce_item_write
       - commerce_collection_read
@@ -60,8 +63,8 @@ components:
       - commerce_inventory_write
       - commerce_location_read
       - commerce_location_write
-      - ats_scorecard_read
-      - ats_scorecard_write
+      - ats_activity_read
+      - ats_activity_write
       - ats_application_read
       - ats_application_write
       - ats_applicationstatus_read
@@ -74,6 +77,8 @@ components:
       - ats_company_read
       - ats_document_read
       - ats_document_write
+      - ats_scorecard_read
+      - ats_scorecard_write
       - crm_company_read
       - crm_company_write
       - crm_contact_read
@@ -132,15 +137,17 @@ components:
       - accounting_transaction
       - accounting_contact
       - accounting_invoice
-      - accounting_payment
       - accounting_taxrate
       - accounting_organization
-      - accounting_payout
-      - accounting_refund
+      - payment_payment
+      - payment_link
+      - payment_payout
+      - payment_refund
       - commerce_item
       - commerce_collection
       - commerce_inventory
       - commerce_location
+      - ats_activity
       - ats_application
       - ats_applicationstatus
       - ats_candidate
@@ -196,6 +203,7 @@ components:
       enum:
       - updated
       - created
+      - deleted
     ApiCall:
       type: object
       properties:
@@ -354,6 +362,8 @@ components:
         refresh_token_expires_date:
           type: string
           format: date-time
+        dev_api_key:
+          type: string
       required:
 
     Integration:
@@ -828,6 +838,8 @@ components:
           default: "Production"
         categories:
           $ref: "#/components/schemas/IntegrationCategories"
+        dev_api_key:
+          type: string
       required:
         - integration_type
         - is_active
