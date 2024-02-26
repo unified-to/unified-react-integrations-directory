@@ -27,7 +27,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'uc',
 	'accounting',
 	'storage',
-	'commerce');
+	'commerce',
+	'payment');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'auth_login',
@@ -39,13 +40,15 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_invoice_write',
 	'accounting_contact_read',
 	'accounting_contact_write',
-	'accounting_payment_read',
-	'accounting_payment_write',
 	'accounting_taxrate_read',
 	'accounting_taxrate_write',
 	'accounting_organization_read',
-	'accounting_payout_read',
-	'accounting_refund_read',
+	'payment_payment_read',
+	'payment_payment_write',
+	'payment_payout_read',
+	'payment_refund_read',
+	'payment_link_read',
+	'payment_link_write',
 	'commerce_item_read',
 	'commerce_item_write',
 	'commerce_collection_read',
@@ -54,8 +57,8 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'commerce_inventory_write',
 	'commerce_location_read',
 	'commerce_location_write',
-	'ats_scorecard_read',
-	'ats_scorecard_write',
+	'ats_activity_read',
+	'ats_activity_write',
 	'ats_application_read',
 	'ats_application_write',
 	'ats_applicationstatus_read',
@@ -68,6 +71,8 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'ats_company_read',
 	'ats_document_read',
 	'ats_document_write',
+	'ats_scorecard_read',
+	'ats_scorecard_write',
 	'crm_company_read',
 	'crm_company_write',
 	'crm_contact_read',
@@ -122,15 +127,17 @@ export const joiObjectType = Joi.string().valid(
 	'accounting_transaction',
 	'accounting_contact',
 	'accounting_invoice',
-	'accounting_payment',
 	'accounting_taxrate',
 	'accounting_organization',
-	'accounting_payout',
-	'accounting_refund',
+	'payment_payment',
+	'payment_link',
+	'payment_payout',
+	'payment_refund',
 	'commerce_item',
 	'commerce_collection',
 	'commerce_inventory',
 	'commerce_location',
+	'ats_activity',
 	'ats_application',
 	'ats_applicationstatus',
 	'ats_candidate',
@@ -180,7 +187,8 @@ export const joiWebhookDataType = Joi.string().valid(
 
 export const joiWebhookEvent = Joi.string().valid(
 	'updated',
-	'created');
+	'created',
+	'deleted');
 
 export const joiApiCall = Joi.object({
 	id: Joi.string().meta( { readonly: true }).optional().description('Unique identifier for this API call'),
@@ -223,6 +231,7 @@ export const joiConnectionAuth = Joi.object({
 	key: Joi.string().optional().allow(null, '').description('the private KEY X.509 certificate in Base64 ASCII format'),
 	refresh_token_expires_in: Joi.number().optional(),
 	refresh_token_expires_date: Joi.date().optional(),
+	dev_api_key: Joi.string().optional().allow(null, ''),
 }).label('ConnectionAuth').description('An authentication object that represents a specific authorized user\'s connection to an integration.');
 
 export const joiConnection = Joi.object({
@@ -411,6 +420,7 @@ export const joiWorkspaceIntegration = Joi.object({
 	key: Joi.string().optional().allow(null, '').description('the private KEY X.509 certificate in Base64 ASCII format'),
 	environment: Joi.string().optional().allow(null, '').description('authentication environment').default('Production'),
 	categories: Joi.array().items(joiIntegrationCategory).optional(),
+	dev_api_key: Joi.string().optional().allow(null, ''),
 }).label('WorkspaceIntegration');
 
 export const joiWorkspace = Joi.object({
