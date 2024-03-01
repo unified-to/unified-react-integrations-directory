@@ -116,7 +116,6 @@ export type TIntegrationPermission = typeof IntegrationPermission[number];
 
 export const IntegrationSupportWebhookType = [
 	'virtual',
-	'none',
 	'native'
 ] as const;
 
