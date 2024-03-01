@@ -337,7 +337,6 @@ export interface IIntegrationSupport {
 	search_domain?: boolean;
 	inbound_fields?: { [path in string]?: TSupportInboundType };
 	outbound_fields?: { [path in string]?: TSupportOutboundType };
-	webhook_type?: TIntegrationSupportWebhookType;
 	webhook_events?: { [path in TWebhookEvent]?: ( TIntegrationSupportWebhookType )[] };
 	list_parent_id?: boolean;
 	list_account_id?: boolean;
