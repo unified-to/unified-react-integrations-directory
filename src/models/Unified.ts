@@ -409,6 +409,7 @@ export interface IPlan {
 	test_stripe_annual_price_id?: string;
 	stripe_overage_price_id?: string;
 	test_stripe_overage_price_id?: string;
+	dedicated_channel?: boolean; // Dedicated Slack/Discord channel
 }
 
 export interface IUser {
