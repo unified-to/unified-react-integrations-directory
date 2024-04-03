@@ -172,6 +172,8 @@ export const ObjectType = [
 	'crm_pipeline',
 	'hris_employee',
 	'hris_group',
+	'hris_payslip',
+	'hris_timeoff',
 	'martech_list',
 	'martech_member',
 	'passthrough',
