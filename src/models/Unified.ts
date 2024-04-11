@@ -348,6 +348,7 @@ export interface IIntegrationSupport {
 	list_interview_id?: boolean;
 	list_list_id?: boolean;
 	list_ticket_id?: boolean;
+	list_collection_id?: boolean;
 }
 
 export interface IInvoice {
