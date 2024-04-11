@@ -350,6 +350,7 @@ export interface IIntegrationSupport {
 	list_ticket_id?: boolean;
 	list_collection_id?: boolean;
 	list_location_id?: boolean;
+	list_item_id?: boolean;
 }
 
 export interface IInvoice {
