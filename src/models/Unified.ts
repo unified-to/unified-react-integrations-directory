@@ -379,7 +379,6 @@ export interface INotification {
 	readonly id?: string; // Unique identifier for this notification object
 	readonly created_at?: string | Date; // The date that this integration object was created
 	readonly workspace_id?: string;
-	title: string; // The title of the notification
 	description?: string; // Longer description of this notification
 	icon?: string; // The icon name
 	link_url?: string; // Link to the event
