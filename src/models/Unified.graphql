@@ -98,6 +98,10 @@ enum ENUM_IntegrationPermission {
 	hris_employee_write
 	hris_group_read
 	hris_group_write
+	hris_payslip_read
+	hris_payslip_write
+	hris_timeoff_read
+	hris_timeoff_write
 	uc_call_read
 	storage_file_read
 	storage_file_write
@@ -106,16 +110,16 @@ enum ENUM_IntegrationPermission {
 
 enum ENUM_IntegrationSupportWebhookType {
 	virtual
-	none
 	native
 }
 
 enum ENUM_IssueStatus {
-	ON_HOLD
+	COMPLETED
 	NEW
+	ROADMAP
 	IN_PROGRESS
+	ON_HOLD
 	VALIDATING
-	COMPLETE
 	REJECTED
 }
 
@@ -157,6 +161,8 @@ enum ENUM_ObjectType {
 	crm_pipeline
 	hris_employee
 	hris_group
+	hris_payslip
+	hris_timeoff
 	martech_list
 	martech_member
 	passthrough
@@ -233,6 +239,21 @@ input Map_string_SupportOutboundType_Input {
 }
 
 type Map_string_SupportOutboundType {
+}
+
+"""
+generated model for Map(IntegrationSupportWebhookType,WebhookEvent)
+"""
+input Map_WebhookEvent_IntegrationSupportWebhookType_Input {
+	updated: ENUM_IntegrationSupportWebhookType!
+	created: ENUM_IntegrationSupportWebhookType!
+	deleted: ENUM_IntegrationSupportWebhookType!
+}
+
+type Map_WebhookEvent_IntegrationSupportWebhookType {
+	updated: ENUM_IntegrationSupportWebhookType!
+	created: ENUM_IntegrationSupportWebhookType!
+	deleted: ENUM_IntegrationSupportWebhookType!
 }
 
 input ApiCall_Input {
@@ -639,13 +660,16 @@ input IntegrationSupport_Input {
 	search_domain: Boolean
 	inbound_fields: Map_string_SupportInboundType
 	outbound_fields: Map_string_SupportOutboundType
-	webhook_type: ENUM_IntegrationSupportWebhookType
-	webhook_events: [ENUM_WebhookEvent]
+	webhook_events: [Map_WebhookEvent_IntegrationSupportWebhookType]
 	list_parent_id: Boolean
 	list_account_id: Boolean
 	list_interview_id: Boolean
 	list_list_id: Boolean
 	list_ticket_id: Boolean
+	list_collection_id: Boolean
+	list_location_id: Boolean
+	list_item_id: Boolean
+	list_type: Boolean
 }
 
 type IntegrationSupport {
@@ -674,13 +698,16 @@ type IntegrationSupport {
 	search_domain: Boolean
 	inbound_fields: Map_string_SupportInboundType
 	outbound_fields: Map_string_SupportOutboundType
-	webhook_type: ENUM_IntegrationSupportWebhookType
-	webhook_events: [ENUM_WebhookEvent]
+	webhook_events: [Map_WebhookEvent_IntegrationSupportWebhookType]
 	list_parent_id: Boolean
 	list_account_id: Boolean
 	list_interview_id: Boolean
 	list_list_id: Boolean
 	list_ticket_id: Boolean
+	list_collection_id: Boolean
+	list_location_id: Boolean
+	list_item_id: Boolean
+	list_type: Boolean
 }
 
 input Invoice_Input {
@@ -763,6 +790,10 @@ Maximum active connections (1+ API call per month)
 	test_stripe_annual_price_id: String
 	stripe_overage_price_id: String
 	test_stripe_overage_price_id: String
+"""
+Dedicated Slack/Discord channel
+"""
+	dedicated_channel: Boolean
 }
 
 type Plan {
@@ -788,6 +819,10 @@ Maximum active connections (1+ API call per month)
 	test_stripe_annual_price_id: String
 	stripe_overage_price_id: String
 	test_stripe_overage_price_id: String
+"""
+Dedicated Slack/Discord channel
+"""
+	dedicated_channel: Boolean
 }
 
 """
@@ -845,6 +880,7 @@ The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes
 	interval: Int
 	event: ENUM_WebhookEvent!
 	fields: String
+	webhook_type: ENUM_IntegrationSupportWebhookType
 	is_healthy: Boolean
 	page_max_limit: Int
 }
@@ -954,6 +990,8 @@ monthly or yearly
 when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 """
 	domain: String
+	event_webhook_url: String
+	event_webhook_events: [ENUM_WorkspaceEventType]
 }
 
 type Workspace {
@@ -1003,6 +1041,8 @@ monthly or yearly
 when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 """
 	domain: String
+	event_webhook_url: String
+	event_webhook_events: [ENUM_WorkspaceEventType]
 }
 
 input WorkspaceIntegration_Input {
