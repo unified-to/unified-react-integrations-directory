@@ -410,6 +410,7 @@ export interface INotification {
 	integration_type?: string;
 	integration_name?: string;
 	sent_at?: string | Date;
+	event?: TWorkspaceEventType;
 }
 
 export interface IPermission {
