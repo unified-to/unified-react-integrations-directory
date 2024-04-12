@@ -387,6 +387,7 @@ export interface INotification {
 	connection_id?: string;
 	integration_type?: string;
 	integration_name?: string;
+	sent_at?: string | Date;
 }
 
 export interface IPermission {
