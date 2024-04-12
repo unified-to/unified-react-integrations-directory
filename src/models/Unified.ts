@@ -515,6 +515,7 @@ export interface IWorkspace {
 	stripe_canceling_at?: string | Date;
 	domain?: string; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 	event_webhook_url?: string;
+	event_webhook_events?: ( TWorkspaceEventType )[];
 }
 
 export interface IWorkspaceIntegration {
