@@ -146,7 +146,23 @@ export const IssueType = [
 export type TIssueType = typeof IssueType[number];
 
 export const WorkspaceEventType = [
-	
+	'USER_CREATED',
+	'USER_DELETED',
+	'CONNECTION_HEALTHY',
+	'CONNECTION_UNHEALTHY',
+	'CONNECTION_CREATED',
+	'CONNECTION_UPDATED',
+	'CONNECTION_DELETED',
+	'CONNECTION_PAUSED',
+	'CONNECTION_UNPAUSED',
+	'INTEGRATION_ACTIVATED',
+	'INTEGRATION_DEACTIVATED',
+	'INTEGRATION_UPDATED',
+	'WORKSPACE_UPDATED',
+	'WORKSPACE_OVER_LIMIT',
+	'WORKSPACE_80PERCENT_LIMIT',
+	'WEBHOOK_CREATED',
+	'WEBHOOK_DELETED'
 ] as const;
 
 export type TWorkspaceEventType = typeof WorkspaceEventType[number];
