@@ -385,6 +385,7 @@ export interface INotification {
 	workspace_name?: string;
 	webhook_id?: string;
 	connection_id?: string;
+	integration_type?: string;
 }
 
 export interface IPermission {
