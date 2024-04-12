@@ -351,6 +351,7 @@ export interface IIntegrationSupport {
 	list_collection_id?: boolean;
 	list_location_id?: boolean;
 	list_item_id?: boolean;
+	list_type?: boolean;
 }
 
 export interface IInvoice {
