@@ -145,6 +145,12 @@ export const IssueType = [
 
 export type TIssueType = typeof IssueType[number];
 
+export const NewEnum14 = [
+	
+] as const;
+
+export type TNewEnum14 = typeof NewEnum14[number];
+
 export const ObjectType = [
 	'accounting_account',
 	'accounting_transaction',
