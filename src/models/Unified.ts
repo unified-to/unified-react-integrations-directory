@@ -514,6 +514,7 @@ export interface IWorkspace {
 	plan_term?: TPlanTerm; // monthly or yearly
 	stripe_canceling_at?: string | Date;
 	domain?: string; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
+	event_webhook_url?: string;
 }
 
 export interface IWorkspaceIntegration {
