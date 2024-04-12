@@ -378,7 +378,7 @@ export interface IIssue {
 export interface INotification {
 	readonly id?: string; // Unique identifier for this notification object
 	readonly created_at?: string | Date; // The date that this integration object was created
-	readonly workspace_id?: string;
+	workspace_id?: string;
 	description?: string; // Longer description of this notification
 	user_id?: string;
 	user_name?: string;
