@@ -383,6 +383,7 @@ export interface INotification {
 	user_id?: string;
 	user_name?: string;
 	workspace_name?: string;
+	webhook_id?: string;
 }
 
 export interface IPermission {
