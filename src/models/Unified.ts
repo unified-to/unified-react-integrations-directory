@@ -382,6 +382,7 @@ export interface INotification {
 	description?: string; // Longer description of this notification
 	user_id?: string;
 	user_name?: string;
+	workspace_name?: string;
 }
 
 export interface IPermission {
