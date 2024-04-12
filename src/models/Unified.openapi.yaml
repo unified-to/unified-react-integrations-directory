@@ -105,6 +105,10 @@ components:
       - hris_employee_write
       - hris_group_read
       - hris_group_write
+      - hris_payslip_read
+      - hris_payslip_write
+      - hris_timeoff_read
+      - hris_timeoff_write
       - uc_call_read
       - storage_file_read
       - storage_file_write
@@ -113,16 +117,16 @@ components:
       type: string
       enum:
       - virtual
-      - none
       - native
     IssueStatus:
       type: string
       enum:
-      - ON_HOLD
+      - COMPLETED
       - NEW
+      - ROADMAP
       - IN_PROGRESS
+      - ON_HOLD
       - VALIDATING
-      - COMPLETE
       - REJECTED
     IssueType:
       type: string
@@ -164,6 +168,8 @@ components:
       - crm_pipeline
       - hris_employee
       - hris_group
+      - hris_payslip
+      - hris_timeoff
       - martech_list
       - martech_member
       - passthrough
@@ -492,10 +498,8 @@ components:
           type: object
           additionalProperties:
             type: string
-        webhook_type:
-          $ref: "#/components/schemas/IntegrationSupportWebhookType"
         webhook_events:
-          $ref: "#/components/schemas/WebhookEvents"
+          $ref: "#/components/schemas/IntegrationSupportWebhookTypes"
         list_parent_id:
           type: boolean
         list_account_id:
@@ -505,6 +509,14 @@ components:
         list_list_id:
           type: boolean
         list_ticket_id:
+          type: boolean
+        list_collection_id:
+          type: boolean
+        list_location_id:
+          type: boolean
+        list_item_id:
+          type: boolean
+        list_type:
           type: boolean
       required:
 
@@ -628,6 +640,9 @@ components:
           type: string
         test_stripe_overage_price_id:
           type: string
+        dedicated_channel:
+          type: boolean
+          description: Dedicated Slack/Discord channel
       required:
         - name
     User:
@@ -803,6 +818,10 @@ components:
         domain:
           type: string
           description: when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
+        event_webhook_url:
+          type: string
+        event_webhook_events:
+          $ref: "#/components/schemas/WorkspaceEventTypes"
       required:
         - name
     WorkspaceIntegration:
@@ -859,11 +878,15 @@ components:
       type: array
       items:
         type: string
-    WebhookEvents:
+    IntegrationSupportWebhookTypes:
       type: array
       items:
-        $ref: "#/components/schemas/WebhookEvent"
+        $ref: "#/components/schemas/IntegrationSupportWebhookType"
     ids:
       type: array
       items:
         type: string
+    WorkspaceEventTypes:
+      type: array
+      items:
+        $ref: "#/components/schemas/WorkspaceEventType"
