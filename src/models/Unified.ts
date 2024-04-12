@@ -380,7 +380,6 @@ export interface INotification {
 	readonly created_at?: string | Date; // The date that this integration object was created
 	readonly workspace_id?: string;
 	description?: string; // Longer description of this notification
-	icon?: string; // The icon name
 	user_id?: string;
 	user_name?: string;
 }
