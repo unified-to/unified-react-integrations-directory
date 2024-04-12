@@ -145,11 +145,11 @@ export const IssueType = [
 
 export type TIssueType = typeof IssueType[number];
 
-export const NewEnum14 = [
+export const WorkspaceEventType = [
 	
 ] as const;
 
-export type TNewEnum14 = typeof NewEnum14[number];
+export type TWorkspaceEventType = typeof WorkspaceEventType[number];
 
 export const ObjectType = [
 	'accounting_account',
