@@ -360,7 +360,7 @@ export interface IIntegrationSupport {
 	list_offset?: boolean;
 	search_twitter?: boolean;
 	search_name?: boolean;
-	search_linkedin_url?: boolean;
+	search_linkedinurl?: boolean;
 	search_email?: boolean;
 	search_domain?: boolean;
 	inbound_fields?: { [path in string]?: TSupportInboundType };
