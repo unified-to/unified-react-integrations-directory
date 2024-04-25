@@ -478,6 +478,7 @@ export interface IWebhook {
 	readonly meta?: unknown;
 	is_healthy?: boolean;
 	page_max_limit?: number;
+	field?: { [path in string]?: string };
 }
 
 export interface IWebhookData {
