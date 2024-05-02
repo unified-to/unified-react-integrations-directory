@@ -32,7 +32,8 @@ export const IntegrationCategory = [
 	'accounting',
 	'storage',
 	'commerce',
-	'payment'
+	'payment',
+	'genai'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
