@@ -114,7 +114,10 @@ export const IntegrationPermission = [
 	'uc_call_read',
 	'storage_file_read',
 	'storage_file_write',
-	'webhook'
+	'webhook',
+	'genai_model_read',
+	'genai_prompt_read',
+	'genai_prompt_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
