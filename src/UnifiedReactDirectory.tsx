@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { TIntegrationCategory } from './models/Unified';
 
 interface IIntegration {
     type: string; // Identifier for this integration
@@ -23,7 +24,10 @@ const CATEGORY_MAP = {
     hris: 'HR',
     accounting: 'Accounting',
     storage: 'Storage',
-} as { [path in string]: string };
+    commerce: 'Commerce',
+    payment: 'Payment',
+    genai: 'GenAI',
+} as { [path in TIntegrationCategory]?: string };
 
 export interface UnifiedDirectoryProps {
     workspaceId?: string;
