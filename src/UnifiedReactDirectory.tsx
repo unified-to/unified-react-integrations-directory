@@ -5,7 +5,7 @@ import { TIntegrationCategory } from './models/Unified';
 interface IIntegration {
     type: string; // Identifier for this integration
     name: string; // The integration's name
-    categories: string[]; // The categories of support solutions that this integration has
+    categories: TIntegrationCategory[]; // The categories of support solutions that this integration has
     logo_url?: string; // The URL of the integration's logo
     color?: string; // button background color for AUTH
     text_color?: string; // text color for AUTH
@@ -14,7 +14,7 @@ interface IIntegration {
 const API_NA_URL = 'https://api.unified.to';
 const API_EU_URL = 'https://api-eu.unified.to';
 
-const CATEGORY_MAP = {
+const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     crm: 'CRM',
     martech: 'Marketing',
     ticketing: 'Ticketing',
@@ -49,8 +49,8 @@ export interface UnifiedDirectoryProps {
 export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const API_URL = props.dc === 'eu' ? API_EU_URL : API_NA_URL;
     const [INTEGRATIONS, setIntegrations] = useState<IIntegration[]>([]);
-    const [CATEGORIES, setCategories] = useState<string[]>([]);
-    const [selectedCategory, setCategory] = useState<string>('');
+    const [CATEGORIES, setCategories] = useState<TIntegrationCategory[]>([]);
+    const [selectedCategory, setCategory] = useState<TIntegrationCategory | ''>('');
     const [loading, setLoading] = useState<boolean>(false);
 
     function filter(integrations: IIntegration[]) {
@@ -122,7 +122,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
 
             console.log('INTEGRATIONS.length', data.length);
 
-            let _CATEGORIES = [] as string[];
+            let _CATEGORIES = [] as TIntegrationCategory[];
             data.forEach((integration) => {
                 integration.categories?.forEach((c) => {
                     if (CATEGORY_MAP[c] && (!props.categories?.length || props.categories.indexOf(c) !== -1)) {
