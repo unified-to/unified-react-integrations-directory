@@ -396,7 +396,7 @@ export interface IIntegrationSupport {
 	list_location_id?: boolean;
 	list_item_id?: boolean;
 	list_type?: boolean;
-	list_channel_id?: boolean;
+	list_space_id?: boolean;
 	list_channel_id?: boolean;
 }
 
