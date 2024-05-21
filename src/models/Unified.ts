@@ -195,7 +195,10 @@ export const ObjectType = [
 	'enrich_company',
 	'storage_file',
 	'genai_model',
-	'genai_prompt'
+	'genai_prompt',
+	'messaging_message_read',
+	'messaging_message_write',
+	'messaging_channel_read'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
