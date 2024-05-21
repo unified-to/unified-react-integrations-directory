@@ -397,6 +397,7 @@ export interface IIntegrationSupport {
 	list_item_id?: boolean;
 	list_type?: boolean;
 	list_channel_id?: boolean;
+	list_channel_id?: boolean;
 }
 
 export interface IInvoice {
