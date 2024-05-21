@@ -122,7 +122,13 @@ export const IntegrationPermission = [
 	'genai_prompt_write',
 	'messaging_message_read',
 	'messaging_message_write',
-	'messaging_channel_read'
+	'messaging_channel_read',
+	'kms_space_read',
+	'kms_space_write',
+	'kms_page_read',
+	'kms_page_write',
+	'kms_comment_read',
+	'kms_comment_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
