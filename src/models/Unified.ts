@@ -197,9 +197,8 @@ export const ObjectType = [
 	'storage_file',
 	'genai_model',
 	'genai_prompt',
-	'messaging_message_read',
-	'messaging_message_write',
-	'messaging_channel_read'
+	'messaging_message',
+	'messaging_channel'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
