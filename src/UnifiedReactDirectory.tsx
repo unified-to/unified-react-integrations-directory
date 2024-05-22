@@ -24,9 +24,11 @@ const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     hris: 'HR',
     accounting: 'Accounting',
     storage: 'Storage',
-    commerce: 'Commerce',
-    payment: 'Payment',
-    genai: 'GenAI',
+    commerce: 'E-Commerce',
+    payment: 'Payments',
+    genai: 'Generative AI',
+    message: 'Messaging',
+    kms: 'KMS',
 } as { [path in TIntegrationCategory]?: string };
 
 export interface UnifiedDirectoryProps {
