@@ -399,6 +399,7 @@ export interface IIntegrationSupport {
 	list_space_id?: boolean;
 	list_channel_id?: boolean;
 	list_link_id?: boolean;
+	raw_objects?: string[]; // objects that we map from in the integration
 }
 
 export interface IInvoice {
