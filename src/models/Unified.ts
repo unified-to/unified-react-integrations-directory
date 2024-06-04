@@ -366,7 +366,7 @@ export interface IIntegrationSupport {
 	outbound_fields?: { [path in string]?: TSupportOutboundType };
 	webhook_events?: { [path in TWebhookEvent]?: ( TIntegrationSupportWebhookType )[] };
 	raw_objects?: string[]; // objects that we map from in the integration
-	from_webhooks?: TSupportInboundType;
+	from_webhook?: TSupportInboundType;
 	list_sort_by_name?: TSupportInboundType;
 	list_sort_by_created_at?: TSupportInboundType;
 	list_sort_by_updated_at?: TSupportInboundType;
