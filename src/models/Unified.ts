@@ -362,7 +362,7 @@ export interface IIntegration {
 
 export interface IIntegrationSupport {
 	methods?: { [path in string]?: boolean };
-	list_sort_by_name?: boolean;
+	list_sort_by_name?: TSupportInboundType;
 	list_sort_by_created_at?: boolean;
 	list_sort_by_updated_at?: boolean;
 	list_updated_gte?: boolean;
