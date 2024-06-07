@@ -215,7 +215,9 @@ export const ObjectType = [
 	'messaging_message',
 	'messaging_channel',
 	'kms_space',
-	'kms_page'
+	'kms_page',
+	'task_project',
+	'task_task'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
