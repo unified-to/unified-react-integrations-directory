@@ -129,7 +129,11 @@ export const IntegrationPermission = [
 	'kms_page_read',
 	'kms_page_write',
 	'kms_comment_read',
-	'kms_comment_write'
+	'kms_comment_write',
+	'task_project_read',
+	'task_project_write',
+	'task_task_read',
+	'task_task_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
