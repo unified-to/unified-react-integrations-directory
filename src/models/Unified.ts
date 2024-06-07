@@ -408,6 +408,7 @@ export interface IIntegrationSupport {
 	list_space_id?: TSupportInboundType;
 	list_channel_id?: TSupportInboundType;
 	list_link_id?: TSupportInboundType;
+	list_project_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
