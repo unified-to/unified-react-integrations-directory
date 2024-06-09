@@ -552,6 +552,7 @@ export interface IWorkspace {
 	event_webhook_url?: string;
 	event_webhook_events?: ( TWorkspaceEventType )[];
 	custom_auth_domain?: string;
+	custom_auth_domain_valid?: boolean;
 }
 
 export interface IWorkspaceIntegration {
