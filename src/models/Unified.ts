@@ -201,6 +201,7 @@ export const ObjectType = [
 	'hris_group',
 	'hris_payslip',
 	'hris_timeoff',
+	'hris_company',
 	'martech_list',
 	'martech_member',
 	'passthrough',
