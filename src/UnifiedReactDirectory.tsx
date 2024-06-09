@@ -29,6 +29,7 @@ const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     genai: 'Generative AI',
     message: 'Messaging',
     kms: 'KMS',
+    task: 'Tasks',
 } as { [path in TIntegrationCategory]?: string };
 
 export interface UnifiedDirectoryProps {
