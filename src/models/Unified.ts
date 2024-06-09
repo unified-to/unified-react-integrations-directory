@@ -35,7 +35,8 @@ export const IntegrationCategory = [
 	'payment',
 	'genai',
 	'messaging',
-	'kms'
+	'kms',
+	'task'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
@@ -128,7 +129,11 @@ export const IntegrationPermission = [
 	'kms_page_read',
 	'kms_page_write',
 	'kms_comment_read',
-	'kms_comment_write'
+	'kms_comment_write',
+	'task_project_read',
+	'task_project_write',
+	'task_task_read',
+	'task_task_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
@@ -210,7 +215,9 @@ export const ObjectType = [
 	'messaging_message',
 	'messaging_channel',
 	'kms_space',
-	'kms_page'
+	'kms_page',
+	'task_project',
+	'task_task'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
@@ -362,43 +369,46 @@ export interface IIntegration {
 
 export interface IIntegrationSupport {
 	methods?: { [path in string]?: boolean };
-	list_sort_by_name?: boolean;
-	list_sort_by_created_at?: boolean;
-	list_sort_by_updated_at?: boolean;
-	list_updated_gte?: boolean;
-	list_user_id?: boolean;
-	list_customer_id?: boolean;
-	list_company_id?: boolean;
-	list_contact_id?: boolean;
-	list_application_id?: boolean;
-	list_candidate_id?: boolean;
-	list_deal_id?: boolean;
-	list_job_id?: boolean;
-	list_invoice_id?: boolean;
-	list_order?: boolean;
-	list_query?: boolean;
-	list_limit?: boolean;
-	list_offset?: boolean;
-	search_twitter?: boolean;
-	search_name?: boolean;
-	search_linkedinurl?: boolean;
-	search_email?: boolean;
-	search_domain?: boolean;
 	inbound_fields?: { [path in string]?: TSupportInboundType };
 	outbound_fields?: { [path in string]?: TSupportOutboundType };
 	webhook_events?: { [path in TWebhookEvent]?: ( TIntegrationSupportWebhookType )[] };
-	list_parent_id?: boolean;
-	list_account_id?: boolean;
-	list_interview_id?: boolean;
-	list_list_id?: boolean;
-	list_ticket_id?: boolean;
-	list_collection_id?: boolean;
-	list_location_id?: boolean;
-	list_item_id?: boolean;
-	list_type?: boolean;
-	list_space_id?: boolean;
-	list_channel_id?: boolean;
-	list_link_id?: boolean;
+	raw_objects?: string[]; // objects that we map from in the integration
+	from_webhook?: TSupportInboundType;
+	list_sort_by_name?: TSupportInboundType;
+	list_sort_by_created_at?: TSupportInboundType;
+	list_sort_by_updated_at?: TSupportInboundType;
+	list_updated_gte?: TSupportInboundType;
+	list_user_id?: TSupportInboundType;
+	list_customer_id?: TSupportInboundType;
+	list_company_id?: TSupportInboundType;
+	list_contact_id?: TSupportInboundType;
+	list_application_id?: TSupportInboundType;
+	list_candidate_id?: TSupportInboundType;
+	list_deal_id?: TSupportInboundType;
+	list_job_id?: TSupportInboundType;
+	list_invoice_id?: TSupportInboundType;
+	list_order?: TSupportInboundType;
+	list_query?: TSupportInboundType;
+	list_limit?: TSupportInboundType;
+	list_offset?: TSupportInboundType;
+	search_twitter?: TSupportInboundType;
+	search_name?: TSupportInboundType;
+	search_linkedinurl?: TSupportInboundType;
+	search_email?: TSupportInboundType;
+	search_domain?: TSupportInboundType;
+	list_parent_id?: TSupportInboundType;
+	list_account_id?: TSupportInboundType;
+	list_interview_id?: TSupportInboundType;
+	list_list_id?: TSupportInboundType;
+	list_ticket_id?: TSupportInboundType;
+	list_collection_id?: TSupportInboundType;
+	list_location_id?: TSupportInboundType;
+	list_item_id?: TSupportInboundType;
+	list_type?: TSupportInboundType;
+	list_space_id?: TSupportInboundType;
+	list_channel_id?: TSupportInboundType;
+	list_link_id?: TSupportInboundType;
+	list_project_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
@@ -541,6 +551,8 @@ export interface IWorkspace {
 	domain?: string; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 	event_webhook_url?: string;
 	event_webhook_events?: ( TWorkspaceEventType )[];
+	custom_auth_domain?: string;
+	custom_auth_domain_valid?: boolean;
 }
 
 export interface IWorkspaceIntegration {
