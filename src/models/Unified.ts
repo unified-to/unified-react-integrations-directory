@@ -47,6 +47,8 @@ export const IntegrationPermission = [
 	'accounting_account_write',
 	'accounting_transaction_read',
 	'accounting_transaction_write',
+	'accounting_journal_read',
+	'accounting_journal_write',
 	'accounting_invoice_read',
 	'accounting_invoice_write',
 	'accounting_contact_read',
