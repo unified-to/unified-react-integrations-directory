@@ -170,6 +170,7 @@ export type TIssueType = typeof IssueType[number];
 export const ObjectType = [
 	'accounting_account',
 	'accounting_transaction',
+	'accounting_journal',
 	'accounting_contact',
 	'accounting_invoice',
 	'accounting_taxrate',
