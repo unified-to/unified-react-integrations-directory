@@ -434,7 +434,7 @@ export interface IIssue {
 	status: TIssueStatus;
 	url?: string;
 	workspace_id: string;
-	type: string[];
+	type?: string[];
 	resolution_time?: number;
 	ticket_ref: string;
 }
