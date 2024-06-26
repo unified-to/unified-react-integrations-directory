@@ -161,14 +161,6 @@ export const IssueStatus = [
 
 export type TIssueStatus = typeof IssueStatus[number];
 
-export const IssueType = [
-	'BUG',
-	'FEATURE_REQUEST',
-	'INQUIRY'
-] as const;
-
-export type TIssueType = typeof IssueType[number];
-
 export const ObjectType = [
 	'accounting_account',
 	'accounting_transaction',
