@@ -436,6 +436,7 @@ export interface IIssue {
 	workspace_id: string;
 	type: TIssueType;
 	resolution_time?: number;
+	ticket_ref: string;
 }
 
 export interface INotification {
