@@ -521,6 +521,7 @@ export interface IWebhookData {
 	nonce: string; // random string
 	sig: string; // HMAC-SHA1(workspace.secret, data + nonce)
 	type: TWebhookDataType;
+	env?: string; // The connection’s environment
 }
 
 export interface IWorkspace {
