@@ -1,14 +1,30 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TIntegrationCategory } from './models/Unified';
 
 interface IIntegration {
-    type: string; // Identifier for this integration
-    name: string; // The integration's name
-    categories: TIntegrationCategory[]; // The categories of support solutions that this integration has
-    logo_url?: string; // The URL of the integration's logo
-    color?: string; // button background color for AUTH
-    text_color?: string; // text color for AUTH
+    type: string;
+    name: string;
+    categories: TIntegrationCategory[];
+    logo_url?: string;
+    color?: string;
+    text_color?: string;
+}
+
+interface UnifiedDirectoryProps {
+    workspaceId?: string;
+    workspace_id?: string;
+    categories?: string[];
+    external_xref?: string;
+    state?: string;
+    scopes?: string[];
+    success_redirect?: string;
+    failure_redirect?: string;
+    nostyle?: boolean;
+    environment?: string;
+    lang?: string;
+    notabs?: boolean;
+    nocategories?: boolean;
+    dc?: 'us' | 'eu';
 }
 
 const API_NA_URL = 'https://api.unified.to';
@@ -27,27 +43,10 @@ const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     commerce: 'E-Commerce',
     payment: 'Payments',
     genai: 'Generative AI',
-    message: 'Messaging',
+    messaging: 'Messaging',
     kms: 'KMS',
     task: 'Tasks',
-} as { [path in TIntegrationCategory]?: string };
-
-export interface UnifiedDirectoryProps {
-    workspaceId?: string;
-    workspace_id?: string;
-    categories?: string[];
-    external_xref?: string;
-    state?: string;
-    scopes?: string[];
-    success_redirect?: string;
-    failure_redirect?: string;
-    nostyle?: boolean;
-    environment?: string;
-    lang?: string;
-    notabs?: boolean;
-    nocategories?: boolean;
-    dc?: 'us' | 'eu'; // which data-center
-}
+};
 
 export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const API_URL = props.dc === 'eu' ? API_EU_URL : API_NA_URL;
@@ -56,6 +55,35 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const [selectedCategory, setCategory] = useState<TIntegrationCategory | ''>('');
     const [loading, setLoading] = useState<boolean>(false);
 
+    useEffect(() => {
+        if (!loading && !INTEGRATIONS.length) {
+            setLoading(true);
+            load_data().then((data: IIntegration[]) => {
+                data = data.filter((i) => !(i.categories.length === 1 && i.categories[0] === 'auth')) || [];
+                setIntegrations(data);
+
+                let _CATEGORIES = [] as TIntegrationCategory[];
+                data.forEach((integration) => {
+                    integration.categories?.forEach((c) => {
+                        if (CATEGORY_MAP[c] && (!props.categories?.length || props.categories.indexOf(c) !== -1)) {
+                            _CATEGORIES.push(c);
+                        }
+                    });
+                });
+
+                _CATEGORIES = [...new Set(_CATEGORIES)];
+
+                if (_CATEGORIES.length === 1) {
+                    _CATEGORIES = [];
+                } else {
+                    _CATEGORIES = _CATEGORIES.sort((a, b) => a.localeCompare(b));
+                }
+                setCategories(_CATEGORIES);
+                setLoading(false);
+            });
+        }
+    }, [loading, INTEGRATIONS, props.categories]);
+
     function filter(integrations: IIntegration[]) {
         return integrations?.filter((integration) => !selectedCategory || integration.categories.indexOf(selectedCategory) !== -1) || [];
     }
@@ -63,7 +91,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     function unified_get_auth_url(integration: IIntegration) {
         let url = `${API_URL}/unified/integration/auth/${props.workspaceId || props.workspace_id}/${integration.type}?redirect=1`;
 
-        if (props?.external_xref) {
+        if (props.external_xref) {
             url += `&external_xref=${encodeURIComponent(props.external_xref)}`;
         }
         if (props.state) {
@@ -79,16 +107,9 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
             url += `&lang=${props.lang}`;
         }
 
-        // if (this.success_redirect) {
-        url += `&success_redirect=${encodeURIComponent(
-            props.success_redirect || '' //|| window.location.href
-        )}`;
-        // }
-        // if (this.failure_redirect) {
-        url += `&failure_redirect=${encodeURIComponent(
-            props.failure_redirect || '' //|| window.location.href
-        )}`;
-        // }
+        url += `&success_redirect=${encodeURIComponent(props.success_redirect || '')}`;
+        url += `&failure_redirect=${encodeURIComponent(props.failure_redirect || '')}`;
+
         return url;
     }
 
@@ -96,8 +117,6 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
         const url = `${API_URL}/unified/integration/workspace/${props.workspaceId || props.workspace_id}?summary=1${
             props.categories?.length ? '&categories=' + props.categories.join(',') : ''
         }${props.environment === 'Production' || !props.environment ? '' : '&env=' + encodeURIComponent(props.environment)}`;
-
-        console.log('url', url);
 
         try {
             const response = await fetch(url, {
@@ -112,48 +131,16 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
             }
 
             return response.json();
-        } catch {
+        } catch (error) {
+            console.error('Failed to load data:', error);
             return [];
         }
-    }
-
-    if (!loading && !INTEGRATIONS?.length) {
-        setLoading(true);
-        load_data().then((data: IIntegration[]) => {
-            data = data.filter((i) => !(i.categories.length === 1 && i.categories[0] === 'auth')) || [];
-            setIntegrations(data);
-
-            console.log('INTEGRATIONS.length', data.length);
-
-            let _CATEGORIES = [] as TIntegrationCategory[];
-            data.forEach((integration) => {
-                integration.categories?.forEach((c) => {
-                    if (CATEGORY_MAP[c] && (!props.categories?.length || props.categories.indexOf(c) !== -1)) {
-                        _CATEGORIES!.push(c);
-                    }
-                });
-            });
-
-            _CATEGORIES = [...new Set(_CATEGORIES)];
-
-            if (_CATEGORIES.length === 1) {
-                _CATEGORIES = [];
-            } else {
-                _CATEGORIES = _CATEGORIES.sort(function (a, b) {
-                    return a.localeCompare(b);
-                });
-            }
-            console.log('categories', _CATEGORIES);
-            setCategories(_CATEGORIES);
-
-            setLoading(false);
-        });
     }
 
     return (
         <div className="unified">
             {!props.nostyle && <style>@import url(https://api.unified.to/docs/unified.css)</style>}
-            {!props.notabs && CATEGORIES && CATEGORIES?.length > 0 && filter(INTEGRATIONS).length && (
+            {!props.notabs && CATEGORIES && CATEGORIES.length > 0 && filter(INTEGRATIONS).length && (
                 <div className="unified_menu">
                     <button className={`unified_button unified_button_all ${selectedCategory ? '' : ' active'}`} onClick={() => setCategory('')}>
                         All
