@@ -82,7 +82,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
                 setLoading(false);
             });
         }
-    }, [loading, INTEGRATIONS, props.categories]);
+    }, [props.categories]);
 
     function filter(integrations: IIntegration[]) {
         return integrations?.filter((integration) => !selectedCategory || integration.categories.indexOf(selectedCategory) !== -1) || [];
