@@ -118,6 +118,8 @@ export const IntegrationPermission = [
 	'hris_timeoff_write',
 	'hris_company_read',
 	'hris_company_write',
+	'hris_location_read',
+	'hris_location_write',
 	'uc_call_read',
 	'storage_file_read',
 	'storage_file_write',
