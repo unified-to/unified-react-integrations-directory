@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkspaceEventType = exports.WebhookEvent = exports.WebhookDataType = exports.SupportOutboundType = exports.SupportInboundType = exports.PlanTerm = exports.ObjectType = exports.IssueType = exports.IssueStatus = exports.IntegrationSupportWebhookType = exports.IntegrationPermission = exports.IntegrationCategory = exports.IntegrationAuthType = exports.ApiCallType = void 0;
+exports.WorkspaceEventType = exports.WebhookEvent = exports.WebhookDataType = exports.SupportOutboundType = exports.SupportInboundType = exports.PlanTerm = exports.ObjectType = exports.IssueStatus = exports.IntegrationSupportWebhookType = exports.IntegrationPermission = exports.IntegrationCategory = exports.IntegrationAuthType = exports.ApiCallType = void 0;
 /*
 Unified
 ==============
@@ -30,7 +30,10 @@ exports.IntegrationCategory = [
     'storage',
     'commerce',
     'payment',
-    'genai'
+    'genai',
+    'messaging',
+    'kms',
+    'task'
 ];
 exports.IntegrationPermission = [
     'auth_login',
@@ -38,6 +41,8 @@ exports.IntegrationPermission = [
     'accounting_account_write',
     'accounting_transaction_read',
     'accounting_transaction_write',
+    'accounting_journal_read',
+    'accounting_journal_write',
     'accounting_invoice_read',
     'accounting_invoice_write',
     'accounting_contact_read',
@@ -105,13 +110,30 @@ exports.IntegrationPermission = [
     'hris_payslip_write',
     'hris_timeoff_read',
     'hris_timeoff_write',
+    'hris_company_read',
+    'hris_company_write',
+    'hris_location_read',
+    'hris_location_write',
     'uc_call_read',
     'storage_file_read',
     'storage_file_write',
     'webhook',
     'genai_model_read',
     'genai_prompt_read',
-    'genai_prompt_write'
+    'genai_prompt_write',
+    'messaging_message_read',
+    'messaging_message_write',
+    'messaging_channel_read',
+    'kms_space_read',
+    'kms_space_write',
+    'kms_page_read',
+    'kms_page_write',
+    'kms_comment_read',
+    'kms_comment_write',
+    'task_project_read',
+    'task_project_write',
+    'task_task_read',
+    'task_task_write'
 ];
 exports.IntegrationSupportWebhookType = [
     'virtual',
@@ -126,14 +148,10 @@ exports.IssueStatus = [
     'VALIDATING',
     'REJECTED'
 ];
-exports.IssueType = [
-    'BUG',
-    'FEATURE_REQUEST',
-    'INQUIRY'
-];
 exports.ObjectType = [
     'accounting_account',
     'accounting_transaction',
+    'accounting_journal',
     'accounting_contact',
     'accounting_invoice',
     'accounting_taxrate',
@@ -165,6 +183,8 @@ exports.ObjectType = [
     'hris_group',
     'hris_payslip',
     'hris_timeoff',
+    'hris_company',
+    'hris_location',
     'martech_list',
     'martech_member',
     'passthrough',
@@ -177,7 +197,13 @@ exports.ObjectType = [
     'enrich_company',
     'storage_file',
     'genai_model',
-    'genai_prompt'
+    'genai_prompt',
+    'messaging_message',
+    'messaging_channel',
+    'kms_space',
+    'kms_page',
+    'task_project',
+    'task_task'
 ];
 exports.PlanTerm = [
     'monthly',

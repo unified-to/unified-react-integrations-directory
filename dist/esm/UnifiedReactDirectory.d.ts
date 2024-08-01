@@ -1,5 +1,5 @@
 /// <reference types="react" />
-export interface UnifiedDirectoryProps {
+interface UnifiedDirectoryProps {
     workspaceId?: string;
     workspace_id?: string;
     categories?: string[];
@@ -16,3 +16,4 @@ export interface UnifiedDirectoryProps {
     dc?: 'us' | 'eu';
 }
 export default function UnifiedDirectory(props: UnifiedDirectoryProps): JSX.Element;
+export {};

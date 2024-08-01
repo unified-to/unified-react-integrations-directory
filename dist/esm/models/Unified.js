@@ -27,7 +27,10 @@ export const IntegrationCategory = [
     'storage',
     'commerce',
     'payment',
-    'genai'
+    'genai',
+    'messaging',
+    'kms',
+    'task'
 ];
 export const IntegrationPermission = [
     'auth_login',
@@ -35,6 +38,8 @@ export const IntegrationPermission = [
     'accounting_account_write',
     'accounting_transaction_read',
     'accounting_transaction_write',
+    'accounting_journal_read',
+    'accounting_journal_write',
     'accounting_invoice_read',
     'accounting_invoice_write',
     'accounting_contact_read',
@@ -102,13 +107,30 @@ export const IntegrationPermission = [
     'hris_payslip_write',
     'hris_timeoff_read',
     'hris_timeoff_write',
+    'hris_company_read',
+    'hris_company_write',
+    'hris_location_read',
+    'hris_location_write',
     'uc_call_read',
     'storage_file_read',
     'storage_file_write',
     'webhook',
     'genai_model_read',
     'genai_prompt_read',
-    'genai_prompt_write'
+    'genai_prompt_write',
+    'messaging_message_read',
+    'messaging_message_write',
+    'messaging_channel_read',
+    'kms_space_read',
+    'kms_space_write',
+    'kms_page_read',
+    'kms_page_write',
+    'kms_comment_read',
+    'kms_comment_write',
+    'task_project_read',
+    'task_project_write',
+    'task_task_read',
+    'task_task_write'
 ];
 export const IntegrationSupportWebhookType = [
     'virtual',
@@ -123,14 +145,10 @@ export const IssueStatus = [
     'VALIDATING',
     'REJECTED'
 ];
-export const IssueType = [
-    'BUG',
-    'FEATURE_REQUEST',
-    'INQUIRY'
-];
 export const ObjectType = [
     'accounting_account',
     'accounting_transaction',
+    'accounting_journal',
     'accounting_contact',
     'accounting_invoice',
     'accounting_taxrate',
@@ -162,6 +180,8 @@ export const ObjectType = [
     'hris_group',
     'hris_payslip',
     'hris_timeoff',
+    'hris_company',
+    'hris_location',
     'martech_list',
     'martech_member',
     'passthrough',
@@ -174,7 +194,13 @@ export const ObjectType = [
     'enrich_company',
     'storage_file',
     'genai_model',
-    'genai_prompt'
+    'genai_prompt',
+    'messaging_message',
+    'messaging_channel',
+    'kms_space',
+    'kms_page',
+    'task_project',
+    'task_task'
 ];
 export const PlanTerm = [
     'monthly',
