@@ -434,6 +434,7 @@ export interface IIssue {
 	type?: string[];
 	resolution_time?: number;
 	ticket_ref: string;
+	size?: number;
 }
 
 export interface INotification {
