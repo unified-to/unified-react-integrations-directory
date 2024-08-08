@@ -435,6 +435,7 @@ export interface IIssue {
 	resolution_time?: number;
 	ticket_ref: string;
 	size?: number;
+	importance?: number; // 1-5, 1 is lowest
 }
 
 export interface INotification {
