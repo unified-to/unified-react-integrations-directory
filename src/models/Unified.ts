@@ -434,7 +434,7 @@ export interface IIssue {
 	type?: string[];
 	resolution_time?: number;
 	ticket_ref: string;
-	size?: number;
+	size?: number; // 1-5, 1 is lowest
 	importance?: number; // 1-5, 1 is lowest
 }
 
