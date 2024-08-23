@@ -357,7 +357,7 @@ export interface IIntegration {
 	categories: ( TIntegrationCategory )[]; // The categories of support solutions that this integration has
 	api_docs_url?: string; // The URL of the integration's API documentation
 	logo_url?: string; // The URL of the integration's logo
-	in_progress: boolean; // If this integration is not yet available as it is currently being built by unified.to
+	in_progress?: boolean; // If this integration is not yet available as it is currently being built by unified.to
 	color?: string; // button background color for AUTH
 	text_color?: string; // text color for AUTH
 	fa_icon?: string; // font-awesome icon
