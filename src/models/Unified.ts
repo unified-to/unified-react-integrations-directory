@@ -287,8 +287,8 @@ export const WorkspaceEventType = [
 export type TWorkspaceEventType = typeof WorkspaceEventType[number];
 
 export interface IApiCall {
-	readonly id?: string; // Unique identifier for this API call
-	readonly created_at?: string | Date; // The date that this object was created
+	id?: string; // Unique identifier for this API call
+	created_at?: string | Date; // The date that this object was created
 	workspace_id: string;
 	integration_type: string; // The integration type
 	external_xref?: string; // your customer's user ID
@@ -305,10 +305,10 @@ export interface IApiCall {
 }
 
 export interface IConnection {
-	readonly id?: string; // Unique identifier for this integration object
-	readonly created_at?: string | Date; // The date that this integration object was created
-	readonly updated_at?: string | Date; // The last date that this integration object was updated
-	readonly workspace_id: string;
+	id?: string; // Unique identifier for this integration object
+	created_at?: string | Date; // The date that this integration object was created
+	updated_at?: string | Date; // The last date that this integration object was updated
+	workspace_id: string;
 	integration_type: string; // The integration type
 	external_xref?: string; // customer's user ID
 	permissions: ( TIntegrationPermission )[];
@@ -439,8 +439,8 @@ export interface IIssue {
 }
 
 export interface INotification {
-	readonly id?: string; // Unique identifier for this notification object
-	readonly created_at?: string | Date; // The date that this integration object was created
+	id?: string; // Unique identifier for this notification object
+	created_at?: string | Date; // The date that this integration object was created
 	workspace_id?: string;
 	description?: string; // Longer description of this notification
 	user_id?: string;
@@ -455,17 +455,17 @@ export interface INotification {
 }
 
 export interface IPermission {
-	readonly can_create_org: boolean;
-	readonly can_leave_org: boolean;
-	readonly can_downgrade: boolean;
-	readonly can_invite: boolean;
-	readonly can_update_org: boolean;
-	readonly can_add_and_remove_admin: boolean;
-	readonly can_accept_invite: boolean;
-	readonly can_reject_invite: boolean;
-	readonly can_pay: boolean;
-	readonly can_get_invoices: boolean;
-	readonly is_admin: boolean;
+	can_create_org: boolean;
+	can_leave_org: boolean;
+	can_downgrade: boolean;
+	can_invite: boolean;
+	can_update_org: boolean;
+	can_add_and_remove_admin: boolean;
+	can_accept_invite: boolean;
+	can_reject_invite: boolean;
+	can_pay: boolean;
+	can_get_invoices: boolean;
+	is_admin: boolean;
 }
 
 export interface IPlan {
@@ -489,11 +489,11 @@ export interface IPlan {
 }
 
 export interface IUser {
-	readonly id?: string;
-	readonly created_at?: string | Date;
-	readonly updated_at?: string | Date;
+	id?: string;
+	created_at?: string | Date;
+	updated_at?: string | Date;
 	name: string;
-	readonly email: string;
+	email: string;
 	workspace_id: string; // The current workspace
 	workspace_ids: string[]; // A list of all of the user's workspaces
 	environment?: string;
@@ -501,22 +501,22 @@ export interface IUser {
 }
 
 export interface IWebhook {
-	readonly id?: string;
-	readonly created_at?: string | Date;
+	id?: string;
+	created_at?: string | Date;
 	updated_at?: string | Date;
-	readonly workspace_id?: string;
+	workspace_id?: string;
 	connection_id: string;
 	hook_url: string; // The URL of the webhook
 	object_type: TObjectType; // The object to return (eg. CRM "contact")
 	interval?: number; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
-	readonly checked_at: string | Date; // The last date/time that a check was done on this object
-	readonly integration_type: string;
-	readonly environment?: string;
+	checked_at: string | Date; // The last date/time that a check was done on this object
+	integration_type: string;
+	environment?: string;
 	event: TWebhookEvent;
-	readonly runs?: string[]; // An array of the most revent virtual webhook runs
+	runs?: string[]; // An array of the most revent virtual webhook runs
 	fields?: string;
 	webhook_type?: TIntegrationSupportWebhookType;
-	readonly meta?: unknown;
+	meta?: unknown;
 	is_healthy?: boolean;
 	page_max_limit?: number;
 	filters?: { [path in string]?: string };
@@ -531,19 +531,19 @@ export interface IWebhookData {
 }
 
 export interface IWorkspace {
-	readonly id?: string;
-	readonly created_at?: string | Date;
-	readonly updated_at?: string | Date;
+	id?: string;
+	created_at?: string | Date;
+	updated_at?: string | Date;
 	name: string;
-	readonly admin_ids?: string[]; // Only these users can add additional admins and invite other users
-	readonly invited_emails?: string[];
-	readonly pay_user_id?: string;
-	readonly plan?: string;
-	readonly stripe_customer?: string;
-	readonly stripe_subscriptions?: string[];
-	readonly stripe_prices?: string[];
-	readonly secret?: string; // Workspace API secret
-	readonly integrations?: IWorkspaceIntegration[]; // Workspace active integrations
+	admin_ids?: string[]; // Only these users can add additional admins and invite other users
+	invited_emails?: string[];
+	pay_user_id?: string;
+	plan?: string;
+	stripe_customer?: string;
+	stripe_subscriptions?: string[];
+	stripe_prices?: string[];
+	secret?: string; // Workspace API secret
+	integrations?: IWorkspaceIntegration[]; // Workspace active integrations
 	ip_addresses?: string[]; // a list of IP addresses that are allowed to access this workspace
 	aws_region?: string;
 	aws_key?: string;
