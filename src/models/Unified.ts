@@ -289,6 +289,7 @@ export type TWorkspaceEventType = typeof WorkspaceEventType[number];
 export interface IApiCall {
 	id?: string; // Unique identifier for this API call
 	created_at?: string | Date; // The date that this object was created
+	connection_id?: string;
 	workspace_id: string;
 	integration_type: string; // The integration type
 	external_xref?: string; // your customer's user ID
@@ -297,7 +298,6 @@ export interface IApiCall {
 	size?: number; // The size of the response
 	status: string; // The resulting HTTP status code (200)
 	error?: string; // The error description (if status code is >= 400)
-	connection_id?: string;
 	ip_address?: string;
 	type: TApiCallType; // The type of API Call being logged
 	method: string;
