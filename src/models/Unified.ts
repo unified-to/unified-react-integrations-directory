@@ -413,6 +413,7 @@ export interface IIntegrationSupport {
 	list_link_id?: TSupportInboundType;
 	list_project_id?: TSupportInboundType;
 	list_item_variant_id?: TSupportInboundType;
+	list_raw_fields?: TSupportInboundType;
 }
 
 export interface IInvoice {
