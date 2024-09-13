@@ -302,6 +302,7 @@ export interface IApiCall {
 	type: TApiCallType; // The type of API Call being logged
 	method: string;
 	environment?: string;
+	webhook_id?: string;
 }
 
 export interface IConnection {
