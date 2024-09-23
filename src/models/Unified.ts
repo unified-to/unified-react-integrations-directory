@@ -303,6 +303,7 @@ export interface IApiCall {
 	method: string;
 	environment?: string;
 	webhook_id?: string;
+	is_billable?: boolean;
 }
 
 export interface IConnection {
