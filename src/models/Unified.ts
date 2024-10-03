@@ -224,7 +224,9 @@ export const ObjectType = [
 	'kms_space',
 	'kms_page',
 	'task_project',
-	'task_task'
+	'task_task',
+	'scim_users',
+	'scim_groups'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
