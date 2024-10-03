@@ -140,7 +140,11 @@ export const IntegrationPermission = [
 	'task_project_read',
 	'task_project_write',
 	'task_task_read',
-	'task_task_write'
+	'task_task_write',
+	'scim_users_read',
+	'scim_users_write',
+	'scim_groups_read',
+	'scim_groups_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
