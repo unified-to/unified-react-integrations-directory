@@ -36,7 +36,8 @@ export const IntegrationCategory = [
 	'genai',
 	'messaging',
 	'kms',
-	'task'
+	'task',
+	'scim'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
