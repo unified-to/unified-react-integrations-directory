@@ -177,6 +177,7 @@ export const ObjectType = [
 	'accounting_invoice',
 	'accounting_taxrate',
 	'accounting_organization',
+	'accounting_order',
 	'payment_payment',
 	'payment_link',
 	'payment_payout',
