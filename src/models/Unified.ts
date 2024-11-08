@@ -238,7 +238,11 @@ export const ObjectType = [
 	'task_project',
 	'task_task',
 	'scim_users',
-	'scim_groups'
+	'scim_groups',
+	'lms_course',
+	'lms_class',
+	'lms_student',
+	'lms_instructor'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
