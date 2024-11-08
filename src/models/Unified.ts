@@ -147,7 +147,15 @@ export const IntegrationPermission = [
 	'scim_users_read',
 	'scim_users_write',
 	'scim_groups_read',
-	'scim_groups_write'
+	'scim_groups_write',
+	'lms_course_read',
+	'lms_course_write',
+	'lms_class_read',
+	'lms_class_write',
+	'lms_student_read',
+	'lms_student_write',
+	'lms_instructor_read',
+	'lms_instructor_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
