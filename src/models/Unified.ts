@@ -439,6 +439,7 @@ export interface IIntegrationSupport {
 	list_item_variant_id?: TSupportInboundType;
 	list_raw_fields?: TSupportInboundType;
 	list_course_id?: TSupportInboundType;
+	list_student_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
