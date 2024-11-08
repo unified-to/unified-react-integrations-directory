@@ -438,6 +438,7 @@ export interface IIntegrationSupport {
 	list_project_id?: TSupportInboundType;
 	list_item_variant_id?: TSupportInboundType;
 	list_raw_fields?: TSupportInboundType;
+	list_course_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
