@@ -165,7 +165,7 @@ export const IntegrationPermission = [
 	'repo_branch_write',
 	'repo_commit_read',
 	'repo_commit_write',
-	'repo_pullrequest_read'',
+	'repo_pullrequest_read',
 	'repo_pullrequest_write'
 ] as const;
 
