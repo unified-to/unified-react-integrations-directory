@@ -253,7 +253,13 @@ export const ObjectType = [
 	'lms_course',
 	'lms_class',
 	'lms_student',
-	'lms_instructor'
+	'lms_instructor',
+	'scim_groups',
+	'repo_organization',
+	'repo_repository',
+	'repo_branch',
+	'repo_commit',
+	'repo_pullrequest'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
