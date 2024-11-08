@@ -156,7 +156,17 @@ export const IntegrationPermission = [
 	'lms_student_read',
 	'lms_student_write',
 	'lms_instructor_read',
-	'lms_instructor_write'
+	'lms_instructor_write',
+	'repo_organization_read',
+	'repo_organization_write',
+	'repo_repository_read',
+	'repo_repository_write',
+	'repo_branch_read',
+	'repo_branch_write',
+	'repo_commit_read',
+	'repo_commit_write',
+	'repo_pullrequest_read'',
+	'repo_pullrequest_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
