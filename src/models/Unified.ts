@@ -441,6 +441,7 @@ export interface IIntegrationSupport {
 	list_course_id?: TSupportInboundType;
 	list_student_id?: TSupportInboundType;
 	list_instructor_id?: TSupportInboundType;
+	list_class_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
