@@ -37,7 +37,8 @@ export const IntegrationCategory = [
 	'messaging',
 	'kms',
 	'task',
-	'scim'
+	'scim',
+	'repo'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
