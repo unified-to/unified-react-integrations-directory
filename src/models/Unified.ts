@@ -331,7 +331,6 @@ export interface IConnection {
 	environment?: string;
 	last_healthy_at?: string | Date;
 	last_unhealthy_at?: string | Date;
-	cursors_cache?: unknown[];
 }
 
 export interface IConnectionAuth {
