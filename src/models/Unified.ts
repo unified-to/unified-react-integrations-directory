@@ -470,7 +470,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_deal_id?: TSupportInboundType;
 	virtual_webhook_company_id?: TSupportInboundType;
 	virtual_webhook_user_id?: TSupportInboundType;
-	virtual_webhook_type?: IIntegrationSupport;
+	virtual_webhook_type?: TSupportInboundType;
 	virtual_webhook_ticket_id?: IIntegrationSupport;
 	native_webhook_parent_id?: IIntegrationSupport;
 	native_webhook_project_id?: IIntegrationSupport;
