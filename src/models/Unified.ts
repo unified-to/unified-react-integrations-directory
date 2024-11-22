@@ -210,6 +210,7 @@ export const ObjectType = [
 	'commerce_collection',
 	'commerce_inventory',
 	'commerce_location',
+	'commerce_metadata',
 	'ats_activity',
 	'ats_application',
 	'ats_applicationstatus',
