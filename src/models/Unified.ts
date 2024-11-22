@@ -463,6 +463,7 @@ export interface IIntegrationSupport {
 	list_instructor_id?: TSupportInboundType;
 	list_class_id?: TSupportInboundType;
 	virtual_webhook_updated_gte?: TSupportInboundType;
+	virtual_webhook_limit?: IIntegrationSupport;
 }
 
 export interface IInvoice {
