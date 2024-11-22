@@ -473,7 +473,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_type?: TSupportInboundType;
 	virtual_webhook_ticket_id?: TSupportInboundType;
 	native_webhook_parent_id?: TSupportInboundType;
-	native_webhook_project_id?: IIntegrationSupport;
+	native_webhook_project_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
