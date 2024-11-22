@@ -471,6 +471,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_company_id?: IIntegrationSupport;
 	virtual_webhook_user_id?: IIntegrationSupport;
 	virtual_webhook_type?: IIntegrationSupport;
+	virtual_webhook_ticket_id?: IIntegrationSupport;
 }
 
 export interface IInvoice {
