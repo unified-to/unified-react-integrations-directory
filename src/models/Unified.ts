@@ -464,7 +464,7 @@ export interface IIntegrationSupport {
 	list_class_id?: TSupportInboundType;
 	virtual_webhook_updated_gte?: TSupportInboundType;
 	virtual_webhook_limit?: TSupportInboundType;
-	virtual_webhook_channel_id?: IIntegrationSupport;
+	virtual_webhook_channel_id?: TSupportInboundType;
 	virtual_webhook_parent_id?: IIntegrationSupport;
 	virtual_webhook_contact_id?: IIntegrationSupport;
 	virtual_webhook_deal_id?: IIntegrationSupport;
