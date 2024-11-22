@@ -466,6 +466,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_limit?: IIntegrationSupport;
 	virtual_webhook_channel_id?: IIntegrationSupport;
 	virtual_webhook_parent_id?: IIntegrationSupport;
+	virtual_webhook_contact_id?: IIntegrationSupport;
 }
 
 export interface IInvoice {
