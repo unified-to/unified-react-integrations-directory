@@ -458,6 +458,7 @@ export interface IIntegrationSupport {
 	list_project_id?: TSupportInboundType;
 	list_item_variant_id?: TSupportInboundType;
 	list_raw_fields?: TSupportInboundType;
+	list_root_id?: TSupportInboundType;
 	list_course_id?: TSupportInboundType;
 	list_student_id?: TSupportInboundType;
 	list_instructor_id?: TSupportInboundType;
@@ -474,7 +475,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_ticket_id?: TSupportInboundType;
 	native_webhook_parent_id?: TSupportInboundType;
 	native_webhook_project_id?: TSupportInboundType;
-	list_root_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
