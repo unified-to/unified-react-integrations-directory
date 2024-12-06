@@ -447,6 +447,7 @@ export interface IIntegrationSupport {
 	list_account_id?: TSupportInboundType;
 	list_interview_id?: TSupportInboundType;
 	list_list_id?: TSupportInboundType;
+	list_root_id?: TSupportInboundType;
 	list_ticket_id?: TSupportInboundType;
 	list_collection_id?: TSupportInboundType;
 	list_location_id?: TSupportInboundType;
@@ -458,7 +459,6 @@ export interface IIntegrationSupport {
 	list_project_id?: TSupportInboundType;
 	list_item_variant_id?: TSupportInboundType;
 	list_raw_fields?: TSupportInboundType;
-	list_root_id?: TSupportInboundType;
 	list_course_id?: TSupportInboundType;
 	list_student_id?: TSupportInboundType;
 	list_instructor_id?: TSupportInboundType;
