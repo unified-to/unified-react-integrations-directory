@@ -444,10 +444,10 @@ export interface IIntegrationSupport {
 	search_email?: TSupportInboundType;
 	search_domain?: TSupportInboundType;
 	list_parent_id?: TSupportInboundType;
+	list_root_id?: TSupportInboundType;
 	list_account_id?: TSupportInboundType;
 	list_interview_id?: TSupportInboundType;
 	list_list_id?: TSupportInboundType;
-	list_root_id?: TSupportInboundType;
 	list_ticket_id?: TSupportInboundType;
 	list_collection_id?: TSupportInboundType;
 	list_location_id?: TSupportInboundType;
