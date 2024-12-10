@@ -265,7 +265,8 @@ export const ObjectType = [
 	'repo_repository',
 	'repo_branch',
 	'repo_commit',
-	'repo_pullrequest'
+	'repo_pullrequest',
+	'metadata_metadata'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
