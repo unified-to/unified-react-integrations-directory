@@ -169,7 +169,9 @@ export const IntegrationPermission = [
 	'repo_commit_read',
 	'repo_commit_write',
 	'repo_pullrequest_read',
-	'repo_pullrequest_write'
+	'repo_pullrequest_write',
+	'metadata_metadata_read',
+	'metadata_metadata_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
