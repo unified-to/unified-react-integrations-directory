@@ -39,7 +39,8 @@ export const IntegrationCategory = [
 	'task',
 	'scim',
 	'lms',
-	'repo'
+	'repo',
+	'metadata'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
