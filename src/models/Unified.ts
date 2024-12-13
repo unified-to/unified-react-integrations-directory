@@ -465,6 +465,7 @@ export interface IIntegrationSupport {
 	list_instructor_id?: TSupportInboundType;
 	list_class_id?: TSupportInboundType;
 	list_repo_id?: TSupportInboundType;
+	list_org_id?: TSupportInboundType;
 	virtual_webhook_updated_gte?: TSupportInboundType;
 	virtual_webhook_limit?: TSupportInboundType;
 	virtual_webhook_channel_id?: TSupportInboundType;
@@ -477,7 +478,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_ticket_id?: TSupportInboundType;
 	native_webhook_parent_id?: TSupportInboundType;
 	native_webhook_project_id?: TSupportInboundType;
-	list_org_id?: TSupportInboundType;
 	virtual_webhook_job_id?: TSupportInboundType;
 }
 
