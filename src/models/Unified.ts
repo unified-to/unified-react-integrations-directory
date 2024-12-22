@@ -127,6 +127,8 @@ export const IntegrationPermission = [
 	'hris_location_read',
 	'hris_location_write',
 	'uc_call_read',
+	'uc_contact_read',
+	'uc_contact_write',
 	'storage_file_read',
 	'storage_file_write',
 	'webhook',
