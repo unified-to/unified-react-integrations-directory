@@ -209,6 +209,7 @@ export const ObjectType = [
 	'payment_link',
 	'payment_payout',
 	'payment_refund',
+	'payment_subscription',
 	'commerce_item',
 	'commerce_collection',
 	'commerce_inventory',
