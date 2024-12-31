@@ -68,6 +68,8 @@ export const IntegrationPermission = [
 	'payment_refund_read',
 	'payment_link_read',
 	'payment_link_write',
+	'payment_subscription_read',
+	'payment_subscription_write',
 	'commerce_item_read',
 	'commerce_item_write',
 	'commerce_collection_read',
