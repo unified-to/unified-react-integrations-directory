@@ -256,6 +256,7 @@ export const ObjectType = [
 	'kms_page',
 	'task_project',
 	'task_task',
+	'task_comment',
 	'scim_users',
 	'scim_groups',
 	'lms_course',
@@ -337,7 +338,7 @@ export type TWorkspaceEventType = typeof WorkspaceEventType[number];
 
 export interface IApiCall {
 	id?: string; // Unique identifier for this API call
-	created_at?: string | Date; // The date that this object was created
+	created_at?: string | Date | number; // The date that this object was created
 	connection_id?: string;
 	workspace_id: string;
 	integration_type: string; // The integration type
@@ -357,8 +358,8 @@ export interface IApiCall {
 
 export interface IConnection {
 	id?: string; // Unique identifier for this integration object
-	created_at?: string | Date; // The date that this integration object was created
-	updated_at?: string | Date; // The last date that this integration object was updated
+	created_at?: string | Date | number; // The date that this integration object was created
+	updated_at?: string | Date | number; // The last date that this integration object was updated
 	workspace_id: string;
 	integration_type: string; // The integration type
 	external_xref?: string; // customer's user ID
@@ -368,15 +369,15 @@ export interface IConnection {
 	is_paused?: boolean; // Whether this integration has exceed the monthly limit of the plan
 	auth_aws_arn?: string; // the AWS ARN / secretID for the stored auth field
 	environment?: string;
-	last_healthy_at?: string | Date;
-	last_unhealthy_at?: string | Date;
+	last_healthy_at?: string | Date | number;
+	last_unhealthy_at?: string | Date | number;
 }
 
 export interface IConnectionAuth {
 	token?: string;
 	access_token?: string;
 	refresh_token?: string;
-	expiry_date?: string | Date;
+	expiry_date?: string | Date | number;
 	expires_in?: number;
 	emails?: string[];
 	name?: string;
@@ -394,7 +395,7 @@ export interface IConnectionAuth {
 	pem?: string; // the PEM X.509 certificate in Base64 ASCII format
 	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
 	refresh_token_expires_in?: number;
-	refresh_token_expires_date?: string | Date;
+	refresh_token_expires_date?: string | Date | number;
 	dev_api_key?: string;
 }
 
@@ -417,7 +418,7 @@ export interface IIntegration {
 	rate_limit_description?: string;
 	beta?: boolean; // This integration is new and is still considered "beta"
 	support: { [path in string]?: IIntegrationSupport };
-	tested_at?: string | Date;
+	tested_at?: string | Date | number;
 }
 
 export interface IIntegrationSupport {
@@ -488,7 +489,7 @@ export interface IIntegrationSupport {
 
 export interface IInvoice {
 	stripe_id: string;
-	created_at: string | Date;
+	created_at: string | Date | number;
 	amount: number;
 	connections: number;
 	plan: string;
@@ -511,7 +512,7 @@ export interface IIssue {
 
 export interface INotification {
 	id?: string; // Unique identifier for this notification object
-	created_at?: string | Date; // The date that this integration object was created
+	created_at?: string | Date | number; // The date that this integration object was created
 	workspace_id?: string;
 	description?: string; // Longer description of this notification
 	user_id?: string;
@@ -521,7 +522,7 @@ export interface INotification {
 	connection_id?: string;
 	integration_type?: string;
 	integration_name?: string;
-	sent_at?: string | Date;
+	sent_at?: string | Date | number;
 	event?: TWorkspaceEventType;
 }
 
@@ -561,8 +562,8 @@ export interface IPlan {
 
 export interface IUser {
 	id?: string;
-	created_at?: string | Date;
-	updated_at?: string | Date;
+	created_at?: string | Date | number;
+	updated_at?: string | Date | number;
 	name: string;
 	email: string;
 	workspace_id: string; // The current workspace
@@ -573,14 +574,14 @@ export interface IUser {
 
 export interface IWebhook {
 	id?: string;
-	created_at?: string | Date;
-	updated_at?: string | Date;
+	created_at?: string | Date | number;
+	updated_at?: string | Date | number;
 	workspace_id?: string;
 	connection_id: string;
 	hook_url: string; // The URL of the webhook
 	object_type: TObjectType; // The object to return (eg. CRM "contact")
 	interval?: number; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
-	checked_at: string | Date; // The last date/time that a check was done on this object
+	checked_at: string | Date | number; // The last date/time that a check was done on this object
 	integration_type: string;
 	environment?: string;
 	event: TWebhookEvent;
@@ -603,8 +604,8 @@ export interface IWebhookData {
 
 export interface IWorkspace {
 	id?: string;
-	created_at?: string | Date;
-	updated_at?: string | Date;
+	created_at?: string | Date | number;
+	updated_at?: string | Date | number;
 	name: string;
 	admin_ids?: string[]; // Only these users can add additional admins and invite other users
 	invited_emails?: string[];
@@ -625,7 +626,7 @@ export interface IWorkspace {
 	add_ons?: string[];
 	checklist?: unknown;
 	plan_term?: TPlanTerm; // monthly or yearly
-	stripe_canceling_at?: string | Date;
+	stripe_canceling_at?: string | Date | number;
 	domain?: string; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 	event_webhook_url?: string;
 	event_webhook_events?: ( TWorkspaceEventType )[];
