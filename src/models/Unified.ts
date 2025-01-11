@@ -474,6 +474,7 @@ export interface IIntegrationSupport {
 	list_class_id?: TSupportInboundType;
 	list_repo_id?: TSupportInboundType;
 	list_org_id?: TSupportInboundType;
+	list_task_id?: TSupportInboundType;
 	virtual_webhook_updated_gte?: TSupportInboundType;
 	virtual_webhook_limit?: TSupportInboundType;
 	virtual_webhook_channel_id?: TSupportInboundType;
@@ -487,7 +488,6 @@ export interface IIntegrationSupport {
 	native_webhook_parent_id?: TSupportInboundType;
 	native_webhook_project_id?: TSupportInboundType;
 	virtual_webhook_job_id?: TSupportInboundType;
-	list_task_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
