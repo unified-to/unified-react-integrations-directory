@@ -603,6 +603,7 @@ export interface IWebhookData {
 	nonce: string; // random string
 	sig: string; // HMAC-SHA1(workspace.secret, data + nonce)
 	type: TWebhookDataType;
+	external_xref?: string;
 }
 
 export interface IWorkspace {
