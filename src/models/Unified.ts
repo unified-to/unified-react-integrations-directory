@@ -462,6 +462,7 @@ export interface IIntegrationSupport {
 	list_collection_id?: TSupportInboundType;
 	list_location_id?: TSupportInboundType;
 	list_item_id?: TSupportInboundType;
+	slow_fields?: string[];
 	list_type?: TSupportInboundType;
 	list_space_id?: TSupportInboundType;
 	list_channel_id?: TSupportInboundType;
@@ -475,7 +476,6 @@ export interface IIntegrationSupport {
 	list_instructor_id?: TSupportInboundType;
 	list_class_id?: TSupportInboundType;
 	list_repo_id?: TSupportInboundType;
-	slow_fields?: string[];
 	list_org_id?: TSupportInboundType;
 	list_task_id?: TSupportInboundType;
 	virtual_webhook_updated_gte?: TSupportInboundType;
