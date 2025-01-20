@@ -659,16 +659,3 @@ export interface IWorkspaceIntegration {
 	dev_api_key?: string;
 }
 
-export interface IKmsComment {
-	id?: string;
-	created_at?: string | Date | number;
-	updated_at?: string | Date | number;
-	type: I'PAGE-INLINE' | 'PAGE';
-	content_type: IKmsContentType;
-	content: string;
-	user_id?: string;
-	page_id?: string;
-	parent_id?: string;
-	raw?: unknown;
-}
-
