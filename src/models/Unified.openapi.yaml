@@ -39,6 +39,9 @@ components:
       - kms
       - task
       - scim
+      - lms
+      - repo
+      - metadata
     IntegrationPermission:
       type: string
       enum:
@@ -64,6 +67,8 @@ components:
       - payment_refund_read
       - payment_link_read
       - payment_link_write
+      - payment_subscription_read
+      - payment_subscription_write
       - commerce_item_read
       - commerce_item_write
       - commerce_collection_read
@@ -123,6 +128,8 @@ components:
       - hris_location_read
       - hris_location_write
       - uc_call_read
+      - uc_contact_read
+      - uc_contact_write
       - storage_file_read
       - storage_file_write
       - webhook
@@ -142,10 +149,32 @@ components:
       - task_project_write
       - task_task_read
       - task_task_write
+      - task_comment_read
+      - task_comment_write
       - scim_users_read
       - scim_users_write
       - scim_groups_read
       - scim_groups_write
+      - lms_course_read
+      - lms_course_write
+      - lms_class_read
+      - lms_class_write
+      - lms_student_read
+      - lms_student_write
+      - lms_instructor_read
+      - lms_instructor_write
+      - repo_organization_read
+      - repo_organization_write
+      - repo_repository_read
+      - repo_repository_write
+      - repo_branch_read
+      - repo_branch_write
+      - repo_commit_read
+      - repo_commit_write
+      - repo_pullrequest_read
+      - repo_pullrequest_write
+      - metadata_metadata_read
+      - metadata_metadata_write
     IntegrationSupportWebhookType:
       type: string
       enum:
@@ -177,6 +206,7 @@ components:
       - payment_link
       - payment_payout
       - payment_refund
+      - payment_subscription
       - commerce_item
       - commerce_collection
       - commerce_inventory
@@ -219,10 +249,23 @@ components:
       - messaging_channel
       - kms_space
       - kms_page
+      - kms_comment
       - task_project
       - task_task
+      - task_comment
       - scim_users
       - scim_groups
+      - lms_course
+      - lms_class
+      - lms_student
+      - lms_instructor
+      - scim_groups
+      - repo_organization
+      - repo_repository
+      - repo_branch
+      - repo_commit
+      - repo_pullrequest
+      - metadata_metadata
     PlanTerm:
       type: string
       enum:
@@ -354,8 +397,6 @@ components:
         last_unhealthy_at:
           type: string
           format: date-time
-        cursors_cache:
-          $ref: "#/components/schemas/objects"
       required:
         - workspace_id
         - integration_type
@@ -552,6 +593,8 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_parent_id:
           $ref: "#/components/schemas/SupportInboundType"
+        list_root_id:
+          $ref: "#/components/schemas/SupportInboundType"
         list_account_id:
           $ref: "#/components/schemas/SupportInboundType"
         list_interview_id:
@@ -572,6 +615,8 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_channel_id:
           $ref: "#/components/schemas/SupportInboundType"
+        list_page_id:
+          $ref: "#/components/schemas/SupportInboundType"
         list_link_id:
           $ref: "#/components/schemas/SupportInboundType"
         list_project_id:
@@ -579,6 +624,46 @@ components:
         list_item_variant_id:
           $ref: "#/components/schemas/SupportInboundType"
         list_raw_fields:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_course_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_student_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_instructor_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_class_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_repo_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_org_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_task_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_updated_gte:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_limit:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_channel_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_parent_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_contact_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_deal_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_company_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_user_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_type:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_ticket_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_parent_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_project_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_job_id:
           $ref: "#/components/schemas/SupportInboundType"
       required:
 
@@ -824,6 +909,8 @@ components:
           description: HMAC-SHA1(workspace.secret, data + nonce)
         type:
           $ref: "#/components/schemas/WebhookDataType"
+        external_xref:
+          type: string
       required:
         - data
         - webhook
@@ -952,10 +1039,6 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/IntegrationCategory"
-    objects:
-      type: array
-      items:
-        type: object
     strings:
       type: array
       items:
@@ -968,6 +1051,10 @@ components:
       type: array
       items:
         type: string
+    objects:
+      type: array
+      items:
+        type: object
     WorkspaceEventTypes:
       type: array
       items:
