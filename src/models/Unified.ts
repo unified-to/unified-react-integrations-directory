@@ -450,6 +450,7 @@ export interface IIntegrationSupport {
 	list_offset?: TSupportInboundType;
 	search_twitter?: TSupportInboundType;
 	search_name?: TSupportInboundType;
+	slow_fields?: string[];
 	search_linkedinurl?: TSupportInboundType;
 	search_email?: TSupportInboundType;
 	search_domain?: TSupportInboundType;
@@ -462,7 +463,6 @@ export interface IIntegrationSupport {
 	list_collection_id?: TSupportInboundType;
 	list_location_id?: TSupportInboundType;
 	list_item_id?: TSupportInboundType;
-	slow_fields?: string[];
 	list_type?: TSupportInboundType;
 	list_space_id?: TSupportInboundType;
 	list_channel_id?: TSupportInboundType;
