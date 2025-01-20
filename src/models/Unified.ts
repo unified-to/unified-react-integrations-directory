@@ -434,6 +434,7 @@ export interface IIntegrationSupport {
 	list_sort_by_name?: TSupportInboundType;
 	list_sort_by_created_at?: TSupportInboundType;
 	list_sort_by_updated_at?: TSupportInboundType;
+	slow_fields?: string[];
 	list_updated_gte?: TSupportInboundType;
 	list_user_id?: TSupportInboundType;
 	list_customer_id?: TSupportInboundType;
@@ -450,7 +451,6 @@ export interface IIntegrationSupport {
 	list_offset?: TSupportInboundType;
 	search_twitter?: TSupportInboundType;
 	search_name?: TSupportInboundType;
-	slow_fields?: string[];
 	search_linkedinurl?: TSupportInboundType;
 	search_email?: TSupportInboundType;
 	search_domain?: TSupportInboundType;
