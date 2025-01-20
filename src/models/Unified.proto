@@ -62,14 +62,13 @@ message Connection {
 	string integration_type = 5; // The integration type
 	optional string external_xref = 6; // customer's user ID
 	repeated string permissions = 7;
-	repeated string categories = 8; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim
+	repeated string categories = 8; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata
 	optional ConnectionAuth auth = 9;
 	optional bool is_paused = 10; // Whether this integration has exceed the monthly limit of the plan
 	optional string auth_aws_arn = 11; // the AWS ARN / secretID for the stored auth field
 	optional string environment = 12;
 	optional string last_healthy_at = 13;
 	optional string last_unhealthy_at = 14;
-	repeated google.protobuf.Struct cursors_cache = 15;
 }
 
 message IntegrationSupport {
@@ -102,20 +101,42 @@ message IntegrationSupport {
 	optional string search_email = 27;
 	optional string search_domain = 28;
 	optional string list_parent_id = 29;
-	optional string list_account_id = 30;
-	optional string list_interview_id = 31;
-	optional string list_list_id = 32;
-	optional string list_ticket_id = 33;
-	optional string list_collection_id = 34;
-	optional string list_location_id = 35;
-	optional string list_item_id = 36;
-	optional string list_type = 37;
-	optional string list_space_id = 38;
-	optional string list_channel_id = 39;
-	optional string list_link_id = 40;
-	optional string list_project_id = 41;
-	optional string list_item_variant_id = 42;
-	optional string list_raw_fields = 43;
+	optional string list_root_id = 30;
+	optional string list_account_id = 31;
+	optional string list_interview_id = 32;
+	optional string list_list_id = 33;
+	optional string list_ticket_id = 34;
+	optional string list_collection_id = 35;
+	optional string list_location_id = 36;
+	optional string list_item_id = 37;
+	optional string list_type = 38;
+	optional string list_space_id = 39;
+	optional string list_channel_id = 40;
+	optional string list_page_id = 41;
+	optional string list_link_id = 42;
+	optional string list_project_id = 43;
+	optional string list_item_variant_id = 44;
+	optional string list_raw_fields = 45;
+	optional string list_course_id = 46;
+	optional string list_student_id = 47;
+	optional string list_instructor_id = 48;
+	optional string list_class_id = 49;
+	optional string list_repo_id = 50;
+	optional string list_org_id = 51;
+	optional string list_task_id = 52;
+	optional string virtual_webhook_updated_gte = 53;
+	optional string virtual_webhook_limit = 54;
+	optional string virtual_webhook_channel_id = 55;
+	optional string virtual_webhook_parent_id = 56;
+	optional string virtual_webhook_contact_id = 57;
+	optional string virtual_webhook_deal_id = 58;
+	optional string virtual_webhook_company_id = 59;
+	optional string virtual_webhook_user_id = 60;
+	optional string virtual_webhook_type = 61;
+	optional string virtual_webhook_ticket_id = 62;
+	optional string native_webhook_parent_id = 63;
+	optional string native_webhook_project_id = 64;
+	optional string virtual_webhook_job_id = 65;
 }
 
 // Informational object for supported integrations.
@@ -126,7 +147,7 @@ message Integration {
 	optional string updated_at = 3; // YYYY-MM-DD
 	string name = 4; // The integration's name
 	optional bool is_active = 5; // Is this integration active in this workspace
-	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim
+	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata
 	optional string api_docs_url = 7; // The URL of the integration's API documentation
 	optional string logo_url = 8; // The URL of the integration's logo
 	optional bool in_progress = 9; // If this integration is not yet available as it is currently being built by unified.to
@@ -222,7 +243,7 @@ message Webhook {
 	optional string workspace_id = 4;
 	string connection_id = 5;
 	string hook_url = 6; // The URL of the webhook
-	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_journal, accounting_contact, accounting_invoice, accounting_taxrate, accounting_organization, accounting_order, payment_payment, payment_link, payment_payout, payment_refund, commerce_item, commerce_collection, commerce_inventory, commerce_location, ats_activity, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, ats_company, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, hris_payslip, hris_timeoff, hris_company, hris_location, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, uc_contact, uc_call, enrich_person, enrich_company, storage_file, genai_model, genai_prompt, messaging_message, messaging_channel, kms_space, kms_page, task_project, task_task, scim_users, scim_groups
+	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_journal, accounting_contact, accounting_invoice, accounting_taxrate, accounting_organization, accounting_order, payment_payment, payment_link, payment_payout, payment_refund, payment_subscription, commerce_item, commerce_collection, commerce_inventory, commerce_location, ats_activity, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, ats_company, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, hris_payslip, hris_timeoff, hris_company, hris_location, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, uc_contact, uc_call, enrich_person, enrich_company, storage_file, genai_model, genai_prompt, messaging_message, messaging_channel, kms_space, kms_page, kms_comment, task_project, task_task, task_comment, scim_users, scim_groups, lms_course, lms_class, lms_student, lms_instructor, scim_groups, repo_organization, repo_repository, repo_branch, repo_commit, repo_pullrequest, metadata_metadata
 	optional int32 interval = 8; // The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
 	string checked_at = 9; // The last date/time that a check was done on this object
 	string integration_type = 10;
@@ -243,6 +264,7 @@ message WebhookData {
 	string nonce = 3; // random string
 	string sig = 4; // HMAC-SHA1(workspace.secret, data + nonce)
 	string type = 5;
+	optional string external_xref = 6;
 }
 
 message WorkspaceIntegration {
