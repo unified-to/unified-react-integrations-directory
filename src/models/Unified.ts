@@ -256,6 +256,7 @@ export const ObjectType = [
 	'messaging_channel',
 	'kms_space',
 	'kms_page',
+	'kms_comment',
 	'task_project',
 	'task_task',
 	'task_comment',
