@@ -27,8 +27,15 @@ interface UnifiedDirectoryProps {
     dc?: 'us' | 'eu';
 }
 
-const API_NA_URL = 'https://api.unified.to';
-const API_EU_URL = 'https://api-eu.unified.to';
+const MAP_REGION = {
+    us: 'https://api.unified.to',
+    us_beta: 'https://api-beta.unified.to',
+    eu: 'https://api-eu.unified.to',
+    eu_beta: 'https://api-eu-beta.unified.to',
+    dev: 'https://api-dev.unified.to',
+} satisfies { [path in string]: string };
+
+type TIntegrationCategoryType = Exclude<TIntegrationCategory, 'auth' | 'passthrough' | 'scim'>;
 
 const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     crm: 'CRM',
@@ -46,10 +53,13 @@ const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     messaging: 'Messaging',
     kms: 'KMS',
     task: 'Tasks',
-};
+    metadata: 'Metadata',
+    lms: 'LMS',
+    repo: 'Repository',
+} satisfies { [path in TIntegrationCategoryType]: string };
 
 export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
-    const API_URL = props.dc === 'eu' ? API_EU_URL : API_NA_URL;
+    const API_URL = MAP_REGION[(props.dc as keyof typeof MAP_REGION) || 'us'] || MAP_REGION['us'];
     const [INTEGRATIONS, setIntegrations] = useState<IIntegration[]>([]);
     const [CATEGORIES, setCategories] = useState<TIntegrationCategory[]>([]);
     const [selectedCategory, setCategory] = useState<TIntegrationCategory | ''>('');
