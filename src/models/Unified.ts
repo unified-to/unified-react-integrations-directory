@@ -374,6 +374,7 @@ export interface IConnection {
 	environment?: string;
 	last_healthy_at?: string | Date | number;
 	last_unhealthy_at?: string | Date | number;
+	integration_name: string;
 }
 
 export interface IConnectionAuth {
