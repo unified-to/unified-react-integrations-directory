@@ -365,6 +365,7 @@ export interface IConnection {
 	updated_at?: string | Date | number; // The last date that this integration object was updated
 	workspace_id: string;
 	integration_type: string; // The integration type
+	integration_name: string;
 	external_xref?: string; // customer's user ID
 	permissions: ( TIntegrationPermission )[];
 	categories: ( TIntegrationCategory )[]; // The Integration categories that this connection supports
@@ -374,7 +375,6 @@ export interface IConnection {
 	environment?: string;
 	last_healthy_at?: string | Date | number;
 	last_unhealthy_at?: string | Date | number;
-	integration_name: string;
 }
 
 export interface IConnectionAuth {
