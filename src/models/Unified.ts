@@ -365,7 +365,7 @@ export interface IConnection {
 	updated_at?: string | Date | number; // The last date that this integration object was updated
 	workspace_id: string;
 	integration_type: string; // The integration type
-	integration_name: string;
+	integration_name?: string;
 	external_xref?: string; // customer's user ID
 	permissions: ( TIntegrationPermission )[];
 	categories: ( TIntegrationCategory )[]; // The Integration categories that this connection supports
