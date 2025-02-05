@@ -372,6 +372,8 @@ components:
         integration_type:
           type: string
           description: The integration type
+        integration_name:
+          type: string
         external_xref:
           type: string
           description: customer's user ID
@@ -545,6 +547,8 @@ components:
         raw_objects:
           $ref: "#/components/schemas/strings"
           description: objects that we map from in the integration
+        slow_fields:
+          $ref: "#/components/schemas/strings"
         from_webhook:
           $ref: "#/components/schemas/SupportInboundType"
         list_sort_by_name:
