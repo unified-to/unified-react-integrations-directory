@@ -449,6 +449,7 @@ input Connection_Input {
 The integration type
 """
 	integration_type: String!
+	integration_name: String
 """
 customer's user ID
 """
@@ -484,6 +485,7 @@ The last date that this integration object was updated
 The integration type
 """
 	integration_type: String!
+	integration_name: String
 """
 customer's user ID
 """
@@ -731,6 +733,7 @@ input IntegrationSupport_Input {
 objects that we map from in the integration
 """
 	raw_objects: [String]
+	slow_fields: [String]
 	from_webhook: ENUM_SupportInboundType
 	list_sort_by_name: ENUM_SupportInboundType
 	list_sort_by_created_at: ENUM_SupportInboundType
@@ -802,6 +805,7 @@ type IntegrationSupport {
 objects that we map from in the integration
 """
 	raw_objects: [String]
+	slow_fields: [String]
 	from_webhook: ENUM_SupportInboundType
 	list_sort_by_name: ENUM_SupportInboundType
 	list_sort_by_created_at: ENUM_SupportInboundType
