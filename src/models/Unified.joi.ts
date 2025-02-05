@@ -341,7 +341,7 @@ export const joiConnectionAuth = Joi.object({
 	client_secret: Joi.string().optional().allow(null, ''),
 	consumer_key: Joi.string().optional().allow(null, ''),
 	consumer_secret: Joi.string().optional().allow(null, ''),
-	meta: Joi.object().meta( { readonly: true }).optional(),
+	meta: Joi.any().meta( { readonly: true }).optional(),
 	state: Joi.string().optional().allow(null, ''),
 	other_auth_info: Joi.array().items(Joi.string()).optional().allow(null, '').description('When integration.auth_type = "other", this field contains the authentication credentials in the same order as token_names'),
 	api_url: Joi.string().uri().optional().allow(null, ''),
@@ -360,6 +360,7 @@ export const joiConnection = Joi.object({
 	updated_at: Joi.date().meta( { readonly: true }).optional().description('The last date that this integration object was updated'),
 	workspace_id: Joi.string().meta( { readonly: true }).optional(),
 	integration_type: Joi.string().required().allow('').description('The integration type'),
+	integration_name: Joi.string().optional().allow(null, ''),
 	external_xref: Joi.string().optional().allow(null, '').description('customer\'s user ID'),
 	permissions: Joi.array().items(joiIntegrationPermission).required(),
 	categories: Joi.array().items(joiIntegrationCategory).required().description('The Integration categories that this connection supports'),
@@ -377,6 +378,7 @@ export const joiIntegrationSupport = Joi.object({
 	outbound_fields: Joi.object().label('SupportOutboundType').optional(),
 	webhook_events: joimap_WebhookEvent_IntegrationSupportWebhookType.optional(),
 	raw_objects: Joi.array().items(Joi.string()).optional().allow(null, '').description('objects that we map from in the integration'),
+	slow_fields: Joi.array().items(Joi.string()).optional().allow(null, ''),
 	from_webhook: joiSupportInboundType.optional(),
 	list_sort_by_name: joiSupportInboundType.optional(),
 	list_sort_by_created_at: joiSupportInboundType.optional(),
@@ -534,7 +536,7 @@ export const joiUser = Joi.object({
 	workspace_id: Joi.string().required().description('The current workspace'),
 	workspace_ids: Joi.array().items(Joi.string()).required().description('A list of all of the user\'s workspaces'),
 	environment: Joi.string().optional().allow(null, '').default('Production'),
-	meta: Joi.object().optional(),
+	meta: Joi.any().optional(),
 }).label('User').description('The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).');
 
 export const joiWebhook = Joi.object({
@@ -553,14 +555,14 @@ export const joiWebhook = Joi.object({
 	runs: Joi.array().items(Joi.string()).meta( { readonly: true }).optional().allow(null, '').description('An array of the most revent virtual webhook runs'),
 	fields: Joi.string().optional().allow(null, ''),
 	webhook_type: joiIntegrationSupportWebhookType.optional(),
-	meta: Joi.object().meta( { readonly: true }).optional(),
+	meta: Joi.any().meta( { readonly: true }).optional(),
 	is_healthy: Joi.boolean().meta( { readonly: true }).optional(),
 	page_max_limit: Joi.number().optional(),
 	filters: Joi.object().pattern(/^/, Joi.string().optional()).optional().allow(null, ''),
 }).label('Webhook').description('A webhook is used to POST new/updated information to your server.');
 
 export const joiWebhookData = Joi.object({
-	data: Joi.array().items(Joi.object()).required().description('The data array will contact an array of specific objects according to the webhook\'s connection. (eg. CRM Contacts)'),
+	data: Joi.array().items(Joi.any()).required().description('The data array will contact an array of specific objects according to the webhook\'s connection. (eg. CRM Contacts)'),
 	webhook: joiWebhook.required().description('The webhook object'),
 	nonce: Joi.string().required().allow('').description('random string'),
 	sig: Joi.string().required().allow('').description('HMAC-SHA1(workspace.secret, data + nonce)'),
@@ -608,7 +610,7 @@ export const joiWorkspace = Joi.object({
 	datadog_site: Joi.string().optional().allow(null, ''),
 	environments: Joi.array().items(Joi.string()).optional().allow(null, '').description('a list of authentication environments for the workspace integrations'),
 	add_ons: Joi.array().items(Joi.string()).optional().allow(null, ''),
-	checklist: Joi.object().optional(),
+	checklist: Joi.any().optional(),
 	plan_term: joiPlanTerm.optional().description('monthly or yearly').default('monthly'),
 	stripe_canceling_at: Joi.date().optional(),
 	domain: Joi.string().optional().allow(null, '').description('when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains'),
