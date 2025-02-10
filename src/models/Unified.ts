@@ -609,6 +609,7 @@ export interface IWebhook {
 	is_healthy?: boolean;
 	page_max_limit?: number;
 	filters?: { [path in string]?: string };
+	db_type?: TWebhookDatabaseType;
 }
 
 export interface IWebhookData {
