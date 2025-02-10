@@ -200,11 +200,11 @@ export const IssueStatus = [
 
 export type TIssueStatus = typeof IssueStatus[number];
 
-export const NewEnum14 = [
+export const WebhookDatabaseType = [
 	
 ] as const;
 
-export type TNewEnum14 = typeof NewEnum14[number];
+export type TWebhookDatabaseType = typeof WebhookDatabaseType[number];
 
 export const ObjectType = [
 	'accounting_account',
