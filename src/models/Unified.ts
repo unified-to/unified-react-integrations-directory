@@ -300,11 +300,11 @@ export const SupportOutboundType = [
 export type TSupportOutboundType = typeof SupportOutboundType[number];
 
 export const WebhookDatabaseType = [
-	'mongodb',
-	'mysql',
-	'postgres',
-	'mssql',
-	'mariadb'
+	'MONGODB',
+	'MYSQL',
+	'POSTGRES',
+	'MSSQL',
+	'MARIADB'
 ] as const;
 
 export type TWebhookDatabaseType = typeof WebhookDatabaseType[number];
