@@ -200,12 +200,6 @@ export const IssueStatus = [
 
 export type TIssueStatus = typeof IssueStatus[number];
 
-export const WebhookDatabaseType = [
-	
-] as const;
-
-export type TWebhookDatabaseType = typeof WebhookDatabaseType[number];
-
 export const ObjectType = [
 	'accounting_account',
 	'accounting_transaction',
@@ -304,6 +298,16 @@ export const SupportOutboundType = [
 ] as const;
 
 export type TSupportOutboundType = typeof SupportOutboundType[number];
+
+export const WebhookDatabaseType = [
+	'mongodb',
+	'mysql',
+	'postgres',
+	'mssql',
+	'mariadb'
+] as const;
+
+export type TWebhookDatabaseType = typeof WebhookDatabaseType[number];
 
 export const WebhookDataType = [
 	'INITIAL-PARTIAL',
