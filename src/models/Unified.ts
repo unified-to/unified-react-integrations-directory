@@ -614,6 +614,7 @@ export interface IWebhook {
 	db_type?: TWebhookDatabaseType;
 	db_url?: string;
 	db_name_prefix?: string;
+	is_paused?: boolean;
 }
 
 export interface IWebhookData {
