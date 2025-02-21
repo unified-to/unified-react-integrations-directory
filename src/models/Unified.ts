@@ -344,7 +344,9 @@ export const WorkspaceEventType = [
 	'WORKSPACE_80PERCENT_LIMIT',
 	'WEBHOOK_CREATED',
 	'WEBHOOK_DELETED',
-	'WEBHOOK_UNHEALTHY'
+	'WEBHOOK_UNHEALTHY',
+	'WEBHOOK_PAUSED',
+	'WEBHOOK_UNPAUSED'
 ] as const;
 
 export type TWorkspaceEventType = typeof WorkspaceEventType[number];
