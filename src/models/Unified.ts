@@ -504,6 +504,7 @@ export interface IIntegrationSupport {
 	native_webhook_parent_id?: TSupportInboundType;
 	native_webhook_project_id?: TSupportInboundType;
 	virtual_webhook_job_id?: TSupportInboundType;
+	list_start_gte?: TSupportInboundType;
 }
 
 export interface IInvoice {
