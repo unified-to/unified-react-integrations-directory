@@ -266,7 +266,6 @@ export const ObjectType = [
 	'lms_class',
 	'lms_student',
 	'lms_instructor',
-	'scim_groups',
 	'repo_organization',
 	'repo_repository',
 	'repo_branch',
