@@ -522,6 +522,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_job_id?: TSupportInboundType;
 	list_start_gte?: TSupportInboundType;
 	list_end_le?: TSupportInboundType;
+	list_calendar_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
