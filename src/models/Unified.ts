@@ -412,6 +412,7 @@ export interface IConnectionAuth {
 	expires_in?: number;
 	emails?: string[];
 	name?: string;
+	user_id?: string;
 	app_id?: string;
 	client_id?: string;
 	client_secret?: string;
@@ -428,7 +429,6 @@ export interface IConnectionAuth {
 	refresh_token_expires_in?: number;
 	refresh_token_expires_date?: string | Date | number;
 	dev_api_key?: string;
-	user_id?: string;
 }
 
 export interface IIntegration {
