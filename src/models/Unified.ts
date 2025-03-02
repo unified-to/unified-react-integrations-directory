@@ -271,7 +271,12 @@ export const ObjectType = [
 	'repo_branch',
 	'repo_commit',
 	'repo_pullrequest',
-	'metadata_metadata'
+	'metadata_metadata',
+	'calendar_calendar',
+	'calendar_event',
+	'calendar_busy',
+	'calendar_link',
+	'calendar_recording'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
