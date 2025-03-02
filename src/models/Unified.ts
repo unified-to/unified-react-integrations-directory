@@ -523,6 +523,7 @@ export interface IIntegrationSupport {
 	list_start_gte?: TSupportInboundType;
 	list_end_le?: TSupportInboundType;
 	list_calendar_id?: TSupportInboundType;
+	list_event_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
