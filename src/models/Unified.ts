@@ -507,6 +507,7 @@ export interface IIntegrationSupport {
 	list_repo_id?: TSupportInboundType;
 	list_org_id?: TSupportInboundType;
 	list_calendar_id?: TSupportInboundType;
+	list_event_id?: TSupportInboundType;
 	list_task_id?: TSupportInboundType;
 	virtual_webhook_updated_gte?: TSupportInboundType;
 	virtual_webhook_limit?: TSupportInboundType;
@@ -523,7 +524,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_job_id?: TSupportInboundType;
 	list_start_gte?: TSupportInboundType;
 	list_end_le?: TSupportInboundType;
-	list_event_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
