@@ -40,7 +40,8 @@ export const IntegrationCategory = [
 	'scim',
 	'lms',
 	'repo',
-	'metadata'
+	'metadata',
+	'calendar'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
