@@ -175,7 +175,17 @@ export const IntegrationPermission = [
 	'repo_pullrequest_read',
 	'repo_pullrequest_write',
 	'metadata_metadata_read',
-	'metadata_metadata_write'
+	'metadata_metadata_write',
+	'calendar_calendar_read',
+	'calendar_calendar_write',
+	'calendar_event_read',
+	'calendar_event_write',
+	'calendar_busy_read',
+	'calendar_busy_write',
+	'calendar_link_read',
+	'calendar_link_write',
+	'calendar_recording_read',
+	'calendar_recording_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
