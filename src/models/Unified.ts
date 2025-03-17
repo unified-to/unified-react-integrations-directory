@@ -677,6 +677,7 @@ export interface IWorkspace {
 	custom_auth_domain?: string;
 	custom_auth_domain_valid?: boolean;
 	custom_api_domain?: string;
+	slow_fields_opt_in?: boolean;
 }
 
 export interface IWorkspaceIntegration {
