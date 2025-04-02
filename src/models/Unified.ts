@@ -220,6 +220,7 @@ export const ObjectType = [
 	'accounting_taxrate',
 	'accounting_organization',
 	'accounting_order',
+	'accounting_report',
 	'payment_payment',
 	'payment_link',
 	'payment_payout',
