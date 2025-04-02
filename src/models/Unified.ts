@@ -63,6 +63,8 @@ export const IntegrationPermission = [
 	'accounting_organization_read',
 	'accounting_order_read',
 	'accounting_order_write',
+	'accounting_report_read',
+	'accounting_report_write',
 	'payment_payment_read',
 	'payment_payment_write',
 	'payment_payout_read',
