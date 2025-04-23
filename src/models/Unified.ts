@@ -255,6 +255,7 @@ export const ObjectType = [
 	'hris_timeoff',
 	'hris_company',
 	'hris_location',
+	'hris_device',
 	'martech_list',
 	'martech_member',
 	'passthrough',
