@@ -131,6 +131,8 @@ export const IntegrationPermission = [
 	'hris_company_write',
 	'hris_location_read',
 	'hris_location_write',
+	'hris_device_read',
+	'hris_device_write',
 	'uc_call_read',
 	'uc_contact_read',
 	'uc_contact_write',
