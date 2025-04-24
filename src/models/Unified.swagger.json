@@ -20,6 +20,8 @@
 				"accounting_organization_read",
 				"accounting_order_read",
 				"accounting_order_write",
+				"accounting_report_read",
+				"accounting_report_write",
 				"payment_payment_read",
 				"payment_payment_write",
 				"payment_payout_read",
@@ -86,6 +88,8 @@
 				"hris_company_write",
 				"hris_location_read",
 				"hris_location_write",
+				"hris_device_read",
+				"hris_device_write",
 				"uc_call_read",
 				"uc_contact_read",
 				"uc_contact_write",
@@ -133,7 +137,19 @@
 				"repo_pullrequest_read",
 				"repo_pullrequest_write",
 				"metadata_metadata_read",
-				"metadata_metadata_write"
+				"metadata_metadata_write",
+				"calendar_calendar_read",
+				"calendar_calendar_write",
+				"calendar_event_read",
+				"calendar_event_write",
+				"calendar_busy_read",
+				"calendar_busy_write",
+				"calendar_link_read",
+				"calendar_link_write",
+				"calendar_recording_read",
+				"calendar_recording_write",
+				"enrich_person_read",
+				"enrich_company_read"
 			]
 		},
 		"ApiCall": {
