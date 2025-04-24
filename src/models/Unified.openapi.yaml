@@ -42,6 +42,7 @@ components:
       - lms
       - repo
       - metadata
+      - calendar
     IntegrationPermission:
       type: string
       enum:
@@ -61,6 +62,8 @@ components:
       - accounting_organization_read
       - accounting_order_read
       - accounting_order_write
+      - accounting_report_read
+      - accounting_report_write
       - payment_payment_read
       - payment_payment_write
       - payment_payout_read
@@ -127,6 +130,8 @@ components:
       - hris_company_write
       - hris_location_read
       - hris_location_write
+      - hris_device_read
+      - hris_device_write
       - uc_call_read
       - uc_contact_read
       - uc_contact_write
@@ -175,6 +180,18 @@ components:
       - repo_pullrequest_write
       - metadata_metadata_read
       - metadata_metadata_write
+      - calendar_calendar_read
+      - calendar_calendar_write
+      - calendar_event_read
+      - calendar_event_write
+      - calendar_busy_read
+      - calendar_busy_write
+      - calendar_link_read
+      - calendar_link_write
+      - calendar_recording_read
+      - calendar_recording_write
+      - enrich_person_read
+      - enrich_company_read
     IntegrationSupportWebhookType:
       type: string
       enum:
@@ -202,6 +219,7 @@ components:
       - accounting_taxrate
       - accounting_organization
       - accounting_order
+      - accounting_report
       - payment_payment
       - payment_link
       - payment_payout
@@ -232,6 +250,7 @@ components:
       - hris_timeoff
       - hris_company
       - hris_location
+      - hris_device
       - martech_list
       - martech_member
       - passthrough
@@ -259,13 +278,17 @@ components:
       - lms_class
       - lms_student
       - lms_instructor
-      - scim_groups
       - repo_organization
       - repo_repository
       - repo_branch
       - repo_commit
       - repo_pullrequest
       - metadata_metadata
+      - calendar_calendar
+      - calendar_event
+      - calendar_busy
+      - calendar_link
+      - calendar_recording
     PlanTerm:
       type: string
       enum:
@@ -282,6 +305,14 @@ components:
       enum:
       - supported
       - not-supported
+    WebhookDatabaseType:
+      type: string
+      enum:
+      - mongodb
+      - mysql
+      - postgres
+      - mssql
+      - mariadb
     WebhookDataType:
       type: string
       enum:
@@ -422,6 +453,8 @@ components:
         emails:
           $ref: "#/components/schemas/strings"
         name:
+          type: string
+        user_id:
           type: string
         app_id:
           type: string
@@ -641,6 +674,10 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_org_id:
           $ref: "#/components/schemas/SupportInboundType"
+        list_calendar_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_event_id:
+          $ref: "#/components/schemas/SupportInboundType"
         list_task_id:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_updated_gte:
@@ -668,6 +705,12 @@ components:
         native_webhook_project_id:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_job_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_start_gte:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_end_le:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_lead_id:
           $ref: "#/components/schemas/SupportInboundType"
       required:
 
@@ -889,9 +932,16 @@ components:
           type: object
           additionalProperties:
             type: string
+        db_type:
+          $ref: "#/components/schemas/WebhookDatabaseType"
+        db_url:
+          type: string
+        db_name_prefix:
+          type: string
+        is_paused:
+          type: boolean
       required:
         - connection_id
-        - hook_url
         - object_type
         - checked_at
         - integration_type
@@ -992,6 +1042,10 @@ components:
         custom_auth_domain_valid:
           type: boolean
         custom_api_domain:
+          type: string
+        slow_fields_opt_in:
+          type: boolean
+        notion_verification_token:
           type: string
       required:
         - name
