@@ -35,6 +35,7 @@ enum ENUM_IntegrationCategory {
 	lms
 	repo
 	metadata
+	calendar
 }
 
 enum ENUM_IntegrationPermission {
@@ -54,6 +55,8 @@ enum ENUM_IntegrationPermission {
 	accounting_organization_read
 	accounting_order_read
 	accounting_order_write
+	accounting_report_read
+	accounting_report_write
 	payment_payment_read
 	payment_payment_write
 	payment_payout_read
@@ -120,6 +123,8 @@ enum ENUM_IntegrationPermission {
 	hris_company_write
 	hris_location_read
 	hris_location_write
+	hris_device_read
+	hris_device_write
 	uc_call_read
 	uc_contact_read
 	uc_contact_write
@@ -168,6 +173,18 @@ enum ENUM_IntegrationPermission {
 	repo_pullrequest_write
 	metadata_metadata_read
 	metadata_metadata_write
+	calendar_calendar_read
+	calendar_calendar_write
+	calendar_event_read
+	calendar_event_write
+	calendar_busy_read
+	calendar_busy_write
+	calendar_link_read
+	calendar_link_write
+	calendar_recording_read
+	calendar_recording_write
+	enrich_person_read
+	enrich_company_read
 }
 
 enum ENUM_IntegrationSupportWebhookType {
@@ -195,6 +212,7 @@ enum ENUM_ObjectType {
 	accounting_taxrate
 	accounting_organization
 	accounting_order
+	accounting_report
 	payment_payment
 	payment_link
 	payment_payout
@@ -225,6 +243,7 @@ enum ENUM_ObjectType {
 	hris_timeoff
 	hris_company
 	hris_location
+	hris_device
 	martech_list
 	martech_member
 	passthrough
@@ -252,13 +271,17 @@ enum ENUM_ObjectType {
 	lms_class
 	lms_student
 	lms_instructor
-	scim_groups
 	repo_organization
 	repo_repository
 	repo_branch
 	repo_commit
 	repo_pullrequest
 	metadata_metadata
+	calendar_calendar
+	calendar_event
+	calendar_busy
+	calendar_link
+	calendar_recording
 }
 
 enum ENUM_PlanTerm {
@@ -275,6 +298,14 @@ enum ENUM_SupportInboundType {
 enum ENUM_SupportOutboundType {
 	supported
 	not-supported
+}
+
+enum ENUM_WebhookDatabaseType {
+	mongodb
+	mysql
+	postgres
+	mssql
+	mariadb
 }
 
 enum ENUM_WebhookDataType {
@@ -520,6 +551,7 @@ input ConnectionAuth_Input {
 	expires_in: Int
 	emails: [String]
 	name: String
+	user_id: String
 	app_id: String
 	client_id: String
 	client_secret: String
@@ -554,6 +586,7 @@ type ConnectionAuth {
 	expires_in: Int
 	emails: [String]
 	name: String
+	user_id: String
 	app_id: String
 	client_id: String
 	client_secret: String
@@ -780,6 +813,8 @@ objects that we map from in the integration
 	list_class_id: ENUM_SupportInboundType
 	list_repo_id: ENUM_SupportInboundType
 	list_org_id: ENUM_SupportInboundType
+	list_calendar_id: ENUM_SupportInboundType
+	list_event_id: ENUM_SupportInboundType
 	list_task_id: ENUM_SupportInboundType
 	virtual_webhook_updated_gte: ENUM_SupportInboundType
 	virtual_webhook_limit: ENUM_SupportInboundType
@@ -794,6 +829,9 @@ objects that we map from in the integration
 	native_webhook_parent_id: ENUM_SupportInboundType
 	native_webhook_project_id: ENUM_SupportInboundType
 	virtual_webhook_job_id: ENUM_SupportInboundType
+	list_start_gte: ENUM_SupportInboundType
+	list_end_le: ENUM_SupportInboundType
+	list_lead_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -852,6 +890,8 @@ objects that we map from in the integration
 	list_class_id: ENUM_SupportInboundType
 	list_repo_id: ENUM_SupportInboundType
 	list_org_id: ENUM_SupportInboundType
+	list_calendar_id: ENUM_SupportInboundType
+	list_event_id: ENUM_SupportInboundType
 	list_task_id: ENUM_SupportInboundType
 	virtual_webhook_updated_gte: ENUM_SupportInboundType
 	virtual_webhook_limit: ENUM_SupportInboundType
@@ -866,6 +906,9 @@ objects that we map from in the integration
 	native_webhook_parent_id: ENUM_SupportInboundType
 	native_webhook_project_id: ENUM_SupportInboundType
 	virtual_webhook_job_id: ENUM_SupportInboundType
+	list_start_gte: ENUM_SupportInboundType
+	list_end_le: ENUM_SupportInboundType
+	list_lead_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
@@ -1044,7 +1087,7 @@ input Webhook_Input {
 """
 The URL of the webhook
 """
-	hook_url: String!
+	hook_url: String
 """
 The object to return (eg. CRM "contact")
 """
@@ -1058,6 +1101,10 @@ The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes
 	webhook_type: ENUM_IntegrationSupportWebhookType
 	page_max_limit: Int
 	filters: Map_string_string
+	db_type: ENUM_WebhookDatabaseType
+	db_url: String
+	db_name_prefix: String
+	is_paused: Boolean
 }
 
 type Webhook {
@@ -1069,7 +1116,7 @@ type Webhook {
 """
 The URL of the webhook
 """
-	hook_url: String!
+	hook_url: String
 """
 The object to return (eg. CRM "contact")
 """
@@ -1095,6 +1142,10 @@ An array of the most revent virtual webhook runs
 	is_healthy: Boolean
 	page_max_limit: Int
 	filters: Map_string_string
+	db_type: ENUM_WebhookDatabaseType
+	db_url: String
+	db_name_prefix: String
+	is_paused: Boolean
 }
 
 input WebhookData_Input {
@@ -1173,6 +1224,8 @@ when set, users of the same domain will auto-join this workspace.  must not be g
 	custom_auth_domain: String
 	custom_auth_domain_valid: Boolean
 	custom_api_domain: String
+	slow_fields_opt_in: Boolean
+	notion_verification_token: String
 }
 
 type Workspace {
@@ -1227,6 +1280,8 @@ when set, users of the same domain will auto-join this workspace.  must not be g
 	custom_auth_domain: String
 	custom_auth_domain_valid: Boolean
 	custom_api_domain: String
+	slow_fields_opt_in: Boolean
+	notion_verification_token: String
 }
 
 input WorkspaceIntegration_Input {
