@@ -135,6 +135,9 @@ components:
       - uc_call_read
       - uc_contact_read
       - uc_contact_write
+      - uc_comment_read
+      - uc_comment_write
+      - uc_recording_read
       - storage_file_read
       - storage_file_write
       - webhook
@@ -259,6 +262,8 @@ components:
       - ticketing_customer
       - uc_contact
       - uc_call
+      - uc_comment
+      - uc_recording
       - enrich_person
       - enrich_company
       - storage_file
@@ -711,6 +716,8 @@ components:
         list_end_le:
           $ref: "#/components/schemas/SupportInboundType"
         list_lead_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_call_id:
           $ref: "#/components/schemas/SupportInboundType"
       required:
 
