@@ -129,6 +129,9 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'uc_call_read',
 	'uc_contact_read',
 	'uc_contact_write',
+	'uc_comment_read',
+	'uc_comment_write',
+	'uc_recording_read',
 	'storage_file_read',
 	'storage_file_write',
 	'webhook',
@@ -250,6 +253,8 @@ export const joiObjectType = Joi.string().valid(
 	'ticketing_customer',
 	'uc_contact',
 	'uc_call',
+	'uc_comment',
+	'uc_recording',
 	'enrich_person',
 	'enrich_company',
 	'storage_file',
@@ -477,6 +482,7 @@ export const joiIntegrationSupport = Joi.object({
 	list_start_gte: joiSupportInboundType.optional(),
 	list_end_le: joiSupportInboundType.optional(),
 	list_lead_id: joiSupportInboundType.optional(),
+	list_call_id: joiSupportInboundType.optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
