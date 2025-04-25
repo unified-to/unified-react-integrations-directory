@@ -128,6 +128,9 @@ enum ENUM_IntegrationPermission {
 	uc_call_read
 	uc_contact_read
 	uc_contact_write
+	uc_comment_read
+	uc_comment_write
+	uc_recording_read
 	storage_file_read
 	storage_file_write
 	webhook
@@ -252,6 +255,8 @@ enum ENUM_ObjectType {
 	ticketing_customer
 	uc_contact
 	uc_call
+	uc_comment
+	uc_recording
 	enrich_person
 	enrich_company
 	storage_file
@@ -832,6 +837,7 @@ objects that we map from in the integration
 	list_start_gte: ENUM_SupportInboundType
 	list_end_le: ENUM_SupportInboundType
 	list_lead_id: ENUM_SupportInboundType
+	list_call_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -909,6 +915,7 @@ objects that we map from in the integration
 	list_start_gte: ENUM_SupportInboundType
 	list_end_le: ENUM_SupportInboundType
 	list_lead_id: ENUM_SupportInboundType
+	list_call_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
