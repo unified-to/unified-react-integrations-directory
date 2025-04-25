@@ -266,6 +266,8 @@ export const ObjectType = [
 	'ticketing_customer',
 	'uc_contact',
 	'uc_call',
+	'uc_comment',
+	'uc_recording',
 	'enrich_person',
 	'enrich_company',
 	'storage_file',
