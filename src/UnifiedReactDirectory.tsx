@@ -24,7 +24,7 @@ interface UnifiedDirectoryProps {
     lang?: string;
     notabs?: boolean;
     nocategories?: boolean;
-    dc?: 'us' | 'eu';
+    dc?: 'us' | 'eu' | 'au';
 }
 
 const MAP_REGION = {
@@ -33,9 +33,10 @@ const MAP_REGION = {
     eu: 'https://api-eu.unified.to',
     eu_beta: 'https://api-eu-beta.unified.to',
     dev: 'https://api-dev.unified.to',
+    au: 'https://api-au.unified.to',
 } satisfies { [path in string]: string };
 
-type TIntegrationCategoryType = Exclude<TIntegrationCategory, 'auth' | 'passthrough' | 'scim'>;
+type TIntegrationCategoryType = Exclude<TIntegrationCategory, 'metadata' | 'auth' | 'passthrough' | 'scim'>;
 
 const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     crm: 'CRM',
@@ -53,9 +54,10 @@ const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     messaging: 'Messaging',
     kms: 'KMS',
     task: 'Tasks',
-    metadata: 'Metadata',
+    // metadata: 'Metadata',
     lms: 'LMS',
     repo: 'Repository',
+    calendar: 'Calendar',
 } satisfies { [path in TIntegrationCategoryType]: string };
 
 export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
