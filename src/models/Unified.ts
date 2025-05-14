@@ -466,6 +466,7 @@ export interface IIntegration {
 	tested_at?: string | Date | number;
 	sandbox?: unknown;
 	partnership?: unknown;
+	description?: string;
 }
 
 export interface IIntegrationSupport {
