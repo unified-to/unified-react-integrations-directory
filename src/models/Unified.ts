@@ -469,6 +469,7 @@ export interface IIntegration {
 	description?: string;
 	api?: unknown;
 	featured?: boolean;
+	popularity?: number;
 }
 
 export interface IIntegrationSupport {
