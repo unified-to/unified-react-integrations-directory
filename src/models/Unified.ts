@@ -470,6 +470,7 @@ export interface IIntegration {
 	api?: unknown;
 	featured?: boolean;
 	popularity?: number;
+	active_healthy_connections?: number;
 }
 
 export interface IIntegrationSupport {
