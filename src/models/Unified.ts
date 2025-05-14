@@ -468,6 +468,7 @@ export interface IIntegration {
 	partnership?: unknown;
 	description?: string;
 	api?: unknown;
+	featured?: boolean;
 }
 
 export interface IIntegrationSupport {
