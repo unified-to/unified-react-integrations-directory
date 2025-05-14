@@ -462,7 +462,7 @@ export interface IIntegration {
 	web_url?: string; // URL for the software vendor
 	rate_limit_description?: string;
 	beta?: boolean; // This integration is new and is still considered "beta"
-	support: { [path in string]?: IIntegrationSupport };
+	support?: { [path in string]?: IIntegrationSupport };
 	tested_at?: string | Date | number;
 }
 
