@@ -467,6 +467,7 @@ export interface IIntegration {
 	sandbox?: unknown;
 	partnership?: unknown;
 	description?: string;
+	api?: unknown;
 }
 
 export interface IIntegrationSupport {
