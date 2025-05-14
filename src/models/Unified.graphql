@@ -73,6 +73,8 @@ enum ENUM_IntegrationPermission {
 	commerce_inventory_write
 	commerce_location_read
 	commerce_location_write
+	commerce_review_read
+	commerce_review_write
 	ats_activity_read
 	ats_activity_write
 	ats_application_read
@@ -225,6 +227,7 @@ enum ENUM_ObjectType {
 	commerce_collection
 	commerce_inventory
 	commerce_location
+	commerce_review
 	ats_activity
 	ats_application
 	ats_applicationstatus
@@ -688,8 +691,15 @@ URL for the software vendor
 This integration is new and is still considered "beta"
 """
 	beta: Boolean
-	support: Map_string_IntegrationSupport!
+	support: Map_string_IntegrationSupport
 	tested_at: DateTime
+	sandbox: object
+	partnership: object
+	description: String
+	api: object
+	featured: Boolean
+	popularity: Int
+	active_healthy_connections: Int
 }
 
 type Integration {
@@ -758,8 +768,15 @@ URL for the software vendor
 This integration is new and is still considered "beta"
 """
 	beta: Boolean
-	support: Map_string_IntegrationSupport!
+	support: Map_string_IntegrationSupport
 	tested_at: DateTime
+	sandbox: object
+	partnership: object
+	description: String
+	api: object
+	featured: Boolean
+	popularity: Int
+	active_healthy_connections: Int
 }
 
 input IntegrationSupport_Input {
@@ -838,6 +855,9 @@ objects that we map from in the integration
 	list_end_le: ENUM_SupportInboundType
 	list_lead_id: ENUM_SupportInboundType
 	list_call_id: ENUM_SupportInboundType
+	list_document_id: ENUM_SupportInboundType
+	list_payment_id: ENUM_SupportInboundType
+	list_branch_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -916,6 +936,9 @@ objects that we map from in the integration
 	list_end_le: ENUM_SupportInboundType
 	list_lead_id: ENUM_SupportInboundType
 	list_call_id: ENUM_SupportInboundType
+	list_document_id: ENUM_SupportInboundType
+	list_payment_id: ENUM_SupportInboundType
+	list_branch_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
