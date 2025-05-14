@@ -80,6 +80,8 @@ components:
       - commerce_inventory_write
       - commerce_location_read
       - commerce_location_write
+      - commerce_review_read
+      - commerce_review_write
       - ats_activity_read
       - ats_activity_write
       - ats_application_read
@@ -232,6 +234,7 @@ components:
       - commerce_collection
       - commerce_inventory
       - commerce_location
+      - commerce_review
       - ats_activity
       - ats_application
       - ats_applicationstatus
@@ -560,11 +563,24 @@ components:
         tested_at:
           type: string
           format: date-time
+        sandbox:
+          type: object
+        partnership:
+          type: object
+        description:
+          type: string
+        api:
+          type: object
+        featured:
+          type: boolean
+        popularity:
+          type: integer
+        active_healthy_connections:
+          type: integer
       required:
         - type
         - name
         - categories
-        - support
     IntegrationSupport:
       type: object
       properties:
@@ -718,6 +734,12 @@ components:
         list_lead_id:
           $ref: "#/components/schemas/SupportInboundType"
         list_call_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_document_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_payment_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_branch_id:
           $ref: "#/components/schemas/SupportInboundType"
       required:
 
