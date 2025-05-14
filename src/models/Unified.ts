@@ -549,6 +549,7 @@ export interface IIntegrationSupport {
 	list_end_le?: TSupportInboundType;
 	list_lead_id?: TSupportInboundType;
 	list_call_id?: TSupportInboundType;
+	list_document_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
