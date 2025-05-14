@@ -465,6 +465,7 @@ export interface IIntegration {
 	support?: { [path in string]?: IIntegrationSupport };
 	tested_at?: string | Date | number;
 	sandbox?: unknown;
+	partnership?: unknown;
 }
 
 export interface IIntegrationSupport {
