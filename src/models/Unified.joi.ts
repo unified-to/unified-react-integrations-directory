@@ -74,6 +74,8 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'commerce_inventory_write',
 	'commerce_location_read',
 	'commerce_location_write',
+	'commerce_review_read',
+	'commerce_review_write',
 	'ats_activity_read',
 	'ats_activity_write',
 	'ats_application_read',
@@ -223,6 +225,7 @@ export const joiObjectType = Joi.string().valid(
 	'commerce_collection',
 	'commerce_inventory',
 	'commerce_location',
+	'commerce_review',
 	'ats_activity',
 	'ats_application',
 	'ats_applicationstatus',
@@ -483,6 +486,9 @@ export const joiIntegrationSupport = Joi.object({
 	list_end_le: joiSupportInboundType.optional(),
 	list_lead_id: joiSupportInboundType.optional(),
 	list_call_id: joiSupportInboundType.optional(),
+	list_document_id: joiSupportInboundType.optional(),
+	list_payment_id: joiSupportInboundType.optional(),
+	list_branch_id: joiSupportInboundType.optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
@@ -503,8 +509,15 @@ export const joiIntegration = Joi.object({
 	web_url: Joi.string().uri().optional().allow(null, '').description('URL for the software vendor'),
 	rate_limit_description: Joi.string().optional().allow(null, ''),
 	beta: Joi.boolean().optional().description('This integration is new and is still considered "beta"'),
-	support: Joi.object().label('IntegrationSupport').required(),
+	support: Joi.object().label('IntegrationSupport').optional(),
 	tested_at: Joi.date().optional(),
+	sandbox: Joi.any().optional(),
+	partnership: Joi.any().optional(),
+	description: Joi.string().optional().allow(null, ''),
+	api: Joi.any().optional(),
+	featured: Joi.boolean().optional(),
+	popularity: Joi.number().optional(),
+	active_healthy_connections: Joi.number().optional(),
 }).label('Integration').description('Informational object for supported integrations.');
 
 export const joiInvoice = Joi.object({
