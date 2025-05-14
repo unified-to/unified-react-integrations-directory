@@ -81,6 +81,8 @@ export const IntegrationPermission = [
 	'commerce_inventory_write',
 	'commerce_location_read',
 	'commerce_location_write',
+	'commerce_review_read',
+	'commerce_review_write',
 	'ats_activity_read',
 	'ats_activity_write',
 	'ats_application_read',
