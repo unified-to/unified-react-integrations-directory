@@ -129,6 +129,8 @@ export const IntegrationPermission = [
 	'hris_payslip_write',
 	'hris_timeoff_read',
 	'hris_timeoff_write',
+	'hris_timeshift_read',
+	'hris_timeshift_write',
 	'hris_company_read',
 	'hris_company_write',
 	'hris_location_read',
