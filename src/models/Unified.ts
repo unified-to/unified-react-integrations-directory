@@ -554,6 +554,7 @@ export interface IIntegrationSupport {
 	list_document_id?: TSupportInboundType;
 	list_payment_id?: TSupportInboundType;
 	list_branch_id?: TSupportInboundType;
+	list_expand_recurring_events?: TSupportInboundType;
 }
 
 export interface IInvoice {
