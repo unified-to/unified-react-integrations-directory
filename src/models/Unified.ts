@@ -231,8 +231,7 @@ export const IssueStatus = [
 	'IN_PROGRESS',
 	'ON_HOLD',
 	'VALIDATING',
-	'REJECTED',
-	'UP_NEXT'
+	'REJECTED'
 ] as const;
 
 export type TIssueStatus = typeof IssueStatus[number];
