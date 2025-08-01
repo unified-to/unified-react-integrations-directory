@@ -79,6 +79,8 @@ export const IntegrationPermission = [
 	'accounting_profitloss_write',
 	'accounting_balancesheet_read',
 	'accounting_balancesheet_write',
+	'accounting_category_read',
+	'accounting_category_write',
 	'payment_payment_read',
 	'payment_payment_write',
 	'payment_payout_read',
