@@ -47,7 +47,6 @@ export const IntegrationCategory = [
 export type TIntegrationCategory = typeof IntegrationCategory[number];
 
 export const IntegrationPermission = [
-	'auth_login',
 	'accounting_account_read',
 	'accounting_account_write',
 	'accounting_transaction_read',
