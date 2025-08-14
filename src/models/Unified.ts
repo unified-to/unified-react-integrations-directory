@@ -579,6 +579,7 @@ export interface IIntegrationSupport {
 	list_expand_recurring_events?: TSupportInboundType;
 	list_status?: TSupportInboundType;
 	list_pipeline_id?: TSupportInboundType;
+	list_category_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
