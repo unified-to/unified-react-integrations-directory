@@ -177,6 +177,7 @@ export const IntegrationPermission = [
 	'task_project_write',
 	'task_task_read',
 	'task_task_write',
+	'task_change_read',
 	'task_comment_read',
 	'task_comment_write',
 	'scim_users_read',
