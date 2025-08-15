@@ -312,6 +312,7 @@ export const ObjectType = [
 	'task_project',
 	'task_task',
 	'task_comment',
+	'task_change',
 	'scim_users',
 	'scim_groups',
 	'lms_course',
