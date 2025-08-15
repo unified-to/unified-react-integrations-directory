@@ -737,6 +737,7 @@ export interface IWorkspace {
 	custom_api_domain?: string;
 	slow_fields_opt_in?: boolean;
 	notion_verification_token?: string;
+	favicon_url?: string;
 }
 
 export interface IWorkspaceIntegration {
