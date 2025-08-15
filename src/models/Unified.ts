@@ -657,6 +657,12 @@ export interface IPlan {
 	dedicated_channel?: boolean; // Dedicated Slack/Discord channel
 }
 
+export interface ITaskChangeItem {
+	field: string; // unified field in ITaskTask
+	from?: string;
+	to?: string;
+}
+
 export interface IUser {
 	id?: string;
 	created_at?: (string | Date | number);
@@ -755,21 +761,5 @@ export interface IWorkspaceIntegration {
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
 	dev_api_key?: string;
-}
-
-export interface ITaskChange {
-	id?: string;
-	created_at?: string;
-	updated_at?: string;
-	task_id?: string;
-	user_id?: string;
-	items?: ITaskChangeItem[];
-	raw?: unknown;
-}
-
-export interface ITaskChangeItem {
-	field: string; // unified field in ITaskTask
-	from?: string;
-	to?: string;
 }
 
