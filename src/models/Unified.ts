@@ -757,3 +757,19 @@ export interface IWorkspaceIntegration {
 	dev_api_key?: string;
 }
 
+export interface ITaskChange {
+	id?: string;
+	created_at?: string;
+	updated_at?: string;
+	task_id?: string;
+	user_id?: string;
+	items?: ITaskChangeItem[];
+	raw?: unknown;
+}
+
+export interface ITaskChangeItem {
+	field: string; // unified field in ITaskTask
+	from?: string;
+	to?: string;
+}
+
