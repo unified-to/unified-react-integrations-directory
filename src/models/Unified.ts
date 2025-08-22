@@ -757,5 +757,6 @@ export interface IWorkspaceIntegration {
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
 	dev_api_key?: string;
+	refresh_url?: string;
 }
 
