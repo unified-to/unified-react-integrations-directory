@@ -693,6 +693,7 @@ export interface IWebhook {
 	db_url?: string;
 	db_name_prefix?: string;
 	is_paused?: boolean;
+	db_schema?: string;
 }
 
 export interface IWebhookData {
