@@ -691,9 +691,9 @@ export interface IWebhook {
 	filters?: { [path in string]?: string };
 	db_type?: TWebhookDatabaseType;
 	db_url?: string;
+	db_schema?: string;
 	db_name_prefix?: string;
 	is_paused?: boolean;
-	db_schema?: string;
 }
 
 export interface IWebhookData {
