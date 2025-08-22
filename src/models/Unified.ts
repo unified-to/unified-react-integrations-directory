@@ -466,12 +466,12 @@ export interface IConnectionAuth {
 	api_url?: string;
 	authorize_url?: string;
 	token_url?: string;
+	refresh_url?: string;
 	pem?: string; // the PEM X.509 certificate in Base64 ASCII format
 	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
 	refresh_token_expires_in?: number;
 	refresh_token_expires_date?: (string | Date | number);
 	dev_api_key?: string;
-	refresh_url?: string;
 }
 
 export interface IIntegration {
