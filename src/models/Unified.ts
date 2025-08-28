@@ -41,7 +41,8 @@ export const IntegrationCategory = [
 	'lms',
 	'repo',
 	'metadata',
-	'calendar'
+	'calendar',
+	'verification'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
