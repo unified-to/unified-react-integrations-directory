@@ -168,6 +168,8 @@ export const IntegrationPermission = [
 	'genai_model_read',
 	'genai_prompt_read',
 	'genai_prompt_write',
+	'genai_embedding_read',
+	'genai_embedding_write',
 	'messaging_message_read',
 	'messaging_message_write',
 	'messaging_channel_read',
