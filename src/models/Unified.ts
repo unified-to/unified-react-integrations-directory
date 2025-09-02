@@ -590,9 +590,9 @@ export interface IIntegrationSupport {
 	list_call_id?: TSupportInboundType;
 	list_document_id?: TSupportInboundType;
 	list_payment_id?: TSupportInboundType;
+	list_status?: TSupportInboundType;
 	list_branch_id?: TSupportInboundType;
 	list_expand_recurring_events?: TSupportInboundType;
-	list_status?: TSupportInboundType;
 	list_pipeline_id?: TSupportInboundType;
 	list_category_id?: TSupportInboundType;
 }
