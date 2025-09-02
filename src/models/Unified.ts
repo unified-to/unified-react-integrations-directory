@@ -305,6 +305,7 @@ export const ObjectType = [
 	'ticketing_note',
 	'ticketing_ticket',
 	'ticketing_customer',
+	'ticketing_category',
 	'uc_contact',
 	'uc_call',
 	'uc_comment',
