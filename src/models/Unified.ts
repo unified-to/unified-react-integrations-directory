@@ -140,6 +140,8 @@ export const IntegrationPermission = [
 	'ticketing_ticket_write',
 	'ticketing_note_read',
 	'ticketing_note_write',
+	'ticketing_category_read',
+	'ticketing_category_write',
 	'hris_employee_read',
 	'hris_employee_write',
 	'hris_group_read',
