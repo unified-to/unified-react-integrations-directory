@@ -310,6 +310,7 @@ export const ObjectType = [
 	'storage_file',
 	'genai_model',
 	'genai_prompt',
+	'genai_embedding',
 	'messaging_message',
 	'messaging_channel',
 	'kms_space',
