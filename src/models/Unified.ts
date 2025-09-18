@@ -596,6 +596,7 @@ export interface IIntegrationSupport {
 	list_pipeline_id?: TSupportInboundType;
 	list_category_id?: TSupportInboundType;
 	list_package_id?: TSupportInboundType;
+	list_expand?: TSupportInboundType;
 }
 
 export interface IInvoice {
