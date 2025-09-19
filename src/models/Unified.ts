@@ -758,6 +758,7 @@ export interface IWorkspace {
 	slow_fields_opt_in?: boolean;
 	notion_verification_token?: string;
 	favicon_url?: string;
+	is_baa?: boolean;
 }
 
 export interface IWorkspaceIntegration {
