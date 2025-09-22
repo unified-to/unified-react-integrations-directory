@@ -592,7 +592,7 @@ export interface IIntegrationSupport {
 	list_payment_id?: TSupportInboundType;
 	list_status?: TSupportInboundType;
 	list_branch_id?: TSupportInboundType;
-	list_expand_recurring_events?: TSupportInboundType;
+	list_expand_recurring_events?: TSupportInboundType; // @deprecated; use list_expand
 	list_pipeline_id?: TSupportInboundType;
 	list_category_id?: TSupportInboundType;
 	list_package_id?: TSupportInboundType;
