@@ -761,6 +761,7 @@ export interface IWorkspace {
 	favicon_url?: string;
 	is_baa?: boolean;
 	saml_integration_type?: string;
+	saml_idp_url?: string;
 }
 
 export interface IWorkspaceIntegration {
