@@ -760,6 +760,7 @@ export interface IWorkspace {
 	notion_verification_token?: string;
 	favicon_url?: string;
 	is_baa?: boolean;
+	saml_integration_type?: string;
 }
 
 export interface IWorkspaceIntegration {
