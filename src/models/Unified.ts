@@ -762,6 +762,7 @@ export interface IWorkspace {
 	is_baa?: boolean;
 	saml_integration_type?: string;
 	saml_idp_url?: string;
+	saml_idp_entity_id?: string;
 }
 
 export interface IWorkspaceIntegration {
