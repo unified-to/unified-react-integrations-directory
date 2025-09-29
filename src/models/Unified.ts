@@ -764,6 +764,7 @@ export interface IWorkspace {
 	saml_idp_url?: string;
 	saml_idp_entity_id?: string;
 	saml_pem?: string; // the PEM X.509 certificate in Base64 ASCII format
+	saml_only_login?: boolean; // if true, only allow SAML login
 }
 
 export interface IWorkspaceIntegration {
