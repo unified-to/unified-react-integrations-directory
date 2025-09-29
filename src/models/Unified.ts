@@ -508,12 +508,12 @@ export interface IIntegration {
 	tested_at?: (string | Date | number);
 	sandbox?: unknown;
 	partnership?: unknown;
+	saml?: unknown;
 	description?: string;
 	api?: unknown;
 	featured?: boolean;
 	popularity?: number;
 	active_healthy_connections?: number;
-	saml?: unknown;
 }
 
 export interface IIntegrationSupport {
