@@ -513,6 +513,7 @@ export interface IIntegration {
 	featured?: boolean;
 	popularity?: number;
 	active_healthy_connections?: number;
+	saml?: unknown;
 }
 
 export interface IIntegrationSupport {
