@@ -267,7 +267,6 @@ export const ObjectType = [
 	'accounting_profitloss',
 	'accounting_trialbalance',
 	'accounting_category',
-	'accounting_expense',
 	'payment_payment',
 	'payment_link',
 	'payment_payout',
