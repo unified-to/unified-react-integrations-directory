@@ -722,9 +722,9 @@ export interface IWebhookData {
 	webhook: IWebhook; // The webhook object
 	nonce: string; // random string
 	sig: string; // @deprecated; use sig256 instead
+	sig256?: string; // HMAC-SHA256(workspace.secret, data + nonce)
 	type: TWebhookDataType;
 	external_xref?: string;
-	sig256?: string; // HMAC-SHA256(workspace.secret, data + nonce)
 }
 
 export interface IWorkspace {
