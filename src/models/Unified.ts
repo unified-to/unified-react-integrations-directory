@@ -724,6 +724,7 @@ export interface IWebhookData {
 	sig: string; // HMAC-SHA1(workspace.secret, data + nonce)
 	type: TWebhookDataType;
 	external_xref?: string;
+	sig256?: string; // HMAC-SHA256(workspace.secret, data + nonce)
 }
 
 export interface IWorkspace {
