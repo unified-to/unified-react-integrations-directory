@@ -607,6 +607,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_start_gte?: TSupportInboundType;
 	virtual_webhook_end_lt?: TSupportInboundType;
 	list_end_le?: TSupportInboundType; // @deprecated; use list_end_lt
+	virtual_webhook_end_le?: TSupportInboundType; // @deprecated; use virtual_webhook_end_lt
 }
 
 export interface IInvoice {
