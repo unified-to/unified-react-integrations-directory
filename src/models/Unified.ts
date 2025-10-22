@@ -590,7 +590,7 @@ export interface IIntegrationSupport {
 	native_webhook_project_id?: TSupportInboundType;
 	virtual_webhook_job_id?: TSupportInboundType;
 	list_start_gte?: TSupportInboundType;
-	list_end_le?: TSupportInboundType;
+	list_end_lt?: TSupportInboundType;
 	list_lead_id?: TSupportInboundType;
 	list_call_id?: TSupportInboundType;
 	list_document_id?: TSupportInboundType;
