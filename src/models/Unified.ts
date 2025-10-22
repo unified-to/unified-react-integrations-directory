@@ -605,7 +605,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_expand?: TSupportInboundType;
 	virtual_webhook_status?: TSupportInboundType;
 	virtual_webhook_start_gte?: TSupportInboundType;
-	virtual_webhook_end_le?: TSupportInboundType;
+	virtual_webhook_end_lt?: TSupportInboundType;
 }
 
 export interface IInvoice {
