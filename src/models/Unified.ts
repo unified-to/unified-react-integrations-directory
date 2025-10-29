@@ -85,6 +85,8 @@ export const IntegrationPermission = [
 	'accounting_category_write',
 	'payment_payment_read',
 	'payment_payment_write',
+	'accounting_cashflow_read',
+	'accounting_cashflow_write',
 	'payment_payout_read',
 	'payment_refund_read',
 	'payment_link_read',
