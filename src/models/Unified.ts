@@ -270,6 +270,7 @@ export const ObjectType = [
 	'accounting_trialbalance',
 	'accounting_category',
 	'accounting_expense',
+	'accounting_cashflow',
 	'payment_payment',
 	'payment_link',
 	'payment_payout',
