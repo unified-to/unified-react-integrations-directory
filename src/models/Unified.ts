@@ -574,6 +574,7 @@ export interface IIntegrationSupport {
 	list_student_id?: TSupportInboundType;
 	list_instructor_id?: TSupportInboundType;
 	list_class_id?: TSupportInboundType;
+	list_teacher_id?: TSupportInboundType;
 	list_repo_id?: TSupportInboundType;
 	list_org_id?: TSupportInboundType;
 	list_calendar_id?: TSupportInboundType;
@@ -582,7 +583,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_updated_gte?: TSupportInboundType;
 	virtual_webhook_limit?: TSupportInboundType;
 	virtual_webhook_channel_id?: TSupportInboundType;
-	list_teacher_id?: TSupportInboundType;
 	virtual_webhook_parent_id?: TSupportInboundType;
 	virtual_webhook_contact_id?: TSupportInboundType;
 	virtual_webhook_deal_id?: TSupportInboundType;
