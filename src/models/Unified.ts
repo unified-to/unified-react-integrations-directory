@@ -595,6 +595,7 @@ export interface IIntegrationSupport {
 	list_start_gte?: TSupportInboundType;
 	list_end_lt?: TSupportInboundType;
 	list_lead_id?: TSupportInboundType;
+	list_teacher_id?: TSupportInboundType;
 	list_call_id?: TSupportInboundType;
 	list_document_id?: TSupportInboundType;
 	list_payment_id?: TSupportInboundType;
@@ -611,7 +612,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_end_lt?: TSupportInboundType;
 	list_end_le?: TSupportInboundType; // @deprecated; use list_end_lt
 	virtual_webhook_end_le?: TSupportInboundType; // @deprecated; use virtual_webhook_end_lt
-	list_teacher_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
