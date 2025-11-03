@@ -609,7 +609,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_company_id?: TSupportInboundType;
 	virtual_webhook_user_id?: TSupportInboundType;
 	virtual_webhook_type?: TSupportInboundType;
-	virtual_webhook_job_id?: TSupportInboundType;
 	virtual_webhook_ticket_id?: TSupportInboundType;
 	virtual_webhook_expand?: TSupportInboundType;
 	virtual_webhook_status?: TSupportInboundType;
