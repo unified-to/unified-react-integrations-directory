@@ -58,6 +58,7 @@ const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     lms: 'LMS',
     repo: 'Repository',
     calendar: 'Calendar',
+    verification: 'Verification',
 } satisfies { [path in TIntegrationCategoryType]: string };
 
 export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
@@ -66,6 +67,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const [CATEGORIES, setCategories] = useState<TIntegrationCategory[]>([]);
     const [selectedCategory, setCategory] = useState<TIntegrationCategory | ''>('');
     const [loading, setLoading] = useState<boolean>(false);
+    const [search, setSearch] = useState<string>('');
 
     useEffect(() => {
         if (!loading && !INTEGRATIONS.length) {
@@ -77,7 +79,13 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
                 let _CATEGORIES = [] as TIntegrationCategory[];
                 data.forEach((integration) => {
                     integration.categories?.forEach((c) => {
-                        if (CATEGORY_MAP[c] && (!props.categories?.length || props.categories.indexOf(c) !== -1)) {
+                        if (
+                            (!search ||
+                                integration.name.toLowerCase().includes(search.toLowerCase()) ||
+                                integration.type.toLowerCase().includes(search.toLowerCase())) &&
+                            CATEGORY_MAP[c] &&
+                            (!props.categories?.length || props.categories.indexOf(c) !== -1)
+                        ) {
                             _CATEGORIES.push(c);
                         }
                     });
@@ -152,7 +160,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     return (
         <div className="unified">
             {!props.nostyle && <style>@import url(https://api.unified.to/docs/unified.css)</style>}
-            {!props.notabs && CATEGORIES && CATEGORIES.length > 0 && filter(INTEGRATIONS).length && (
+            {!props.notabs && CATEGORIES && CATEGORIES.length > 0 && filter(INTEGRATIONS).length && !loading && (
                 <div className="unified_menu">
                     <button className={`unified_button unified_button_all ${selectedCategory ? '' : ' active'}`} onClick={() => setCategory('')}>
                         All
@@ -166,6 +174,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
                             {CATEGORY_MAP[cat]}
                         </button>
                     ))}
+                    <input type="search" className="unified_search" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
                 </div>
             )}
 
@@ -189,6 +198,8 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
                 ))}
                 {filter(INTEGRATIONS).length === 0 && <div className="unified_vendor">No integrations available</div>}
             </div>
+
+            {loading && <div className="unified_loading">Loading...</div>}
         </div>
     );
 }
