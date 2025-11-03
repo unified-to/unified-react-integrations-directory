@@ -636,6 +636,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_application_id?: TSupportInboundType;
 	native_webhook_event_id?: TSupportInboundType;
 	virtual_webhook_item_variant_id?: TSupportInboundType;
+	virtual_webhook_calendar_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
