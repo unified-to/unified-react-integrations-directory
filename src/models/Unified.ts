@@ -600,6 +600,7 @@ export interface IIntegrationSupport {
 	native_webhook_task_id?: TSupportInboundType;
 	native_webhook_channel_id?: TSupportInboundType;
 	native_webhook_calendar_id?: TSupportInboundType;
+	native_webhook_event_id?: TSupportInboundType;
 	virtual_webhook_updated_gte?: TSupportInboundType;
 	virtual_webhook_limit?: TSupportInboundType;
 	virtual_webhook_channel_id?: TSupportInboundType;
@@ -608,7 +609,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_deal_id?: TSupportInboundType;
 	virtual_webhook_company_id?: TSupportInboundType;
 	virtual_webhook_user_id?: TSupportInboundType;
-	native_webhook_event_id?: TSupportInboundType;
 	virtual_webhook_type?: TSupportInboundType;
 	virtual_webhook_ticket_id?: TSupportInboundType;
 	virtual_webhook_expand?: TSupportInboundType;
