@@ -608,6 +608,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_deal_id?: TSupportInboundType;
 	virtual_webhook_company_id?: TSupportInboundType;
 	virtual_webhook_user_id?: TSupportInboundType;
+	native_webhook_event_id?: TSupportInboundType;
 	virtual_webhook_type?: TSupportInboundType;
 	virtual_webhook_ticket_id?: TSupportInboundType;
 	virtual_webhook_expand?: TSupportInboundType;
@@ -621,7 +622,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_project_id?: TSupportInboundType;
 	virtual_webhook_pipeline_id?: TSupportInboundType;
 	virtual_webhook_page_id?: TSupportInboundType;
-	native_webhook_event_id?: TSupportInboundType;
 	virtual_webhook_org_id?: TSupportInboundType;
 	virtual_webhook_location_id?: TSupportInboundType;
 	virtual_webhook_list_id?: TSupportInboundType;
