@@ -66,7 +66,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const [INTEGRATIONS, setIntegrations] = useState<IIntegration[]>([]);
     const [CATEGORIES, setCategories] = useState<TIntegrationCategory[]>([]);
     const [selectedCategory, setCategory] = useState<TIntegrationCategory | ''>('');
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean | undefined>(undefined);
     const [search, setSearch] = useState<string>('');
 
     useEffect(() => {
@@ -178,26 +178,28 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
                 </div>
             )}
 
-            <div className="unified_vendors">
-                {filter(INTEGRATIONS).map((integration) => (
-                    <a key={integration.type} href={unified_get_auth_url(integration)} className="unified_vendor">
-                        <img alt={integration.name} src={integration.logo_url} className="unified_image" />
-                        <div className="unified_vendor_inner">
-                            <div className="unified_vendor_name">{integration.name}</div>
-                            {!props.nocategories &&
-                                integration.categories
-                                    .filter((c) => !CATEGORIES || CATEGORIES.indexOf(c) > -1)
-                                    .filter((c) => CATEGORY_MAP[c])
-                                    .map((cat) => (
-                                        <div key={cat} className="unified_vendor_cats">
-                                            <span>{CATEGORY_MAP[cat]}</span>
-                                        </div>
-                                    ))}
-                        </div>
-                    </a>
-                ))}
-                {filter(INTEGRATIONS).length === 0 && <div className="unified_vendor">No integrations available</div>}
-            </div>
+            {!loading && (
+                <div className="unified_vendors">
+                    {filter(INTEGRATIONS).map((integration) => (
+                        <a key={integration.type} href={unified_get_auth_url(integration)} className="unified_vendor">
+                            <img alt={integration.name} src={integration.logo_url} className="unified_image" />
+                            <div className="unified_vendor_inner">
+                                <div className="unified_vendor_name">{integration.name}</div>
+                                {!props.nocategories &&
+                                    integration.categories
+                                        .filter((c) => !CATEGORIES || CATEGORIES.indexOf(c) > -1)
+                                        .filter((c) => CATEGORY_MAP[c])
+                                        .map((cat) => (
+                                            <div key={cat} className="unified_vendor_cats">
+                                                <span>{CATEGORY_MAP[cat]}</span>
+                                            </div>
+                                        ))}
+                            </div>
+                        </a>
+                    ))}
+                    {loading !== undefined && filter(INTEGRATIONS).length === 0 && <div className="unified_vendor">No integrations available</div>}
+                </div>
+            )}
 
             {loading && <div className="unified_loading">Loading...</div>}
         </div>
