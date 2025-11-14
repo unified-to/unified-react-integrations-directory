@@ -5,7 +5,8 @@ Unified
 export const ApiCallType = [
 	'login',
 	'webhook',
-	'inbound'
+	'inbound',
+	'mcp'
 ] as const;
 
 export type TApiCallType = typeof ApiCallType[number];
