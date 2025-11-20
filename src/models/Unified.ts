@@ -580,6 +580,7 @@ export interface IIntegrationSupport {
 	search_linkedinurl?: TSupportInboundType;
 	search_email?: TSupportInboundType;
 	search_domain?: TSupportInboundType;
+	list_user_mentioned_id?: TSupportInboundType;
 	list_event_id?: TSupportInboundType;
 	list_start_gte?: TSupportInboundType;
 	list_end_lt?: TSupportInboundType;
@@ -600,7 +601,6 @@ export interface IIntegrationSupport {
 	native_webhook_company_id?: TSupportInboundType;
 	native_webhook_task_id?: TSupportInboundType;
 	native_webhook_channel_id?: TSupportInboundType;
-	list_user_mentioned_id?: TSupportInboundType;
 	native_webhook_calendar_id?: TSupportInboundType;
 	native_webhook_event_id?: TSupportInboundType;
 	virtual_webhook_updated_gte?: TSupportInboundType;
