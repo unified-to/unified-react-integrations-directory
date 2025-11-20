@@ -183,6 +183,7 @@ export const schemaIntegrationSupport = {
 	virtual_webhook_calendar_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	virtual_webhook_lead_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_payslip_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	list_benefit_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
