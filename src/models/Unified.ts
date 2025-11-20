@@ -552,6 +552,7 @@ export interface IIntegrationSupport {
 	list_root_id?: TSupportInboundType;
 	list_list_id?: TSupportInboundType;
 	list_interview_id?: TSupportInboundType;
+	list_user_mentioned_id?: TSupportInboundType;
 	list_location_id?: TSupportInboundType;
 	list_collection_id?: TSupportInboundType;
 	list_ticket_id?: TSupportInboundType;
@@ -570,7 +571,6 @@ export interface IIntegrationSupport {
 	list_class_id?: TSupportInboundType;
 	list_instructor_id?: TSupportInboundType;
 	list_course_id?: TSupportInboundType;
-	list_user_mentioned_id?: TSupportInboundType;
 	list_teacher_id?: TSupportInboundType;
 	list_repo_id?: TSupportInboundType;
 	list_org_id?: TSupportInboundType;
