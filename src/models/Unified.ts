@@ -640,7 +640,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_calendar_id?: TSupportInboundType;
 	virtual_webhook_lead_id?: TSupportInboundType;
 	NewField_159: string;
-	NewField_334: string;
+	virtual_webhook_user_mentioned_id?: TSupportInboundType;
 	list_user_mentioned_id?: TSupportInboundType;
 }
 
