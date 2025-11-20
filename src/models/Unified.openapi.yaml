@@ -1,0 +1,1315 @@
+
+openapi: 3.0.0
+info:
+  title: Unified
+paths:
+components:
+  schemas:
+    ApiCallType:
+      type: string
+      enum:
+      - login
+      - webhook
+      - inbound
+      - mcp
+    IntegrationAuthType:
+      type: string
+      enum:
+      - oauth1
+      - oauth2
+      - other
+      - token
+    IntegrationCategory:
+      type: string
+      enum:
+      - passthrough
+      - hris
+      - ats
+      - auth
+      - crm
+      - enrich
+      - martech
+      - ticketing
+      - uc
+      - accounting
+      - storage
+      - commerce
+      - payment
+      - genai
+      - messaging
+      - kms
+      - task
+      - scim
+      - lms
+      - repo
+      - metadata
+      - calendar
+      - verification
+    IntegrationPermission:
+      type: string
+      enum:
+      - accounting_account_read
+      - accounting_account_write
+      - accounting_transaction_read
+      - accounting_transaction_write
+      - accounting_journal_read
+      - accounting_journal_write
+      - accounting_invoice_read
+      - accounting_invoice_write
+      - accounting_bill_read
+      - accounting_bill_write
+      - accounting_creditmemo_read
+      - accounting_creditmemo_write
+      - accounting_contact_read
+      - accounting_contact_write
+      - accounting_expense_read
+      - accounting_expense_write
+      - accounting_taxrate_read
+      - accounting_taxrate_write
+      - accounting_organization_read
+      - accounting_order_read
+      - accounting_order_write
+      - accounting_purchaseorder_read
+      - accounting_purchaseorder_write
+      - accounting_salesorder_read
+      - accounting_salesorder_write
+      - accounting_report_read
+      - accounting_report_write
+      - accounting_trialbalance_read
+      - accounting_trialbalance_write
+      - accounting_profitloss_read
+      - accounting_profitloss_write
+      - accounting_balancesheet_read
+      - accounting_balancesheet_write
+      - accounting_category_read
+      - accounting_category_write
+      - payment_payment_read
+      - payment_payment_write
+      - accounting_cashflow_read
+      - accounting_cashflow_write
+      - payment_payout_read
+      - payment_refund_read
+      - payment_link_read
+      - payment_link_write
+      - payment_subscription_read
+      - payment_subscription_write
+      - commerce_item_read
+      - commerce_item_write
+      - commerce_collection_read
+      - commerce_collection_write
+      - commerce_inventory_read
+      - commerce_inventory_write
+      - commerce_location_read
+      - commerce_location_write
+      - commerce_review_read
+      - commerce_review_write
+      - verification_package_read
+      - verification_request_read
+      - verification_request_write
+      - ats_activity_read
+      - ats_activity_write
+      - ats_application_read
+      - ats_application_write
+      - ats_applicationstatus_read
+      - ats_candidate_read
+      - ats_candidate_write
+      - ats_interview_read
+      - ats_interview_write
+      - ats_job_read
+      - ats_job_write
+      - ats_company_read
+      - ats_company_write
+      - ats_document_read
+      - ats_document_write
+      - ats_scorecard_read
+      - ats_scorecard_write
+      - crm_company_read
+      - crm_company_write
+      - crm_contact_read
+      - crm_contact_write
+      - crm_deal_read
+      - crm_deal_write
+      - crm_event_read
+      - crm_event_write
+      - crm_lead_read
+      - crm_lead_write
+      - crm_pipeline_read
+      - crm_pipeline_write
+      - martech_list_read
+      - martech_list_write
+      - martech_member_read
+      - martech_member_write
+      - ticketing_customer_read
+      - ticketing_customer_write
+      - ticketing_ticket_read
+      - ticketing_ticket_write
+      - ticketing_note_read
+      - ticketing_note_write
+      - ticketing_category_read
+      - ticketing_category_write
+      - hris_employee_read
+      - hris_employee_write
+      - hris_group_read
+      - hris_group_write
+      - hris_payslip_read
+      - hris_payslip_write
+      - hris_timeoff_read
+      - hris_timeoff_write
+      - hris_timeshift_read
+      - hris_timeshift_write
+      - hris_company_read
+      - hris_company_write
+      - hris_location_read
+      - hris_location_write
+      - hris_device_read
+      - hris_device_write
+      - hris_deduction_read
+      - hris_deduction_write
+      - hris_benefit_read
+      - hris_benefit_write
+      - uc_call_read
+      - uc_contact_read
+      - uc_contact_write
+      - uc_comment_read
+      - uc_comment_write
+      - uc_recording_read
+      - storage_file_read
+      - storage_file_write
+      - webhook
+      - genai_model_read
+      - genai_prompt_read
+      - genai_prompt_write
+      - genai_embedding_read
+      - genai_embedding_write
+      - messaging_message_read
+      - messaging_message_write
+      - messaging_channel_read
+      - kms_space_read
+      - kms_space_write
+      - kms_page_read
+      - kms_page_write
+      - kms_comment_read
+      - kms_comment_write
+      - task_project_read
+      - task_project_write
+      - task_task_read
+      - task_task_write
+      - task_change_read
+      - task_comment_read
+      - task_comment_write
+      - scim_users_read
+      - scim_users_write
+      - scim_groups_read
+      - scim_groups_write
+      - lms_course_read
+      - lms_course_write
+      - lms_class_read
+      - lms_class_write
+      - lms_student_read
+      - lms_student_write
+      - lms_instructor_read
+      - lms_instructor_write
+      - repo_organization_read
+      - repo_organization_write
+      - repo_repository_read
+      - repo_repository_write
+      - repo_branch_read
+      - repo_branch_write
+      - repo_commit_read
+      - repo_commit_write
+      - repo_pullrequest_read
+      - repo_pullrequest_write
+      - metadata_metadata_read
+      - metadata_metadata_write
+      - calendar_calendar_read
+      - calendar_calendar_write
+      - calendar_event_read
+      - calendar_event_write
+      - calendar_busy_read
+      - calendar_link_read
+      - calendar_link_write
+      - calendar_recording_read
+      - calendar_recording_write
+      - enrich_person_read
+      - enrich_company_read
+    IntegrationSupportWebhookType:
+      type: string
+      enum:
+      - virtual
+      - native
+    IssueStatus:
+      type: string
+      enum:
+      - COMPLETED
+      - NEW
+      - ROADMAP
+      - IN_PROGRESS
+      - ON_HOLD
+      - VALIDATING
+      - REJECTED
+    ObjectType:
+      type: string
+      enum:
+      - accounting_account
+      - accounting_transaction
+      - accounting_journal
+      - accounting_contact
+      - accounting_invoice
+      - accounting_bill
+      - accounting_creditmemo
+      - accounting_taxrate
+      - accounting_organization
+      - accounting_order
+      - accounting_salesorder
+      - accounting_purchaseorder
+      - accounting_report
+      - accounting_balancesheet
+      - accounting_profitloss
+      - accounting_trialbalance
+      - accounting_category
+      - accounting_expense
+      - accounting_cashflow
+      - payment_payment
+      - payment_link
+      - payment_payout
+      - payment_refund
+      - payment_subscription
+      - commerce_item
+      - commerce_collection
+      - commerce_inventory
+      - commerce_location
+      - commerce_review
+      - verification_package
+      - verification_request
+      - ats_activity
+      - ats_application
+      - ats_applicationstatus
+      - ats_candidate
+      - ats_document
+      - ats_interview
+      - ats_job
+      - ats_scorecard
+      - ats_company
+      - crm_company
+      - crm_contact
+      - crm_deal
+      - crm_event
+      - crm_lead
+      - crm_pipeline
+      - hris_employee
+      - hris_group
+      - hris_payslip
+      - hris_timeoff
+      - hris_company
+      - hris_location
+      - hris_device
+      - hris_timeshift
+      - hris_deduction
+      - hris_benefit
+      - martech_list
+      - martech_member
+      - passthrough
+      - ticketing_note
+      - ticketing_ticket
+      - ticketing_customer
+      - ticketing_category
+      - uc_contact
+      - uc_call
+      - uc_comment
+      - uc_recording
+      - enrich_person
+      - enrich_company
+      - storage_file
+      - genai_model
+      - genai_prompt
+      - genai_embedding
+      - messaging_message
+      - messaging_channel
+      - kms_space
+      - kms_page
+      - kms_comment
+      - task_project
+      - task_task
+      - task_comment
+      - task_change
+      - scim_users
+      - scim_groups
+      - lms_course
+      - lms_class
+      - lms_student
+      - lms_instructor
+      - repo_organization
+      - repo_repository
+      - repo_branch
+      - repo_commit
+      - repo_pullrequest
+      - metadata_metadata
+      - calendar_calendar
+      - calendar_event
+      - calendar_busy
+      - calendar_link
+      - calendar_recording
+    PlanTerm:
+      type: string
+      enum:
+      - monthly
+      - yearly
+    SupportInboundType:
+      type: string
+      enum:
+      - supported-required
+      - supported
+      - not-supported
+    SupportOutboundType:
+      type: string
+      enum:
+      - supported
+      - not-supported
+    WebhookDatabaseType:
+      type: string
+      enum:
+      - mongodb
+      - mysql
+      - postgres
+      - mssql
+      - mariadb
+    WebhookDataType:
+      type: string
+      enum:
+      - INITIAL-PARTIAL
+      - INITIAL-COMPLETE
+      - VIRTUAL
+      - NATIVE
+    WebhookEvent:
+      type: string
+      enum:
+      - updated
+      - created
+      - deleted
+    ApiCall:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this API call
+        created_at:
+          type: string
+          format: date-time
+          description: The date that this object was created
+        connection_id:
+          type: string
+        workspace_id:
+          type: string
+        integration_type:
+          type: string
+          description: The integration type
+        external_xref:
+          type: string
+          description: your customer's user ID
+        name:
+          type: string
+          description: The called name of the API method
+        path:
+          type: string
+          description: The called API method's HTTP verb and route path (PUT /crm/{integration}/deak/{id})
+        size:
+          type: integer
+          description: The size of the response
+        status:
+          type: string
+          description: The resulting HTTP status code (200)
+        error:
+          type: string
+          description: The error description (if status code is >= 400)
+        ip_address:
+          type: string
+        type:
+          $ref: "#/components/schemas/ApiCallType"
+          description: The type of API Call being logged
+        method:
+          type: string
+        environment:
+          type: string
+          default: "Production"
+        webhook_id:
+          type: string
+        is_billable:
+          type: boolean
+      required:
+        - workspace_id
+        - integration_type
+        - name
+        - path
+        - status
+        - type
+        - method
+    Connection:
+      type: object
+      description: A connection represents a specific authentication of an integration.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this integration object
+        created_at:
+          type: string
+          format: date-time
+          description: The date that this integration object was created
+        updated_at:
+          type: string
+          format: date-time
+          description: The last date that this integration object was updated
+        workspace_id:
+          type: string
+        integration_type:
+          type: string
+          description: The integration type
+        integration_name:
+          type: string
+        external_xref:
+          type: string
+          description: customer's user ID
+        permissions:
+          $ref: "#/components/schemas/IntegrationPermissions"
+        categories:
+          $ref: "#/components/schemas/IntegrationCategories"
+          description: The Integration categories that this connection supports
+        auth:
+          $ref: "#/components/schemas/ConnectionAuth"
+        is_paused:
+          type: boolean
+          description: Whether this integration has exceed the monthly limit of the plan
+        auth_aws_arn:
+          type: string
+          description: the AWS ARN / secretID for the stored auth field
+        environment:
+          type: string
+          default: "Production"
+        last_healthy_at:
+          type: string
+          format: date-time
+        last_unhealthy_at:
+          type: string
+          format: date-time
+      required:
+        - workspace_id
+        - integration_type
+        - permissions
+        - categories
+    ConnectionAuth:
+      type: object
+      description: An authentication object that represents a specific authorized user's connection to an integration.
+      properties:
+        token:
+          type: string
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+        expiry_date:
+          type: string
+          format: date-time
+        expires_in:
+          type: integer
+        emails:
+          $ref: "#/components/schemas/strings"
+        name:
+          type: string
+        user_id:
+          type: string
+        app_id:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        consumer_key:
+          type: string
+        consumer_secret:
+          type: string
+        meta:
+          type: object
+        state:
+          type: string
+        other_auth_info:
+          $ref: "#/components/schemas/strings"
+          description: When integration.auth_type = "other", this field contains the authentication credentials in the same order as token_names
+        api_url:
+          type: string
+        authorize_url:
+          type: string
+        token_url:
+          type: string
+        refresh_url:
+          type: string
+        pem:
+          type: string
+          description: the PEM X.509 certificate in Base64 ASCII format
+        key:
+          type: string
+          description: the private KEY X.509 certificate in Base64 ASCII format
+        refresh_token_expires_in:
+          type: integer
+        refresh_token_expires_date:
+          type: string
+          format: date-time
+        dev_api_key:
+          type: string
+      required:
+
+    Integration:
+      type: object
+      description: Informational object for supported integrations.
+      properties:
+        type:
+          type: string
+          description: Identifier for this integration
+        created_at:
+          type: string
+          description: Date that this integration was supported (YYYY-MM-DD)
+        updated_at:
+          type: string
+          description: YYYY-MM-DD
+        name:
+          type: string
+          description: The integration's name
+        is_active:
+          type: boolean
+          description: Is this integration active in this workspace
+        categories:
+          $ref: "#/components/schemas/IntegrationCategories"
+          description: The categories of support solutions that this integration has
+        api_docs_url:
+          type: string
+          description: The URL of the integration's API documentation
+        logo_url:
+          type: string
+          description: The URL of the integration's logo
+        in_progress:
+          type: boolean
+          description: If this integration is not yet available as it is currently being built by unified.to
+        color:
+          type: string
+          description: button background color for AUTH
+        text_color:
+          type: string
+          description: text color for AUTH
+        fa_icon:
+          type: string
+          description: font-awesome icon
+        token_names:
+          $ref: "#/components/schemas/strings"
+          description: if auth_types = 'token'
+        token_instructions:
+          $ref: "#/components/schemas/strings"
+          description: instructions for the user on how to find the token/key
+        web_url:
+          type: string
+          description: URL for the software vendor
+        rate_limit_description:
+          type: string
+        beta:
+          type: boolean
+          description: This integration is new and is still considered "beta"
+        support:
+          type: object
+          additionalProperties:
+            type: string
+        tested_at:
+          type: string
+          format: date-time
+        sandbox:
+          type: object
+        partnership:
+          type: object
+        saml:
+          type: object
+        description:
+          type: string
+        api:
+          type: object
+        featured:
+          type: boolean
+        popularity:
+          type: integer
+        active_healthy_connections:
+          type: integer
+      required:
+        - type
+        - name
+        - categories
+    IntegrationSupport:
+      type: object
+      properties:
+        methods:
+          type: object
+          additionalProperties:
+            type: string
+        inbound_fields:
+          type: object
+          additionalProperties:
+            type: string
+        outbound_fields:
+          type: object
+          additionalProperties:
+            type: string
+        webhook_events:
+          $ref: "#/components/schemas/IntegrationSupportWebhookTypes"
+        raw_objects:
+          $ref: "#/components/schemas/strings"
+          description: objects that we map from in the integration
+        slow_fields:
+          $ref: "#/components/schemas/strings"
+        from_webhook:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_sort_by_name:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_sort_by_created_at:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_sort_by_updated_at:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_updated_gte:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_user_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_user_mentioned_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_customer_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_company_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_contact_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_application_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_candidate_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_deal_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_job_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_invoice_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_order:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_query:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_limit:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_offset:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_root_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_list_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_interview_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_location_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_collection_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_ticket_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_parent_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_account_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_item_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_space_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_channel_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_page_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_type:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_link_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_project_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_item_variant_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_raw_fields:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_student_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_class_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_instructor_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_course_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_teacher_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_repo_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_org_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_calendar_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_task_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        search_twitter:
+          $ref: "#/components/schemas/SupportInboundType"
+        search_name:
+          $ref: "#/components/schemas/SupportInboundType"
+        search_linkedinurl:
+          $ref: "#/components/schemas/SupportInboundType"
+        search_email:
+          $ref: "#/components/schemas/SupportInboundType"
+        search_domain:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_event_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_start_gte:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_end_lt:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_end_le:
+          $ref: "#/components/schemas/SupportInboundType"
+          description: @deprecated; use list_end_lt
+        list_lead_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_call_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_document_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_payment_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_status:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_branch_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_pipeline_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_category_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_package_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_expand:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_expand_recurring_events:
+          $ref: "#/components/schemas/SupportInboundType"
+          description: @deprecated; use list_expand
+        native_webhook_parent_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_project_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_company_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_task_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_channel_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_calendar_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_event_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_updated_gte:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_limit:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_channel_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_parent_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_contact_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_deal_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_company_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_user_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_user_mentioned_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_type:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_ticket_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_expand:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_status:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_start_gte:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_end_lt:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_end_le:
+          $ref: "#/components/schemas/SupportInboundType"
+          description: @deprecated; use virtual_webhook_end_lt
+        virtual_webhook_task_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_space_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_repo_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_project_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_pipeline_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_page_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_org_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_location_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_list_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_job_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_item_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_fields:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_event_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_customer_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_collection_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_candidate_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_call_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_branch_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_application_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_item_variant_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_calendar_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_lead_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_payslip_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_benefit_id:
+          $ref: "#/components/schemas/SupportInboundType"
+      required:
+
+    Invoice:
+      type: object
+      properties:
+        stripe_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        amount:
+          type: integer
+        connections:
+          type: integer
+        plan:
+          type: string
+      required:
+        - stripe_id
+        - created_at
+        - amount
+        - connections
+        - plan
+    Issue:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        title:
+          type: string
+        status:
+          $ref: "#/components/schemas/IssueStatus"
+        url:
+          type: string
+        workspace_id:
+          type: string
+        type:
+          $ref: "#/components/schemas/strings"
+        resolution_time:
+          type: integer
+        ticket_ref:
+          type: string
+        size:
+          type: integer
+          description: 1-5, 1 is lowest
+        importance:
+          type: integer
+          description: 1-5, 1 is lowest
+      required:
+        - title
+        - status
+        - workspace_id
+        - ticket_ref
+    Permission:
+      type: object
+      properties:
+        can_create_org:
+          type: boolean
+        can_leave_org:
+          type: boolean
+        can_downgrade:
+          type: boolean
+        can_invite:
+          type: boolean
+        can_update_org:
+          type: boolean
+        can_add_and_remove_admin:
+          type: boolean
+        can_accept_invite:
+          type: boolean
+        can_reject_invite:
+          type: boolean
+        can_pay:
+          type: boolean
+        can_get_invoices:
+          type: boolean
+        is_admin:
+          type: boolean
+      required:
+        - can_create_org
+        - can_leave_org
+        - can_downgrade
+        - can_invite
+        - can_update_org
+        - can_add_and_remove_admin
+        - can_accept_invite
+        - can_reject_invite
+        - can_pay
+        - can_get_invoices
+        - is_admin
+    Plan:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          description: description
+        max_connections:
+          type: integer
+          description: Maximum active connections (1+ API call per month)
+        stripe_product_id:
+          type: string
+        stripe_price_id:
+          type: string
+        min_price:
+          type: integer
+        price_per_mille_requests:
+          type: integer
+        custom_oauth:
+          type: boolean
+        max_requests:
+          type: integer
+        test_stripe_product_id:
+          type: string
+        test_stripe_price_id:
+          type: string
+        min_annual_price:
+          type: integer
+        stripe_annual_price_id:
+          type: string
+        test_stripe_annual_price_id:
+          type: string
+        stripe_overage_price_id:
+          type: string
+        test_stripe_overage_price_id:
+          type: string
+        dedicated_channel:
+          type: boolean
+          description: Dedicated Slack/Discord channel
+      required:
+        - name
+    User:
+      type: object
+      description: The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        email:
+          type: string
+        workspace_id:
+          type: string
+          description: The current workspace
+        workspace_ids:
+          $ref: "#/components/schemas/ids"
+          description: A list of all of the user's workspaces
+        environment:
+          type: string
+          default: "Production"
+        meta:
+          type: object
+      required:
+        - name
+        - email
+        - workspace_id
+        - workspace_ids
+    Webhook:
+      type: object
+      description: A webhook is used to POST new/updated information to your server.
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        workspace_id:
+          type: string
+        connection_id:
+          type: string
+        hook_url:
+          type: string
+          description: The URL of the webhook
+        object_type:
+          $ref: "#/components/schemas/ObjectType"
+          description: The object to return (eg. CRM "contact")
+        interval:
+          type: integer
+          description: The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
+        checked_at:
+          type: string
+          format: date-time
+          description: The last date/time that a check was done on this object
+        integration_type:
+          type: string
+        environment:
+          type: string
+          default: "Production"
+        event:
+          $ref: "#/components/schemas/WebhookEvent"
+        runs:
+          $ref: "#/components/schemas/strings"
+          description: An array of the most revent virtual webhook runs
+        fields:
+          type: string
+        webhook_type:
+          $ref: "#/components/schemas/IntegrationSupportWebhookType"
+        meta:
+          type: object
+        is_healthy:
+          type: boolean
+        page_max_limit:
+          type: integer
+        filters:
+          type: object
+          additionalProperties:
+            type: string
+        db_type:
+          $ref: "#/components/schemas/WebhookDatabaseType"
+        db_url:
+          type: string
+        db_schema:
+          type: string
+        db_name_prefix:
+          type: string
+        is_paused:
+          type: boolean
+      required:
+        - connection_id
+        - object_type
+        - checked_at
+        - integration_type
+        - event
+    WebhookData:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/objects"
+          description: The data array will contact an array of specific objects according to the webhook's connection. (eg. CRM Contacts)
+        webhook:
+          $ref: "#/components/schemas/Webhook"
+          description: The webhook object
+        nonce:
+          type: string
+          description: random string
+        sig:
+          type: string
+          description: @deprecated; use sig256 instead
+        sig256:
+          type: string
+          description: HMAC-SHA256(workspace.secret, data + nonce)
+        type:
+          $ref: "#/components/schemas/WebhookDataType"
+        external_xref:
+          type: string
+      required:
+        - data
+        - webhook
+        - nonce
+        - type
+    Workspace:
+      type: object
+      description: The User's workspace object. A workspace is like an organization that one or more users belong to.
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        admin_ids:
+          $ref: "#/components/schemas/ids"
+          description: Only these users can add additional admins and invite other users
+        invited_emails:
+          $ref: "#/components/schemas/strings"
+        pay_user_id:
+          type: string
+        plan:
+          type: string
+        stripe_customer:
+          type: string
+        stripe_subscriptions:
+          $ref: "#/components/schemas/strings"
+        stripe_prices:
+          $ref: "#/components/schemas/strings"
+        secret:
+          type: string
+          description: Workspace API secret
+        ip_addresses:
+          $ref: "#/components/schemas/strings"
+          description: a list of IP addresses that are allowed to access this workspace
+        aws_region:
+          type: string
+        aws_key:
+          type: string
+        aws_secret:
+          type: string
+        datadog_apikey:
+          type: string
+        datadog_site:
+          type: string
+        environments:
+          $ref: "#/components/schemas/strings"
+          description: a list of authentication environments for the workspace integrations
+        add_ons:
+          $ref: "#/components/schemas/strings"
+        checklist:
+          type: object
+        plan_term:
+          $ref: "#/components/schemas/PlanTerm"
+          description: monthly or yearly
+          default: "monthly"
+        stripe_canceling_at:
+          type: string
+          format: date-time
+        domain:
+          type: string
+          description: when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
+        event_webhook_url:
+          type: string
+        event_webhook_events:
+          $ref: "#/components/schemas/WorkspaceEventTypes"
+        custom_auth_domain:
+          type: string
+        custom_auth_domain_valid:
+          type: boolean
+        custom_api_domain:
+          type: string
+        slow_fields_opt_in:
+          type: boolean
+        notion_verification_token:
+          type: string
+        favicon_url:
+          type: string
+        is_baa:
+          type: boolean
+        saml_integration_type:
+          type: string
+        saml_idp_url:
+          type: string
+        saml_idp_entity_id:
+          type: string
+        saml_pem:
+          type: string
+          description: the PEM X.509 certificate in Base64 ASCII format
+        saml_only_login:
+          type: boolean
+          description: if true, only allow SAML login
+      required:
+        - name
+    WorkspaceIntegration:
+      type: object
+      properties:
+        integration_type:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        consumer_key:
+          type: string
+        consumer_secret:
+          type: string
+        is_active:
+          type: boolean
+        api_url:
+          type: string
+        authorize_url:
+          type: string
+        token_url:
+          type: string
+        refresh_url:
+          type: string
+        base_url:
+          type: string
+        pem:
+          type: string
+          description: the PEM X.509 certificate in Base64 ASCII format
+        key:
+          type: string
+          description: the private KEY X.509 certificate in Base64 ASCII format
+        environment:
+          type: string
+          description: authentication environment
+          default: "Production"
+        categories:
+          $ref: "#/components/schemas/IntegrationCategories"
+        dev_api_key:
+          type: string
+      required:
+        - integration_type
+        - is_active
+    IntegrationPermissions:
+      type: array
+      items:
+        $ref: "#/components/schemas/IntegrationPermission"
+    IntegrationCategories:
+      type: array
+      items:
+        $ref: "#/components/schemas/IntegrationCategory"
+    strings:
+      type: array
+      items:
+        type: string
+    IntegrationSupportWebhookTypes:
+      type: array
+      items:
+        $ref: "#/components/schemas/IntegrationSupportWebhookType"
+    ids:
+      type: array
+      items:
+        type: string
+    objects:
+      type: array
+      items:
+        type: object
+    WorkspaceEventTypes:
+      type: array
+      items:
+        $ref: "#/components/schemas/WorkspaceEventType"
