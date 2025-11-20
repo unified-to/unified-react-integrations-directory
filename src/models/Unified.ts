@@ -642,6 +642,7 @@ export interface IIntegrationSupport {
 	NewField_159: string;
 	virtual_webhook_user_mentioned_id?: TSupportInboundType;
 	list_user_mentioned_id?: TSupportInboundType;
+	virtual_webhook_user_mentioned_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
