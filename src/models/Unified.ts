@@ -307,6 +307,8 @@ export const ObjectType = [
 	'hris_location',
 	'hris_device',
 	'hris_timeshift',
+	'hris_deduction',
+	'hris_benefit',
 	'martech_list',
 	'martech_member',
 	'passthrough',
