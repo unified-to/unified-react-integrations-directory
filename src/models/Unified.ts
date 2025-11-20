@@ -537,6 +537,7 @@ export interface IIntegrationSupport {
 	list_sort_by_updated_at?: TSupportInboundType;
 	list_updated_gte?: TSupportInboundType;
 	list_user_id?: TSupportInboundType;
+	list_user_mentioned_id?: TSupportInboundType;
 	list_customer_id?: TSupportInboundType;
 	list_company_id?: TSupportInboundType;
 	list_contact_id?: TSupportInboundType;
@@ -552,7 +553,6 @@ export interface IIntegrationSupport {
 	list_root_id?: TSupportInboundType;
 	list_list_id?: TSupportInboundType;
 	list_interview_id?: TSupportInboundType;
-	list_user_mentioned_id?: TSupportInboundType;
 	list_location_id?: TSupportInboundType;
 	list_collection_id?: TSupportInboundType;
 	list_ticket_id?: TSupportInboundType;
