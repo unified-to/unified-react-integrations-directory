@@ -600,6 +600,7 @@ export interface IIntegrationSupport {
 	native_webhook_company_id?: TSupportInboundType;
 	native_webhook_task_id?: TSupportInboundType;
 	native_webhook_channel_id?: TSupportInboundType;
+	list_user_mentioned_id?: TSupportInboundType;
 	native_webhook_calendar_id?: TSupportInboundType;
 	native_webhook_event_id?: TSupportInboundType;
 	virtual_webhook_updated_gte?: TSupportInboundType;
@@ -619,7 +620,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_end_le?: TSupportInboundType; // @deprecated; use virtual_webhook_end_lt
 	virtual_webhook_task_id?: TSupportInboundType;
 	virtual_webhook_space_id?: TSupportInboundType;
-	list_user_mentioned_id?: TSupportInboundType;
 	virtual_webhook_repo_id?: TSupportInboundType;
 	virtual_webhook_project_id?: TSupportInboundType;
 	virtual_webhook_pipeline_id?: TSupportInboundType;
