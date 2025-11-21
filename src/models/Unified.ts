@@ -653,6 +653,7 @@ export interface IIntegrationSupport {
 	list_payslip_id?: TSupportInboundType;
 	list_benefit_id?: TSupportInboundType;
 	list_saleschannel_id?: TSupportInboundType;
+	virtual_webhook_saleschannel_id?: string;
 }
 
 export interface IInvoice {
