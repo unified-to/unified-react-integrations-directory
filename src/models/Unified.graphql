@@ -96,6 +96,8 @@ enum ENUM_IntegrationPermission {
 	commerce_location_write
 	commerce_review_read
 	commerce_review_write
+	commerce_saleschannel_read
+	commerce_saleschannel_write
 	verification_package_read
 	verification_request_read
 	verification_request_write
@@ -272,6 +274,7 @@ enum ENUM_ObjectType {
 	commerce_inventory
 	commerce_location
 	commerce_review
+	commerce_saleschannel
 	verification_package
 	verification_request
 	ats_activity
@@ -966,6 +969,8 @@ objects that we map from in the integration
 	virtual_webhook_lead_id: ENUM_SupportInboundType
 	list_payslip_id: ENUM_SupportInboundType
 	list_benefit_id: ENUM_SupportInboundType
+	list_saleschannel_id: ENUM_SupportInboundType
+	virtual_webhook_saleschannel_id: String
 }
 
 type IntegrationSupport {
@@ -1099,6 +1104,8 @@ objects that we map from in the integration
 	virtual_webhook_lead_id: ENUM_SupportInboundType
 	list_payslip_id: ENUM_SupportInboundType
 	list_benefit_id: ENUM_SupportInboundType
+	list_saleschannel_id: ENUM_SupportInboundType
+	virtual_webhook_saleschannel_id: String
 }
 
 input Invoice_Input {
