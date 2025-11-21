@@ -288,6 +288,7 @@ export const ObjectType = [
 	'commerce_inventory',
 	'commerce_location',
 	'commerce_review',
+	'commerce_saleschannel',
 	'verification_package',
 	'verification_request',
 	'ats_activity',
