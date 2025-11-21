@@ -104,6 +104,8 @@ export const IntegrationPermission = [
 	'commerce_location_write',
 	'commerce_review_read',
 	'commerce_review_write',
+	'commerce_saleschannel_read',
+	'commerce_saleschannel_write',
 	'verification_package_read',
 	'verification_request_read',
 	'verification_request_write',
