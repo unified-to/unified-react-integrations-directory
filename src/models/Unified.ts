@@ -837,5 +837,6 @@ export interface IWorkspaceIntegration {
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
 	dev_api_key?: string;
+	overriden_scopes?: { [path in TIntegrationPermission]?: string };
 }
 
