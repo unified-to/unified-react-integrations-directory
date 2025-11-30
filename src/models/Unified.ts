@@ -390,7 +390,8 @@ export const WebhookDatabaseType = [
 	'mysql',
 	'postgres',
 	'mssql',
-	'mariadb'
+	'mariadb',
+	'supabase'
 ] as const;
 
 export type TWebhookDatabaseType = typeof WebhookDatabaseType[number];
