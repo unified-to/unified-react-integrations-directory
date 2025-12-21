@@ -335,6 +335,7 @@ export const ObjectType = [
 	'genai_embedding',
 	'messaging_message',
 	'messaging_channel',
+	'messaging_event',
 	'kms_space',
 	'kms_page',
 	'kms_comment',
