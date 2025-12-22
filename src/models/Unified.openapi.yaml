@@ -103,6 +103,8 @@ components:
       - commerce_location_write
       - commerce_review_read
       - commerce_review_write
+      - commerce_saleschannel_read
+      - commerce_saleschannel_write
       - verification_package_read
       - verification_request_read
       - verification_request_write
@@ -184,6 +186,8 @@ components:
       - messaging_message_read
       - messaging_message_write
       - messaging_channel_read
+      - messaging_event_read
+      - messaging_event_write
       - kms_space_read
       - kms_space_write
       - kms_page_read
@@ -279,6 +283,7 @@ components:
       - commerce_inventory
       - commerce_location
       - commerce_review
+      - commerce_saleschannel
       - verification_package
       - verification_request
       - ats_activity
@@ -325,6 +330,7 @@ components:
       - genai_embedding
       - messaging_message
       - messaging_channel
+      - messaging_event
       - kms_space
       - kms_page
       - kms_comment
@@ -373,6 +379,7 @@ components:
       - postgres
       - mssql
       - mariadb
+      - supabase
     WebhookDataType:
       type: string
       enum:
@@ -886,6 +893,10 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_benefit_id:
           $ref: "#/components/schemas/SupportInboundType"
+        list_saleschannel_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_saleschannel_id:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
@@ -1077,7 +1088,7 @@ components:
           description: The object to return (eg. CRM "contact")
         interval:
           type: integer
-          description: The interval (in minutes) to check for updated/new objets.  Minimum is 5 minutes.  Interval is based off of 5-minute increments.
+          description: The interval (in minutes) to check for updated/new objets. 
         checked_at:
           type: string
           format: date-time
@@ -1282,6 +1293,10 @@ components:
           $ref: "#/components/schemas/IntegrationCategories"
         dev_api_key:
           type: string
+        overriden_scopes:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/IntegrationPermission"
       required:
         - integration_type
         - is_active
