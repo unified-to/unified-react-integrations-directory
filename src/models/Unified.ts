@@ -43,7 +43,8 @@ export const IntegrationCategory = [
 	'repo',
 	'metadata',
 	'calendar',
-	'verification'
+	'verification',
+	'ads'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
