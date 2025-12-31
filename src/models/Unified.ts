@@ -236,7 +236,16 @@ export const IntegrationPermission = [
 	'calendar_recording_read',
 	'calendar_recording_write',
 	'enrich_person_read',
-	'enrich_company_read'
+	'enrich_company_read',
+	'ads_ad_read',
+	'ads_ad_write',
+	'ads_campaign_read',
+	'ads_campaign_write',
+	'ads_group_read',
+	'ads_group_write',
+	'ads_report_read',
+	'ads_organization_read',
+	'ads_organization_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
