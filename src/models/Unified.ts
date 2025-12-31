@@ -660,6 +660,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_saleschannel_id?: TSupportInboundType;
 	list_campaign_id?: TSupportInboundType;
 	list_ad_id?: TSupportInboundType;
+	list_group_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
