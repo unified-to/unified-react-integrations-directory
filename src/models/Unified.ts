@@ -663,6 +663,7 @@ export interface IIntegrationSupport {
 	list_group_id?: TSupportInboundType;
 	virtual_webhook_campaign_id?: TSupportInboundType;
 	virtual_webhook_ad_id?: TSupportInboundType;
+	virtual_webhook_group_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
