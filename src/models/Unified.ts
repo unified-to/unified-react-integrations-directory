@@ -370,7 +370,12 @@ export const ObjectType = [
 	'calendar_event',
 	'calendar_busy',
 	'calendar_link',
-	'calendar_recording'
+	'calendar_recording',
+	'ads_organization',
+	'ads_ad',
+	'ads_campaign',
+	'ads_report',
+	'ads_group'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
