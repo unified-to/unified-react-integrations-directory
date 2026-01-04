@@ -247,7 +247,11 @@ export const IntegrationPermission = [
 	'ads_group_write',
 	'ads_report_read',
 	'ads_organization_read',
-	'ads_organization_write'
+	'ads_organization_write',
+	'forms_form_read',
+	'forms_form_write',
+	'forms_submission_read',
+	'forms_submission_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
