@@ -44,7 +44,8 @@ export const IntegrationCategory = [
 	'metadata',
 	'calendar',
 	'verification',
-	'ads'
+	'ads',
+	'forms'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
