@@ -40,7 +40,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'metadata',
 	'calendar',
 	'verification',
-	'ads');
+	'ads',
+	'forms');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_account_read',
@@ -239,7 +240,11 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'ads_group_write',
 	'ads_report_read',
 	'ads_organization_read',
-	'ads_organization_write');
+	'ads_organization_write',
+	'forms_form_read',
+	'forms_form_write',
+	'forms_submission_read',
+	'forms_submission_write');
 
 export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'virtual',
@@ -360,7 +365,9 @@ export const joiObjectType = Joi.string().valid(
 	'ads_ad',
 	'ads_campaign',
 	'ads_report',
-	'ads_group');
+	'ads_group',
+	'forms_form',
+	'forms_submission');
 
 export const joiPlanTerm = Joi.string().valid(
 	'monthly',
@@ -620,6 +627,10 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	ads_report_read: Joi.string().allow(null, '').optional(),
 	ads_organization_read: Joi.string().allow(null, '').optional(),
 	ads_organization_write: Joi.string().allow(null, '').optional(),
+	forms_form_read: Joi.string().allow(null, '').optional(),
+	forms_form_write: Joi.string().allow(null, '').optional(),
+	forms_submission_read: Joi.string().allow(null, '').optional(),
+	forms_submission_write: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
@@ -815,6 +826,9 @@ export const joiIntegrationSupport = Joi.object({
 	virtual_webhook_campaign_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_ad_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_group_id: joiSupportInboundType.allow(null).optional(),
+	list_form_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_form_id: joiSupportInboundType.allow(null).optional(),
+	native_webhook_form_id: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
