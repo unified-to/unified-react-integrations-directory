@@ -652,7 +652,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_status?: TSupportInboundType;
 	virtual_webhook_start_gte?: TSupportInboundType;
 	virtual_webhook_end_lt?: TSupportInboundType;
-	virtual_webhook_end_le?: TSupportInboundType; // @deprecated; use virtual_webhook_end_lt
 	virtual_webhook_task_id?: TSupportInboundType;
 	virtual_webhook_space_id?: TSupportInboundType;
 	virtual_webhook_repo_id?: TSupportInboundType;
