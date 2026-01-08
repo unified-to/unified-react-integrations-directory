@@ -629,7 +629,6 @@ export interface IIntegrationSupport {
 	list_category_id?: TSupportInboundType;
 	list_package_id?: TSupportInboundType;
 	list_expand?: TSupportInboundType;
-	list_expand_recurring_events?: TSupportInboundType; // @deprecated; use list_expand
 	native_webhook_parent_id?: TSupportInboundType;
 	native_webhook_project_id?: TSupportInboundType;
 	native_webhook_company_id?: TSupportInboundType;
