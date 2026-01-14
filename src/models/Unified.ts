@@ -701,6 +701,7 @@ export interface IIntegrationSupport {
 	native_webhook_form_id?: TSupportInboundType;
 	list_order_id?: TSupportInboundType;
 	virtual_webhook_order_id?: TSupportInboundType;
+	native_webhook_order_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
