@@ -711,6 +711,7 @@ export interface IIntegrationSupport {
 	list_shipment_id?: TSupportInboundType;
 	virtual_webhook_shipment_id?: TSupportInboundType;
 	native_webhook_shipment_id?: TSupportInboundType;
+	list_label_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
