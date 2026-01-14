@@ -705,6 +705,7 @@ export interface IIntegrationSupport {
 	list_carrier_id?: TSupportInboundType;
 	virtual_webhook_carrier_id?: TSupportInboundType;
 	native_webhook_carrier_id?: TSupportInboundType;
+	list_shipment_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
