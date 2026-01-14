@@ -65,7 +65,7 @@ message Connection {
 	optional string integration_name = 6;
 	optional string external_xref = 7; // customer's user ID
 	repeated string permissions = 8;
-	repeated string categories = 9; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata, calendar, verification, ads, forms
+	repeated string categories = 9; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata, calendar, verification, ads, forms, shipping
 	optional ConnectionAuth auth = 10;
 	optional bool is_paused = 11; // Whether this integration has exceed the monthly limit of the plan
 	optional string auth_aws_arn = 12; // the AWS ARN / secretID for the stored auth field
@@ -201,6 +201,15 @@ message IntegrationSupport {
 	optional string list_form_id = 124;
 	optional string virtual_webhook_form_id = 125;
 	optional string native_webhook_form_id = 126;
+	optional string list_order_id = 127;
+	optional string virtual_webhook_order_id = 128;
+	optional string native_webhook_order_id = 129;
+	optional string list_carrier_id = 130;
+	optional string virtual_webhook_carrier_id = 131;
+	optional string native_webhook_carrier_id = 132;
+	optional string list_shipment_id = 133;
+	optional string virtual_webhook_shipment_id = 134;
+	optional string native_webhook_shipment_id = 135;
 }
 
 // Informational object for supported integrations.
@@ -211,7 +220,7 @@ message Integration {
 	optional string updated_at = 3; // YYYY-MM-DD
 	string name = 4; // The integration's name
 	optional bool is_active = 5; // Is this integration active in this workspace
-	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata, calendar, verification, ads, forms
+	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata, calendar, verification, ads, forms, shipping
 	optional string api_docs_url = 7; // The URL of the integration's API documentation
 	optional string logo_url = 8; // The URL of the integration's logo
 	optional bool in_progress = 9; // If this integration is not yet available as it is currently being built by unified.to
@@ -315,7 +324,7 @@ message Webhook {
 	optional string workspace_id = 4;
 	string connection_id = 5;
 	optional string hook_url = 6; // The URL of the webhook
-	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_journal, accounting_contact, accounting_invoice, accounting_bill, accounting_creditmemo, accounting_taxrate, accounting_organization, accounting_order, accounting_salesorder, accounting_purchaseorder, accounting_report, accounting_balancesheet, accounting_profitloss, accounting_trialbalance, accounting_category, accounting_expense, accounting_cashflow, payment_payment, payment_link, payment_payout, payment_refund, payment_subscription, commerce_item, commerce_collection, commerce_inventory, commerce_location, commerce_review, commerce_saleschannel, verification_package, verification_request, ats_activity, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, ats_company, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, hris_payslip, hris_timeoff, hris_company, hris_location, hris_device, hris_timeshift, hris_deduction, hris_benefit, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, ticketing_category, uc_contact, uc_call, uc_comment, uc_recording, enrich_person, enrich_company, storage_file, genai_model, genai_prompt, genai_embedding, messaging_message, messaging_channel, messaging_event, kms_space, kms_page, kms_comment, task_project, task_task, task_comment, task_change, scim_users, scim_groups, lms_course, lms_class, lms_student, lms_instructor, repo_organization, repo_repository, repo_branch, repo_commit, repo_pullrequest, metadata_metadata, calendar_calendar, calendar_event, calendar_busy, calendar_link, calendar_recording, ads_organization, ads_ad, ads_campaign, ads_report, ads_group, forms_form, forms_submission
+	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_journal, accounting_contact, accounting_invoice, accounting_bill, accounting_creditmemo, accounting_taxrate, accounting_organization, accounting_order, accounting_salesorder, accounting_purchaseorder, accounting_report, accounting_balancesheet, accounting_profitloss, accounting_trialbalance, accounting_category, accounting_expense, accounting_cashflow, payment_payment, payment_link, payment_payout, payment_refund, payment_subscription, commerce_item, commerce_collection, commerce_inventory, commerce_location, commerce_review, commerce_saleschannel, commerce_itemvariant, verification_package, verification_request, ats_activity, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, ats_company, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, hris_payslip, hris_timeoff, hris_company, hris_location, hris_device, hris_timeshift, hris_deduction, hris_benefit, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, ticketing_category, uc_contact, uc_call, uc_comment, uc_recording, enrich_person, enrich_company, storage_file, genai_model, genai_prompt, genai_embedding, messaging_message, messaging_channel, messaging_event, kms_space, kms_page, kms_comment, task_project, task_task, task_comment, task_change, scim_users, scim_groups, lms_course, lms_class, lms_student, lms_instructor, repo_organization, repo_repository, repo_branch, repo_commit, repo_pullrequest, metadata_metadata, calendar_calendar, calendar_event, calendar_busy, calendar_link, calendar_recording, ads_organization, ads_ad, ads_campaign, ads_report, ads_group, forms_form, forms_submission, shipping_carrier, shipping_rate, shipping_shipment, shipping_label, shipping_tracking
 	optional int32 interval = 8; // The interval (in minutes) to check for updated/new objets. 
 	string checked_at = 9; // The last date/time that a check was done on this object
 	string integration_type = 10;
