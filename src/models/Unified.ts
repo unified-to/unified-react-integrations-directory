@@ -384,7 +384,12 @@ export const ObjectType = [
 	'ads_report',
 	'ads_group',
 	'forms_form',
-	'forms_submission'
+	'forms_submission',
+	'shipping_carrier',
+	'shipping_rate',
+	'shipping_shipment',
+	'shipping_label',
+	'shipping_tracking'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
