@@ -41,7 +41,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'calendar',
 	'verification',
 	'ads',
-	'forms');
+	'forms',
+	'shipping');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_account_read',
@@ -101,6 +102,8 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'commerce_review_write',
 	'commerce_saleschannel_read',
 	'commerce_saleschannel_write',
+	'commerce_itemvariant_read',
+	'commerce_itemvariant_write',
 	'verification_package_read',
 	'verification_request_read',
 	'verification_request_write',
@@ -244,7 +247,14 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'forms_form_read',
 	'forms_form_write',
 	'forms_submission_read',
-	'forms_submission_write');
+	'forms_submission_write',
+	'shipping_shipment_read',
+	'shipping_shipment_write',
+	'shipping_label_read',
+	'shipping_label_write',
+	'shipping_tracking_read',
+	'shipping_rate_read',
+	'shipping_carrier_read');
 
 export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'virtual',
@@ -290,6 +300,7 @@ export const joiObjectType = Joi.string().valid(
 	'commerce_location',
 	'commerce_review',
 	'commerce_saleschannel',
+	'commerce_itemvariant',
 	'verification_package',
 	'verification_request',
 	'ats_activity',
@@ -367,7 +378,12 @@ export const joiObjectType = Joi.string().valid(
 	'ads_report',
 	'ads_group',
 	'forms_form',
-	'forms_submission');
+	'forms_submission',
+	'shipping_carrier',
+	'shipping_rate',
+	'shipping_shipment',
+	'shipping_label',
+	'shipping_tracking');
 
 export const joiPlanTerm = Joi.string().valid(
 	'monthly',
@@ -487,6 +503,8 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	commerce_review_write: Joi.string().allow(null, '').optional(),
 	commerce_saleschannel_read: Joi.string().allow(null, '').optional(),
 	commerce_saleschannel_write: Joi.string().allow(null, '').optional(),
+	commerce_itemvariant_read: Joi.string().allow(null, '').optional(),
+	commerce_itemvariant_write: Joi.string().allow(null, '').optional(),
 	verification_package_read: Joi.string().allow(null, '').optional(),
 	verification_request_read: Joi.string().allow(null, '').optional(),
 	verification_request_write: Joi.string().allow(null, '').optional(),
@@ -631,6 +649,13 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	forms_form_write: Joi.string().allow(null, '').optional(),
 	forms_submission_read: Joi.string().allow(null, '').optional(),
 	forms_submission_write: Joi.string().allow(null, '').optional(),
+	shipping_shipment_read: Joi.string().allow(null, '').optional(),
+	shipping_shipment_write: Joi.string().allow(null, '').optional(),
+	shipping_label_read: Joi.string().allow(null, '').optional(),
+	shipping_label_write: Joi.string().allow(null, '').optional(),
+	shipping_tracking_read: Joi.string().allow(null, '').optional(),
+	shipping_rate_read: Joi.string().allow(null, '').optional(),
+	shipping_carrier_read: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
@@ -759,7 +784,6 @@ export const joiIntegrationSupport = Joi.object({
 	list_event_id: joiSupportInboundType.allow(null).optional(),
 	list_start_gte: joiSupportInboundType.allow(null).optional(),
 	list_end_lt: joiSupportInboundType.allow(null).optional(),
-	list_end_le: joiSupportInboundType.allow(null).description('@deprecated; use list_end_lt').optional(),
 	list_lead_id: joiSupportInboundType.allow(null).optional(),
 	list_call_id: joiSupportInboundType.allow(null).optional(),
 	list_document_id: joiSupportInboundType.allow(null).optional(),
@@ -770,7 +794,6 @@ export const joiIntegrationSupport = Joi.object({
 	list_category_id: joiSupportInboundType.allow(null).optional(),
 	list_package_id: joiSupportInboundType.allow(null).optional(),
 	list_expand: joiSupportInboundType.allow(null).optional(),
-	list_expand_recurring_events: joiSupportInboundType.allow(null).description('@deprecated; use list_expand').optional(),
 	native_webhook_parent_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_project_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_company_id: joiSupportInboundType.allow(null).optional(),
@@ -793,7 +816,6 @@ export const joiIntegrationSupport = Joi.object({
 	virtual_webhook_status: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_start_gte: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_end_lt: joiSupportInboundType.allow(null).optional(),
-	virtual_webhook_end_le: joiSupportInboundType.allow(null).description('@deprecated; use virtual_webhook_end_lt').optional(),
 	virtual_webhook_task_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_space_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_repo_id: joiSupportInboundType.allow(null).optional(),
@@ -829,6 +851,15 @@ export const joiIntegrationSupport = Joi.object({
 	list_form_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_form_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_form_id: joiSupportInboundType.allow(null).optional(),
+	list_order_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_order_id: joiSupportInboundType.allow(null).optional(),
+	native_webhook_order_id: joiSupportInboundType.allow(null).optional(),
+	list_carrier_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_carrier_id: joiSupportInboundType.allow(null).optional(),
+	native_webhook_carrier_id: joiSupportInboundType.allow(null).optional(),
+	list_shipment_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_shipment_id: joiSupportInboundType.allow(null).optional(),
+	native_webhook_shipment_id: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
