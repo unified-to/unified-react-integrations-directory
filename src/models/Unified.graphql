@@ -40,6 +40,7 @@ enum ENUM_IntegrationCategory {
 	verification
 	ads
 	forms
+	shipping
 }
 
 enum ENUM_IntegrationPermission {
@@ -100,6 +101,8 @@ enum ENUM_IntegrationPermission {
 	commerce_review_write
 	commerce_saleschannel_read
 	commerce_saleschannel_write
+	commerce_itemvariant_read
+	commerce_itemvariant_write
 	verification_package_read
 	verification_request_read
 	verification_request_write
@@ -244,6 +247,13 @@ enum ENUM_IntegrationPermission {
 	forms_form_write
 	forms_submission_read
 	forms_submission_write
+	shipping_shipment_read
+	shipping_shipment_write
+	shipping_label_read
+	shipping_label_write
+	shipping_tracking_read
+	shipping_rate_read
+	shipping_carrier_read
 }
 
 enum ENUM_IntegrationSupportWebhookType {
@@ -292,6 +302,7 @@ enum ENUM_ObjectType {
 	commerce_location
 	commerce_review
 	commerce_saleschannel
+	commerce_itemvariant
 	verification_package
 	verification_request
 	ats_activity
@@ -370,6 +381,11 @@ enum ENUM_ObjectType {
 	ads_group
 	forms_form
 	forms_submission
+	shipping_carrier
+	shipping_rate
+	shipping_shipment
+	shipping_label
+	shipping_tracking
 }
 
 enum ENUM_PlanTerm {
@@ -531,6 +547,8 @@ input Map_IntegrationPermission_string_Input {
 	commerce_review_write: String!
 	commerce_saleschannel_read: String!
 	commerce_saleschannel_write: String!
+	commerce_itemvariant_read: String!
+	commerce_itemvariant_write: String!
 	verification_package_read: String!
 	verification_request_read: String!
 	verification_request_write: String!
@@ -675,6 +693,13 @@ input Map_IntegrationPermission_string_Input {
 	forms_form_write: String!
 	forms_submission_read: String!
 	forms_submission_write: String!
+	shipping_shipment_read: String!
+	shipping_shipment_write: String!
+	shipping_label_read: String!
+	shipping_label_write: String!
+	shipping_tracking_read: String!
+	shipping_rate_read: String!
+	shipping_carrier_read: String!
 }
 
 type Map_IntegrationPermission_string {
@@ -735,6 +760,8 @@ type Map_IntegrationPermission_string {
 	commerce_review_write: String!
 	commerce_saleschannel_read: String!
 	commerce_saleschannel_write: String!
+	commerce_itemvariant_read: String!
+	commerce_itemvariant_write: String!
 	verification_package_read: String!
 	verification_request_read: String!
 	verification_request_write: String!
@@ -879,6 +906,13 @@ type Map_IntegrationPermission_string {
 	forms_form_write: String!
 	forms_submission_read: String!
 	forms_submission_write: String!
+	shipping_shipment_read: String!
+	shipping_shipment_write: String!
+	shipping_label_read: String!
+	shipping_label_write: String!
+	shipping_tracking_read: String!
+	shipping_rate_read: String!
+	shipping_carrier_read: String!
 }
 
 input ApiCall_Input {
@@ -1338,10 +1372,6 @@ objects that we map from in the integration
 	list_event_id: ENUM_SupportInboundType
 	list_start_gte: ENUM_SupportInboundType
 	list_end_lt: ENUM_SupportInboundType
-"""
-@deprecated; use list_end_lt
-"""
-	list_end_le: ENUM_SupportInboundType
 	list_lead_id: ENUM_SupportInboundType
 	list_call_id: ENUM_SupportInboundType
 	list_document_id: ENUM_SupportInboundType
@@ -1352,10 +1382,6 @@ objects that we map from in the integration
 	list_category_id: ENUM_SupportInboundType
 	list_package_id: ENUM_SupportInboundType
 	list_expand: ENUM_SupportInboundType
-"""
-@deprecated; use list_expand
-"""
-	list_expand_recurring_events: ENUM_SupportInboundType
 	native_webhook_parent_id: ENUM_SupportInboundType
 	native_webhook_project_id: ENUM_SupportInboundType
 	native_webhook_company_id: ENUM_SupportInboundType
@@ -1378,10 +1404,6 @@ objects that we map from in the integration
 	virtual_webhook_status: ENUM_SupportInboundType
 	virtual_webhook_start_gte: ENUM_SupportInboundType
 	virtual_webhook_end_lt: ENUM_SupportInboundType
-"""
-@deprecated; use virtual_webhook_end_lt
-"""
-	virtual_webhook_end_le: ENUM_SupportInboundType
 	virtual_webhook_task_id: ENUM_SupportInboundType
 	virtual_webhook_space_id: ENUM_SupportInboundType
 	virtual_webhook_repo_id: ENUM_SupportInboundType
@@ -1417,6 +1439,15 @@ objects that we map from in the integration
 	list_form_id: ENUM_SupportInboundType
 	virtual_webhook_form_id: ENUM_SupportInboundType
 	native_webhook_form_id: ENUM_SupportInboundType
+	list_order_id: ENUM_SupportInboundType
+	virtual_webhook_order_id: ENUM_SupportInboundType
+	native_webhook_order_id: ENUM_SupportInboundType
+	list_carrier_id: ENUM_SupportInboundType
+	virtual_webhook_carrier_id: ENUM_SupportInboundType
+	native_webhook_carrier_id: ENUM_SupportInboundType
+	list_shipment_id: ENUM_SupportInboundType
+	virtual_webhook_shipment_id: ENUM_SupportInboundType
+	native_webhook_shipment_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1482,10 +1513,6 @@ objects that we map from in the integration
 	list_event_id: ENUM_SupportInboundType
 	list_start_gte: ENUM_SupportInboundType
 	list_end_lt: ENUM_SupportInboundType
-"""
-@deprecated; use list_end_lt
-"""
-	list_end_le: ENUM_SupportInboundType
 	list_lead_id: ENUM_SupportInboundType
 	list_call_id: ENUM_SupportInboundType
 	list_document_id: ENUM_SupportInboundType
@@ -1496,10 +1523,6 @@ objects that we map from in the integration
 	list_category_id: ENUM_SupportInboundType
 	list_package_id: ENUM_SupportInboundType
 	list_expand: ENUM_SupportInboundType
-"""
-@deprecated; use list_expand
-"""
-	list_expand_recurring_events: ENUM_SupportInboundType
 	native_webhook_parent_id: ENUM_SupportInboundType
 	native_webhook_project_id: ENUM_SupportInboundType
 	native_webhook_company_id: ENUM_SupportInboundType
@@ -1522,10 +1545,6 @@ objects that we map from in the integration
 	virtual_webhook_status: ENUM_SupportInboundType
 	virtual_webhook_start_gte: ENUM_SupportInboundType
 	virtual_webhook_end_lt: ENUM_SupportInboundType
-"""
-@deprecated; use virtual_webhook_end_lt
-"""
-	virtual_webhook_end_le: ENUM_SupportInboundType
 	virtual_webhook_task_id: ENUM_SupportInboundType
 	virtual_webhook_space_id: ENUM_SupportInboundType
 	virtual_webhook_repo_id: ENUM_SupportInboundType
@@ -1561,6 +1580,15 @@ objects that we map from in the integration
 	list_form_id: ENUM_SupportInboundType
 	virtual_webhook_form_id: ENUM_SupportInboundType
 	native_webhook_form_id: ENUM_SupportInboundType
+	list_order_id: ENUM_SupportInboundType
+	virtual_webhook_order_id: ENUM_SupportInboundType
+	native_webhook_order_id: ENUM_SupportInboundType
+	list_carrier_id: ENUM_SupportInboundType
+	virtual_webhook_carrier_id: ENUM_SupportInboundType
+	native_webhook_carrier_id: ENUM_SupportInboundType
+	list_shipment_id: ENUM_SupportInboundType
+	virtual_webhook_shipment_id: ENUM_SupportInboundType
+	native_webhook_shipment_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
