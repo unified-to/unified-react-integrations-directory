@@ -47,6 +47,7 @@ components:
       - verification
       - ads
       - forms
+      - shipping
     IntegrationPermission:
       type: string
       enum:
@@ -107,6 +108,8 @@ components:
       - commerce_review_write
       - commerce_saleschannel_read
       - commerce_saleschannel_write
+      - commerce_itemvariant_read
+      - commerce_itemvariant_write
       - verification_package_read
       - verification_request_read
       - verification_request_write
@@ -251,6 +254,13 @@ components:
       - forms_form_write
       - forms_submission_read
       - forms_submission_write
+      - shipping_shipment_read
+      - shipping_shipment_write
+      - shipping_label_read
+      - shipping_label_write
+      - shipping_tracking_read
+      - shipping_rate_read
+      - shipping_carrier_read
     IntegrationSupportWebhookType:
       type: string
       enum:
@@ -299,6 +309,7 @@ components:
       - commerce_location
       - commerce_review
       - commerce_saleschannel
+      - commerce_itemvariant
       - verification_package
       - verification_request
       - ats_activity
@@ -377,6 +388,11 @@ components:
       - ads_group
       - forms_form
       - forms_submission
+      - shipping_carrier
+      - shipping_rate
+      - shipping_shipment
+      - shipping_label
+      - shipping_tracking
     PlanTerm:
       type: string
       enum:
@@ -794,9 +810,6 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_end_lt:
           $ref: "#/components/schemas/SupportInboundType"
-        list_end_le:
-          $ref: "#/components/schemas/SupportInboundType"
-          description: @deprecated; use list_end_lt
         list_lead_id:
           $ref: "#/components/schemas/SupportInboundType"
         list_call_id:
@@ -817,9 +830,6 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_expand:
           $ref: "#/components/schemas/SupportInboundType"
-        list_expand_recurring_events:
-          $ref: "#/components/schemas/SupportInboundType"
-          description: @deprecated; use list_expand
         native_webhook_parent_id:
           $ref: "#/components/schemas/SupportInboundType"
         native_webhook_project_id:
@@ -864,9 +874,6 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_end_lt:
           $ref: "#/components/schemas/SupportInboundType"
-        virtual_webhook_end_le:
-          $ref: "#/components/schemas/SupportInboundType"
-          description: @deprecated; use virtual_webhook_end_lt
         virtual_webhook_task_id:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_space_id:
@@ -930,6 +937,36 @@ components:
         virtual_webhook_ad_id:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_group_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_form_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_form_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_form_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_order_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_order_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_order_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_carrier_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_carrier_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_carrier_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_shipment_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_shipment_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_shipment_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_label_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_label_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_label_id:
           $ref: "#/components/schemas/SupportInboundType"
       required:
 
