@@ -252,7 +252,14 @@ export const IntegrationPermission = [
 	'forms_form_read',
 	'forms_form_write',
 	'forms_submission_read',
-	'forms_submission_write'
+	'forms_submission_write',
+	'shipping_shipment_read',
+	'shipping_shipment_write',
+	'shipping_label_read',
+	'shipping_label_write',
+	'shipping_tracking_read',
+	'shipping_rate_read',
+	'shipping_carrier_read'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
