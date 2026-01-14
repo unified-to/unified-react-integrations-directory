@@ -314,6 +314,7 @@ export const ObjectType = [
 	'commerce_location',
 	'commerce_review',
 	'commerce_saleschannel',
+	'commerce_itemvariant',
 	'verification_package',
 	'verification_request',
 	'ats_activity',
