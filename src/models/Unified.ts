@@ -497,6 +497,7 @@ export interface IApiCall {
 	environment?: string;
 	webhook_id?: string;
 	is_billable?: boolean;
+	user_agent?: string;
 }
 
 export interface IConnection {
