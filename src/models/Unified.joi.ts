@@ -860,6 +860,9 @@ export const joiIntegrationSupport = Joi.object({
 	list_shipment_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_shipment_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_shipment_id: joiSupportInboundType.allow(null).optional(),
+	list_label_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_label_id: joiSupportInboundType.allow(null).optional(),
+	native_webhook_label_id: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
