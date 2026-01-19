@@ -210,6 +210,9 @@ message IntegrationSupport {
 	optional string list_shipment_id = 133;
 	optional string virtual_webhook_shipment_id = 134;
 	optional string native_webhook_shipment_id = 135;
+	optional string list_label_id = 136;
+	optional string virtual_webhook_label_id = 137;
+	optional string native_webhook_label_id = 138;
 }
 
 // Informational object for supported integrations.
