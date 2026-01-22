@@ -4,26 +4,6 @@ syntax = "proto3";
 
 import "google/protobuf/struct.proto";
 
-message ApiCall {
-	optional string id = 1; // Unique identifier for this API call
-	optional string created_at = 2; // The date that this object was created
-	optional string connection_id = 3;
-	string workspace_id = 4;
-	string integration_type = 5; // The integration type
-	optional string external_xref = 6; // your customer's user ID
-	string name = 7; // The called name of the API method
-	string path = 8; // The called API method's HTTP verb and route path (PUT /crm/{integration}/deak/{id})
-	optional int32 size = 9; // The size of the response
-	string status = 10; // The resulting HTTP status code (200)
-	optional string error = 11; // The error description (if status code is >= 400)
-	optional string ip_address = 12;
-	string type = 13; // The type of API Call being logged Valid values: login, webhook, inbound, mcp
-	string method = 14;
-	optional string environment = 15;
-	optional string webhook_id = 16;
-	optional bool is_billable = 17;
-}
-
 // An authentication object that represents a specific authorized user's connection to an integration.
 
 message ConnectionAuth {
@@ -327,7 +307,7 @@ message Webhook {
 	optional string workspace_id = 4;
 	string connection_id = 5;
 	optional string hook_url = 6; // The URL of the webhook
-	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_journal, accounting_contact, accounting_invoice, accounting_bill, accounting_creditmemo, accounting_taxrate, accounting_organization, accounting_order, accounting_salesorder, accounting_purchaseorder, accounting_report, accounting_balancesheet, accounting_profitloss, accounting_trialbalance, accounting_category, accounting_expense, accounting_cashflow, payment_payment, payment_link, payment_payout, payment_refund, payment_subscription, commerce_item, commerce_collection, commerce_inventory, commerce_location, commerce_review, commerce_saleschannel, commerce_itemvariant, verification_package, verification_request, ats_activity, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, ats_company, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, hris_payslip, hris_timeoff, hris_company, hris_location, hris_device, hris_timeshift, hris_deduction, hris_benefit, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, ticketing_category, uc_contact, uc_call, uc_comment, uc_recording, enrich_person, enrich_company, storage_file, genai_model, genai_prompt, genai_embedding, messaging_message, messaging_channel, messaging_event, kms_space, kms_page, kms_comment, task_project, task_task, task_comment, task_change, scim_users, scim_groups, lms_course, lms_class, lms_student, lms_instructor, repo_organization, repo_repository, repo_branch, repo_commit, repo_pullrequest, metadata_metadata, calendar_calendar, calendar_event, calendar_busy, calendar_link, calendar_recording, ads_organization, ads_ad, ads_campaign, ads_report, ads_group, forms_form, forms_submission, shipping_carrier, shipping_rate, shipping_shipment, shipping_label, shipping_tracking
+	string object_type = 7; // The object to return (eg. CRM "contact") Valid values: accounting_account, accounting_transaction, accounting_journal, accounting_contact, accounting_invoice, accounting_bill, accounting_creditmemo, accounting_taxrate, accounting_organization, accounting_order, accounting_salesorder, accounting_purchaseorder, accounting_report, accounting_balancesheet, accounting_profitloss, accounting_trialbalance, accounting_category, accounting_expense, accounting_cashflow, payment_payment, payment_link, payment_payout, payment_refund, payment_subscription, commerce_item, commerce_collection, commerce_inventory, commerce_location, commerce_review, commerce_saleschannel, commerce_itemvariant, verification_package, verification_request, ats_activity, ats_application, ats_applicationstatus, ats_candidate, ats_document, ats_interview, ats_job, ats_scorecard, ats_company, crm_company, crm_contact, crm_deal, crm_event, crm_lead, crm_pipeline, hris_employee, hris_group, hris_payslip, hris_timeoff, hris_company, hris_location, hris_device, hris_timeshift, hris_deduction, hris_benefit, martech_list, martech_member, passthrough, ticketing_note, ticketing_ticket, ticketing_customer, ticketing_category, uc_contact, uc_call, uc_comment, uc_recording, enrich_person, enrich_company, storage_file, genai_model, genai_prompt, genai_embedding, messaging_message, messaging_channel, messaging_event, kms_space, kms_page, kms_comment, task_project, task_task, task_comment, task_change, scim_users, scim_groups, lms_course, lms_class, lms_student, lms_instructor, repo_organization, repo_repository, repo_branch, repo_commit, repo_pullrequest, metadata_metadata, calendar_calendar, calendar_event, calendar_busy, calendar_link, calendar_recording, ads_organization, ads_ad, ads_campaign, ads_report, ads_group, ads_creative, ads_insertionorder, forms_form, forms_submission, shipping_carrier, shipping_rate, shipping_shipment, shipping_label, shipping_tracking
 	optional int32 interval = 8; // The interval (in minutes) to check for updated/new objets. 
 	string checked_at = 9; // The last date/time that a check was done on this object
 	string integration_type = 10;
