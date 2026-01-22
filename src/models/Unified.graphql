@@ -243,6 +243,10 @@ enum ENUM_IntegrationPermission {
 	ads_report_read
 	ads_organization_read
 	ads_organization_write
+	ads_creative_read
+	ads_creative_write
+	ads_insertionorder_read
+	ads_insertionorder_write
 	forms_form_read
 	forms_form_write
 	forms_submission_read
@@ -379,6 +383,8 @@ enum ENUM_ObjectType {
 	ads_campaign
 	ads_report
 	ads_group
+	ads_creative
+	ads_insertionorder
 	forms_form
 	forms_submission
 	shipping_carrier
@@ -689,6 +695,10 @@ input Map_IntegrationPermission_string_Input {
 	ads_report_read: String!
 	ads_organization_read: String!
 	ads_organization_write: String!
+	ads_creative_read: String!
+	ads_creative_write: String!
+	ads_insertionorder_read: String!
+	ads_insertionorder_write: String!
 	forms_form_read: String!
 	forms_form_write: String!
 	forms_submission_read: String!
@@ -902,6 +912,10 @@ type Map_IntegrationPermission_string {
 	ads_report_read: String!
 	ads_organization_read: String!
 	ads_organization_write: String!
+	ads_creative_read: String!
+	ads_creative_write: String!
+	ads_insertionorder_read: String!
+	ads_insertionorder_write: String!
 	forms_form_read: String!
 	forms_form_write: String!
 	forms_submission_read: String!
@@ -913,97 +927,6 @@ type Map_IntegrationPermission_string {
 	shipping_tracking_read: String!
 	shipping_rate_read: String!
 	shipping_carrier_read: String!
-}
-
-input ApiCall_Input {
-	connection_id: ID
-"""
-The integration type
-"""
-	integration_type: String!
-"""
-your customer's user ID
-"""
-	external_xref: String
-"""
-The called name of the API method
-"""
-	name: String!
-"""
-The called API method's HTTP verb and route path (PUT /crm/{integration}/deak/{id})
-"""
-	path: String!
-"""
-The size of the response
-"""
-	size: Int
-"""
-The resulting HTTP status code (200)
-"""
-	status: String!
-"""
-The error description (if status code is >= 400)
-"""
-	error: String
-	ip_address: String
-"""
-The type of API Call being logged
-"""
-	type: ENUM_ApiCallType!
-	method: String!
-	environment: String
-	webhook_id: ID
-	is_billable: Boolean
-}
-
-type ApiCall {
-"""
-Unique identifier for this API call
-"""
-	id: ID
-"""
-The date that this object was created
-"""
-	created_at: DateTime
-	connection_id: ID
-	workspace_id: ID!
-"""
-The integration type
-"""
-	integration_type: String!
-"""
-your customer's user ID
-"""
-	external_xref: String
-"""
-The called name of the API method
-"""
-	name: String!
-"""
-The called API method's HTTP verb and route path (PUT /crm/{integration}/deak/{id})
-"""
-	path: String!
-"""
-The size of the response
-"""
-	size: Int
-"""
-The resulting HTTP status code (200)
-"""
-	status: String!
-"""
-The error description (if status code is >= 400)
-"""
-	error: String
-	ip_address: String
-"""
-The type of API Call being logged
-"""
-	type: ENUM_ApiCallType!
-	method: String!
-	environment: String
-	webhook_id: ID
-	is_billable: Boolean
 }
 
 """
