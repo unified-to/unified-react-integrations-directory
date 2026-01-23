@@ -62,6 +62,9 @@ export const schemaConnection = {
 	is_paused: { type: Boolean }, // Whether this integration has exceed the monthly limit of the plan
 	auth_aws_arn: { type: String }, // the AWS ARN / secretID for the stored auth field
 	environment: { type: String, default: 'Production' },
+	auth_azure_keyvault_id: { type: String }, // the Azure Key Vault ID for the stored auth field
+	auth_gcp_secret_name: { type: String }, // the Google Cloud Secret Manager name for the stored auth field
+	auth_hashi_vault_path: { type: String }, // the HashiCorp Vault path for the stored auth field
 	last_healthy_at: { type: Date },
 	last_unhealthy_at: { type: Date },
 };
@@ -336,5 +339,17 @@ export const schemaWorkspace = {
 	saml_idp_entity_id: { type: String },
 	saml_pem: { type: String }, // the PEM X.509 certificate in Base64 ASCII format
 	saml_only_login: { type: Boolean }, // if true, only allow SAML login
+	azure_keyvault_url: { type: String },
+	azure_tenant_id: { type: String },
+	azure_client_id: { type: String },
+	azure_client_secret: { type: String },
+	gcp_project_id: { type: String },
+	gcp_client_email: { type: String },
+	gcp_private_key: { type: String },
+	hashicorp_vault_url: { type: String },
+	hashicorp_vault_token: { type: String },
+	hashicorp_vault_namespace: { type: String },
+	hashicorp_vault_kv_mount: { type: String },
+	hashicorp_vault_kv_version: { type: String }, // 1 or 2
 };
 
