@@ -889,6 +889,7 @@ export interface IWorkspace {
 	azure_tenant_id?: string;
 	azure_client_id?: string;
 	azure_client_secret?: string;
+	gcp_project_id?: string;
 }
 
 export interface IWorkspaceIntegration {
