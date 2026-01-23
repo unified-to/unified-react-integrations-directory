@@ -523,6 +523,7 @@ export interface IConnection {
 	last_healthy_at?: (string | Date | number);
 	last_unhealthy_at?: (string | Date | number);
 	auth_azure_keyvault_id?: string; // the Azure Key Vault ID for the stored auth field
+	auth_gcp_secret_name?: string; // the Google Cloud Secret Manager name for the stored auth field
 }
 
 export interface IConnectionAuth {
