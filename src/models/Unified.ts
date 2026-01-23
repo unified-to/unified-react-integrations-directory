@@ -522,6 +522,7 @@ export interface IConnection {
 	environment?: string;
 	last_healthy_at?: (string | Date | number);
 	last_unhealthy_at?: (string | Date | number);
+	auth_azure_keyvault_id?: string; // the Azure Key Vault ID for the stored auth field
 }
 
 export interface IConnectionAuth {
