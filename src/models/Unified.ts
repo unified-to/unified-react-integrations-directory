@@ -888,6 +888,7 @@ export interface IWorkspace {
 	azure_keyvault_url?: string;
 	azure_tenant_id?: string;
 	azure_client_id?: string;
+	azure_client_secret?: string;
 }
 
 export interface IWorkspaceIntegration {
