@@ -50,8 +50,11 @@ message Connection {
 	optional bool is_paused = 11; // Whether this integration has exceed the monthly limit of the plan
 	optional string auth_aws_arn = 12; // the AWS ARN / secretID for the stored auth field
 	optional string environment = 13;
-	optional string last_healthy_at = 14;
-	optional string last_unhealthy_at = 15;
+	optional string auth_azure_keyvault_id = 14; // the Azure Key Vault ID for the stored auth field
+	optional string auth_gcp_secret_name = 15; // the Google Cloud Secret Manager name for the stored auth field
+	optional string auth_hashi_vault_path = 16; // the HashiCorp Vault path for the stored auth field
+	optional string last_healthy_at = 17;
+	optional string last_unhealthy_at = 18;
 }
 
 message IntegrationSupport {
@@ -398,5 +401,17 @@ message Workspace {
 	optional string saml_idp_entity_id = 36;
 	optional string saml_pem = 37; // the PEM X.509 certificate in Base64 ASCII format
 	optional bool saml_only_login = 38; // if true, only allow SAML login
+	optional string azure_keyvault_url = 39;
+	optional string azure_tenant_id = 40;
+	optional string azure_client_id = 41;
+	optional string azure_client_secret = 42;
+	optional string gcp_project_id = 43;
+	optional string gcp_client_email = 44;
+	optional string gcp_private_key = 45;
+	optional string hashicorp_vault_url = 46;
+	optional string hashicorp_vault_token = 47;
+	optional string hashicorp_vault_namespace = 48;
+	optional string hashicorp_vault_kv_mount = 49;
+	optional string hashicorp_vault_kv_version = 50; // 1 or 2
 }
 
