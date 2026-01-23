@@ -953,6 +953,18 @@ the AWS ARN / secretID for the stored auth field
 """
 	auth_aws_arn: String
 	environment: String
+"""
+the Azure Key Vault ID for the stored auth field
+"""
+	auth_azure_keyvault_id: String
+"""
+the Google Cloud Secret Manager name for the stored auth field
+"""
+	auth_gcp_secret_name: String
+"""
+the HashiCorp Vault path for the stored auth field
+"""
+	auth_hashi_vault_path: String
 }
 
 type Connection {
@@ -993,6 +1005,18 @@ the AWS ARN / secretID for the stored auth field
 """
 	auth_aws_arn: String
 	environment: String
+"""
+the Azure Key Vault ID for the stored auth field
+"""
+	auth_azure_keyvault_id: String
+"""
+the Google Cloud Secret Manager name for the stored auth field
+"""
+	auth_gcp_secret_name: String
+"""
+the HashiCorp Vault path for the stored auth field
+"""
+	auth_hashi_vault_path: String
 	last_healthy_at: DateTime
 	last_unhealthy_at: DateTime
 }
@@ -1858,6 +1882,21 @@ the PEM X.509 certificate in Base64 ASCII format
 if true, only allow SAML login
 """
 	saml_only_login: Boolean
+	azure_keyvault_url: String
+	azure_tenant_id: String
+	azure_client_id: String
+	azure_client_secret: String
+	gcp_project_id: String
+	gcp_client_email: String
+	gcp_private_key: String
+	hashicorp_vault_url: String
+	hashicorp_vault_token: String
+	hashicorp_vault_namespace: String
+	hashicorp_vault_kv_mount: String
+"""
+1 or 2
+"""
+	hashicorp_vault_kv_version: String
 }
 
 type Workspace {
@@ -1927,6 +1966,21 @@ the PEM X.509 certificate in Base64 ASCII format
 if true, only allow SAML login
 """
 	saml_only_login: Boolean
+	azure_keyvault_url: String
+	azure_tenant_id: String
+	azure_client_id: String
+	azure_client_secret: String
+	gcp_project_id: String
+	gcp_client_email: String
+	gcp_private_key: String
+	hashicorp_vault_url: String
+	hashicorp_vault_token: String
+	hashicorp_vault_namespace: String
+	hashicorp_vault_kv_mount: String
+"""
+1 or 2
+"""
+	hashicorp_vault_kv_version: String
 }
 
 input WorkspaceIntegration_Input {
