@@ -505,6 +505,7 @@ export interface IApiCall {
 	is_billable?: boolean;
 	user_agent?: string;
 	unified_response_time?: number;
+	endapi_response_time?: number;
 }
 
 export interface IConnection {
