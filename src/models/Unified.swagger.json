@@ -259,6 +259,14 @@
 				"user_agent": {
 					"type": "string",
 					"description": ""
+				},
+				"unified_response_time": {
+					"type": "number",
+					"description": ""
+				},
+				"endapi_response_time": {
+					"type": "number",
+					"description": ""
 				}
 			},
 			"required": [
