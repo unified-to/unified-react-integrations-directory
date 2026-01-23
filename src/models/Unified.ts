@@ -895,6 +895,7 @@ export interface IWorkspace {
 	hashicorp_vault_url?: string;
 	hashicorp_vault_token?: string;
 	hashicorp_vault_namespace?: string;
+	hashicorp_vault_kv_mount?: string;
 }
 
 export interface IWorkspaceIntegration {
