@@ -250,6 +250,10 @@ components:
       - ads_report_read
       - ads_organization_read
       - ads_organization_write
+      - ads_creative_read
+      - ads_creative_write
+      - ads_insertionorder_read
+      - ads_insertionorder_write
       - forms_form_read
       - forms_form_write
       - forms_submission_read
@@ -386,6 +390,8 @@ components:
       - ads_campaign
       - ads_report
       - ads_group
+      - ads_creative
+      - ads_insertionorder
       - forms_form
       - forms_submission
       - shipping_carrier
@@ -431,63 +437,6 @@ components:
       - updated
       - created
       - deleted
-    ApiCall:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for this API call
-        created_at:
-          type: string
-          format: date-time
-          description: The date that this object was created
-        connection_id:
-          type: string
-        workspace_id:
-          type: string
-        integration_type:
-          type: string
-          description: The integration type
-        external_xref:
-          type: string
-          description: your customer's user ID
-        name:
-          type: string
-          description: The called name of the API method
-        path:
-          type: string
-          description: The called API method's HTTP verb and route path (PUT /crm/{integration}/deak/{id})
-        size:
-          type: integer
-          description: The size of the response
-        status:
-          type: string
-          description: The resulting HTTP status code (200)
-        error:
-          type: string
-          description: The error description (if status code is >= 400)
-        ip_address:
-          type: string
-        type:
-          $ref: "#/components/schemas/ApiCallType"
-          description: The type of API Call being logged
-        method:
-          type: string
-        environment:
-          type: string
-          default: "Production"
-        webhook_id:
-          type: string
-        is_billable:
-          type: boolean
-      required:
-        - workspace_id
-        - integration_type
-        - name
-        - path
-        - status
-        - type
-        - method
     Connection:
       type: object
       description: A connection represents a specific authentication of an integration.
@@ -529,6 +478,15 @@ components:
         environment:
           type: string
           default: "Production"
+        auth_azure_keyvault_id:
+          type: string
+          description: the Azure Key Vault ID for the stored auth field
+        auth_gcp_secret_name:
+          type: string
+          description: the Google Cloud Secret Manager name for the stored auth field
+        auth_hashi_vault_path:
+          type: string
+          description: the HashiCorp Vault path for the stored auth field
         last_healthy_at:
           type: string
           format: date-time
@@ -1323,6 +1281,31 @@ components:
         saml_only_login:
           type: boolean
           description: if true, only allow SAML login
+        azure_keyvault_url:
+          type: string
+        azure_tenant_id:
+          type: string
+        azure_client_id:
+          type: string
+        azure_client_secret:
+          type: string
+        gcp_project_id:
+          type: string
+        gcp_client_email:
+          type: string
+        gcp_private_key:
+          type: string
+        hashicorp_vault_url:
+          type: string
+        hashicorp_vault_token:
+          type: string
+        hashicorp_vault_namespace:
+          type: string
+        hashicorp_vault_kv_mount:
+          type: string
+        hashicorp_vault_kv_version:
+          type: string
+          description: 1 or 2
       required:
         - name
     WorkspaceIntegration:
