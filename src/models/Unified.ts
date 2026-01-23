@@ -504,6 +504,7 @@ export interface IApiCall {
 	webhook_id?: string;
 	is_billable?: boolean;
 	user_agent?: string;
+	unified_response_time?: number;
 }
 
 export interface IConnection {
