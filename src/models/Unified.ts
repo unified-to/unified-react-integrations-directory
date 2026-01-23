@@ -893,6 +893,7 @@ export interface IWorkspace {
 	gcp_client_email?: string;
 	gcp_private_key?: string;
 	hashicorp_vault_url?: string;
+	hashicorp_vault_token?: string;
 }
 
 export interface IWorkspaceIntegration {
