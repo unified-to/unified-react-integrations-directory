@@ -904,6 +904,7 @@ export interface IWorkspace {
 	hashicorp_vault_kv_version?: string; // 1 or 2
 	grafana_apikey?: string;
 	grafana_site?: string;
+	clickhouse_url?: string;
 }
 
 export interface IWorkspaceIntegration {
