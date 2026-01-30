@@ -902,6 +902,7 @@ export interface IWorkspace {
 	hashicorp_vault_namespace?: string;
 	hashicorp_vault_kv_mount?: string;
 	hashicorp_vault_kv_version?: string; // 1 or 2
+	grafana_apikey?: string;
 }
 
 export interface IWorkspaceIntegration {
