@@ -240,6 +240,8 @@ export const IntegrationPermission = [
 	'calendar_link_write',
 	'calendar_recording_read',
 	'calendar_recording_write',
+	'calendar_webinar_read',
+	'calendar_webinar_write',
 	'enrich_person_read',
 	'enrich_company_read',
 	'ads_ad_read',
