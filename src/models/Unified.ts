@@ -392,6 +392,7 @@ export const ObjectType = [
 	'calendar_busy',
 	'calendar_link',
 	'calendar_recording',
+	'calendar_webinar',
 	'ads_organization',
 	'ads_ad',
 	'ads_campaign',
