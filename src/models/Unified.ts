@@ -906,6 +906,7 @@ export interface IWorkspace {
 	grafana_site?: string;
 	clickhouse_url?: string;
 	clickhouse_username?: string;
+	clickhouse_password?: string;
 }
 
 export interface IWorkspaceIntegration {
