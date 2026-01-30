@@ -1096,5 +1096,10 @@ export const joiWorkspace = Joi.object({
 	hashicorp_vault_namespace: Joi.string().allow(null, '').optional(),
 	hashicorp_vault_kv_mount: Joi.string().allow(null, '').optional(),
 	hashicorp_vault_kv_version: Joi.string().allow(null, '').description('1 or 2').optional(),
+	grafana_apikey: Joi.string().allow(null, '').optional(),
+	grafana_site: Joi.string().allow(null, '').optional(),
+	clickhouse_url: Joi.string().uri().allow(null, '').optional(),
+	clickhouse_username: Joi.string().allow(null, '').optional(),
+	clickhouse_password: Joi.string().allow(null, '').optional(),
 }).label('Workspace').description('The User\'s workspace object. A workspace is like an organization that one or more users belong to.');
 
