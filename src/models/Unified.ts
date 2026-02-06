@@ -736,6 +736,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_label_id?: TSupportInboundType;
 	native_webhook_label_id?: TSupportInboundType;
 	list_member_id?: TSupportInboundType;
+	virtual_webhook_member_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
