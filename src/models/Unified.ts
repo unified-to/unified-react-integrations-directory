@@ -352,6 +352,8 @@ export const ObjectType = [
 	'hris_benefit',
 	'martech_list',
 	'martech_member',
+	'martech_campaign',
+	'martech_report',
 	'passthrough',
 	'ticketing_note',
 	'ticketing_ticket',
