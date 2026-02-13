@@ -757,6 +757,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_course_id?: TSupportInboundType;
 	native_webhook_course_id?: TSupportInboundType;
 	virtual_webhook_student_id?: TSupportInboundType;
+	native_webhook_student_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
