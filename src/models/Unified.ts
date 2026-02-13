@@ -753,7 +753,6 @@ export interface IIntegrationSupport {
 	list_member_id?: TSupportInboundType;
 	virtual_webhook_member_id?: TSupportInboundType;
 	native_webhook_member_id?: TSupportInboundType;
-	NewField_729: string;
 	list_content_id?: TSupportInboundType;
 }
 
