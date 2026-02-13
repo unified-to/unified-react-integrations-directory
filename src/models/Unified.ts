@@ -972,6 +972,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'uc', label: 'Unified Communications' },
     { category: 'enrich', label: 'Enrichment' },
     { category: 'ats', label: 'ATS' },
-    { category: 'storage', label: 'File Storage' }
+    { category: 'storage', label: 'File Storage' },
+    { category: 'accounting', label: 'Accounting' }
 ];
 
