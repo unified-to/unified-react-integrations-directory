@@ -980,6 +980,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'genai', label: 'Generative AI' },
     { category: 'messaging', label: 'Messaging' },
     { category: 'kms', label: 'KMS' },
-    { category: 'task', label: 'Tasks' }
+    { category: 'task', label: 'Tasks' },
+    { category: 'lms', label: 'LMS' }
 ];
 
