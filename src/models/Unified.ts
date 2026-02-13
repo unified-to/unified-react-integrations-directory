@@ -532,6 +532,10 @@ export interface IApiCall {
 	endapi_response_time?: number;
 }
 
+export interface ICategories {
+	category: TIntegrationCategory;
+}
+
 export interface IConnection {
 	id?: string; // Unique identifier for this integration object
 	created_at?: (string | Date | number); // The date that this integration object was created
