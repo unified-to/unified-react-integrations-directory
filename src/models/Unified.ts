@@ -534,6 +534,7 @@ export interface IApiCall {
 
 export interface ICategories {
 	category: TIntegrationCategory;
+	label: string;
 }
 
 export interface IConnection {
