@@ -967,6 +967,7 @@ export interface IWorkspaceIntegration {
 }
 
 export const CATEGORIES: ICategories[] = [
-    { category: 'crm', label: 'CRM' }
+    { category: 'crm', label: 'CRM' },
+    { category: 'martech', label: 'Marketing' }
 ];
 
