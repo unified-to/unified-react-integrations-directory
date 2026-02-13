@@ -981,7 +981,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'messaging', label: 'Messaging' },
     { category: 'kms', label: 'Knowledge Management' },
     { category: 'task', label: 'Tasks' },
-    { category: 'lms', label: 'LMS' },
+    { category: 'lms', label: 'Learning Management' },
     { category: 'repo', label: 'Code Repositories' },
     { category: 'calendar', label: 'Calendar & Meetings' },
     { category: 'shipping', label: 'Shipping' },
