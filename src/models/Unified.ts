@@ -970,6 +970,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'crm', label: 'CRM' },
     { category: 'martech', label: 'Marketing' },
     { category: 'uc', label: 'Unified Communications' },
-    { category: 'enrich', label: 'Enrichment' }
+    { category: 'enrich', label: 'Enrichment' },
+    { category: 'ats', label: 'ATS' }
 ];
 
