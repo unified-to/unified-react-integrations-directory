@@ -977,6 +977,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'hris', label: 'HR & Directory' },
     { category: 'payment', label: 'Payments' },
     { category: 'commerce', label: 'E-Commerce' },
-    { category: 'genai', label: 'Generative AI' }
+    { category: 'genai', label: 'Generative AI' },
+    { category: 'messaging', label: 'Messaging' }
 ];
 
