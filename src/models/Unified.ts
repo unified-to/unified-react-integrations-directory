@@ -979,7 +979,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'commerce', label: 'E-Commerce' },
     { category: 'genai', label: 'Generative AI' },
     { category: 'messaging', label: 'Messaging' },
-    { category: 'kms', label: 'KMS' },
+    { category: 'kms', label: 'Knowledge Management' },
     { category: 'task', label: 'Tasks' },
     { category: 'lms', label: 'LMS' },
     { category: 'repo', label: 'Repositories' },
