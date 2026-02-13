@@ -966,3 +966,7 @@ export interface IWorkspaceIntegration {
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
 }
 
+export const CATEGORIES: ICategories[] = [
+    { category: 'crm', label: 'CRM' }
+];
+
