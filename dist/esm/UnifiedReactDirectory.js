@@ -8,31 +8,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import React, { useState, useEffect } from 'react';
-const API_NA_URL = 'https://api.unified.to';
-const API_EU_URL = 'https://api-eu.unified.to';
-const CATEGORY_MAP = {
-    crm: 'CRM',
-    martech: 'Marketing',
-    ticketing: 'Ticketing',
-    uc: 'Unified Communications',
-    enrich: 'Enrichment',
-    ats: 'ATS',
-    hris: 'HR',
-    accounting: 'Accounting',
-    storage: 'Storage',
-    commerce: 'E-Commerce',
-    payment: 'Payments',
-    genai: 'Generative AI',
-    messaging: 'Messaging',
-    kms: 'KMS',
-    task: 'Tasks',
+import { CATEGORIES } from './models/Unified';
+const MAP_REGION = {
+    us: 'https://api.unified.to',
+    us_beta: 'https://api-beta.unified.to',
+    eu: 'https://api-eu.unified.to',
+    eu_beta: 'https://api-eu-beta.unified.to',
+    dev: 'https://api-dev.unified.to',
+    au: 'https://api-au.unified.to',
 };
+const CATEGORY_MAP = CATEGORIES.reduce((acc, category) => {
+    acc[category.category] = category.label;
+    return acc;
+}, {});
 export default function UnifiedDirectory(props) {
-    const API_URL = props.dc === 'eu' ? API_EU_URL : API_NA_URL;
+    const API_URL = MAP_REGION[props.dc || 'us'] || MAP_REGION['us'];
     const [INTEGRATIONS, setIntegrations] = useState([]);
     const [CATEGORIES, setCategories] = useState([]);
     const [selectedCategory, setCategory] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(undefined);
+    const [search, setSearch] = useState('');
     useEffect(() => {
         if (!loading && !INTEGRATIONS.length) {
             setLoading(true);
@@ -44,7 +39,11 @@ export default function UnifiedDirectory(props) {
                     var _a;
                     (_a = integration.categories) === null || _a === void 0 ? void 0 : _a.forEach((c) => {
                         var _a;
-                        if (CATEGORY_MAP[c] && (!((_a = props.categories) === null || _a === void 0 ? void 0 : _a.length) || props.categories.indexOf(c) !== -1)) {
+                        if ((!search ||
+                            integration.name.toLowerCase().includes(search.toLowerCase()) ||
+                            integration.type.toLowerCase().includes(search.toLowerCase())) &&
+                            CATEGORY_MAP[c] &&
+                            (!((_a = props.categories) === null || _a === void 0 ? void 0 : _a.length) || props.categories.indexOf(c) !== -1)) {
                             _CATEGORIES.push(c);
                         }
                     });
@@ -87,8 +86,8 @@ export default function UnifiedDirectory(props) {
         return url;
     }
     function load_data() {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             const url = `${API_URL}/unified/integration/workspace/${props.workspaceId || props.workspace_id}?summary=1${((_a = props.categories) === null || _a === void 0 ? void 0 : _a.length) ? '&categories=' + props.categories.join(',') : ''}${props.environment === 'Production' || !props.environment ? '' : '&env=' + encodeURIComponent(props.environment)}`;
             try {
                 const response = yield fetch(url, {
@@ -110,10 +109,11 @@ export default function UnifiedDirectory(props) {
     }
     return (React.createElement("div", { className: "unified" },
         !props.nostyle && React.createElement("style", null, "@import url(https://api.unified.to/docs/unified.css)"),
-        !props.notabs && CATEGORIES && CATEGORIES.length > 0 && filter(INTEGRATIONS).length && (React.createElement("div", { className: "unified_menu" },
+        !props.notabs && CATEGORIES && CATEGORIES.length > 0 && filter(INTEGRATIONS).length && !loading && (React.createElement("div", { className: "unified_menu" },
             React.createElement("button", { className: `unified_button unified_button_all ${selectedCategory ? '' : ' active'}`, onClick: () => setCategory('') }, "All"),
-            CATEGORIES.map((cat) => (React.createElement("button", { key: cat, className: `unified_button unified_button_${cat} ${selectedCategory === cat ? 'active' : ''}`, onClick: () => setCategory(cat) }, CATEGORY_MAP[cat]))))),
-        React.createElement("div", { className: "unified_vendors" },
+            CATEGORIES.map((cat) => (React.createElement("button", { key: cat, className: `unified_button unified_button_${cat} ${selectedCategory === cat ? 'active' : ''}`, onClick: () => setCategory(cat) }, CATEGORY_MAP[cat]))),
+            React.createElement("input", { type: "search", className: "unified_search", placeholder: "Search...", value: search, onChange: (e) => setSearch(e.target.value) }))),
+        !loading && (React.createElement("div", { className: "unified_vendors" },
             filter(INTEGRATIONS).map((integration) => (React.createElement("a", { key: integration.type, href: unified_get_auth_url(integration), className: "unified_vendor" },
                 React.createElement("img", { alt: integration.name, src: integration.logo_url, className: "unified_image" }),
                 React.createElement("div", { className: "unified_vendor_inner" },
@@ -124,6 +124,7 @@ export default function UnifiedDirectory(props) {
                             .filter((c) => CATEGORY_MAP[c])
                             .map((cat) => (React.createElement("div", { key: cat, className: "unified_vendor_cats" },
                             React.createElement("span", null, CATEGORY_MAP[cat])))))))),
-            filter(INTEGRATIONS).length === 0 && React.createElement("div", { className: "unified_vendor" }, "No integrations available"))));
+            loading !== undefined && filter(INTEGRATIONS).length === 0 && React.createElement("div", { className: "unified_vendor" }, "No integrations available"))),
+        loading && React.createElement("div", { className: "unified_loading" }, "Loading...")));
 }
 //# sourceMappingURL=UnifiedReactDirectory.js.map

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TIntegrationCategory } from './models/Unified';
+import { TIntegrationCategory, CATEGORIES } from './models/Unified';
 
 interface IIntegration {
     type: string;
@@ -36,30 +36,13 @@ const MAP_REGION = {
     au: 'https://api-au.unified.to',
 } satisfies { [path in string]: string };
 
-type TIntegrationCategoryType = Exclude<TIntegrationCategory, 'metadata' | 'auth' | 'passthrough' | 'scim'>;
-
-const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
-    crm: 'CRM',
-    martech: 'Marketing',
-    ticketing: 'Ticketing',
-    uc: 'Unified Communications',
-    enrich: 'Enrichment',
-    ats: 'ATS',
-    hris: 'HR',
-    accounting: 'Accounting',
-    storage: 'Storage',
-    commerce: 'E-Commerce',
-    payment: 'Payments',
-    genai: 'Generative AI',
-    messaging: 'Messaging',
-    kms: 'KMS',
-    task: 'Tasks',
-    // metadata: 'Metadata',
-    lms: 'LMS',
-    repo: 'Repository',
-    calendar: 'Calendar',
-    verification: 'Verification',
-} satisfies { [path in TIntegrationCategoryType]: string };
+const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = CATEGORIES.reduce(
+    (acc, category) => {
+        acc[category.category] = category.label;
+        return acc;
+    },
+    {} as { [path in TIntegrationCategory]: string }
+);
 
 export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const API_URL = MAP_REGION[(props.dc as keyof typeof MAP_REGION) || 'us'] || MAP_REGION['us'];

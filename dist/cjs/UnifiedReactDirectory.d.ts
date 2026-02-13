@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 interface UnifiedDirectoryProps {
     workspaceId?: string;
     workspace_id?: string;
@@ -13,7 +13,7 @@ interface UnifiedDirectoryProps {
     lang?: string;
     notabs?: boolean;
     nocategories?: boolean;
-    dc?: 'us' | 'eu';
+    dc?: 'us' | 'eu' | 'au';
 }
-export default function UnifiedDirectory(props: UnifiedDirectoryProps): JSX.Element;
+export default function UnifiedDirectory(props: UnifiedDirectoryProps): React.JSX.Element;
 export {};
