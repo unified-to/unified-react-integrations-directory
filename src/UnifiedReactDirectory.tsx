@@ -59,6 +59,10 @@ const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = {
     repo: 'Repository',
     calendar: 'Calendar',
     verification: 'Verification',
+    ads: 'Advertising',
+    forms: 'Forms',
+    shipping: 'Shipping',
+    assessment: 'Assessment',
 } satisfies { [path in TIntegrationCategoryType]: string };
 
 export default function UnifiedDirectory(props: UnifiedDirectoryProps) {

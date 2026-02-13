@@ -26,6 +26,10 @@ const CATEGORY_MAP = {
     messaging: 'Messaging',
     kms: 'KMS',
     task: 'Tasks',
+    ads: 'Advertising',
+    forms: 'Forms',
+    shipping: 'Shipping',
+    assessment: 'Assessment',
 };
 export default function UnifiedDirectory(props) {
     const API_URL = props.dc === 'eu' ? API_EU_URL : API_NA_URL;
