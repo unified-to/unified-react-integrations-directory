@@ -366,6 +366,7 @@ export const ObjectType = [
 	'hris_timeshift',
 	'hris_deduction',
 	'hris_benefit',
+	'hris_bankaccount',
 	'martech_list',
 	'martech_member',
 	'martech_campaign',
