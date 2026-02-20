@@ -617,6 +617,7 @@ export interface IIntegration {
 	featured?: boolean;
 	popularity?: number;
 	active_healthy_connections?: number;
+	is_hidden?: boolean;
 }
 
 export interface IIntegrationSupport {
