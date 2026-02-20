@@ -617,6 +617,8 @@ components:
         in_progress:
           type: boolean
           description: If this integration is not yet available as it is currently being built by unified.to
+        is_hidden:
+          type: boolean
         color:
           type: string
           description: button background color for AUTH
