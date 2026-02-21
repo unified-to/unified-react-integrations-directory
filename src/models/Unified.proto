@@ -204,6 +204,7 @@ message IntegrationSupport {
 	optional string native_webhook_course_id = 144;
 	optional string virtual_webhook_student_id = 145;
 	optional string native_webhook_student_id = 146;
+	optional string native_webhook_type = 147;
 }
 
 // Informational object for supported integrations.
