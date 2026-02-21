@@ -992,6 +992,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'forms', label: 'Forms' },
     { category: 'assessment', label: 'Assessments' },
     { category: 'ads', label: 'Advertising' },
-    { category: 'verification', label: 'Verifications' }
+    { category: 'verification', label: 'Verifications' },
+    { category: 'ticketing', label: 'Ticketing' }
 ];
 
