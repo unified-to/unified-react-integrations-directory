@@ -973,7 +973,7 @@ export interface IWorkspaceIntegration {
 export const CATEGORIES: ICategories[] = [
     { category: 'crm', label: 'CRM' },
     { category: 'martech', label: 'Marketing' },
-    { category: 'uc', label: 'Unified Communications' },
+    { category: 'uc', label: 'Call Center' },
     { category: 'enrich', label: 'Enrichment' },
     { category: 'ats', label: 'ATS' },
     { category: 'storage', label: 'File Storage' },
