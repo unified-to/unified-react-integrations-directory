@@ -1,0 +1,2132 @@
+// Unified
+
+enum ENUM_ApiCallType {
+	login
+	webhook
+	inbound
+	mcp
+}
+
+enum ENUM_IntegrationAuthType {
+	oauth1
+	oauth2
+	other
+	token
+}
+
+enum ENUM_IntegrationCategory {
+	passthrough
+	hris
+	ats
+	auth
+	crm
+	enrich
+	martech
+	ticketing
+	uc
+	accounting
+	storage
+	commerce
+	payment
+	genai
+	messaging
+	kms
+	task
+	scim
+	lms
+	repo
+	metadata
+	calendar
+	verification
+	ads
+	forms
+	shipping
+	assessment
+}
+
+enum ENUM_IntegrationPermission {
+	accounting_account_read
+	accounting_account_write
+	accounting_transaction_read
+	accounting_transaction_write
+	accounting_journal_read
+	accounting_journal_write
+	accounting_invoice_read
+	accounting_invoice_write
+	accounting_bill_read
+	accounting_bill_write
+	accounting_creditmemo_read
+	accounting_creditmemo_write
+	accounting_contact_read
+	accounting_contact_write
+	accounting_expense_read
+	accounting_expense_write
+	accounting_taxrate_read
+	accounting_taxrate_write
+	accounting_organization_read
+	accounting_order_read
+	accounting_order_write
+	accounting_purchaseorder_read
+	accounting_purchaseorder_write
+	accounting_salesorder_read
+	accounting_salesorder_write
+	accounting_report_read
+	accounting_report_write
+	accounting_trialbalance_read
+	accounting_trialbalance_write
+	accounting_profitloss_read
+	accounting_profitloss_write
+	accounting_balancesheet_read
+	accounting_balancesheet_write
+	accounting_category_read
+	accounting_category_write
+	payment_payment_read
+	payment_payment_write
+	accounting_cashflow_read
+	accounting_cashflow_write
+	payment_payout_read
+	payment_refund_read
+	payment_link_read
+	payment_link_write
+	payment_subscription_read
+	payment_subscription_write
+	commerce_item_read
+	commerce_item_write
+	commerce_collection_read
+	commerce_collection_write
+	commerce_inventory_read
+	commerce_inventory_write
+	commerce_location_read
+	commerce_location_write
+	commerce_review_read
+	commerce_review_write
+	commerce_saleschannel_read
+	commerce_saleschannel_write
+	commerce_itemvariant_read
+	commerce_itemvariant_write
+	verification_package_read
+	verification_request_read
+	verification_request_write
+	assessment_package_read
+	assessment_package_write
+	assessment_order_write
+	ats_activity_read
+	ats_activity_write
+	ats_application_read
+	ats_application_write
+	ats_applicationstatus_read
+	ats_candidate_read
+	ats_candidate_write
+	ats_interview_read
+	ats_interview_write
+	ats_job_read
+	ats_job_write
+	ats_company_read
+	ats_company_write
+	ats_document_read
+	ats_document_write
+	ats_scorecard_read
+	ats_scorecard_write
+	crm_company_read
+	crm_company_write
+	crm_contact_read
+	crm_contact_write
+	crm_deal_read
+	crm_deal_write
+	crm_event_read
+	crm_event_write
+	crm_lead_read
+	crm_lead_write
+	crm_pipeline_read
+	crm_pipeline_write
+	martech_list_read
+	martech_list_write
+	martech_member_read
+	martech_member_write
+	martech_campaign_read
+	martech_campaign_write
+	martech_report_read
+	martech_report_write
+	ticketing_customer_read
+	ticketing_customer_write
+	ticketing_ticket_read
+	ticketing_ticket_write
+	ticketing_note_read
+	ticketing_note_write
+	ticketing_category_read
+	ticketing_category_write
+	hris_employee_read
+	hris_employee_write
+	hris_group_read
+	hris_group_write
+	hris_payslip_read
+	hris_payslip_write
+	hris_timeoff_read
+	hris_timeoff_write
+	hris_timeshift_read
+	hris_timeshift_write
+	hris_company_read
+	hris_company_write
+	hris_location_read
+	hris_location_write
+	hris_device_read
+	hris_device_write
+	hris_deduction_read
+	hris_deduction_write
+	hris_benefit_read
+	hris_benefit_write
+	hris_bankaccount_read
+	hris_bankaccount_write
+	uc_call_read
+	uc_contact_read
+	uc_contact_write
+	uc_comment_read
+	uc_comment_write
+	uc_recording_read
+	storage_file_read
+	storage_file_write
+	webhook
+	genai_model_read
+	genai_prompt_read
+	genai_prompt_write
+	genai_embedding_read
+	genai_embedding_write
+	messaging_message_read
+	messaging_message_write
+	messaging_channel_read
+	messaging_event_read
+	messaging_event_write
+	kms_space_read
+	kms_space_write
+	kms_page_read
+	kms_page_write
+	kms_comment_read
+	kms_comment_write
+	task_project_read
+	task_project_write
+	task_task_read
+	task_task_write
+	task_change_read
+	task_comment_read
+	task_comment_write
+	scim_users_read
+	scim_users_write
+	scim_groups_read
+	scim_groups_write
+	lms_course_read
+	lms_course_write
+	lms_class_read
+	lms_class_write
+	lms_student_read
+	lms_student_write
+	lms_instructor_read
+	lms_instructor_write
+	lms_content_read
+	lms_content_write
+	lms_collection_read
+	lms_collection_write
+	lms_activity_read
+	lms_activity_write
+	repo_organization_read
+	repo_organization_write
+	repo_repository_read
+	repo_repository_write
+	repo_branch_read
+	repo_branch_write
+	repo_commit_read
+	repo_commit_write
+	repo_pullrequest_read
+	repo_pullrequest_write
+	metadata_metadata_read
+	metadata_metadata_write
+	calendar_calendar_read
+	calendar_calendar_write
+	calendar_event_read
+	calendar_event_write
+	calendar_busy_read
+	calendar_link_read
+	calendar_link_write
+	calendar_recording_read
+	calendar_recording_write
+	calendar_webinar_read
+	calendar_webinar_write
+	enrich_person_read
+	enrich_company_read
+	ads_ad_read
+	ads_ad_write
+	ads_campaign_read
+	ads_campaign_write
+	ads_group_read
+	ads_group_write
+	ads_report_read
+	ads_organization_read
+	ads_organization_write
+	ads_creative_read
+	ads_creative_write
+	ads_insertionorder_read
+	ads_insertionorder_write
+	forms_form_read
+	forms_form_write
+	forms_submission_read
+	forms_submission_write
+	shipping_shipment_read
+	shipping_shipment_write
+	shipping_label_read
+	shipping_label_write
+	shipping_tracking_read
+	shipping_rate_read
+	shipping_carrier_read
+}
+
+enum ENUM_IntegrationSupportWebhookType {
+	virtual
+	native
+}
+
+enum ENUM_IssueStatus {
+	COMPLETED
+	NEW
+	ROADMAP
+	IN_PROGRESS
+	ON_HOLD
+	VALIDATING
+	REJECTED
+}
+
+enum ENUM_ObjectType {
+	accounting_account
+	accounting_transaction
+	accounting_journal
+	accounting_contact
+	accounting_invoice
+	accounting_bill
+	accounting_creditmemo
+	accounting_taxrate
+	accounting_organization
+	accounting_order
+	accounting_salesorder
+	accounting_purchaseorder
+	accounting_report
+	accounting_balancesheet
+	accounting_profitloss
+	accounting_trialbalance
+	accounting_category
+	accounting_expense
+	accounting_cashflow
+	payment_payment
+	payment_link
+	payment_payout
+	payment_refund
+	payment_subscription
+	commerce_item
+	commerce_collection
+	commerce_inventory
+	commerce_location
+	commerce_review
+	commerce_saleschannel
+	commerce_itemvariant
+	verification_package
+	verification_request
+	assessment_package
+	assessment_order
+	ats_activity
+	ats_application
+	ats_applicationstatus
+	ats_candidate
+	ats_document
+	ats_interview
+	ats_job
+	ats_scorecard
+	ats_company
+	crm_company
+	crm_contact
+	crm_deal
+	crm_event
+	crm_lead
+	crm_pipeline
+	hris_employee
+	hris_group
+	hris_payslip
+	hris_timeoff
+	hris_company
+	hris_location
+	hris_device
+	hris_timeshift
+	hris_deduction
+	hris_benefit
+	hris_bankaccount
+	martech_list
+	martech_member
+	martech_campaign
+	martech_report
+	passthrough
+	ticketing_note
+	ticketing_ticket
+	ticketing_customer
+	ticketing_category
+	uc_contact
+	uc_call
+	uc_comment
+	uc_recording
+	enrich_person
+	enrich_company
+	storage_file
+	genai_model
+	genai_prompt
+	genai_embedding
+	messaging_message
+	messaging_channel
+	messaging_event
+	kms_space
+	kms_page
+	kms_comment
+	task_project
+	task_task
+	task_comment
+	task_change
+	scim_users
+	scim_groups
+	lms_course
+	lms_class
+	lms_student
+	lms_instructor
+	lms_content
+	lms_collection
+	lms_activity
+	repo_organization
+	repo_repository
+	repo_branch
+	repo_commit
+	repo_pullrequest
+	metadata_metadata
+	calendar_calendar
+	calendar_event
+	calendar_busy
+	calendar_link
+	calendar_recording
+	calendar_webinar
+	ads_organization
+	ads_ad
+	ads_campaign
+	ads_report
+	ads_group
+	ads_creative
+	ads_insertionorder
+	forms_form
+	forms_submission
+	shipping_carrier
+	shipping_rate
+	shipping_shipment
+	shipping_label
+	shipping_tracking
+}
+
+enum ENUM_PlanTerm {
+	monthly
+	yearly
+}
+
+enum ENUM_SupportInboundType {
+	supported-required
+	supported
+	not-supported
+}
+
+enum ENUM_SupportOutboundType {
+	supported
+	not-supported
+}
+
+enum ENUM_WebhookDatabaseType {
+	mongodb
+	mysql
+	postgres
+	mssql
+	mariadb
+	supabase
+}
+
+enum ENUM_WebhookDataType {
+	INITIAL-PARTIAL
+	INITIAL-COMPLETE
+	VIRTUAL
+	NATIVE
+}
+
+enum ENUM_WebhookEvent {
+	updated
+	created
+	deleted
+}
+
+"""
+generated model for Map(IntegrationSupport,string)
+"""
+input Map_string_IntegrationSupport_Input {
+}
+
+type Map_string_IntegrationSupport {
+}
+
+"""
+generated model for Map(boolean,string)
+"""
+input Map_string_boolean_Input {
+}
+
+type Map_string_boolean {
+}
+
+"""
+generated model for Map(SupportInboundType,string)
+"""
+input Map_string_SupportInboundType_Input {
+}
+
+type Map_string_SupportInboundType {
+}
+
+"""
+generated model for Map(SupportOutboundType,string)
+"""
+input Map_string_SupportOutboundType_Input {
+}
+
+type Map_string_SupportOutboundType {
+}
+
+"""
+generated model for Map(IntegrationSupportWebhookType,WebhookEvent)
+"""
+input Map_WebhookEvent_IntegrationSupportWebhookType_Input {
+	updated: ENUM_IntegrationSupportWebhookType!
+	created: ENUM_IntegrationSupportWebhookType!
+	deleted: ENUM_IntegrationSupportWebhookType!
+}
+
+type Map_WebhookEvent_IntegrationSupportWebhookType {
+	updated: ENUM_IntegrationSupportWebhookType!
+	created: ENUM_IntegrationSupportWebhookType!
+	deleted: ENUM_IntegrationSupportWebhookType!
+}
+
+"""
+generated model for Map(string,string)
+"""
+input Map_string_string_Input {
+}
+
+type Map_string_string {
+}
+
+"""
+generated model for Map(string,IntegrationPermission)
+"""
+input Map_IntegrationPermission_string_Input {
+	accounting_account_read: String!
+	accounting_account_write: String!
+	accounting_transaction_read: String!
+	accounting_transaction_write: String!
+	accounting_journal_read: String!
+	accounting_journal_write: String!
+	accounting_invoice_read: String!
+	accounting_invoice_write: String!
+	accounting_bill_read: String!
+	accounting_bill_write: String!
+	accounting_creditmemo_read: String!
+	accounting_creditmemo_write: String!
+	accounting_contact_read: String!
+	accounting_contact_write: String!
+	accounting_expense_read: String!
+	accounting_expense_write: String!
+	accounting_taxrate_read: String!
+	accounting_taxrate_write: String!
+	accounting_organization_read: String!
+	accounting_order_read: String!
+	accounting_order_write: String!
+	accounting_purchaseorder_read: String!
+	accounting_purchaseorder_write: String!
+	accounting_salesorder_read: String!
+	accounting_salesorder_write: String!
+	accounting_report_read: String!
+	accounting_report_write: String!
+	accounting_trialbalance_read: String!
+	accounting_trialbalance_write: String!
+	accounting_profitloss_read: String!
+	accounting_profitloss_write: String!
+	accounting_balancesheet_read: String!
+	accounting_balancesheet_write: String!
+	accounting_category_read: String!
+	accounting_category_write: String!
+	payment_payment_read: String!
+	payment_payment_write: String!
+	accounting_cashflow_read: String!
+	accounting_cashflow_write: String!
+	payment_payout_read: String!
+	payment_refund_read: String!
+	payment_link_read: String!
+	payment_link_write: String!
+	payment_subscription_read: String!
+	payment_subscription_write: String!
+	commerce_item_read: String!
+	commerce_item_write: String!
+	commerce_collection_read: String!
+	commerce_collection_write: String!
+	commerce_inventory_read: String!
+	commerce_inventory_write: String!
+	commerce_location_read: String!
+	commerce_location_write: String!
+	commerce_review_read: String!
+	commerce_review_write: String!
+	commerce_saleschannel_read: String!
+	commerce_saleschannel_write: String!
+	commerce_itemvariant_read: String!
+	commerce_itemvariant_write: String!
+	verification_package_read: String!
+	verification_request_read: String!
+	verification_request_write: String!
+	assessment_package_read: String!
+	assessment_package_write: String!
+	assessment_order_write: String!
+	ats_activity_read: String!
+	ats_activity_write: String!
+	ats_application_read: String!
+	ats_application_write: String!
+	ats_applicationstatus_read: String!
+	ats_candidate_read: String!
+	ats_candidate_write: String!
+	ats_interview_read: String!
+	ats_interview_write: String!
+	ats_job_read: String!
+	ats_job_write: String!
+	ats_company_read: String!
+	ats_company_write: String!
+	ats_document_read: String!
+	ats_document_write: String!
+	ats_scorecard_read: String!
+	ats_scorecard_write: String!
+	crm_company_read: String!
+	crm_company_write: String!
+	crm_contact_read: String!
+	crm_contact_write: String!
+	crm_deal_read: String!
+	crm_deal_write: String!
+	crm_event_read: String!
+	crm_event_write: String!
+	crm_lead_read: String!
+	crm_lead_write: String!
+	crm_pipeline_read: String!
+	crm_pipeline_write: String!
+	martech_list_read: String!
+	martech_list_write: String!
+	martech_member_read: String!
+	martech_member_write: String!
+	martech_campaign_read: String!
+	martech_campaign_write: String!
+	martech_report_read: String!
+	martech_report_write: String!
+	ticketing_customer_read: String!
+	ticketing_customer_write: String!
+	ticketing_ticket_read: String!
+	ticketing_ticket_write: String!
+	ticketing_note_read: String!
+	ticketing_note_write: String!
+	ticketing_category_read: String!
+	ticketing_category_write: String!
+	hris_employee_read: String!
+	hris_employee_write: String!
+	hris_group_read: String!
+	hris_group_write: String!
+	hris_payslip_read: String!
+	hris_payslip_write: String!
+	hris_timeoff_read: String!
+	hris_timeoff_write: String!
+	hris_timeshift_read: String!
+	hris_timeshift_write: String!
+	hris_company_read: String!
+	hris_company_write: String!
+	hris_location_read: String!
+	hris_location_write: String!
+	hris_device_read: String!
+	hris_device_write: String!
+	hris_deduction_read: String!
+	hris_deduction_write: String!
+	hris_benefit_read: String!
+	hris_benefit_write: String!
+	hris_bankaccount_read: String!
+	hris_bankaccount_write: String!
+	uc_call_read: String!
+	uc_contact_read: String!
+	uc_contact_write: String!
+	uc_comment_read: String!
+	uc_comment_write: String!
+	uc_recording_read: String!
+	storage_file_read: String!
+	storage_file_write: String!
+	webhook: String!
+	genai_model_read: String!
+	genai_prompt_read: String!
+	genai_prompt_write: String!
+	genai_embedding_read: String!
+	genai_embedding_write: String!
+	messaging_message_read: String!
+	messaging_message_write: String!
+	messaging_channel_read: String!
+	messaging_event_read: String!
+	messaging_event_write: String!
+	kms_space_read: String!
+	kms_space_write: String!
+	kms_page_read: String!
+	kms_page_write: String!
+	kms_comment_read: String!
+	kms_comment_write: String!
+	task_project_read: String!
+	task_project_write: String!
+	task_task_read: String!
+	task_task_write: String!
+	task_change_read: String!
+	task_comment_read: String!
+	task_comment_write: String!
+	scim_users_read: String!
+	scim_users_write: String!
+	scim_groups_read: String!
+	scim_groups_write: String!
+	lms_course_read: String!
+	lms_course_write: String!
+	lms_class_read: String!
+	lms_class_write: String!
+	lms_student_read: String!
+	lms_student_write: String!
+	lms_instructor_read: String!
+	lms_instructor_write: String!
+	lms_content_read: String!
+	lms_content_write: String!
+	lms_collection_read: String!
+	lms_collection_write: String!
+	lms_activity_read: String!
+	lms_activity_write: String!
+	repo_organization_read: String!
+	repo_organization_write: String!
+	repo_repository_read: String!
+	repo_repository_write: String!
+	repo_branch_read: String!
+	repo_branch_write: String!
+	repo_commit_read: String!
+	repo_commit_write: String!
+	repo_pullrequest_read: String!
+	repo_pullrequest_write: String!
+	metadata_metadata_read: String!
+	metadata_metadata_write: String!
+	calendar_calendar_read: String!
+	calendar_calendar_write: String!
+	calendar_event_read: String!
+	calendar_event_write: String!
+	calendar_busy_read: String!
+	calendar_link_read: String!
+	calendar_link_write: String!
+	calendar_recording_read: String!
+	calendar_recording_write: String!
+	calendar_webinar_read: String!
+	calendar_webinar_write: String!
+	enrich_person_read: String!
+	enrich_company_read: String!
+	ads_ad_read: String!
+	ads_ad_write: String!
+	ads_campaign_read: String!
+	ads_campaign_write: String!
+	ads_group_read: String!
+	ads_group_write: String!
+	ads_report_read: String!
+	ads_organization_read: String!
+	ads_organization_write: String!
+	ads_creative_read: String!
+	ads_creative_write: String!
+	ads_insertionorder_read: String!
+	ads_insertionorder_write: String!
+	forms_form_read: String!
+	forms_form_write: String!
+	forms_submission_read: String!
+	forms_submission_write: String!
+	shipping_shipment_read: String!
+	shipping_shipment_write: String!
+	shipping_label_read: String!
+	shipping_label_write: String!
+	shipping_tracking_read: String!
+	shipping_rate_read: String!
+	shipping_carrier_read: String!
+}
+
+type Map_IntegrationPermission_string {
+	accounting_account_read: String!
+	accounting_account_write: String!
+	accounting_transaction_read: String!
+	accounting_transaction_write: String!
+	accounting_journal_read: String!
+	accounting_journal_write: String!
+	accounting_invoice_read: String!
+	accounting_invoice_write: String!
+	accounting_bill_read: String!
+	accounting_bill_write: String!
+	accounting_creditmemo_read: String!
+	accounting_creditmemo_write: String!
+	accounting_contact_read: String!
+	accounting_contact_write: String!
+	accounting_expense_read: String!
+	accounting_expense_write: String!
+	accounting_taxrate_read: String!
+	accounting_taxrate_write: String!
+	accounting_organization_read: String!
+	accounting_order_read: String!
+	accounting_order_write: String!
+	accounting_purchaseorder_read: String!
+	accounting_purchaseorder_write: String!
+	accounting_salesorder_read: String!
+	accounting_salesorder_write: String!
+	accounting_report_read: String!
+	accounting_report_write: String!
+	accounting_trialbalance_read: String!
+	accounting_trialbalance_write: String!
+	accounting_profitloss_read: String!
+	accounting_profitloss_write: String!
+	accounting_balancesheet_read: String!
+	accounting_balancesheet_write: String!
+	accounting_category_read: String!
+	accounting_category_write: String!
+	payment_payment_read: String!
+	payment_payment_write: String!
+	accounting_cashflow_read: String!
+	accounting_cashflow_write: String!
+	payment_payout_read: String!
+	payment_refund_read: String!
+	payment_link_read: String!
+	payment_link_write: String!
+	payment_subscription_read: String!
+	payment_subscription_write: String!
+	commerce_item_read: String!
+	commerce_item_write: String!
+	commerce_collection_read: String!
+	commerce_collection_write: String!
+	commerce_inventory_read: String!
+	commerce_inventory_write: String!
+	commerce_location_read: String!
+	commerce_location_write: String!
+	commerce_review_read: String!
+	commerce_review_write: String!
+	commerce_saleschannel_read: String!
+	commerce_saleschannel_write: String!
+	commerce_itemvariant_read: String!
+	commerce_itemvariant_write: String!
+	verification_package_read: String!
+	verification_request_read: String!
+	verification_request_write: String!
+	assessment_package_read: String!
+	assessment_package_write: String!
+	assessment_order_write: String!
+	ats_activity_read: String!
+	ats_activity_write: String!
+	ats_application_read: String!
+	ats_application_write: String!
+	ats_applicationstatus_read: String!
+	ats_candidate_read: String!
+	ats_candidate_write: String!
+	ats_interview_read: String!
+	ats_interview_write: String!
+	ats_job_read: String!
+	ats_job_write: String!
+	ats_company_read: String!
+	ats_company_write: String!
+	ats_document_read: String!
+	ats_document_write: String!
+	ats_scorecard_read: String!
+	ats_scorecard_write: String!
+	crm_company_read: String!
+	crm_company_write: String!
+	crm_contact_read: String!
+	crm_contact_write: String!
+	crm_deal_read: String!
+	crm_deal_write: String!
+	crm_event_read: String!
+	crm_event_write: String!
+	crm_lead_read: String!
+	crm_lead_write: String!
+	crm_pipeline_read: String!
+	crm_pipeline_write: String!
+	martech_list_read: String!
+	martech_list_write: String!
+	martech_member_read: String!
+	martech_member_write: String!
+	martech_campaign_read: String!
+	martech_campaign_write: String!
+	martech_report_read: String!
+	martech_report_write: String!
+	ticketing_customer_read: String!
+	ticketing_customer_write: String!
+	ticketing_ticket_read: String!
+	ticketing_ticket_write: String!
+	ticketing_note_read: String!
+	ticketing_note_write: String!
+	ticketing_category_read: String!
+	ticketing_category_write: String!
+	hris_employee_read: String!
+	hris_employee_write: String!
+	hris_group_read: String!
+	hris_group_write: String!
+	hris_payslip_read: String!
+	hris_payslip_write: String!
+	hris_timeoff_read: String!
+	hris_timeoff_write: String!
+	hris_timeshift_read: String!
+	hris_timeshift_write: String!
+	hris_company_read: String!
+	hris_company_write: String!
+	hris_location_read: String!
+	hris_location_write: String!
+	hris_device_read: String!
+	hris_device_write: String!
+	hris_deduction_read: String!
+	hris_deduction_write: String!
+	hris_benefit_read: String!
+	hris_benefit_write: String!
+	hris_bankaccount_read: String!
+	hris_bankaccount_write: String!
+	uc_call_read: String!
+	uc_contact_read: String!
+	uc_contact_write: String!
+	uc_comment_read: String!
+	uc_comment_write: String!
+	uc_recording_read: String!
+	storage_file_read: String!
+	storage_file_write: String!
+	webhook: String!
+	genai_model_read: String!
+	genai_prompt_read: String!
+	genai_prompt_write: String!
+	genai_embedding_read: String!
+	genai_embedding_write: String!
+	messaging_message_read: String!
+	messaging_message_write: String!
+	messaging_channel_read: String!
+	messaging_event_read: String!
+	messaging_event_write: String!
+	kms_space_read: String!
+	kms_space_write: String!
+	kms_page_read: String!
+	kms_page_write: String!
+	kms_comment_read: String!
+	kms_comment_write: String!
+	task_project_read: String!
+	task_project_write: String!
+	task_task_read: String!
+	task_task_write: String!
+	task_change_read: String!
+	task_comment_read: String!
+	task_comment_write: String!
+	scim_users_read: String!
+	scim_users_write: String!
+	scim_groups_read: String!
+	scim_groups_write: String!
+	lms_course_read: String!
+	lms_course_write: String!
+	lms_class_read: String!
+	lms_class_write: String!
+	lms_student_read: String!
+	lms_student_write: String!
+	lms_instructor_read: String!
+	lms_instructor_write: String!
+	lms_content_read: String!
+	lms_content_write: String!
+	lms_collection_read: String!
+	lms_collection_write: String!
+	lms_activity_read: String!
+	lms_activity_write: String!
+	repo_organization_read: String!
+	repo_organization_write: String!
+	repo_repository_read: String!
+	repo_repository_write: String!
+	repo_branch_read: String!
+	repo_branch_write: String!
+	repo_commit_read: String!
+	repo_commit_write: String!
+	repo_pullrequest_read: String!
+	repo_pullrequest_write: String!
+	metadata_metadata_read: String!
+	metadata_metadata_write: String!
+	calendar_calendar_read: String!
+	calendar_calendar_write: String!
+	calendar_event_read: String!
+	calendar_event_write: String!
+	calendar_busy_read: String!
+	calendar_link_read: String!
+	calendar_link_write: String!
+	calendar_recording_read: String!
+	calendar_recording_write: String!
+	calendar_webinar_read: String!
+	calendar_webinar_write: String!
+	enrich_person_read: String!
+	enrich_company_read: String!
+	ads_ad_read: String!
+	ads_ad_write: String!
+	ads_campaign_read: String!
+	ads_campaign_write: String!
+	ads_group_read: String!
+	ads_group_write: String!
+	ads_report_read: String!
+	ads_organization_read: String!
+	ads_organization_write: String!
+	ads_creative_read: String!
+	ads_creative_write: String!
+	ads_insertionorder_read: String!
+	ads_insertionorder_write: String!
+	forms_form_read: String!
+	forms_form_write: String!
+	forms_submission_read: String!
+	forms_submission_write: String!
+	shipping_shipment_read: String!
+	shipping_shipment_write: String!
+	shipping_label_read: String!
+	shipping_label_write: String!
+	shipping_tracking_read: String!
+	shipping_rate_read: String!
+	shipping_carrier_read: String!
+}
+
+"""
+A connection represents a specific authentication of an integration.
+"""
+input Connection_Input {
+"""
+The integration type
+"""
+	integration_type: String!
+	integration_name: String
+"""
+customer's user ID
+"""
+	external_xref: String
+	permissions: [ENUM_IntegrationPermission]!
+"""
+The Integration categories that this connection supports
+"""
+	categories: [ENUM_IntegrationCategory]!
+	auth: ConnectionAuth_Input
+"""
+the AWS ARN / secretID for the stored auth field
+"""
+	auth_aws_arn: String
+	environment: String
+"""
+the Azure Key Vault ID for the stored auth field
+"""
+	auth_azure_keyvault_id: String
+"""
+the Google Cloud Secret Manager name for the stored auth field
+"""
+	auth_gcp_secret_name: String
+"""
+the HashiCorp Vault path for the stored auth field
+"""
+	auth_hashi_vault_path: String
+}
+
+type Connection {
+"""
+Unique identifier for this integration object
+"""
+	id: ID
+"""
+The date that this integration object was created
+"""
+	created_at: DateTime
+"""
+The last date that this integration object was updated
+"""
+	updated_at: DateTime
+	workspace_id: ID!
+"""
+The integration type
+"""
+	integration_type: String!
+	integration_name: String
+"""
+customer's user ID
+"""
+	external_xref: String
+	permissions: [ENUM_IntegrationPermission]!
+"""
+The Integration categories that this connection supports
+"""
+	categories: [ENUM_IntegrationCategory]!
+	auth: ConnectionAuth
+"""
+Whether this integration has exceed the monthly limit of the plan
+"""
+	is_paused: Boolean
+"""
+the AWS ARN / secretID for the stored auth field
+"""
+	auth_aws_arn: String
+	environment: String
+"""
+the Azure Key Vault ID for the stored auth field
+"""
+	auth_azure_keyvault_id: String
+"""
+the Google Cloud Secret Manager name for the stored auth field
+"""
+	auth_gcp_secret_name: String
+"""
+the HashiCorp Vault path for the stored auth field
+"""
+	auth_hashi_vault_path: String
+	last_healthy_at: DateTime
+	last_unhealthy_at: DateTime
+}
+
+"""
+An authentication object that represents a specific authorized user's connection to an integration.
+"""
+input ConnectionAuth_Input {
+	token: String
+	access_token: String
+	refresh_token: String
+	expiry_date: DateTime
+	expires_in: Int
+	emails: [String]
+	name: String
+	user_id: String
+	app_id: String
+	client_id: String
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+	state: String
+"""
+When integration.auth_type = "other", this field contains the authentication credentials in the same order as token_names
+"""
+	other_auth_info: [String]
+	api_url: String
+	authorize_url: String
+	token_url: String
+	refresh_url: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+	refresh_token_expires_in: Int
+	refresh_token_expires_date: DateTime
+	dev_api_key: String
+}
+
+type ConnectionAuth {
+	token: String
+	access_token: String
+	refresh_token: String
+	expiry_date: DateTime
+	expires_in: Int
+	emails: [String]
+	name: String
+	user_id: String
+	app_id: String
+	client_id: String
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+	meta: object
+	state: String
+"""
+When integration.auth_type = "other", this field contains the authentication credentials in the same order as token_names
+"""
+	other_auth_info: [String]
+	api_url: String
+	authorize_url: String
+	token_url: String
+	refresh_url: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+	refresh_token_expires_in: Int
+	refresh_token_expires_date: DateTime
+	dev_api_key: String
+}
+
+"""
+Informational object for supported integrations.
+"""
+input Integration_Input {
+"""
+Identifier for this integration
+"""
+	type: String!
+"""
+Date that this integration was supported (YYYY-MM-DD)
+"""
+	created_at: String
+"""
+YYYY-MM-DD
+"""
+	updated_at: String
+"""
+The integration's name
+"""
+	name: String!
+"""
+Is this integration active in this workspace
+"""
+	is_active: Boolean
+"""
+The categories of support solutions that this integration has
+"""
+	categories: [ENUM_IntegrationCategory]!
+"""
+The URL of the integration's API documentation
+"""
+	api_docs_url: String
+"""
+The URL of the integration's logo
+"""
+	logo_url: String
+"""
+If this integration is not yet available as it is currently being built by unified.to
+"""
+	in_progress: Boolean
+	is_hidden: Boolean
+"""
+button background color for AUTH
+"""
+	color: String
+"""
+text color for AUTH
+"""
+	text_color: String
+"""
+font-awesome icon
+"""
+	fa_icon: String
+"""
+if auth_types = 'token'
+"""
+	token_names: [String]
+"""
+instructions for the user on how to find the token/key
+"""
+	token_instructions: [String]
+"""
+URL for the software vendor
+"""
+	web_url: String
+	rate_limit_description: String
+"""
+This integration is new and is still considered "beta"
+"""
+	beta: Boolean
+	support: Map_string_IntegrationSupport
+	tested_at: DateTime
+	sandbox: object
+	partnership: object
+	saml: object
+	description: String
+	api: object
+	featured: Boolean
+	popularity: Int
+	active_healthy_connections: Int
+}
+
+type Integration {
+"""
+Identifier for this integration
+"""
+	type: String!
+"""
+Date that this integration was supported (YYYY-MM-DD)
+"""
+	created_at: String
+"""
+YYYY-MM-DD
+"""
+	updated_at: String
+"""
+The integration's name
+"""
+	name: String!
+"""
+Is this integration active in this workspace
+"""
+	is_active: Boolean
+"""
+The categories of support solutions that this integration has
+"""
+	categories: [ENUM_IntegrationCategory]!
+"""
+The URL of the integration's API documentation
+"""
+	api_docs_url: String
+"""
+The URL of the integration's logo
+"""
+	logo_url: String
+"""
+If this integration is not yet available as it is currently being built by unified.to
+"""
+	in_progress: Boolean
+	is_hidden: Boolean
+"""
+button background color for AUTH
+"""
+	color: String
+"""
+text color for AUTH
+"""
+	text_color: String
+"""
+font-awesome icon
+"""
+	fa_icon: String
+"""
+if auth_types = 'token'
+"""
+	token_names: [String]
+"""
+instructions for the user on how to find the token/key
+"""
+	token_instructions: [String]
+"""
+URL for the software vendor
+"""
+	web_url: String
+	rate_limit_description: String
+"""
+This integration is new and is still considered "beta"
+"""
+	beta: Boolean
+	support: Map_string_IntegrationSupport
+	tested_at: DateTime
+	sandbox: object
+	partnership: object
+	saml: object
+	description: String
+	api: object
+	featured: Boolean
+	popularity: Int
+	active_healthy_connections: Int
+}
+
+input IntegrationSupport_Input {
+	methods: Map_string_boolean
+	inbound_fields: Map_string_SupportInboundType
+	outbound_fields: Map_string_SupportOutboundType
+	webhook_events: [Map_WebhookEvent_IntegrationSupportWebhookType]
+"""
+objects that we map from in the integration
+"""
+	raw_objects: [String]
+	slow_fields: [String]
+	from_webhook: ENUM_SupportInboundType
+	list_sort_by_name: ENUM_SupportInboundType
+	list_sort_by_created_at: ENUM_SupportInboundType
+	list_sort_by_updated_at: ENUM_SupportInboundType
+	list_updated_gte: ENUM_SupportInboundType
+	list_user_id: ENUM_SupportInboundType
+	list_user_mentioned_id: ENUM_SupportInboundType
+	list_customer_id: ENUM_SupportInboundType
+	list_company_id: ENUM_SupportInboundType
+	list_contact_id: ENUM_SupportInboundType
+	list_application_id: ENUM_SupportInboundType
+	list_candidate_id: ENUM_SupportInboundType
+	list_deal_id: ENUM_SupportInboundType
+	list_job_id: ENUM_SupportInboundType
+	list_invoice_id: ENUM_SupportInboundType
+	list_order: ENUM_SupportInboundType
+	list_query: ENUM_SupportInboundType
+	list_limit: ENUM_SupportInboundType
+	list_offset: ENUM_SupportInboundType
+	list_root_id: ENUM_SupportInboundType
+	list_list_id: ENUM_SupportInboundType
+	list_interview_id: ENUM_SupportInboundType
+	list_location_id: ENUM_SupportInboundType
+	list_collection_id: ENUM_SupportInboundType
+	list_ticket_id: ENUM_SupportInboundType
+	list_parent_id: ENUM_SupportInboundType
+	list_account_id: ENUM_SupportInboundType
+	list_item_id: ENUM_SupportInboundType
+	list_space_id: ENUM_SupportInboundType
+	list_channel_id: ENUM_SupportInboundType
+	list_page_id: ENUM_SupportInboundType
+	list_type: ENUM_SupportInboundType
+	list_link_id: ENUM_SupportInboundType
+	list_project_id: ENUM_SupportInboundType
+	list_item_variant_id: ENUM_SupportInboundType
+	list_raw_fields: ENUM_SupportInboundType
+	list_student_id: ENUM_SupportInboundType
+	list_class_id: ENUM_SupportInboundType
+	list_instructor_id: ENUM_SupportInboundType
+	list_course_id: ENUM_SupportInboundType
+	list_teacher_id: ENUM_SupportInboundType
+	list_repo_id: ENUM_SupportInboundType
+	list_org_id: ENUM_SupportInboundType
+	list_calendar_id: ENUM_SupportInboundType
+	list_task_id: ENUM_SupportInboundType
+	search_twitter: ENUM_SupportInboundType
+	search_name: ENUM_SupportInboundType
+	search_linkedinurl: ENUM_SupportInboundType
+	search_email: ENUM_SupportInboundType
+	search_domain: ENUM_SupportInboundType
+	list_event_id: ENUM_SupportInboundType
+	list_start_gte: ENUM_SupportInboundType
+	list_end_lt: ENUM_SupportInboundType
+	list_lead_id: ENUM_SupportInboundType
+	list_call_id: ENUM_SupportInboundType
+	list_document_id: ENUM_SupportInboundType
+	list_payment_id: ENUM_SupportInboundType
+	list_status: ENUM_SupportInboundType
+	list_branch_id: ENUM_SupportInboundType
+	list_pipeline_id: ENUM_SupportInboundType
+	list_category_id: ENUM_SupportInboundType
+	list_package_id: ENUM_SupportInboundType
+	list_expand: ENUM_SupportInboundType
+	native_webhook_parent_id: ENUM_SupportInboundType
+	native_webhook_project_id: ENUM_SupportInboundType
+	native_webhook_company_id: ENUM_SupportInboundType
+	native_webhook_task_id: ENUM_SupportInboundType
+	native_webhook_channel_id: ENUM_SupportInboundType
+	native_webhook_calendar_id: ENUM_SupportInboundType
+	native_webhook_event_id: ENUM_SupportInboundType
+	virtual_webhook_updated_gte: ENUM_SupportInboundType
+	virtual_webhook_limit: ENUM_SupportInboundType
+	virtual_webhook_channel_id: ENUM_SupportInboundType
+	virtual_webhook_parent_id: ENUM_SupportInboundType
+	virtual_webhook_contact_id: ENUM_SupportInboundType
+	virtual_webhook_deal_id: ENUM_SupportInboundType
+	virtual_webhook_company_id: ENUM_SupportInboundType
+	virtual_webhook_user_id: ENUM_SupportInboundType
+	virtual_webhook_user_mentioned_id: ENUM_SupportInboundType
+	virtual_webhook_type: ENUM_SupportInboundType
+	virtual_webhook_ticket_id: ENUM_SupportInboundType
+	virtual_webhook_expand: ENUM_SupportInboundType
+	virtual_webhook_status: ENUM_SupportInboundType
+	virtual_webhook_start_gte: ENUM_SupportInboundType
+	virtual_webhook_end_lt: ENUM_SupportInboundType
+	virtual_webhook_task_id: ENUM_SupportInboundType
+	virtual_webhook_space_id: ENUM_SupportInboundType
+	virtual_webhook_repo_id: ENUM_SupportInboundType
+	virtual_webhook_project_id: ENUM_SupportInboundType
+	virtual_webhook_pipeline_id: ENUM_SupportInboundType
+	virtual_webhook_page_id: ENUM_SupportInboundType
+	virtual_webhook_org_id: ENUM_SupportInboundType
+	virtual_webhook_location_id: ENUM_SupportInboundType
+	virtual_webhook_list_id: ENUM_SupportInboundType
+	virtual_webhook_job_id: ENUM_SupportInboundType
+	virtual_webhook_item_id: ENUM_SupportInboundType
+	virtual_webhook_fields: ENUM_SupportInboundType
+	virtual_webhook_event_id: ENUM_SupportInboundType
+	virtual_webhook_customer_id: ENUM_SupportInboundType
+	virtual_webhook_collection_id: ENUM_SupportInboundType
+	virtual_webhook_candidate_id: ENUM_SupportInboundType
+	virtual_webhook_call_id: ENUM_SupportInboundType
+	virtual_webhook_branch_id: ENUM_SupportInboundType
+	virtual_webhook_application_id: ENUM_SupportInboundType
+	virtual_webhook_item_variant_id: ENUM_SupportInboundType
+	virtual_webhook_calendar_id: ENUM_SupportInboundType
+	virtual_webhook_lead_id: ENUM_SupportInboundType
+	list_payslip_id: ENUM_SupportInboundType
+	list_benefit_id: ENUM_SupportInboundType
+	list_saleschannel_id: ENUM_SupportInboundType
+	virtual_webhook_saleschannel_id: ENUM_SupportInboundType
+	list_campaign_id: ENUM_SupportInboundType
+	list_ad_id: ENUM_SupportInboundType
+	list_group_id: ENUM_SupportInboundType
+	virtual_webhook_campaign_id: ENUM_SupportInboundType
+	virtual_webhook_ad_id: ENUM_SupportInboundType
+	virtual_webhook_group_id: ENUM_SupportInboundType
+	list_form_id: ENUM_SupportInboundType
+	virtual_webhook_form_id: ENUM_SupportInboundType
+	native_webhook_form_id: ENUM_SupportInboundType
+	list_order_id: ENUM_SupportInboundType
+	virtual_webhook_order_id: ENUM_SupportInboundType
+	native_webhook_order_id: ENUM_SupportInboundType
+	list_carrier_id: ENUM_SupportInboundType
+	virtual_webhook_carrier_id: ENUM_SupportInboundType
+	native_webhook_carrier_id: ENUM_SupportInboundType
+	list_shipment_id: ENUM_SupportInboundType
+	virtual_webhook_shipment_id: ENUM_SupportInboundType
+	native_webhook_shipment_id: ENUM_SupportInboundType
+	list_label_id: ENUM_SupportInboundType
+	virtual_webhook_label_id: ENUM_SupportInboundType
+	native_webhook_label_id: ENUM_SupportInboundType
+	list_member_id: ENUM_SupportInboundType
+	virtual_webhook_member_id: ENUM_SupportInboundType
+	native_webhook_member_id: ENUM_SupportInboundType
+	list_content_id: ENUM_SupportInboundType
+	virtual_webhook_course_id: ENUM_SupportInboundType
+	native_webhook_course_id: ENUM_SupportInboundType
+	virtual_webhook_student_id: ENUM_SupportInboundType
+	native_webhook_student_id: ENUM_SupportInboundType
+}
+
+type IntegrationSupport {
+	methods: Map_string_boolean
+	inbound_fields: Map_string_SupportInboundType
+	outbound_fields: Map_string_SupportOutboundType
+	webhook_events: [Map_WebhookEvent_IntegrationSupportWebhookType]
+"""
+objects that we map from in the integration
+"""
+	raw_objects: [String]
+	slow_fields: [String]
+	from_webhook: ENUM_SupportInboundType
+	list_sort_by_name: ENUM_SupportInboundType
+	list_sort_by_created_at: ENUM_SupportInboundType
+	list_sort_by_updated_at: ENUM_SupportInboundType
+	list_updated_gte: ENUM_SupportInboundType
+	list_user_id: ENUM_SupportInboundType
+	list_user_mentioned_id: ENUM_SupportInboundType
+	list_customer_id: ENUM_SupportInboundType
+	list_company_id: ENUM_SupportInboundType
+	list_contact_id: ENUM_SupportInboundType
+	list_application_id: ENUM_SupportInboundType
+	list_candidate_id: ENUM_SupportInboundType
+	list_deal_id: ENUM_SupportInboundType
+	list_job_id: ENUM_SupportInboundType
+	list_invoice_id: ENUM_SupportInboundType
+	list_order: ENUM_SupportInboundType
+	list_query: ENUM_SupportInboundType
+	list_limit: ENUM_SupportInboundType
+	list_offset: ENUM_SupportInboundType
+	list_root_id: ENUM_SupportInboundType
+	list_list_id: ENUM_SupportInboundType
+	list_interview_id: ENUM_SupportInboundType
+	list_location_id: ENUM_SupportInboundType
+	list_collection_id: ENUM_SupportInboundType
+	list_ticket_id: ENUM_SupportInboundType
+	list_parent_id: ENUM_SupportInboundType
+	list_account_id: ENUM_SupportInboundType
+	list_item_id: ENUM_SupportInboundType
+	list_space_id: ENUM_SupportInboundType
+	list_channel_id: ENUM_SupportInboundType
+	list_page_id: ENUM_SupportInboundType
+	list_type: ENUM_SupportInboundType
+	list_link_id: ENUM_SupportInboundType
+	list_project_id: ENUM_SupportInboundType
+	list_item_variant_id: ENUM_SupportInboundType
+	list_raw_fields: ENUM_SupportInboundType
+	list_student_id: ENUM_SupportInboundType
+	list_class_id: ENUM_SupportInboundType
+	list_instructor_id: ENUM_SupportInboundType
+	list_course_id: ENUM_SupportInboundType
+	list_teacher_id: ENUM_SupportInboundType
+	list_repo_id: ENUM_SupportInboundType
+	list_org_id: ENUM_SupportInboundType
+	list_calendar_id: ENUM_SupportInboundType
+	list_task_id: ENUM_SupportInboundType
+	search_twitter: ENUM_SupportInboundType
+	search_name: ENUM_SupportInboundType
+	search_linkedinurl: ENUM_SupportInboundType
+	search_email: ENUM_SupportInboundType
+	search_domain: ENUM_SupportInboundType
+	list_event_id: ENUM_SupportInboundType
+	list_start_gte: ENUM_SupportInboundType
+	list_end_lt: ENUM_SupportInboundType
+	list_lead_id: ENUM_SupportInboundType
+	list_call_id: ENUM_SupportInboundType
+	list_document_id: ENUM_SupportInboundType
+	list_payment_id: ENUM_SupportInboundType
+	list_status: ENUM_SupportInboundType
+	list_branch_id: ENUM_SupportInboundType
+	list_pipeline_id: ENUM_SupportInboundType
+	list_category_id: ENUM_SupportInboundType
+	list_package_id: ENUM_SupportInboundType
+	list_expand: ENUM_SupportInboundType
+	native_webhook_parent_id: ENUM_SupportInboundType
+	native_webhook_project_id: ENUM_SupportInboundType
+	native_webhook_company_id: ENUM_SupportInboundType
+	native_webhook_task_id: ENUM_SupportInboundType
+	native_webhook_channel_id: ENUM_SupportInboundType
+	native_webhook_calendar_id: ENUM_SupportInboundType
+	native_webhook_event_id: ENUM_SupportInboundType
+	virtual_webhook_updated_gte: ENUM_SupportInboundType
+	virtual_webhook_limit: ENUM_SupportInboundType
+	virtual_webhook_channel_id: ENUM_SupportInboundType
+	virtual_webhook_parent_id: ENUM_SupportInboundType
+	virtual_webhook_contact_id: ENUM_SupportInboundType
+	virtual_webhook_deal_id: ENUM_SupportInboundType
+	virtual_webhook_company_id: ENUM_SupportInboundType
+	virtual_webhook_user_id: ENUM_SupportInboundType
+	virtual_webhook_user_mentioned_id: ENUM_SupportInboundType
+	virtual_webhook_type: ENUM_SupportInboundType
+	virtual_webhook_ticket_id: ENUM_SupportInboundType
+	virtual_webhook_expand: ENUM_SupportInboundType
+	virtual_webhook_status: ENUM_SupportInboundType
+	virtual_webhook_start_gte: ENUM_SupportInboundType
+	virtual_webhook_end_lt: ENUM_SupportInboundType
+	virtual_webhook_task_id: ENUM_SupportInboundType
+	virtual_webhook_space_id: ENUM_SupportInboundType
+	virtual_webhook_repo_id: ENUM_SupportInboundType
+	virtual_webhook_project_id: ENUM_SupportInboundType
+	virtual_webhook_pipeline_id: ENUM_SupportInboundType
+	virtual_webhook_page_id: ENUM_SupportInboundType
+	virtual_webhook_org_id: ENUM_SupportInboundType
+	virtual_webhook_location_id: ENUM_SupportInboundType
+	virtual_webhook_list_id: ENUM_SupportInboundType
+	virtual_webhook_job_id: ENUM_SupportInboundType
+	virtual_webhook_item_id: ENUM_SupportInboundType
+	virtual_webhook_fields: ENUM_SupportInboundType
+	virtual_webhook_event_id: ENUM_SupportInboundType
+	virtual_webhook_customer_id: ENUM_SupportInboundType
+	virtual_webhook_collection_id: ENUM_SupportInboundType
+	virtual_webhook_candidate_id: ENUM_SupportInboundType
+	virtual_webhook_call_id: ENUM_SupportInboundType
+	virtual_webhook_branch_id: ENUM_SupportInboundType
+	virtual_webhook_application_id: ENUM_SupportInboundType
+	virtual_webhook_item_variant_id: ENUM_SupportInboundType
+	virtual_webhook_calendar_id: ENUM_SupportInboundType
+	virtual_webhook_lead_id: ENUM_SupportInboundType
+	list_payslip_id: ENUM_SupportInboundType
+	list_benefit_id: ENUM_SupportInboundType
+	list_saleschannel_id: ENUM_SupportInboundType
+	virtual_webhook_saleschannel_id: ENUM_SupportInboundType
+	list_campaign_id: ENUM_SupportInboundType
+	list_ad_id: ENUM_SupportInboundType
+	list_group_id: ENUM_SupportInboundType
+	virtual_webhook_campaign_id: ENUM_SupportInboundType
+	virtual_webhook_ad_id: ENUM_SupportInboundType
+	virtual_webhook_group_id: ENUM_SupportInboundType
+	list_form_id: ENUM_SupportInboundType
+	virtual_webhook_form_id: ENUM_SupportInboundType
+	native_webhook_form_id: ENUM_SupportInboundType
+	list_order_id: ENUM_SupportInboundType
+	virtual_webhook_order_id: ENUM_SupportInboundType
+	native_webhook_order_id: ENUM_SupportInboundType
+	list_carrier_id: ENUM_SupportInboundType
+	virtual_webhook_carrier_id: ENUM_SupportInboundType
+	native_webhook_carrier_id: ENUM_SupportInboundType
+	list_shipment_id: ENUM_SupportInboundType
+	virtual_webhook_shipment_id: ENUM_SupportInboundType
+	native_webhook_shipment_id: ENUM_SupportInboundType
+	list_label_id: ENUM_SupportInboundType
+	virtual_webhook_label_id: ENUM_SupportInboundType
+	native_webhook_label_id: ENUM_SupportInboundType
+	list_member_id: ENUM_SupportInboundType
+	virtual_webhook_member_id: ENUM_SupportInboundType
+	native_webhook_member_id: ENUM_SupportInboundType
+	list_content_id: ENUM_SupportInboundType
+	virtual_webhook_course_id: ENUM_SupportInboundType
+	native_webhook_course_id: ENUM_SupportInboundType
+	virtual_webhook_student_id: ENUM_SupportInboundType
+	native_webhook_student_id: ENUM_SupportInboundType
+}
+
+input Invoice_Input {
+	stripe_id: String!
+	created_at: DateTime!
+	amount: Int!
+	connections: Int!
+	plan: String!
+}
+
+type Invoice {
+	stripe_id: String!
+	created_at: DateTime!
+	amount: Int!
+	connections: Int!
+	plan: String!
+}
+
+input Issue_Input {
+	id: ID
+	created_at: String
+	updated_at: String
+	title: String!
+	status: ENUM_IssueStatus!
+	url: String
+	workspace_id: ID!
+	type: [String]
+	resolution_time: Int
+	ticket_ref: String!
+"""
+1-5, 1 is lowest
+"""
+	size: Int
+"""
+1-5, 1 is lowest
+"""
+	importance: Int
+}
+
+type Issue {
+	id: ID
+	created_at: String
+	updated_at: String
+	title: String!
+	status: ENUM_IssueStatus!
+	url: String
+	workspace_id: ID!
+	type: [String]
+	resolution_time: Int
+	ticket_ref: String!
+"""
+1-5, 1 is lowest
+"""
+	size: Int
+"""
+1-5, 1 is lowest
+"""
+	importance: Int
+}
+
+input Permission_Input {
+}
+
+type Permission {
+	can_create_org: Boolean!
+	can_leave_org: Boolean!
+	can_downgrade: Boolean!
+	can_invite: Boolean!
+	can_update_org: Boolean!
+	can_add_and_remove_admin: Boolean!
+	can_accept_invite: Boolean!
+	can_reject_invite: Boolean!
+	can_pay: Boolean!
+	can_get_invoices: Boolean!
+	is_admin: Boolean!
+}
+
+input Plan_Input {
+	name: String!
+"""
+description
+"""
+	description: String
+"""
+Maximum active connections (1+ API call per month)
+"""
+	max_connections: Int
+	stripe_product_id: String
+	stripe_price_id: String
+	min_price: Int
+	price_per_mille_requests: Int
+	custom_oauth: Boolean
+	max_requests: Int
+	test_stripe_product_id: String
+	test_stripe_price_id: String
+	min_annual_price: Int
+	stripe_annual_price_id: String
+	test_stripe_annual_price_id: String
+	stripe_overage_price_id: String
+	test_stripe_overage_price_id: String
+"""
+Dedicated Slack/Discord channel
+"""
+	dedicated_channel: Boolean
+}
+
+type Plan {
+	name: String!
+"""
+description
+"""
+	description: String
+"""
+Maximum active connections (1+ API call per month)
+"""
+	max_connections: Int
+	stripe_product_id: String
+	stripe_price_id: String
+	min_price: Int
+	price_per_mille_requests: Int
+	custom_oauth: Boolean
+	max_requests: Int
+	test_stripe_product_id: String
+	test_stripe_price_id: String
+	min_annual_price: Int
+	stripe_annual_price_id: String
+	test_stripe_annual_price_id: String
+	stripe_overage_price_id: String
+	test_stripe_overage_price_id: String
+"""
+Dedicated Slack/Discord channel
+"""
+	dedicated_channel: Boolean
+}
+
+"""
+The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
+"""
+input User_Input {
+	name: String!
+"""
+The current workspace
+"""
+	workspace_id: ID!
+"""
+A list of all of the user's workspaces
+"""
+	workspace_ids: [ID]!
+	environment: String
+	meta: object
+}
+
+type User {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	name: String!
+	email: String!
+"""
+The current workspace
+"""
+	workspace_id: ID!
+"""
+A list of all of the user's workspaces
+"""
+	workspace_ids: [ID]!
+	environment: String
+	meta: object
+}
+
+"""
+A webhook is used to POST new/updated information to your server.
+"""
+input Webhook_Input {
+	connection_id: ID!
+"""
+The URL of the webhook
+"""
+	hook_url: String
+"""
+The object to return (eg. CRM "contact")
+"""
+	object_type: ENUM_ObjectType!
+"""
+The interval (in minutes) to check for updated/new objets. 
+"""
+	interval: Int
+	event: ENUM_WebhookEvent!
+	fields: String
+	webhook_type: ENUM_IntegrationSupportWebhookType
+	page_max_limit: Int
+	filters: Map_string_string
+	db_type: ENUM_WebhookDatabaseType
+	db_url: String
+	db_schema: String
+	db_name_prefix: String
+	is_paused: Boolean
+}
+
+type Webhook {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	workspace_id: ID
+	connection_id: ID!
+"""
+The URL of the webhook
+"""
+	hook_url: String
+"""
+The object to return (eg. CRM "contact")
+"""
+	object_type: ENUM_ObjectType!
+"""
+The interval (in minutes) to check for updated/new objets. 
+"""
+	interval: Int
+"""
+The last date/time that a check was done on this object
+"""
+	checked_at: DateTime!
+	integration_type: String!
+	environment: String
+	event: ENUM_WebhookEvent!
+"""
+An array of the most revent virtual webhook runs
+"""
+	runs: [String]
+	fields: String
+	webhook_type: ENUM_IntegrationSupportWebhookType
+	meta: object
+	is_healthy: Boolean
+	page_max_limit: Int
+	filters: Map_string_string
+	db_type: ENUM_WebhookDatabaseType
+	db_url: String
+	db_schema: String
+	db_name_prefix: String
+	is_paused: Boolean
+}
+
+input WebhookData_Input {
+"""
+The data array will contact an array of specific objects according to the webhook's connection. (eg. CRM Contacts)
+"""
+	data: [object]!
+"""
+The webhook object
+"""
+	webhook: Webhook_Input!
+"""
+random string
+"""
+	nonce: String!
+"""
+@deprecated; use sig256 instead
+"""
+	sig: String
+"""
+HMAC-SHA256(workspace.secret, data + nonce)
+"""
+	sig256: String
+	type: ENUM_WebhookDataType!
+	external_xref: String
+}
+
+type WebhookData {
+"""
+The data array will contact an array of specific objects according to the webhook's connection. (eg. CRM Contacts)
+"""
+	data: [object]!
+"""
+The webhook object
+"""
+	webhook: Webhook!
+"""
+random string
+"""
+	nonce: String!
+"""
+@deprecated; use sig256 instead
+"""
+	sig: String
+"""
+HMAC-SHA256(workspace.secret, data + nonce)
+"""
+	sig256: String
+	type: ENUM_WebhookDataType!
+	external_xref: String
+}
+
+"""
+The User's workspace object. A workspace is like an organization that one or more users belong to.
+"""
+input Workspace_Input {
+	name: String!
+"""
+a list of IP addresses that are allowed to access this workspace
+"""
+	ip_addresses: [String]
+	aws_region: String
+	aws_key: String
+	aws_secret: String
+	datadog_apikey: String
+	datadog_site: String
+"""
+a list of authentication environments for the workspace integrations
+"""
+	environments: [String]
+	add_ons: [String]
+	checklist: object
+"""
+monthly or yearly
+"""
+	plan_term: ENUM_PlanTerm
+	stripe_canceling_at: DateTime
+"""
+when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
+"""
+	domain: String
+	event_webhook_url: String
+	event_webhook_events: [ENUM_WorkspaceEventType]
+	custom_auth_domain: String
+	custom_auth_domain_valid: Boolean
+	custom_api_domain: String
+	slow_fields_opt_in: Boolean
+	notion_verification_token: String
+	favicon_url: String
+	is_baa: Boolean
+	saml_integration_type: String
+	saml_idp_url: String
+	saml_idp_entity_id: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	saml_pem: String
+"""
+if true, only allow SAML login
+"""
+	saml_only_login: Boolean
+	azure_keyvault_url: String
+	azure_tenant_id: String
+	azure_client_id: String
+	azure_client_secret: String
+	gcp_project_id: String
+	gcp_client_email: String
+	gcp_private_key: String
+	hashicorp_vault_url: String
+	hashicorp_vault_token: String
+	hashicorp_vault_namespace: String
+	hashicorp_vault_kv_mount: String
+"""
+1 or 2
+"""
+	hashicorp_vault_kv_version: String
+	grafana_apikey: String
+	grafana_site: String
+	clickhouse_url: String
+	clickhouse_username: String
+	clickhouse_password: String
+}
+
+type Workspace {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	name: String!
+"""
+Only these users can add additional admins and invite other users
+"""
+	admin_ids: [ID]
+	invited_emails: [String]
+	pay_user_id: String
+	plan: String
+	stripe_customer: String
+	stripe_subscriptions: [String]
+	stripe_prices: [String]
+"""
+Workspace API secret
+"""
+	secret: String
+"""
+Workspace active integrations
+"""
+	integrations: [WorkspaceIntegration]
+"""
+a list of IP addresses that are allowed to access this workspace
+"""
+	ip_addresses: [String]
+	aws_region: String
+	aws_key: String
+	aws_secret: String
+	datadog_apikey: String
+	datadog_site: String
+"""
+a list of authentication environments for the workspace integrations
+"""
+	environments: [String]
+	add_ons: [String]
+	checklist: object
+"""
+monthly or yearly
+"""
+	plan_term: ENUM_PlanTerm
+	stripe_canceling_at: DateTime
+"""
+when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
+"""
+	domain: String
+	event_webhook_url: String
+	event_webhook_events: [ENUM_WorkspaceEventType]
+	custom_auth_domain: String
+	custom_auth_domain_valid: Boolean
+	custom_api_domain: String
+	slow_fields_opt_in: Boolean
+	notion_verification_token: String
+	favicon_url: String
+	is_baa: Boolean
+	saml_integration_type: String
+	saml_idp_url: String
+	saml_idp_entity_id: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	saml_pem: String
+"""
+if true, only allow SAML login
+"""
+	saml_only_login: Boolean
+	azure_keyvault_url: String
+	azure_tenant_id: String
+	azure_client_id: String
+	azure_client_secret: String
+	gcp_project_id: String
+	gcp_client_email: String
+	gcp_private_key: String
+	hashicorp_vault_url: String
+	hashicorp_vault_token: String
+	hashicorp_vault_namespace: String
+	hashicorp_vault_kv_mount: String
+"""
+1 or 2
+"""
+	hashicorp_vault_kv_version: String
+	grafana_apikey: String
+	grafana_site: String
+	clickhouse_url: String
+	clickhouse_username: String
+	clickhouse_password: String
+}
+
+input WorkspaceIntegration_Input {
+	integration_type: String!
+	client_id: String
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+	is_active: Boolean!
+	api_url: String
+	authorize_url: String
+	token_url: String
+	refresh_url: String
+	base_url: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+"""
+authentication environment
+"""
+	environment: String
+	categories: [ENUM_IntegrationCategory]
+	dev_api_key: String
+	overriden_scopes: Map_IntegrationPermission_string
+}
+
+type WorkspaceIntegration {
+	integration_type: String!
+	client_id: String
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+	is_active: Boolean!
+	api_url: String
+	authorize_url: String
+	token_url: String
+	refresh_url: String
+	base_url: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+"""
+authentication environment
+"""
+	environment: String
+	categories: [ENUM_IntegrationCategory]
+	dev_api_key: String
+	overriden_scopes: Map_IntegrationPermission_string
+}
+
