@@ -934,6 +934,7 @@ export const joiIntegrationSupport = Joi.object({
 	native_webhook_course_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_student_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_student_id: joiSupportInboundType.allow(null).optional(),
+	native_webhook_type: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
