@@ -221,6 +221,7 @@ export const schemaIntegrationSupport = {
 	native_webhook_course_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	virtual_webhook_student_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	native_webhook_student_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	native_webhook_type: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
