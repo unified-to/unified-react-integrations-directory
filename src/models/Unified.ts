@@ -954,6 +954,7 @@ export interface IWorkspace {
 export interface IWorkspaceIntegration {
 	id?: string;
 	created_at?: (string | Date | number);
+	updated_at?: (string | Date | number);
 	integration_type: string;
 	client_id?: string; //  @deprecated: use auth.client_id instead
 	client_secret?: string; // @deprecated: use auth.client_secret instead
@@ -971,7 +972,6 @@ export interface IWorkspaceIntegration {
 	categories?: ( TIntegrationCategory )[];
 	dev_api_key?: string; // @deprecated: use auth.dev_api_key instead
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
-	updated_at?: (string | Date | number);
 	workspace_id?: string;
 	auth?: IWorkspaceIntegrationAuth;
 	auth_aws_arn?: string;
