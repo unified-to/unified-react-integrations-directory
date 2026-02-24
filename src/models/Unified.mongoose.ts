@@ -296,24 +296,42 @@ export const schemaWebhookData = {
 	external_xref: { type: String },
 };
 
-export const schemaWorkspaceIntegration = {
-	integration_type: { type: String },
+export const schemaWorkspaceIntegrationAuth = {
 	client_id: { type: String },
 	client_secret: { type: String },
 	consumer_key: { type: String },
 	consumer_secret: { type: String },
+	pem: { type: String }, // the PEM X.509 certificate in Base64 ASCII format
+	key: { type: String }, // the private KEY X.509 certificate in Base64 ASCII format
+	dev_api_key: { type: String },
+};
+
+export const schemaWorkspaceIntegration = {
+	created_at: { type: Date },
+	updated_at: { type: Date },
+	workspace_id: { type: SchemaTypes.ObjectId, index: true, ref: 'Workspace' },
+	integration_type: { type: String },
+	client_id: { type: String }, //  @deprecated: use auth.client_id instead
+	client_secret: { type: String }, // @deprecated: use auth.client_secret instead
+	consumer_key: { type: String }, // @deprecated: use auth.consumer_key instead
+	consumer_secret: { type: String }, // @deprecated: use auth.consumer_secret instead
 	is_active: { type: Boolean },
 	api_url: { type: String },
 	authorize_url: { type: String },
 	token_url: { type: String },
 	refresh_url: { type: String },
 	base_url: { type: String },
-	pem: { type: String }, // the PEM X.509 certificate in Base64 ASCII format
-	key: { type: String }, // the private KEY X.509 certificate in Base64 ASCII format
+	pem: { type: String }, // @deprecated: use auth.pem instead
+	key: { type: String }, // @deprecated: use auth.pem instead
 	environment: { type: String, default: 'Production' }, // authentication environment
 	categories: { type: [ String ], enum: [ 'passthrough', 'hris', 'ats', 'auth', 'crm', 'enrich', 'martech', 'ticketing', 'uc', 'accounting', 'storage', 'commerce', 'payment', 'genai', 'messaging', 'kms', 'task', 'scim', 'lms', 'repo', 'metadata', 'calendar', 'verification', 'ads', 'forms', 'shipping', 'assessment' ] },
-	dev_api_key: { type: String },
+	dev_api_key: { type: String }, // @deprecated: use auth.dev_api_key instead
 	overriden_scopes: { type: Object },
+	auth: { type: schemaWorkspaceIntegrationAuth },
+	auth_aws_arn: { type: String },
+	auth_azure_keyvault_id: { type: String },
+	auth_gcp_secret_name: { type: String },
+	auth_hashi_vault_path: { type: String },
 };
 
 export const schemaWorkspace = {
@@ -326,7 +344,7 @@ export const schemaWorkspace = {
 	stripe_subscriptions: { type: [ String ] },
 	stripe_prices: { type: [ String ] },
 	secret: { type: String }, // Workspace API secret
-	integrations: { type: [ schemaWorkspaceIntegration ] }, // Workspace active integrations
+	integrations: { type: [ schemaWorkspaceIntegration ] }, // @deprecated: use integrations collection instead
 	ip_addresses: { type: [ String ] }, // a list of IP addresses that are allowed to access this workspace
 	aws_region: { type: String },
 	aws_key: { type: String },
