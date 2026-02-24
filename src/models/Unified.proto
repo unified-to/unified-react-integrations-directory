@@ -350,24 +350,43 @@ message WebhookData {
 	optional string external_xref = 7;
 }
 
+message WorkspaceIntegrationAuth {
+	optional string client_id = 1;
+	optional string client_secret = 2;
+	optional string consumer_key = 3;
+	optional string consumer_secret = 4;
+	optional string pem = 5; // the PEM X.509 certificate in Base64 ASCII format
+	optional string key = 6; // the private KEY X.509 certificate in Base64 ASCII format
+	optional string dev_api_key = 7;
+}
+
 message WorkspaceIntegration {
-	string integration_type = 1;
-	optional string client_id = 2;
-	optional string client_secret = 3;
-	optional string consumer_key = 4;
-	optional string consumer_secret = 5;
-	bool is_active = 6;
-	optional string api_url = 7;
-	optional string authorize_url = 8;
-	optional string token_url = 9;
-	optional string refresh_url = 10;
-	optional string base_url = 11;
-	optional string pem = 12; // the PEM X.509 certificate in Base64 ASCII format
-	optional string key = 13; // the private KEY X.509 certificate in Base64 ASCII format
-	optional string environment = 14; // authentication environment Default value: Production
-	repeated string categories = 15;
-	optional string dev_api_key = 16;
-	map<string, string> overriden_scopes = 17;
+	optional string id = 1;
+	optional string created_at = 2;
+	optional string updated_at = 3;
+	optional string workspace_id = 4;
+	string integration_type = 5;
+	optional string client_id = 6; //  @deprecated: use auth.client_id instead
+	optional string client_secret = 7; // @deprecated: use auth.client_secret instead
+	optional string consumer_key = 8; // @deprecated: use auth.consumer_key instead
+	optional string consumer_secret = 9; // @deprecated: use auth.consumer_secret instead
+	bool is_active = 10;
+	optional string api_url = 11;
+	optional string authorize_url = 12;
+	optional string token_url = 13;
+	optional string refresh_url = 14;
+	optional string base_url = 15;
+	optional string pem = 16; // @deprecated: use auth.pem instead
+	optional string key = 17; // @deprecated: use auth.pem instead
+	optional string environment = 18; // authentication environment Default value: Production
+	repeated string categories = 19;
+	optional string dev_api_key = 20; // @deprecated: use auth.dev_api_key instead
+	map<string, string> overriden_scopes = 21;
+	optional WorkspaceIntegrationAuth auth = 22;
+	optional string auth_aws_arn = 23;
+	optional string auth_azure_keyvault_id = 24;
+	optional string auth_gcp_secret_name = 25;
+	optional string auth_hashi_vault_path = 26;
 }
 
 // The User's workspace object. A workspace is like an organization that one or more users belong to.
