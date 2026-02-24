@@ -969,6 +969,7 @@ export interface IWorkspaceIntegration {
 	categories?: ( TIntegrationCategory )[];
 	dev_api_key?: string;
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
+	id?: string;
 }
 
 export interface IWorkspaceIntegrationAuth {
