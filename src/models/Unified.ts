@@ -973,6 +973,7 @@ export interface IWorkspaceIntegration {
 	created_at?: (string | Date | number);
 	updated_at?: (string | Date | number);
 	workspace_id?: string;
+	auth?: IWorkspaceIntegrationAuth;
 }
 
 export interface IWorkspaceIntegrationAuth {
