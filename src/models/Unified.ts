@@ -956,7 +956,7 @@ export interface IWorkspaceIntegration {
 	client_id?: string; //  @deprecated: use auth.client_id instead
 	client_secret?: string; // @deprecated: use auth.client_secret instead
 	consumer_key?: string; // @deprecated: use auth.consumer_key instead
-	consumer_secret?: string;
+	consumer_secret?: string; // @deprecated: use auth.consumer_secret instead
 	is_active: boolean;
 	api_url?: string;
 	authorize_url?: string;
