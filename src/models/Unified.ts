@@ -964,7 +964,7 @@ export interface IWorkspaceIntegration {
 	refresh_url?: string;
 	base_url?: string;
 	pem?: string; // @deprecated: use auth.pem instead
-	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
+	key?: string; // @deprecated: use auth.pem instead
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
 	dev_api_key?: string;
