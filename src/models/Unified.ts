@@ -953,7 +953,7 @@ export interface IWorkspace {
 
 export interface IWorkspaceIntegration {
 	integration_type: string;
-	client_id?: string;
+	client_id?: string; //  @deprecated: use auth.client_id instead
 	client_secret?: string;
 	consumer_key?: string;
 	consumer_secret?: string;
