@@ -971,6 +971,7 @@ export interface IWorkspaceIntegration {
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
 	id?: string;
 	created_at?: (string | Date | number);
+	updated_at?: (string | Date | number);
 }
 
 export interface IWorkspaceIntegrationAuth {
