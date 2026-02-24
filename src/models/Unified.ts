@@ -967,7 +967,7 @@ export interface IWorkspaceIntegration {
 	key?: string; // @deprecated: use auth.pem instead
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
-	dev_api_key?: string;
+	dev_api_key?: string; // @deprecated: use auth.dev_api_key instead
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
 	id?: string;
 	created_at?: (string | Date | number);
