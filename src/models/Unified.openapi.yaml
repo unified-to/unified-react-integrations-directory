@@ -971,6 +971,8 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         native_webhook_student_id:
           $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_type:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
@@ -1366,16 +1368,30 @@ components:
     WorkspaceIntegration:
       type: object
       properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        workspace_id:
+          type: string
         integration_type:
           type: string
         client_id:
           type: string
+          description:  @deprecated: use auth.client_id instead
         client_secret:
           type: string
+          description: @deprecated: use auth.client_secret instead
         consumer_key:
           type: string
+          description: @deprecated: use auth.consumer_key instead
         consumer_secret:
           type: string
+          description: @deprecated: use auth.consumer_secret instead
         is_active:
           type: boolean
         api_url:
@@ -1390,10 +1406,10 @@ components:
           type: string
         pem:
           type: string
-          description: the PEM X.509 certificate in Base64 ASCII format
+          description: @deprecated: use auth.pem instead
         key:
           type: string
-          description: the private KEY X.509 certificate in Base64 ASCII format
+          description: @deprecated: use auth.pem instead
         environment:
           type: string
           description: authentication environment
@@ -1402,13 +1418,45 @@ components:
           $ref: "#/components/schemas/IntegrationCategories"
         dev_api_key:
           type: string
+          description: @deprecated: use auth.dev_api_key instead
         overriden_scopes:
           type: object
           additionalProperties:
             $ref: "#/components/schemas/IntegrationPermission"
+        auth:
+          $ref: "#/components/schemas/WorkspaceIntegrationAuth"
+        auth_aws_arn:
+          type: string
+        auth_azure_keyvault_id:
+          type: string
+        auth_gcp_secret_name:
+          type: string
+        auth_hashi_vault_path:
+          type: string
       required:
         - integration_type
         - is_active
+    WorkspaceIntegrationAuth:
+      type: object
+      properties:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        consumer_key:
+          type: string
+        consumer_secret:
+          type: string
+        pem:
+          type: string
+          description: the PEM X.509 certificate in Base64 ASCII format
+        key:
+          type: string
+          description: the private KEY X.509 certificate in Base64 ASCII format
+        dev_api_key:
+          type: string
+      required:
+
     IntegrationPermissions:
       type: array
       items:
