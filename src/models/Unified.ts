@@ -905,7 +905,7 @@ export interface IWorkspace {
 	stripe_subscriptions?: string[];
 	stripe_prices?: string[];
 	secret?: string; // Workspace API secret
-	integrations?: IWorkspaceIntegration[]; // Workspace active integrations
+	integrations?: IWorkspaceIntegration[]; // @deprecated: use integrations collection instead
 	ip_addresses?: string[]; // a list of IP addresses that are allowed to access this workspace
 	aws_region?: string;
 	aws_key?: string;
