@@ -974,6 +974,7 @@ export interface IWorkspaceIntegration {
 	updated_at?: (string | Date | number);
 	workspace_id?: string;
 	auth?: IWorkspaceIntegrationAuth;
+	auth_aws_arn?: string;
 }
 
 export interface IWorkspaceIntegrationAuth {
