@@ -971,6 +971,16 @@ export interface IWorkspaceIntegration {
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
 }
 
+export interface IWorkspaceIntegrationAuth {
+	client_id?: string;
+	client_secret?: string;
+	consumer_key?: string;
+	consumer_secret?: string;
+	pem?: string; // the PEM X.509 certificate in Base64 ASCII format
+	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
+	dev_api_key?: string;
+}
+
 export const CATEGORIES: ICategories[] = [
     { category: 'crm', label: 'CRM' },
     { category: 'martech', label: 'Marketing' },
