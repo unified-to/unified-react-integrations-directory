@@ -975,6 +975,7 @@ export interface IWorkspaceIntegration {
 	workspace_id?: string;
 	auth?: IWorkspaceIntegrationAuth;
 	auth_aws_arn?: string;
+	auth_azure_keyvault_id?: string;
 }
 
 export interface IWorkspaceIntegrationAuth {
