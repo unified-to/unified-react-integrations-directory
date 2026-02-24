@@ -1469,6 +1469,7 @@ objects that we map from in the integration
 	native_webhook_course_id: ENUM_SupportInboundType
 	virtual_webhook_student_id: ENUM_SupportInboundType
 	native_webhook_student_id: ENUM_SupportInboundType
+	native_webhook_type: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1621,6 +1622,7 @@ objects that we map from in the integration
 	native_webhook_course_id: ENUM_SupportInboundType
 	virtual_webhook_student_id: ENUM_SupportInboundType
 	native_webhook_student_id: ENUM_SupportInboundType
+	native_webhook_type: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
@@ -2003,7 +2005,7 @@ Workspace API secret
 """
 	secret: String
 """
-Workspace active integrations
+@deprecated: use integrations collection instead
 """
 	integrations: [WorkspaceIntegration]
 """
@@ -2073,10 +2075,26 @@ if true, only allow SAML login
 }
 
 input WorkspaceIntegration_Input {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	workspace_id: ID
 	integration_type: String!
+"""
+ @deprecated: use auth.client_id instead
+"""
 	client_id: String
+"""
+@deprecated: use auth.client_secret instead
+"""
 	client_secret: String
+"""
+@deprecated: use auth.consumer_key instead
+"""
 	consumer_key: String
+"""
+@deprecated: use auth.consumer_secret instead
+"""
 	consumer_secret: String
 	is_active: Boolean!
 	api_url: String
@@ -2085,11 +2103,11 @@ input WorkspaceIntegration_Input {
 	refresh_url: String
 	base_url: String
 """
-the PEM X.509 certificate in Base64 ASCII format
+@deprecated: use auth.pem instead
 """
 	pem: String
 """
-the private KEY X.509 certificate in Base64 ASCII format
+@deprecated: use auth.pem instead
 """
 	key: String
 """
@@ -2097,15 +2115,39 @@ authentication environment
 """
 	environment: String
 	categories: [ENUM_IntegrationCategory]
+"""
+@deprecated: use auth.dev_api_key instead
+"""
 	dev_api_key: String
 	overriden_scopes: Map_IntegrationPermission_string
+	auth: WorkspaceIntegrationAuth_Input
+	auth_aws_arn: String
+	auth_azure_keyvault_id: String
+	auth_gcp_secret_name: String
+	auth_hashi_vault_path: String
 }
 
 type WorkspaceIntegration {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	workspace_id: ID
 	integration_type: String!
+"""
+ @deprecated: use auth.client_id instead
+"""
 	client_id: String
+"""
+@deprecated: use auth.client_secret instead
+"""
 	client_secret: String
+"""
+@deprecated: use auth.consumer_key instead
+"""
 	consumer_key: String
+"""
+@deprecated: use auth.consumer_secret instead
+"""
 	consumer_secret: String
 	is_active: Boolean!
 	api_url: String
@@ -2114,11 +2156,11 @@ type WorkspaceIntegration {
 	refresh_url: String
 	base_url: String
 """
-the PEM X.509 certificate in Base64 ASCII format
+@deprecated: use auth.pem instead
 """
 	pem: String
 """
-the private KEY X.509 certificate in Base64 ASCII format
+@deprecated: use auth.pem instead
 """
 	key: String
 """
@@ -2126,7 +2168,47 @@ authentication environment
 """
 	environment: String
 	categories: [ENUM_IntegrationCategory]
+"""
+@deprecated: use auth.dev_api_key instead
+"""
 	dev_api_key: String
 	overriden_scopes: Map_IntegrationPermission_string
+	auth: WorkspaceIntegrationAuth
+	auth_aws_arn: String
+	auth_azure_keyvault_id: String
+	auth_gcp_secret_name: String
+	auth_hashi_vault_path: String
+}
+
+input WorkspaceIntegrationAuth_Input {
+	client_id: ID
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+	dev_api_key: String
+}
+
+type WorkspaceIntegrationAuth {
+	client_id: ID
+	client_secret: String
+	consumer_key: String
+	consumer_secret: String
+"""
+the PEM X.509 certificate in Base64 ASCII format
+"""
+	pem: String
+"""
+the private KEY X.509 certificate in Base64 ASCII format
+"""
+	key: String
+	dev_api_key: String
 }
 
