@@ -1015,6 +1015,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'verification', label: 'Verifications' },
     { category: 'ticketing', label: 'Ticketing' },
     { category: 'auth', label: 'Authentication' },
-    { category: 'metadata', label: 'Metadata' }
+    { category: 'metadata', label: 'Metadata' },
+    { category: 'passthrough', label: 'Passthrough' }
 ];
 
