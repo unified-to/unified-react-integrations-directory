@@ -205,6 +205,11 @@ message IntegrationSupport {
 	optional string virtual_webhook_student_id = 145;
 	optional string native_webhook_student_id = 146;
 	optional string native_webhook_type = 147;
+	optional string virtual_webhook_link_id = 148;
+	optional string virtual_webhook_bill_id = 149;
+	optional string virtual_webhook_invoice_id = 150;
+	optional string list_bill_id = 151;
+	optional string virtual_webhook_benefit_id = 152;
 }
 
 // Informational object for supported integrations.
