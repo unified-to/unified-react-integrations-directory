@@ -587,6 +587,7 @@ export interface IConnectionAuth {
 	refresh_token_expires_in?: number;
 	refresh_token_expires_date?: (string | Date | number);
 	dev_api_key?: string;
+	audience?: string;
 }
 
 export interface IIntegration {
