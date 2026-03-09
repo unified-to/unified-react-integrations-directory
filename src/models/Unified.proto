@@ -32,6 +32,7 @@ message ConnectionAuth {
 	optional int32 refresh_token_expires_in = 23;
 	optional string refresh_token_expires_date = 24;
 	optional string dev_api_key = 25;
+	optional string audience = 26;
 }
 
 // A connection represents a specific authentication of an integration.
