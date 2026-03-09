@@ -982,7 +982,9 @@ components:
         list_bill_id:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_benefit_id:
-          type: string
+          $ref: "#/components/schemas/IntegrationSupport"
+        virtual_webhook_payment_id:
+          $ref: "#/components/schemas/IntegrationSupport"
       required:
 
     Invoice:
