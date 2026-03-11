@@ -584,6 +584,8 @@ components:
           format: date-time
         dev_api_key:
           type: string
+        audience:
+          type: string
       required:
 
     Integration:
@@ -982,9 +984,9 @@ components:
         list_bill_id:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_benefit_id:
-          $ref: "#/components/schemas/IntegrationSupport"
+          $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_payment_id:
-          $ref: "#/components/schemas/IntegrationSupport"
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
