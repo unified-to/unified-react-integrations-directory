@@ -1119,6 +1119,7 @@ the private KEY X.509 certificate in Base64 ASCII format
 	refresh_token_expires_in: Int
 	refresh_token_expires_date: DateTime
 	dev_api_key: String
+	audience: String
 }
 
 type ConnectionAuth {
@@ -1156,6 +1157,7 @@ the private KEY X.509 certificate in Base64 ASCII format
 	refresh_token_expires_in: Int
 	refresh_token_expires_date: DateTime
 	dev_api_key: String
+	audience: String
 }
 
 """
@@ -1470,6 +1472,12 @@ objects that we map from in the integration
 	virtual_webhook_student_id: ENUM_SupportInboundType
 	native_webhook_student_id: ENUM_SupportInboundType
 	native_webhook_type: ENUM_SupportInboundType
+	virtual_webhook_link_id: ENUM_SupportInboundType
+	virtual_webhook_bill_id: ENUM_SupportInboundType
+	virtual_webhook_invoice_id: ENUM_SupportInboundType
+	list_bill_id: ENUM_SupportInboundType
+	virtual_webhook_benefit_id: ENUM_SupportInboundType
+	virtual_webhook_payment_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1623,6 +1631,12 @@ objects that we map from in the integration
 	virtual_webhook_student_id: ENUM_SupportInboundType
 	native_webhook_student_id: ENUM_SupportInboundType
 	native_webhook_type: ENUM_SupportInboundType
+	virtual_webhook_link_id: ENUM_SupportInboundType
+	virtual_webhook_bill_id: ENUM_SupportInboundType
+	virtual_webhook_invoice_id: ENUM_SupportInboundType
+	list_bill_id: ENUM_SupportInboundType
+	virtual_webhook_benefit_id: ENUM_SupportInboundType
+	virtual_webhook_payment_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
@@ -2181,7 +2195,7 @@ authentication environment
 }
 
 input WorkspaceIntegrationAuth_Input {
-	client_id: ID
+	client_id: String
 	client_secret: String
 	consumer_key: String
 	consumer_secret: String
@@ -2197,7 +2211,7 @@ the private KEY X.509 certificate in Base64 ASCII format
 }
 
 type WorkspaceIntegrationAuth {
-	client_id: ID
+	client_id: String
 	client_secret: String
 	consumer_key: String
 	consumer_secret: String
