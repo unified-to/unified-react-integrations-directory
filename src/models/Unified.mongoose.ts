@@ -54,6 +54,7 @@ export const schemaConnectionAuth = {
 	refresh_token_expires_in: { type: Number },
 	refresh_token_expires_date: { type: Date },
 	dev_api_key: { type: String },
+	audience: { type: String },
 };
 
 export const schemaConnection = {
@@ -222,6 +223,12 @@ export const schemaIntegrationSupport = {
 	virtual_webhook_student_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	native_webhook_student_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	native_webhook_type: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	virtual_webhook_link_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	virtual_webhook_bill_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	virtual_webhook_invoice_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	list_bill_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	virtual_webhook_benefit_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	virtual_webhook_payment_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
