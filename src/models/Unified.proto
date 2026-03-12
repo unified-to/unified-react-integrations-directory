@@ -210,8 +210,8 @@ message IntegrationSupport {
 	optional string virtual_webhook_bill_id = 149;
 	optional string virtual_webhook_invoice_id = 150;
 	optional string list_bill_id = 151;
-	optional IntegrationSupport virtual_webhook_benefit_id = 152;
-	optional IntegrationSupport virtual_webhook_payment_id = 153;
+	optional string virtual_webhook_benefit_id = 152;
+	optional string virtual_webhook_payment_id = 153;
 }
 
 // Informational object for supported integrations.
