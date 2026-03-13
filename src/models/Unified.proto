@@ -212,6 +212,7 @@ message IntegrationSupport {
 	optional string list_bill_id = 151;
 	optional string virtual_webhook_benefit_id = 152;
 	optional string virtual_webhook_payment_id = 153;
+	optional string list_fulltext = 154;
 }
 
 // Informational object for supported integrations.
