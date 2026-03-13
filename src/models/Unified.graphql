@@ -1478,6 +1478,7 @@ objects that we map from in the integration
 	list_bill_id: ENUM_SupportInboundType
 	virtual_webhook_benefit_id: ENUM_SupportInboundType
 	virtual_webhook_payment_id: ENUM_SupportInboundType
+	list_fulltext: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1637,6 +1638,7 @@ objects that we map from in the integration
 	list_bill_id: ENUM_SupportInboundType
 	virtual_webhook_benefit_id: ENUM_SupportInboundType
 	virtual_webhook_payment_id: ENUM_SupportInboundType
+	list_fulltext: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
