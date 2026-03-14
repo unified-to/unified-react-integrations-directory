@@ -426,6 +426,7 @@ export const ObjectType = [
 	'ads_group',
 	'ads_creative',
 	'ads_insertionorder',
+	'ads_target',
 	'forms_form',
 	'forms_submission',
 	'shipping_carrier',
