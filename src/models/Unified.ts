@@ -273,6 +273,7 @@ export const IntegrationPermission = [
 	'ads_creative_write',
 	'ads_insertionorder_read',
 	'ads_insertionorder_write',
+	'ads_target_read',
 	'forms_form_read',
 	'forms_form_write',
 	'forms_submission_read',
