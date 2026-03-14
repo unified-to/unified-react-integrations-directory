@@ -274,6 +274,7 @@ export const IntegrationPermission = [
 	'ads_insertionorder_read',
 	'ads_insertionorder_write',
 	'ads_target_read',
+	'ads_promoted_read',
 	'forms_form_read',
 	'forms_form_write',
 	'forms_submission_read',
