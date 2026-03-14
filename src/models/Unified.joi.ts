@@ -266,6 +266,8 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'ads_creative_write',
 	'ads_insertionorder_read',
 	'ads_insertionorder_write',
+	'ads_target_read',
+	'ads_promoted_read',
 	'forms_form_read',
 	'forms_form_write',
 	'forms_submission_read',
@@ -410,6 +412,8 @@ export const joiObjectType = Joi.string().valid(
 	'ads_group',
 	'ads_creative',
 	'ads_insertionorder',
+	'ads_target',
+	'ads_promoted',
 	'forms_form',
 	'forms_submission',
 	'shipping_carrier',
@@ -699,6 +703,8 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	ads_creative_write: Joi.string().allow(null, '').optional(),
 	ads_insertionorder_read: Joi.string().allow(null, '').optional(),
 	ads_insertionorder_write: Joi.string().allow(null, '').optional(),
+	ads_target_read: Joi.string().allow(null, '').optional(),
+	ads_promoted_read: Joi.string().allow(null, '').optional(),
 	forms_form_read: Joi.string().allow(null, '').optional(),
 	forms_form_write: Joi.string().allow(null, '').optional(),
 	forms_submission_read: Joi.string().allow(null, '').optional(),
@@ -713,10 +719,10 @@ export const joimap_IntegrationPermission_string = Joi.object({
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
-	id: Joi.string().allow(null).description('Unique identifier for this API call').meta( { readonly: true }).optional(),
+	id: Joi.string().allow(null, '').description('Unique identifier for this API call').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).description('The date that this object was created').meta( { readonly: true }).optional(),
-	connection_id: Joi.string().allow(null).optional(),
-	workspace_id: Joi.string().meta( { readonly: true }).optional(),
+	connection_id: Joi.string().allow(null, '').optional(),
+	workspace_id: Joi.string().allow('').meta( { readonly: true }).optional(),
 	integration_type: Joi.string().allow('').description('The integration type').required(),
 	external_xref: Joi.string().allow(null, '').description('your customer\'s user ID').optional(),
 	name: Joi.string().allow('').description('The called name of the API method').required(),
@@ -728,7 +734,7 @@ export const joiApiCall = Joi.object({
 	type: joiApiCallType.description('The type of API Call being logged').required(),
 	method: Joi.string().allow('').required(),
 	environment: Joi.string().allow(null, '').default('Production').optional(),
-	webhook_id: Joi.string().allow(null).optional(),
+	webhook_id: Joi.string().allow(null, '').optional(),
 	is_billable: Joi.boolean().allow(null).optional(),
 	user_agent: Joi.string().allow(null, '').optional(),
 	unified_response_time: Joi.number().allow(null).optional(),
@@ -764,13 +770,14 @@ export const joiConnectionAuth = Joi.object({
 	refresh_token_expires_in: Joi.number().allow(null).optional(),
 	refresh_token_expires_date: Joi.date().allow(null).optional(),
 	dev_api_key: Joi.string().allow(null, '').optional(),
+	audience: Joi.string().allow(null, '').optional(),
 }).label('ConnectionAuth').description('An authentication object that represents a specific authorized user\'s connection to an integration.');
 
 export const joiConnection = Joi.object({
-	id: Joi.string().allow(null).description('Unique identifier for this integration object').meta( { readonly: true }).optional(),
+	id: Joi.string().allow(null, '').description('Unique identifier for this integration object').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).description('The date that this integration object was created').meta( { readonly: true }).optional(),
 	updated_at: Joi.date().allow(null).description('The last date that this integration object was updated').meta( { readonly: true }).optional(),
-	workspace_id: Joi.string().meta( { readonly: true }).optional(),
+	workspace_id: Joi.string().allow('').meta( { readonly: true }).optional(),
 	integration_type: Joi.string().allow('').description('The integration type').required(),
 	integration_name: Joi.string().allow(null, '').optional(),
 	external_xref: Joi.string().allow(null, '').description('customer\'s user ID').optional(),
@@ -935,6 +942,13 @@ export const joiIntegrationSupport = Joi.object({
 	virtual_webhook_student_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_student_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_type: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_link_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_bill_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_invoice_id: joiSupportInboundType.allow(null).optional(),
+	list_bill_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_benefit_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_payment_id: joiSupportInboundType.allow(null).optional(),
+	list_fulltext: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
@@ -977,13 +991,13 @@ export const joiInvoice = Joi.object({
 }).label('Invoice');
 
 export const joiIssue = Joi.object({
-	id: Joi.string().allow(null).optional(),
+	id: Joi.string().allow(null, '').optional(),
 	created_at: Joi.string().allow(null, '').optional(),
 	updated_at: Joi.string().allow(null, '').optional(),
 	title: Joi.string().allow('').required(),
 	status: joiIssueStatus.required(),
 	url: Joi.string().uri().allow(null, '').optional(),
-	workspace_id: Joi.string().required(),
+	workspace_id: Joi.string().allow('').required(),
 	type: Joi.array().items(Joi.string().allow(null, '')).optional(),
 	resolution_time: Joi.number().allow(null).optional(),
 	ticket_ref: Joi.string().allow('').required(),
@@ -992,15 +1006,15 @@ export const joiIssue = Joi.object({
 }).label('Issue');
 
 export const joiNotification = Joi.object({
-	id: Joi.string().allow(null).description('Unique identifier for this notification object').meta( { readonly: true }).optional(),
+	id: Joi.string().allow(null, '').description('Unique identifier for this notification object').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).description('The date that this integration object was created').meta( { readonly: true }).optional(),
-	workspace_id: Joi.string().allow(null).meta( { readonly: true }).optional(),
+	workspace_id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
 	description: Joi.string().allow(null, '').description('Longer description of this notification').optional(),
-	user_id: Joi.string().allow(null).optional(),
+	user_id: Joi.string().allow(null, '').optional(),
 	user_name: Joi.string().allow(null, '').optional(),
 	workspace_name: Joi.string().allow(null, '').optional(),
-	webhook_id: Joi.string().allow(null).optional(),
-	connection_id: Joi.string().allow(null).optional(),
+	webhook_id: Joi.string().allow(null, '').optional(),
+	connection_id: Joi.string().allow(null, '').optional(),
 	integration_type: Joi.string().allow(null, '').optional(),
 	integration_name: Joi.string().allow(null, '').optional(),
 	sent_at: Joi.date().allow(null).optional(),
@@ -1033,23 +1047,23 @@ export const joiPlan = Joi.object({
 }).label('Plan');
 
 export const joiUser = Joi.object({
-	id: Joi.string().allow(null).meta( { readonly: true }).optional(),
+	id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
 	updated_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
 	name: Joi.string().allow('').required(),
 	email: Joi.string().email( { tlds: { allow: false } } ).allow('').meta( { readonly: true }).optional(),
-	workspace_id: Joi.string().description('The current workspace').required(),
-	workspace_ids: Joi.array().items(Joi.string()).description('A list of all of the user\'s workspaces').required(),
+	workspace_id: Joi.string().allow('').description('The current workspace').required(),
+	workspace_ids: Joi.array().items(Joi.string().allow('')).description('A list of all of the user\'s workspaces').required(),
 	environment: Joi.string().allow(null, '').default('Production').optional(),
 	meta: Joi.any().allow(null).optional(),
 }).label('User').description('The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).');
 
 export const joiWebhook = Joi.object({
-	id: Joi.string().allow(null).meta( { readonly: true }).optional(),
+	id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
 	updated_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
-	workspace_id: Joi.string().allow(null).meta( { readonly: true }).optional(),
-	connection_id: Joi.string().required(),
+	workspace_id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
+	connection_id: Joi.string().allow('').required(),
 	hook_url: Joi.string().allow(null, '').description('The URL of the webhook').optional(),
 	object_type: joiObjectType.description('The object to return (eg. CRM "contact")').required(),
 	interval: Joi.number().allow(null).description('The interval (in minutes) to check for updated/new objets. ').optional(),
@@ -1081,32 +1095,51 @@ export const joiWebhookData = Joi.object({
 	external_xref: Joi.string().allow(null, '').optional(),
 }).label('WebhookData');
 
-export const joiWorkspaceIntegration = Joi.object({
-	integration_type: Joi.string().allow('').required(),
+export const joiWorkspaceIntegrationAuth = Joi.object({
 	client_id: Joi.string().allow(null, '').optional(),
 	client_secret: Joi.string().allow(null, '').optional(),
 	consumer_key: Joi.string().allow(null, '').optional(),
 	consumer_secret: Joi.string().allow(null, '').optional(),
+	pem: Joi.string().allow(null, '').description('the PEM X.509 certificate in Base64 ASCII format').optional(),
+	key: Joi.string().allow(null, '').description('the private KEY X.509 certificate in Base64 ASCII format').optional(),
+	dev_api_key: Joi.string().allow(null, '').optional(),
+}).label('WorkspaceIntegrationAuth');
+
+export const joiWorkspaceIntegration = Joi.object({
+	id: Joi.string().allow(null, '').optional(),
+	created_at: Joi.date().allow(null).optional(),
+	updated_at: Joi.date().allow(null).optional(),
+	workspace_id: Joi.string().allow(null, '').optional(),
+	integration_type: Joi.string().allow('').required(),
+	client_id: Joi.string().allow(null, '').description(' @deprecated: use auth.client_id instead').optional(),
+	client_secret: Joi.string().allow(null, '').description('@deprecated: use auth.client_secret instead').optional(),
+	consumer_key: Joi.string().allow(null, '').description('@deprecated: use auth.consumer_key instead').optional(),
+	consumer_secret: Joi.string().allow(null, '').description('@deprecated: use auth.consumer_secret instead').optional(),
 	is_active: Joi.boolean().required(),
 	api_url: Joi.string().allow(null, '').optional(),
 	authorize_url: Joi.string().allow(null, '').optional(),
 	token_url: Joi.string().allow(null, '').optional(),
 	refresh_url: Joi.string().uri().allow(null, '').optional(),
 	base_url: Joi.string().allow(null, '').optional(),
-	pem: Joi.string().allow(null, '').description('the PEM X.509 certificate in Base64 ASCII format').optional(),
-	key: Joi.string().allow(null, '').description('the private KEY X.509 certificate in Base64 ASCII format').optional(),
+	pem: Joi.string().allow(null, '').description('@deprecated: use auth.pem instead').optional(),
+	key: Joi.string().allow(null, '').description('@deprecated: use auth.pem instead').optional(),
 	environment: Joi.string().allow(null, '').default('Production').description('authentication environment').optional(),
 	categories: Joi.array().items(joiIntegrationCategory).optional(),
-	dev_api_key: Joi.string().allow(null, '').optional(),
+	dev_api_key: Joi.string().allow(null, '').description('@deprecated: use auth.dev_api_key instead').optional(),
 	overriden_scopes: joimap_IntegrationPermission_string.allow(null).optional(),
+	auth: joiWorkspaceIntegrationAuth.allow(null).optional(),
+	auth_aws_arn: Joi.string().allow(null, '').optional(),
+	auth_azure_keyvault_id: Joi.string().allow(null, '').optional(),
+	auth_gcp_secret_name: Joi.string().allow(null, '').optional(),
+	auth_hashi_vault_path: Joi.string().allow(null, '').optional(),
 }).label('WorkspaceIntegration');
 
 export const joiWorkspace = Joi.object({
-	id: Joi.string().allow(null).meta( { readonly: true }).optional(),
+	id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
 	updated_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
 	name: Joi.string().allow('').required(),
-	admin_ids: Joi.array().items(Joi.string()).description('Only these users can add additional admins and invite other users').meta( { readonly: true }).optional(),
+	admin_ids: Joi.array().items(Joi.string().allow(null, '')).description('Only these users can add additional admins and invite other users').meta( { readonly: true }).optional(),
 	invited_emails: Joi.array().items(Joi.string().allow(null, '')).meta( { readonly: true }).optional(),
 	pay_user_id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
 	plan: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
@@ -1114,7 +1147,7 @@ export const joiWorkspace = Joi.object({
 	stripe_subscriptions: Joi.array().items(Joi.string().allow(null, '')).meta( { readonly: true }).optional(),
 	stripe_prices: Joi.array().items(Joi.string().allow(null, '')).meta( { readonly: true }).optional(),
 	secret: Joi.string().allow(null, '').description('Workspace API secret').meta( { readonly: true }).optional(),
-	integrations: Joi.array().items(joiWorkspaceIntegration).description('Workspace active integrations').meta( { readonly: true }).optional(),
+	integrations: Joi.array().items(joiWorkspaceIntegration).description('@deprecated: use integrations collection instead').meta( { readonly: true }).optional(),
 	ip_addresses: Joi.array().items(Joi.string().allow(null, '')).description('a list of IP addresses that are allowed to access this workspace').optional(),
 	aws_region: Joi.string().allow(null, '').optional(),
 	aws_key: Joi.string().allow(null, '').optional(),
