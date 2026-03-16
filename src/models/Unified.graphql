@@ -265,6 +265,8 @@ enum ENUM_IntegrationPermission {
 	ads_creative_write
 	ads_insertionorder_read
 	ads_insertionorder_write
+	ads_target_read
+	ads_promoted_read
 	forms_form_read
 	forms_form_write
 	forms_submission_read
@@ -412,6 +414,8 @@ enum ENUM_ObjectType {
 	ads_group
 	ads_creative
 	ads_insertionorder
+	ads_target
+	ads_promoted
 	forms_form
 	forms_submission
 	shipping_carrier
@@ -743,6 +747,8 @@ input Map_IntegrationPermission_string_Input {
 	ads_creative_write: String!
 	ads_insertionorder_read: String!
 	ads_insertionorder_write: String!
+	ads_target_read: String!
+	ads_promoted_read: String!
 	forms_form_read: String!
 	forms_form_write: String!
 	forms_submission_read: String!
@@ -977,6 +983,8 @@ type Map_IntegrationPermission_string {
 	ads_creative_write: String!
 	ads_insertionorder_read: String!
 	ads_insertionorder_write: String!
+	ads_target_read: String!
+	ads_promoted_read: String!
 	forms_form_read: String!
 	forms_form_write: String!
 	forms_submission_read: String!
@@ -1999,6 +2007,7 @@ if true, only allow SAML login
 	clickhouse_url: String
 	clickhouse_username: String
 	clickhouse_password: String
+	auto_join: Boolean
 }
 
 type Workspace {
@@ -2088,6 +2097,7 @@ if true, only allow SAML login
 	clickhouse_url: String
 	clickhouse_username: String
 	clickhouse_password: String
+	auto_join: Boolean
 }
 
 input WorkspaceIntegration_Input {
