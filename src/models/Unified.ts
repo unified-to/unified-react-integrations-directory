@@ -961,6 +961,7 @@ export interface IWorkspace {
 	clickhouse_url?: string;
 	clickhouse_username?: string;
 	clickhouse_password?: string;
+	auto_join?: boolean;
 }
 
 export interface IWorkspaceIntegration {
