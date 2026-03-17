@@ -781,6 +781,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_payment_id?: TSupportInboundType;
 	list_fulltext?: TSupportInboundType;
 	list_io_id?: TSupportInboundType;
+	virtual_webhook_io_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
