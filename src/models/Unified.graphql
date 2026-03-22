@@ -104,6 +104,10 @@ enum ENUM_IntegrationPermission {
 	commerce_saleschannel_write
 	commerce_itemvariant_read
 	commerce_itemvariant_write
+	commerce_reservation_read
+	commerce_reservation_write
+	commerce_availability_read
+	commerce_availability_write
 	verification_package_read
 	verification_request_read
 	verification_request_write
@@ -327,6 +331,8 @@ enum ENUM_ObjectType {
 	commerce_review
 	commerce_saleschannel
 	commerce_itemvariant
+	commerce_reservation
+	commerce_availability
 	verification_package
 	verification_request
 	assessment_package
@@ -586,6 +592,10 @@ input Map_IntegrationPermission_string_Input {
 	commerce_saleschannel_write: String!
 	commerce_itemvariant_read: String!
 	commerce_itemvariant_write: String!
+	commerce_reservation_read: String!
+	commerce_reservation_write: String!
+	commerce_availability_read: String!
+	commerce_availability_write: String!
 	verification_package_read: String!
 	verification_request_read: String!
 	verification_request_write: String!
@@ -822,6 +832,10 @@ type Map_IntegrationPermission_string {
 	commerce_saleschannel_write: String!
 	commerce_itemvariant_read: String!
 	commerce_itemvariant_write: String!
+	commerce_reservation_read: String!
+	commerce_reservation_write: String!
+	commerce_availability_read: String!
+	commerce_availability_write: String!
 	verification_package_read: String!
 	verification_request_read: String!
 	verification_request_write: String!
@@ -1487,6 +1501,9 @@ objects that we map from in the integration
 	virtual_webhook_benefit_id: ENUM_SupportInboundType
 	virtual_webhook_payment_id: ENUM_SupportInboundType
 	list_fulltext: ENUM_SupportInboundType
+	list_io_id: ENUM_SupportInboundType
+	virtual_webhook_io_id: ENUM_SupportInboundType
+	native_webhook_io_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1647,6 +1664,9 @@ objects that we map from in the integration
 	virtual_webhook_benefit_id: ENUM_SupportInboundType
 	virtual_webhook_payment_id: ENUM_SupportInboundType
 	list_fulltext: ENUM_SupportInboundType
+	list_io_id: ENUM_SupportInboundType
+	virtual_webhook_io_id: ENUM_SupportInboundType
+	native_webhook_io_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
