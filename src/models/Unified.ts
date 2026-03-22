@@ -341,6 +341,8 @@ export const ObjectType = [
 	'commerce_review',
 	'commerce_saleschannel',
 	'commerce_itemvariant',
+	'commerce_reservation',
+	'commerce_availability',
 	'verification_package',
 	'verification_request',
 	'assessment_package',
