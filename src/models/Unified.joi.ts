@@ -105,6 +105,10 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'commerce_saleschannel_write',
 	'commerce_itemvariant_read',
 	'commerce_itemvariant_write',
+	'commerce_reservation_read',
+	'commerce_reservation_write',
+	'commerce_availability_read',
+	'commerce_availability_write',
 	'verification_package_read',
 	'verification_request_read',
 	'verification_request_write',
@@ -325,6 +329,8 @@ export const joiObjectType = Joi.string().valid(
 	'commerce_review',
 	'commerce_saleschannel',
 	'commerce_itemvariant',
+	'commerce_reservation',
+	'commerce_availability',
 	'verification_package',
 	'verification_request',
 	'assessment_package',
@@ -542,6 +548,10 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	commerce_saleschannel_write: Joi.string().allow(null, '').optional(),
 	commerce_itemvariant_read: Joi.string().allow(null, '').optional(),
 	commerce_itemvariant_write: Joi.string().allow(null, '').optional(),
+	commerce_reservation_read: Joi.string().allow(null, '').optional(),
+	commerce_reservation_write: Joi.string().allow(null, '').optional(),
+	commerce_availability_read: Joi.string().allow(null, '').optional(),
+	commerce_availability_write: Joi.string().allow(null, '').optional(),
 	verification_package_read: Joi.string().allow(null, '').optional(),
 	verification_request_read: Joi.string().allow(null, '').optional(),
 	verification_request_write: Joi.string().allow(null, '').optional(),
@@ -949,6 +959,10 @@ export const joiIntegrationSupport = Joi.object({
 	virtual_webhook_benefit_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_payment_id: joiSupportInboundType.allow(null).optional(),
 	list_fulltext: joiSupportInboundType.allow(null).optional(),
+	list_io_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_io_id: joiSupportInboundType.allow(null).optional(),
+	native_webhook_io_id: joiSupportInboundType.allow(null).optional(),
+	list_size: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
@@ -1191,5 +1205,6 @@ export const joiWorkspace = Joi.object({
 	clickhouse_url: Joi.string().uri().allow(null, '').optional(),
 	clickhouse_username: Joi.string().allow(null, '').optional(),
 	clickhouse_password: Joi.string().allow(null, '').optional(),
+	auto_join: Joi.boolean().allow(null).default(true).optional(),
 }).label('Workspace').description('The User\'s workspace object. A workspace is like an organization that one or more users belong to.');
 
