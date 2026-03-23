@@ -216,6 +216,7 @@ message IntegrationSupport {
 	optional string list_io_id = 155;
 	optional string virtual_webhook_io_id = 156;
 	optional string native_webhook_io_id = 157;
+	optional string list_size = 158;
 }
 
 // Informational object for supported integrations.
