@@ -363,7 +363,7 @@ export const schemaWorkspace = {
 	clickhouse_url: { type: String },
 	clickhouse_username: { type: String },
 	clickhouse_password: { type: String },
-	auto_join: { type: Boolean, default: 'true' },
+	auto_join: { type: Boolean, default: true },
 };
 
 export const schemaWorkspaceIntegrationAuth = {
