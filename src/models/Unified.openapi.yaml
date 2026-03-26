@@ -1391,6 +1391,11 @@ components:
           type: string
         grafana_site:
           type: string
+        grafana_username:
+          type: string
+          description: Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
+        grafana_auth_type:
+          type: string
         clickhouse_url:
           type: string
         clickhouse_username:
