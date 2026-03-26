@@ -968,11 +968,11 @@ export interface IWorkspace {
 	grafana_apikey?: string;
 	grafana_site?: string;
 	clickhouse_url?: string;
+	grafana_username?: string; // Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
 	clickhouse_username?: string;
 	clickhouse_password?: string;
 	auto_join?: boolean;
-	grafana_username?: string; // Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
-	grafana_auth_type?: string; // When set with `grafana_username`, use Basic auth to Loki. When `bearer`, send `grafana_apikey` as Bearer token. Omit for legacy: `:` in apikey => Basic (full string), else Bearer
+	grafana_auth_type?: string;
 }
 
 export interface IWorkspaceIntegration {
