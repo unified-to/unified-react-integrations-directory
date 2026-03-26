@@ -971,6 +971,7 @@ export interface IWorkspace {
 	clickhouse_username?: string;
 	clickhouse_password?: string;
 	auto_join?: boolean;
+	grafana_username?: string; // Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
 }
 
 export interface IWorkspaceIntegration {
