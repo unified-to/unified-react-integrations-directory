@@ -1504,6 +1504,7 @@ objects that we map from in the integration
 	list_io_id: ENUM_SupportInboundType
 	virtual_webhook_io_id: ENUM_SupportInboundType
 	native_webhook_io_id: ENUM_SupportInboundType
+	list_size: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1667,6 +1668,7 @@ objects that we map from in the integration
 	list_io_id: ENUM_SupportInboundType
 	virtual_webhook_io_id: ENUM_SupportInboundType
 	native_webhook_io_id: ENUM_SupportInboundType
+	list_size: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
@@ -2024,6 +2026,11 @@ if true, only allow SAML login
 	hashicorp_vault_kv_version: String
 	grafana_apikey: String
 	grafana_site: String
+"""
+Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
+"""
+	grafana_username: String
+	grafana_auth_type: String
 	clickhouse_url: String
 	clickhouse_username: String
 	clickhouse_password: String
@@ -2049,10 +2056,6 @@ Only these users can add additional admins and invite other users
 Workspace API secret
 """
 	secret: String
-"""
-@deprecated: use integrations collection instead
-"""
-	integrations: [WorkspaceIntegration]
 """
 a list of IP addresses that are allowed to access this workspace
 """
@@ -2114,6 +2117,11 @@ if true, only allow SAML login
 	hashicorp_vault_kv_version: String
 	grafana_apikey: String
 	grafana_site: String
+"""
+Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
+"""
+	grafana_username: String
+	grafana_auth_type: String
 	clickhouse_url: String
 	clickhouse_username: String
 	clickhouse_password: String
