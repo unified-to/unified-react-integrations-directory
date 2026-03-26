@@ -417,10 +417,12 @@ message Workspace {
 	optional string hashicorp_vault_kv_version = 50; // 1 or 2
 	optional string grafana_apikey = 51;
 	optional string grafana_site = 52;
-	optional string clickhouse_url = 53;
-	optional string clickhouse_username = 54;
-	optional string clickhouse_password = 55;
-	optional bool auto_join = 56;
+	optional string grafana_username = 53; // Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
+	optional string grafana_auth_type = 54;
+	optional string clickhouse_url = 55;
+	optional string clickhouse_username = 56;
+	optional string clickhouse_password = 57;
+	optional bool auto_join = 58;
 }
 
 message WorkspaceIntegrationAuth {
