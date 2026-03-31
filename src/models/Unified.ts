@@ -928,7 +928,6 @@ export interface IWorkspace {
 	stripe_prices?: string[];
 	secret?: string; // Workspace API secret
 	ip_allowlist?: IWorkspaceIpAllowlistEntry[];
-	restrict_ips?: boolean;
 	aws_region?: string;
 	aws_key?: string;
 	aws_secret?: string;
@@ -974,6 +973,7 @@ export interface IWorkspace {
 	clickhouse_username?: string;
 	clickhouse_password?: string;
 	auto_join?: boolean;
+	restrict_ips?: boolean;
 }
 
 export interface IWorkspaceIntegration {
