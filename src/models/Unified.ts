@@ -927,7 +927,6 @@ export interface IWorkspace {
 	stripe_subscriptions?: string[];
 	stripe_prices?: string[];
 	secret?: string; // Workspace API secret
-	ip_addresses?: string[]; // a list of IP addresses that are allowed to access this workspace
 	aws_region?: string;
 	aws_key?: string;
 	aws_secret?: string;
@@ -974,6 +973,7 @@ export interface IWorkspace {
 	clickhouse_password?: string;
 	auto_join?: boolean;
 	ip_allowlist?: string[];
+	restrict_ips?: boolean;
 }
 
 export interface IWorkspaceIntegration {
