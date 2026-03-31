@@ -974,7 +974,6 @@ export interface IWorkspace {
 	clickhouse_password?: string;
 	auto_join?: boolean;
 	ip_allowlist?: string[];
-	restrict_ips?: boolean;
 }
 
 export interface IWorkspaceIntegration {
