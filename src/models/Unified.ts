@@ -1014,6 +1014,12 @@ export interface IWorkspaceIntegrationAuth {
 	dev_api_key?: string;
 }
 
+export interface IWorkspaceIpAllowlistEntry {
+	ip_address: string;
+	name?: string;
+	expires_at?: (string | Date | number);
+}
+
 export const CATEGORIES: ICategories[] = [
     { category: 'crm', label: 'CRM' },
     { category: 'martech', label: 'Marketing' },
