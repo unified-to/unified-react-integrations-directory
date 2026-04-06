@@ -933,6 +933,7 @@ export interface IWorkspace {
 	aws_key?: string;
 	aws_secret?: string;
 	auth_aws_external_id?: string; // External ID will be the identifier used by the customer to verify the role assumption.
+	auth_aws_arn?: string; // ARN will be used to assume the role for the workspace's AWS resources. (i.e. secret manager)
 	datadog_apikey?: string;
 	datadog_site?: string;
 	environments?: string[]; // a list of authentication environments for the workspace integrations
@@ -975,7 +976,6 @@ export interface IWorkspace {
 	clickhouse_username?: string;
 	clickhouse_password?: string;
 	auto_join?: boolean;
-	auth_aws_arn?: string; // ARN will be used to assume the role for the workspace's AWS resources. (i.e. secret manager)
 }
 
 export interface IWorkspaceIntegration {
