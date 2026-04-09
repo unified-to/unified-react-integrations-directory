@@ -902,6 +902,7 @@ export interface IWebhook {
 	db_schema?: string;
 	db_name_prefix?: string;
 	is_paused?: boolean;
+	is_beta?: boolean;
 }
 
 export interface IWebhookData {
