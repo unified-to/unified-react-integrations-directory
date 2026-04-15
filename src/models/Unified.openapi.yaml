@@ -49,6 +49,7 @@ components:
       - forms
       - shipping
       - assessment
+      - signing
     IntegrationPermission:
       type: string
       enum:
@@ -289,6 +290,11 @@ components:
       - shipping_tracking_read
       - shipping_rate_read
       - shipping_carrier_read
+      - signing_document_read
+      - signing_document_write
+      - signing_signatory_read
+      - signing_signatory_write
+      - signing_template_read
     IntegrationSupportWebhookType:
       type: string
       enum:
@@ -436,6 +442,10 @@ components:
       - shipping_shipment
       - shipping_label
       - shipping_tracking
+      - shipping_tracking
+      - signing_document
+      - signing_signatory
+      - signing_template
     PlanTerm:
       type: string
       enum:
@@ -1237,6 +1247,8 @@ components:
           type: string
         is_paused:
           type: boolean
+        is_beta:
+          type: boolean
       required:
         - connection_id
         - object_type
@@ -1302,15 +1314,22 @@ components:
         secret:
           type: string
           description: Workspace API secret
-        ip_addresses:
-          $ref: "#/components/schemas/strings"
-          description: a list of IP addresses that are allowed to access this workspace
+        ip_allowlist:
+          $ref: "#/components/schemas/WorkspaceIpAllowlistEntries"
+        restrict_ips:
+          type: boolean
         aws_region:
           type: string
         aws_key:
           type: string
         aws_secret:
           type: string
+        auth_aws_external_id:
+          type: string
+          description: External ID will be the identifier used by the customer to verify the role assumption.
+        auth_aws_arn:
+          type: string
+          description: ARN will be used to assume the role for the workspace's AWS resources. (i.e. secret manager)
         datadog_apikey:
           type: string
         datadog_site:
@@ -1499,6 +1518,18 @@ components:
           type: string
       required:
 
+    WorkspaceIpAllowlistEntry:
+      type: object
+      properties:
+        ip_address:
+          type: string
+        name:
+          type: string
+        expires_at:
+          type: string
+          format: date-time
+      required:
+        - ip_address
     IntegrationPermissions:
       type: array
       items:
@@ -1523,6 +1554,10 @@ components:
       type: array
       items:
         type: object
+    WorkspaceIpAllowlistEntries:
+      type: array
+      items:
+        $ref: "#/components/schemas/WorkspaceIpAllowlistEntry"
     WorkspaceEventTypes:
       type: array
       items:
