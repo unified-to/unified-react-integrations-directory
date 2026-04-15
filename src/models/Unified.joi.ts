@@ -43,7 +43,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'ads',
 	'forms',
 	'shipping',
-	'assessment');
+	'assessment',
+	'signing');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_account_read',
@@ -282,7 +283,12 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'shipping_label_write',
 	'shipping_tracking_read',
 	'shipping_rate_read',
-	'shipping_carrier_read');
+	'shipping_carrier_read',
+	'signing_document_read',
+	'signing_document_write',
+	'signing_signatory_read',
+	'signing_signatory_write',
+	'signing_template_read');
 
 export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'virtual',
@@ -426,7 +432,11 @@ export const joiObjectType = Joi.string().valid(
 	'shipping_rate',
 	'shipping_shipment',
 	'shipping_label',
-	'shipping_tracking');
+	'shipping_tracking',
+	'shipping_tracking',
+	'signing_document',
+	'signing_signatory',
+	'signing_template');
 
 export const joiPlanTerm = Joi.string().valid(
 	'monthly',
@@ -726,6 +736,11 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	shipping_tracking_read: Joi.string().allow(null, '').optional(),
 	shipping_rate_read: Joi.string().allow(null, '').optional(),
 	shipping_carrier_read: Joi.string().allow(null, '').optional(),
+	signing_document_read: Joi.string().allow(null, '').optional(),
+	signing_document_write: Joi.string().allow(null, '').optional(),
+	signing_signatory_read: Joi.string().allow(null, '').optional(),
+	signing_signatory_write: Joi.string().allow(null, '').optional(),
+	signing_template_read: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
@@ -1097,6 +1112,7 @@ export const joiWebhook = Joi.object({
 	db_schema: Joi.string().allow(null, '').optional(),
 	db_name_prefix: Joi.string().allow(null, '').optional(),
 	is_paused: Joi.boolean().allow(null).optional(),
+	is_beta: Joi.boolean().allow(null).optional(),
 }).label('Webhook').description('A webhook is used to POST new/updated information to your server.');
 
 export const joiWebhookData = Joi.object({
@@ -1108,6 +1124,12 @@ export const joiWebhookData = Joi.object({
 	type: joiWebhookDataType.required(),
 	external_xref: Joi.string().allow(null, '').optional(),
 }).label('WebhookData');
+
+export const joiWorkspaceIpAllowlistEntry = Joi.object({
+	ip_address: Joi.string().allow('').required(),
+	name: Joi.string().allow(null, '').optional(),
+	expires_at: Joi.date().allow(null).optional(),
+}).label('WorkspaceIpAllowlistEntry');
 
 export const joiWorkspace = Joi.object({
 	id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
@@ -1122,10 +1144,13 @@ export const joiWorkspace = Joi.object({
 	stripe_subscriptions: Joi.array().items(Joi.string().allow(null, '')).meta( { readonly: true }).optional(),
 	stripe_prices: Joi.array().items(Joi.string().allow(null, '')).meta( { readonly: true }).optional(),
 	secret: Joi.string().allow(null, '').description('Workspace API secret').meta( { readonly: true }).optional(),
-	ip_addresses: Joi.array().items(Joi.string().allow(null, '')).description('a list of IP addresses that are allowed to access this workspace').optional(),
+	ip_allowlist: Joi.array().items(joiWorkspaceIpAllowlistEntry).optional(),
+	restrict_ips: Joi.boolean().allow(null).optional(),
 	aws_region: Joi.string().allow(null, '').optional(),
 	aws_key: Joi.string().allow(null, '').optional(),
 	aws_secret: Joi.string().allow(null, '').optional(),
+	auth_aws_external_id: Joi.string().allow(null, '').description('External ID will be the identifier used by the customer to verify the role assumption.').optional(),
+	auth_aws_arn: Joi.string().allow(null, '').description('ARN will be used to assume the role for the workspace\'s AWS resources. (i.e. secret manager)').optional(),
 	datadog_apikey: Joi.string().allow(null, '').optional(),
 	datadog_site: Joi.string().allow(null, '').optional(),
 	environments: Joi.array().items(Joi.string().allow(null, '')).description('a list of authentication environments for the workspace integrations').optional(),
