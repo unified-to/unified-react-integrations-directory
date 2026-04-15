@@ -802,6 +802,7 @@ export interface IIntegrationSupport {
 	list_size?: TSupportInboundType;
 	list_template_id?: TSupportInboundType;
 	virtual_webhook_template_id?: TSupportInboundType;
+	NewField_348v?: TSupportInboundType;
 }
 
 export interface IInvoice {
