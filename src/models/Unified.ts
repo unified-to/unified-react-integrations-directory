@@ -803,6 +803,7 @@ export interface IIntegrationSupport {
 	list_template_id?: TSupportInboundType;
 	virtual_webhook_template_id?: TSupportInboundType;
 	native_webhook_template_id?: TSupportInboundType;
+	native_webhook_list_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
