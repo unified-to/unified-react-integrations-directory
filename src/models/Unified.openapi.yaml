@@ -1017,6 +1017,14 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_size:
           $ref: "#/components/schemas/SupportInboundType"
+        list_template_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_template_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_template_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_list_id:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
