@@ -800,6 +800,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_io_id?: TSupportInboundType;
 	native_webhook_io_id?: TSupportInboundType;
 	list_size?: TSupportInboundType;
+	list_template_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
