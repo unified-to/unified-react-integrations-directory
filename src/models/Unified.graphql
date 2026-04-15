@@ -42,6 +42,7 @@ enum ENUM_IntegrationCategory {
 	forms
 	shipping
 	assessment
+	signing
 }
 
 enum ENUM_IntegrationPermission {
@@ -282,6 +283,11 @@ enum ENUM_IntegrationPermission {
 	shipping_tracking_read
 	shipping_rate_read
 	shipping_carrier_read
+	signing_document_read
+	signing_document_write
+	signing_signatory_read
+	signing_signatory_write
+	signing_template_read
 }
 
 enum ENUM_IntegrationSupportWebhookType {
@@ -429,6 +435,10 @@ enum ENUM_ObjectType {
 	shipping_shipment
 	shipping_label
 	shipping_tracking
+	shipping_tracking
+	signing_document
+	signing_signatory
+	signing_template
 }
 
 enum ENUM_PlanTerm {
@@ -770,6 +780,11 @@ input Map_IntegrationPermission_string_Input {
 	shipping_tracking_read: String!
 	shipping_rate_read: String!
 	shipping_carrier_read: String!
+	signing_document_read: String!
+	signing_document_write: String!
+	signing_signatory_read: String!
+	signing_signatory_write: String!
+	signing_template_read: String!
 }
 
 type Map_IntegrationPermission_string {
@@ -1010,6 +1025,11 @@ type Map_IntegrationPermission_string {
 	shipping_tracking_read: String!
 	shipping_rate_read: String!
 	shipping_carrier_read: String!
+	signing_document_read: String!
+	signing_document_write: String!
+	signing_signatory_read: String!
+	signing_signatory_write: String!
+	signing_template_read: String!
 }
 
 """
@@ -1866,6 +1886,7 @@ The interval (in minutes) to check for updated/new objets.
 	db_schema: String
 	db_name_prefix: String
 	is_paused: Boolean
+	is_beta: Boolean
 }
 
 type Webhook {
@@ -1908,6 +1929,7 @@ An array of the most revent virtual webhook runs
 	db_schema: String
 	db_name_prefix: String
 	is_paused: Boolean
+	is_beta: Boolean
 }
 
 input WebhookData_Input {
@@ -1965,13 +1987,19 @@ The User's workspace object. A workspace is like an organization that one or mor
 """
 input Workspace_Input {
 	name: String!
-"""
-a list of IP addresses that are allowed to access this workspace
-"""
-	ip_addresses: [String]
+	ip_allowlist: [WorkspaceIpAllowlistEntry_Input]
+	restrict_ips: Boolean
 	aws_region: String
 	aws_key: String
 	aws_secret: String
+"""
+External ID will be the identifier used by the customer to verify the role assumption.
+"""
+	auth_aws_external_id: String
+"""
+ARN will be used to assume the role for the workspace's AWS resources. (i.e. secret manager)
+"""
+	auth_aws_arn: String
 	datadog_apikey: String
 	datadog_site: String
 """
@@ -2056,13 +2084,19 @@ Only these users can add additional admins and invite other users
 Workspace API secret
 """
 	secret: String
-"""
-a list of IP addresses that are allowed to access this workspace
-"""
-	ip_addresses: [String]
+	ip_allowlist: [WorkspaceIpAllowlistEntry]
+	restrict_ips: Boolean
 	aws_region: String
 	aws_key: String
 	aws_secret: String
+"""
+External ID will be the identifier used by the customer to verify the role assumption.
+"""
+	auth_aws_external_id: String
+"""
+ARN will be used to assume the role for the workspace's AWS resources. (i.e. secret manager)
+"""
+	auth_aws_arn: String
 	datadog_apikey: String
 	datadog_site: String
 """
@@ -2264,5 +2298,17 @@ the private KEY X.509 certificate in Base64 ASCII format
 """
 	key: String
 	dev_api_key: String
+}
+
+input WorkspaceIpAllowlistEntry_Input {
+	ip_address: String!
+	name: String
+	expires_at: DateTime
+}
+
+type WorkspaceIpAllowlistEntry {
+	ip_address: String!
+	name: String
+	expires_at: DateTime
 }
 
