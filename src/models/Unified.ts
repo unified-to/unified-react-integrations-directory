@@ -290,7 +290,12 @@ export const IntegrationPermission = [
 	'shipping_label_write',
 	'shipping_tracking_read',
 	'shipping_rate_read',
-	'shipping_carrier_read'
+	'shipping_carrier_read',
+	'signing_document_read',
+	'signing_document_write',
+	'signing_signatory_read',
+	'signing_signatory_write',
+	'signing_template_read'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
