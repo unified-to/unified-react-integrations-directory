@@ -433,7 +433,6 @@ export const joiObjectType = Joi.string().valid(
 	'shipping_shipment',
 	'shipping_label',
 	'shipping_tracking',
-	'shipping_tracking',
 	'signing_document',
 	'signing_signatory',
 	'signing_template');
