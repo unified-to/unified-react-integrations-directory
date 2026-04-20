@@ -805,6 +805,7 @@ export interface IIntegrationSupport {
 	native_webhook_template_id?: TSupportInboundType;
 	native_webhook_list_id?: TSupportInboundType;
 	list_reference?: TSupportInboundType;
+	virtual_webhook_reference?: TSupportInboundType;
 }
 
 export interface IInvoice {
