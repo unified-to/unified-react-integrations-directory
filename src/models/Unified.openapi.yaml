@@ -1025,6 +1025,10 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         native_webhook_list_id:
           $ref: "#/components/schemas/SupportInboundType"
+        list_reference:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_reference:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
