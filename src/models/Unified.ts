@@ -992,6 +992,7 @@ export interface IWorkspace {
 	clickhouse_username?: string;
 	clickhouse_password?: string;
 	auto_join?: boolean;
+	jwt_secret?: string;
 }
 
 export interface IWorkspaceIntegration {
