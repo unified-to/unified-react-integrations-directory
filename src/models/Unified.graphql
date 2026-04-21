@@ -2074,6 +2074,7 @@ Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance
 	clickhouse_username: String
 	clickhouse_password: String
 	auto_join: Boolean
+	jwt_secret: String
 }
 
 type Workspace {
@@ -2171,6 +2172,7 @@ Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance
 	clickhouse_username: String
 	clickhouse_password: String
 	auto_join: Boolean
+	jwt_secret: String
 }
 
 input WorkspaceIntegration_Input {
