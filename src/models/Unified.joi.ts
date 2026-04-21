@@ -1198,6 +1198,7 @@ export const joiWorkspace = Joi.object({
 	clickhouse_username: Joi.string().allow(null, '').optional(),
 	clickhouse_password: Joi.string().allow(null, '').optional(),
 	auto_join: Joi.boolean().allow(null).default(true).optional(),
+	jwt_secret: Joi.string().allow(null, '').optional(),
 }).label('Workspace').description('The User\'s workspace object. A workspace is like an organization that one or more users belong to.');
 
 export const joiWorkspaceIntegrationAuth = Joi.object({
