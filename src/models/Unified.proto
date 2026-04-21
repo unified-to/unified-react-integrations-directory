@@ -439,6 +439,7 @@ message Workspace {
 	optional string clickhouse_username = 59;
 	optional string clickhouse_password = 60;
 	optional bool auto_join = 61;
+	optional string jwt_secret = 62;
 }
 
 message WorkspaceIntegrationAuth {
