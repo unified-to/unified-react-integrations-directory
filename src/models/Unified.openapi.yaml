@@ -1435,6 +1435,8 @@ components:
         auto_join:
           type: boolean
           default: "true"
+        jwt_secret:
+          type: string
       required:
         - name
     WorkspaceIntegration:
