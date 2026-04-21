@@ -380,6 +380,7 @@ export const schemaWorkspace = {
 	clickhouse_username: { type: String },
 	clickhouse_password: { type: String },
 	auto_join: { type: Boolean, default: true },
+	jwt_secret: { type: String },
 };
 
 export const schemaWorkspaceIntegrationAuth = {
