@@ -994,6 +994,7 @@ export interface IWorkspace {
 	clickhouse_password?: string;
 	auto_join?: boolean;
 	jwt_secret?: string;
+	sync_parent_dc?: string; // us, eu, au
 }
 
 export interface IWorkspaceIntegration {
