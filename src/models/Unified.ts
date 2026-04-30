@@ -833,6 +833,7 @@ export interface IIssue {
 export interface INotification {
 	id?: string; // Unique identifier for this notification object
 	created_at?: (string | Date | number); // The date that this integration object was created
+	updated_at?: (string | Date | number);
 	workspace_id?: string;
 	description?: string; // Longer description of this notification
 	user_id?: string;
@@ -844,7 +845,6 @@ export interface INotification {
 	integration_name?: string;
 	sent_at?: (string | Date | number);
 	event?: TWorkspaceEventType;
-	updated_at?: (string | Date | number);
 }
 
 export interface IPermission {
