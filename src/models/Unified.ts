@@ -991,6 +991,7 @@ export interface IWorkspace {
 	gcp_project_id?: string;
 	gcp_client_email?: string;
 	gcp_private_key?: string;
+	sync_objects?: ( TRegionSyncType )[];
 	hashicorp_vault_url?: string;
 	hashicorp_vault_token?: string;
 	hashicorp_vault_namespace?: string;
@@ -1006,7 +1007,6 @@ export interface IWorkspace {
 	auto_join?: boolean;
 	jwt_secret?: string;
 	sync_parent_dc?: string; // us, eu, au
-	sync_objects?: ( TRegionSyncType )[];
 }
 
 export interface IWorkspaceIntegration {
