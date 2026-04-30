@@ -844,6 +844,7 @@ export interface INotification {
 	integration_name?: string;
 	sent_at?: (string | Date | number);
 	event?: TWorkspaceEventType;
+	updated_at?: (string | Date | number);
 }
 
 export interface IPermission {
