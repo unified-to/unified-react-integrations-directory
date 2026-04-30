@@ -319,11 +319,11 @@ export const IssueStatus = [
 
 export type TIssueStatus = typeof IssueStatus[number];
 
-export const NewEnum15 = [
+export const RegionSyncType = [
 	
 ] as const;
 
-export type TNewEnum15 = typeof NewEnum15[number];
+export type TRegionSyncType = typeof RegionSyncType[number];
 
 export const ObjectType = [
 	'accounting_account',
