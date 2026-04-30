@@ -303,6 +303,14 @@ export const joiIssueStatus = Joi.string().valid(
 	'VALIDATING',
 	'REJECTED');
 
+export const joiRegionSyncType = Joi.string().valid(
+	'workspace-secrets',
+	'workspaceintegrations',
+	'workspaces',
+	'users',
+	'keys',
+	'notifications');
+
 export const joiObjectType = Joi.string().valid(
 	'accounting_account',
 	'accounting_transaction',
@@ -1042,6 +1050,7 @@ export const joiIssue = Joi.object({
 export const joiNotification = Joi.object({
 	id: Joi.string().allow(null, '').description('Unique identifier for this notification object').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).description('The date that this integration object was created').meta( { readonly: true }).optional(),
+	updated_at: Joi.date().allow(null).optional(),
 	workspace_id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
 	description: Joi.string().allow(null, '').description('Longer description of this notification').optional(),
 	user_id: Joi.string().allow(null, '').optional(),
@@ -1178,6 +1187,8 @@ export const joiWorkspace = Joi.object({
 	saml_idp_entity_id: Joi.string().allow(null, '').optional(),
 	saml_pem: Joi.string().allow(null, '').description('the PEM X.509 certificate in Base64 ASCII format').optional(),
 	saml_only_login: Joi.boolean().allow(null).description('if true, only allow SAML login').optional(),
+	sync_objects: Joi.array().items(joiRegionSyncType).optional(),
+	sync_parent_dc: Joi.string().allow(null, '').description('us, eu, au').optional(),
 	azure_keyvault_url: Joi.string().allow(null, '').optional(),
 	azure_tenant_id: Joi.string().allow(null, '').optional(),
 	azure_client_id: Joi.string().allow(null, '').optional(),
