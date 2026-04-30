@@ -310,6 +310,15 @@ components:
       - ON_HOLD
       - VALIDATING
       - REJECTED
+    RegionSyncType:
+      type: string
+      enum:
+      - workspace-secrets
+      - workspaceintegrations
+      - workspaces
+      - users
+      - keys
+      - notifications
     ObjectType:
       type: string
       enum:
@@ -1392,6 +1401,11 @@ components:
         saml_only_login:
           type: boolean
           description: if true, only allow SAML login
+        sync_objects:
+          $ref: "#/components/schemas/RegionSyncTypes"
+        sync_parent_dc:
+          type: string
+          description: us, eu, au
         azure_keyvault_url:
           type: string
         azure_tenant_id:
@@ -1575,3 +1589,7 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/WorkspaceEventType"
+    RegionSyncTypes:
+      type: array
+      items:
+        $ref: "#/components/schemas/RegionSyncType"
