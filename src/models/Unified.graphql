@@ -305,6 +305,15 @@ enum ENUM_IssueStatus {
 	REJECTED
 }
 
+enum ENUM_RegionSyncType {
+	workspace-secrets
+	workspaceintegrations
+	workspaces
+	users
+	keys
+	notifications
+}
+
 enum ENUM_ObjectType {
 	accounting_account
 	accounting_transaction
@@ -2048,6 +2057,11 @@ the PEM X.509 certificate in Base64 ASCII format
 if true, only allow SAML login
 """
 	saml_only_login: Boolean
+	sync_objects: [ENUM_RegionSyncType]
+"""
+us, eu, au
+"""
+	sync_parent_dc: String
 	azure_keyvault_url: String
 	azure_tenant_id: String
 	azure_client_id: String
@@ -2146,6 +2160,11 @@ the PEM X.509 certificate in Base64 ASCII format
 if true, only allow SAML login
 """
 	saml_only_login: Boolean
+	sync_objects: [ENUM_RegionSyncType]
+"""
+us, eu, au
+"""
+	sync_parent_dc: String
 	azure_keyvault_url: String
 	azure_tenant_id: String
 	azure_client_id: String
