@@ -984,6 +984,7 @@ export interface IWorkspace {
 	saml_idp_entity_id?: string;
 	saml_pem?: string; // the PEM X.509 certificate in Base64 ASCII format
 	saml_only_login?: boolean; // if true, only allow SAML login
+	sync_parent_dc?: string; // us, eu, au
 	azure_keyvault_url?: string;
 	azure_tenant_id?: string;
 	azure_client_id?: string;
@@ -992,7 +993,6 @@ export interface IWorkspace {
 	gcp_client_email?: string;
 	gcp_private_key?: string;
 	sync_objects?: ( TRegionSyncType )[];
-	sync_parent_dc?: string; // us, eu, au
 	hashicorp_vault_url?: string;
 	hashicorp_vault_token?: string;
 	hashicorp_vault_namespace?: string;
