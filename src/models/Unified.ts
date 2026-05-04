@@ -320,9 +320,9 @@ export const IssueStatus = [
 export type TIssueStatus = typeof IssueStatus[number];
 
 export const RegionSyncType = [
+	'workspace',
 	'workspace-secrets',
 	'workspaceintegrations',
-	'workspaces',
 	'users',
 	'keys',
 	'notifications'
