@@ -313,9 +313,9 @@ components:
     RegionSyncType:
       type: string
       enum:
+      - workspace
       - workspace-secrets
       - workspaceintegrations
-      - workspaces
       - users
       - keys
       - notifications
