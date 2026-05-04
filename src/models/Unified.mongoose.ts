@@ -361,7 +361,7 @@ export const schemaWorkspace = {
 	saml_idp_entity_id: { type: String },
 	saml_pem: { type: String }, // the PEM X.509 certificate in Base64 ASCII format
 	saml_only_login: { type: Boolean }, // if true, only allow SAML login
-	sync_objects: { type: [ String ], enum: [ 'workspace-secrets', 'workspaceintegrations', 'workspaces', 'users', 'keys', 'notifications' ] },
+	sync_objects: { type: [ String ], enum: [ 'workspace', 'workspace-secrets', 'workspaceintegrations', 'users', 'keys', 'notifications' ] },
 	sync_parent_dc: { type: String }, // us, eu, au
 	azure_keyvault_url: { type: String },
 	azure_tenant_id: { type: String },
