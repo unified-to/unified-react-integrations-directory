@@ -304,9 +304,9 @@ export const joiIssueStatus = Joi.string().valid(
 	'REJECTED');
 
 export const joiRegionSyncType = Joi.string().valid(
+	'workspace',
 	'workspace-secrets',
 	'workspaceintegrations',
-	'workspaces',
 	'users',
 	'keys',
 	'notifications');
