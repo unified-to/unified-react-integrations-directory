@@ -306,9 +306,9 @@ enum ENUM_IssueStatus {
 }
 
 enum ENUM_RegionSyncType {
+	workspace
 	workspace-secrets
 	workspaceintegrations
-	workspaces
 	users
 	keys
 	notifications
