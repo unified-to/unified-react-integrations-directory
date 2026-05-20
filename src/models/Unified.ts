@@ -1025,6 +1025,7 @@ export interface IWorkspaceIntegration {
 	token_url?: string;
 	refresh_url?: string;
 	base_url?: string;
+	prompt_region?: boolean;
 	pem?: string; // @deprecated: use auth.pem instead
 	key?: string; // @deprecated: use auth.pem instead
 	environment?: string; // authentication environment
@@ -1036,7 +1037,6 @@ export interface IWorkspaceIntegration {
 	auth_azure_keyvault_id?: string;
 	auth_gcp_secret_name?: string;
 	auth_hashi_vault_path?: string;
-	prompt_region?: boolean;
 }
 
 export interface IWorkspaceIntegrationAuth {
