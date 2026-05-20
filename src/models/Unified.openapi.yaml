@@ -1037,6 +1037,8 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_reference:
           $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_account_id:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
