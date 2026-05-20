@@ -223,6 +223,7 @@ message IntegrationSupport {
 	optional string native_webhook_list_id = 162;
 	optional string list_reference = 163;
 	optional string virtual_webhook_reference = 164;
+	optional string virtual_webhook_account_id = 165;
 }
 
 // Informational object for supported integrations.
