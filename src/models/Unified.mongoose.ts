@@ -411,6 +411,7 @@ export const schemaWorkspaceIntegration = {
 	token_url: { type: String },
 	refresh_url: { type: String },
 	base_url: { type: String },
+	prompt_region: { type: Boolean },
 	pem: { type: String }, // @deprecated: use auth.pem instead
 	key: { type: String }, // @deprecated: use auth.pem instead
 	environment: { type: String, default: 'Production' }, // authentication environment
