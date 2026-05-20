@@ -1492,6 +1492,8 @@ components:
           type: string
         base_url:
           type: string
+        prompt_region:
+          type: boolean
         pem:
           type: string
           description: @deprecated: use auth.pem instead
