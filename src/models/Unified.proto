@@ -470,16 +470,17 @@ message WorkspaceIntegration {
 	optional string token_url = 13;
 	optional string refresh_url = 14;
 	optional string base_url = 15;
-	optional string pem = 16; // @deprecated: use auth.pem instead
-	optional string key = 17; // @deprecated: use auth.pem instead
-	optional string environment = 18; // authentication environment Default value: Production
-	repeated string categories = 19;
-	optional string dev_api_key = 20; // @deprecated: use auth.dev_api_key instead
-	map<string, string> overriden_scopes = 21;
-	optional WorkspaceIntegrationAuth auth = 22;
-	optional string auth_aws_arn = 23;
-	optional string auth_azure_keyvault_id = 24;
-	optional string auth_gcp_secret_name = 25;
-	optional string auth_hashi_vault_path = 26;
+	optional bool prompt_region = 16;
+	optional string pem = 17; // @deprecated: use auth.pem instead
+	optional string key = 18; // @deprecated: use auth.pem instead
+	optional string environment = 19; // authentication environment Default value: Production
+	repeated string categories = 20;
+	optional string dev_api_key = 21; // @deprecated: use auth.dev_api_key instead
+	map<string, string> overriden_scopes = 22;
+	optional WorkspaceIntegrationAuth auth = 23;
+	optional string auth_aws_arn = 24;
+	optional string auth_azure_keyvault_id = 25;
+	optional string auth_gcp_secret_name = 26;
+	optional string auth_hashi_vault_path = 27;
 }
 
