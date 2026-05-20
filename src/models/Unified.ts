@@ -1036,6 +1036,7 @@ export interface IWorkspaceIntegration {
 	auth_azure_keyvault_id?: string;
 	auth_gcp_secret_name?: string;
 	auth_hashi_vault_path?: string;
+	prompt_region?: boolean;
 }
 
 export interface IWorkspaceIntegrationAuth {
