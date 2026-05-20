@@ -1238,6 +1238,7 @@ export const joiWorkspaceIntegration = Joi.object({
 	token_url: Joi.string().allow(null, '').optional(),
 	refresh_url: Joi.string().uri().allow(null, '').optional(),
 	base_url: Joi.string().allow(null, '').optional(),
+	prompt_region: Joi.boolean().allow(null).optional(),
 	pem: Joi.string().allow(null, '').description('@deprecated: use auth.pem instead').optional(),
 	key: Joi.string().allow(null, '').description('@deprecated: use auth.pem instead').optional(),
 	environment: Joi.string().allow(null, '').default('Production').description('authentication environment').optional(),
