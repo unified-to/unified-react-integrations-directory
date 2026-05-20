@@ -2222,6 +2222,7 @@ input WorkspaceIntegration_Input {
 	token_url: String
 	refresh_url: String
 	base_url: String
+	prompt_region: Boolean
 """
 @deprecated: use auth.pem instead
 """
@@ -2275,6 +2276,7 @@ type WorkspaceIntegration {
 	token_url: String
 	refresh_url: String
 	base_url: String
+	prompt_region: Boolean
 """
 @deprecated: use auth.pem instead
 """
