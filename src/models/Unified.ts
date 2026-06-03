@@ -1046,6 +1046,7 @@ export interface IWorkspace {
 	auto_join?: boolean;
 	jwt_secret?: string;
 	default_secretsmanager_id?: string; // Default SecretsManager document id for new credentials
+	default_secretsmanager_env_ids?: { [path in string]?: string }; // Environment name to SecretsManager document id
 }
 
 export interface IWorkspaceIntegration {
