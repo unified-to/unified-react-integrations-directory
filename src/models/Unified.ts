@@ -296,7 +296,17 @@ export const IntegrationPermission = [
 	'signing_document_write',
 	'signing_signatory_read',
 	'signing_signatory_write',
-	'signing_template_read'
+	'signing_template_read',
+	'clubs_group_read',
+	'clubs_group_write',
+	'clubs_member_read',
+	'clubs_member_write',
+	'clubs_activity_read',
+	'clubs_activity_write',
+	'clubs_location_read',
+	'clubs_location_write',
+	'clubs_event_read',
+	'clubs_eent_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
