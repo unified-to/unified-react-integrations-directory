@@ -1075,6 +1075,7 @@ export interface IWorkspaceIntegration {
 	auth_azure_keyvault_id?: string;
 	auth_gcp_secret_name?: string;
 	auth_hashi_vault_path?: string;
+	secretsmanager_id?: string; // the ID of the SecretsManager object
 }
 
 export interface IWorkspaceIntegrationAuth {
