@@ -43,6 +43,7 @@ enum ENUM_IntegrationCategory {
 	shipping
 	assessment
 	signing
+	clubs
 }
 
 enum ENUM_IntegrationPermission {
@@ -288,6 +289,16 @@ enum ENUM_IntegrationPermission {
 	signing_signatory_read
 	signing_signatory_write
 	signing_template_read
+	clubs_group_read
+	clubs_group_write
+	clubs_member_read
+	clubs_member_write
+	clubs_activity_read
+	clubs_activity_write
+	clubs_location_read
+	clubs_location_write
+	clubs_event_read
+	clubs_eent_write
 }
 
 enum ENUM_IntegrationSupportWebhookType {
@@ -303,15 +314,6 @@ enum ENUM_IssueStatus {
 	ON_HOLD
 	VALIDATING
 	REJECTED
-}
-
-enum ENUM_RegionSyncType {
-	workspace
-	workspace-secrets
-	workspaceintegrations
-	users
-	keys
-	notifications
 }
 
 enum ENUM_ObjectType {
@@ -447,11 +449,25 @@ enum ENUM_ObjectType {
 	signing_document
 	signing_signatory
 	signing_template
+	clubs_group
+	clubs_member
+	clubs_activity
+	clubs_location
+	clubs_event
 }
 
 enum ENUM_PlanTerm {
 	monthly
 	yearly
+}
+
+enum ENUM_RegionSyncType {
+	workspace
+	workspace-secrets
+	workspaceintegrations
+	users
+	keys
+	notifications
 }
 
 enum ENUM_SupportInboundType {
@@ -793,6 +809,16 @@ input Map_IntegrationPermission_string_Input {
 	signing_signatory_read: String!
 	signing_signatory_write: String!
 	signing_template_read: String!
+	clubs_group_read: String!
+	clubs_group_write: String!
+	clubs_member_read: String!
+	clubs_member_write: String!
+	clubs_activity_read: String!
+	clubs_activity_write: String!
+	clubs_location_read: String!
+	clubs_location_write: String!
+	clubs_event_read: String!
+	clubs_eent_write: String!
 }
 
 type Map_IntegrationPermission_string {
@@ -1038,6 +1064,16 @@ type Map_IntegrationPermission_string {
 	signing_signatory_read: String!
 	signing_signatory_write: String!
 	signing_template_read: String!
+	clubs_group_read: String!
+	clubs_group_write: String!
+	clubs_member_read: String!
+	clubs_member_write: String!
+	clubs_activity_read: String!
+	clubs_activity_write: String!
+	clubs_location_read: String!
+	clubs_location_write: String!
+	clubs_event_read: String!
+	clubs_eent_write: String!
 }
 
 """
