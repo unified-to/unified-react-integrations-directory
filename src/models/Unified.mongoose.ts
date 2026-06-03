@@ -281,7 +281,7 @@ export const schemaSecretsManager = {
 	type: { type: String, enum: [ 'aws', 'azure', 'gcp', 'hashicorp' ] },
 	name: { type: String },
 	workspace_id: { type: SchemaTypes.ObjectId, index: true, ref: 'Workspace' },
-	auth: { type: schemaRecord<string, string> }, // secrets-manager specific authentication values
+	auth: { type: Object }, // secrets-manager specific authentication values
 	environments: { type: [ String ] },
 	dcs: { type: [ String ] }, // data-regions
 };
