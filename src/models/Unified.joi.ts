@@ -44,7 +44,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'forms',
 	'shipping',
 	'assessment',
-	'signing');
+	'signing',
+	'clubs');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_account_read',
@@ -288,7 +289,17 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'signing_document_write',
 	'signing_signatory_read',
 	'signing_signatory_write',
-	'signing_template_read');
+	'signing_template_read',
+	'clubs_group_read',
+	'clubs_group_write',
+	'clubs_member_read',
+	'clubs_member_write',
+	'clubs_activity_read',
+	'clubs_activity_write',
+	'clubs_location_read',
+	'clubs_location_write',
+	'clubs_event_read',
+	'clubs_eent_write');
 
 export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'virtual',
@@ -302,14 +313,6 @@ export const joiIssueStatus = Joi.string().valid(
 	'ON_HOLD',
 	'VALIDATING',
 	'REJECTED');
-
-export const joiRegionSyncType = Joi.string().valid(
-	'workspace',
-	'workspace-secrets',
-	'workspaceintegrations',
-	'users',
-	'keys',
-	'notifications');
 
 export const joiObjectType = Joi.string().valid(
 	'accounting_account',
@@ -443,11 +446,24 @@ export const joiObjectType = Joi.string().valid(
 	'shipping_tracking',
 	'signing_document',
 	'signing_signatory',
-	'signing_template');
+	'signing_template',
+	'clubs_group',
+	'clubs_member',
+	'clubs_activity',
+	'clubs_location',
+	'clubs_event');
 
 export const joiPlanTerm = Joi.string().valid(
 	'monthly',
 	'yearly');
+
+export const joiRegionSyncType = Joi.string().valid(
+	'workspace',
+	'workspace-secrets',
+	'workspaceintegrations',
+	'users',
+	'keys',
+	'notifications');
 
 export const joiSupportInboundType = Joi.string().valid(
 	'supported-required',
@@ -748,6 +764,16 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	signing_signatory_read: Joi.string().allow(null, '').optional(),
 	signing_signatory_write: Joi.string().allow(null, '').optional(),
 	signing_template_read: Joi.string().allow(null, '').optional(),
+	clubs_group_read: Joi.string().allow(null, '').optional(),
+	clubs_group_write: Joi.string().allow(null, '').optional(),
+	clubs_member_read: Joi.string().allow(null, '').optional(),
+	clubs_member_write: Joi.string().allow(null, '').optional(),
+	clubs_activity_read: Joi.string().allow(null, '').optional(),
+	clubs_activity_write: Joi.string().allow(null, '').optional(),
+	clubs_location_read: Joi.string().allow(null, '').optional(),
+	clubs_location_write: Joi.string().allow(null, '').optional(),
+	clubs_event_read: Joi.string().allow(null, '').optional(),
+	clubs_eent_write: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
