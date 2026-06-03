@@ -48,7 +48,8 @@ export const IntegrationCategory = [
 	'forms',
 	'shipping',
 	'assessment',
-	'signing'
+	'signing',
+	'clubs'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
@@ -319,17 +320,6 @@ export const IssueStatus = [
 
 export type TIssueStatus = typeof IssueStatus[number];
 
-export const RegionSyncType = [
-	'workspace',
-	'workspace-secrets',
-	'workspaceintegrations',
-	'users',
-	'keys',
-	'notifications'
-] as const;
-
-export type TRegionSyncType = typeof RegionSyncType[number];
-
 export const ObjectType = [
 	'accounting_account',
 	'accounting_transaction',
@@ -473,6 +463,17 @@ export const PlanTerm = [
 ] as const;
 
 export type TPlanTerm = typeof PlanTerm[number];
+
+export const RegionSyncType = [
+	'workspace',
+	'workspace-secrets',
+	'workspaceintegrations',
+	'users',
+	'keys',
+	'notifications'
+] as const;
+
+export type TRegionSyncType = typeof RegionSyncType[number];
 
 export const SupportInboundType = [
 	'supported-required',
