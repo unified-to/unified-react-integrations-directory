@@ -306,7 +306,7 @@ export const IntegrationPermission = [
 	'clubs_location_read',
 	'clubs_location_write',
 	'clubs_event_read',
-	'clubs_eent_write'
+	'clubs_event_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
