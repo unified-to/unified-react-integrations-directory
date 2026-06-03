@@ -614,6 +614,7 @@ export interface IConnection {
 	auth_hashi_vault_path?: string; // the HashiCorp Vault path for the stored auth field
 	last_healthy_at?: (string | Date | number);
 	last_unhealthy_at?: (string | Date | number);
+	secretsmanager_id?: string; // the ID of the SecretsManager object
 }
 
 export interface IConnectionAuth {
