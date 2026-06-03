@@ -1045,6 +1045,7 @@ export interface IWorkspace {
 	clickhouse_password?: string;
 	auto_join?: boolean;
 	jwt_secret?: string;
+	default_secretsmanager_id?: string; // Default SecretsManager document id for new credentials
 }
 
 export interface IWorkspaceIntegration {
