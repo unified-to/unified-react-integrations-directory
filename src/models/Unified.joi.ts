@@ -299,7 +299,7 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'clubs_location_read',
 	'clubs_location_write',
 	'clubs_event_read',
-	'clubs_eent_write');
+	'clubs_event_write');
 
 export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'virtual',
@@ -464,6 +464,12 @@ export const joiRegionSyncType = Joi.string().valid(
 	'users',
 	'keys',
 	'notifications');
+
+export const joiSecretsManagerType = Joi.string().valid(
+	'aws',
+	'azure',
+	'gcp',
+	'hashicorp');
 
 export const joiSupportInboundType = Joi.string().valid(
 	'supported-required',
@@ -773,7 +779,7 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	clubs_location_read: Joi.string().allow(null, '').optional(),
 	clubs_location_write: Joi.string().allow(null, '').optional(),
 	clubs_event_read: Joi.string().allow(null, '').optional(),
-	clubs_eent_write: Joi.string().allow(null, '').optional(),
+	clubs_event_write: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
@@ -850,6 +856,8 @@ export const joiConnection = Joi.object({
 	auth_hashi_vault_path: Joi.string().allow(null, '').description('the HashiCorp Vault path for the stored auth field').optional(),
 	last_healthy_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
 	last_unhealthy_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
+	secretsmanager_id: Joi.string().allow(null, '').description('the ID of the SecretsManager object').optional(),
+	secretsmanager_key: Joi.string().allow(null, '').description('the key/path/name of the secret within the vault').optional(),
 }).label('Connection').description('A connection represents a specific authentication of an integration.');
 
 export const joiIntegrationSupport = Joi.object({
@@ -1116,6 +1124,18 @@ export const joiPlan = Joi.object({
 	dedicated_channel: Joi.boolean().allow(null).description('Dedicated Slack/Discord channel').optional(),
 }).label('Plan');
 
+export const joiSecretsManager = Joi.object({
+	id: Joi.string().allow(null, '').optional(),
+	created_at: Joi.date().allow(null).optional(),
+	updated_at: Joi.date().allow(null).optional(),
+	type: joiSecretsManagerType.required(),
+	name: Joi.string().allow('').required(),
+	workspace_id: Joi.string().allow(null, '').optional(),
+	auth: joiRecord<string, string>.description('secrets-manager specific authentication values').required(),
+	environments: Joi.array().items(Joi.string().allow(null, '')).optional(),
+	dcs: Joi.array().items(Joi.string().allow(null, '')).description('data-regions').optional(),
+}).label('SecretsManager');
+
 export const joiUser = Joi.object({
 	id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
@@ -1237,6 +1257,8 @@ export const joiWorkspace = Joi.object({
 	clickhouse_password: Joi.string().allow(null, '').optional(),
 	auto_join: Joi.boolean().allow(null).default(true).optional(),
 	jwt_secret: Joi.string().allow(null, '').optional(),
+	default_secretsmanager_id: Joi.string().allow(null, '').description('Default SecretsManager document id for new credentials').optional(),
+	default_secretsmanager_env_ids: Joi.object().pattern(Joi.string(), Joi.string().optional().allow(null)).allow(null).description('Environment name to SecretsManager document id').optional(),
 }).label('Workspace').description('The User\'s workspace object. A workspace is like an organization that one or more users belong to.');
 
 export const joiWorkspaceIntegrationAuth = Joi.object({
@@ -1277,5 +1299,7 @@ export const joiWorkspaceIntegration = Joi.object({
 	auth_azure_keyvault_id: Joi.string().allow(null, '').optional(),
 	auth_gcp_secret_name: Joi.string().allow(null, '').optional(),
 	auth_hashi_vault_path: Joi.string().allow(null, '').optional(),
+	secretsmanager_id: Joi.string().allow(null, '').description('the ID of the SecretsManager object').optional(),
+	secretsmanager_key: Joi.string().allow(null, '').description('the key/path/name of the secret within the vault').optional(),
 }).label('WorkspaceIntegration');
 
