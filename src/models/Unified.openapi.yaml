@@ -305,7 +305,7 @@ components:
       - clubs_location_read
       - clubs_location_write
       - clubs_event_read
-      - clubs_eent_write
+      - clubs_event_write
     IntegrationSupportWebhookType:
       type: string
       enum:
@@ -475,6 +475,13 @@ components:
       - users
       - keys
       - notifications
+    SecretsManagerType:
+      type: string
+      enum:
+      - aws
+      - azure
+      - gcp
+      - hashicorp
     SupportInboundType:
       type: string
       enum:
@@ -564,6 +571,12 @@ components:
         last_unhealthy_at:
           type: string
           format: date-time
+        secretsmanager_id:
+          type: string
+          description: the ID of the SecretsManager object
+        secretsmanager_key:
+          type: string
+          description: the key/path/name of the secret within the vault
       required:
         - workspace_id
         - integration_type
@@ -1190,6 +1203,35 @@ components:
           description: Dedicated Slack/Discord channel
       required:
         - name
+    SecretsManager:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        type:
+          $ref: "#/components/schemas/SecretsManagerType"
+        name:
+          type: string
+        workspace_id:
+          type: string
+        auth:
+          $ref: "#/components/schemas/Record<string, string>"
+          description: secrets-manager specific authentication values
+        environments:
+          $ref: "#/components/schemas/strings"
+        dcs:
+          $ref: "#/components/schemas/strings"
+          description: data-regions
+      required:
+        - type
+        - name
+        - auth
     User:
       type: object
       description: The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
@@ -1469,6 +1511,14 @@ components:
           default: "true"
         jwt_secret:
           type: string
+        default_secretsmanager_id:
+          type: string
+          description: Default SecretsManager document id for new credentials
+        default_secretsmanager_env_ids:
+          type: object
+          additionalProperties:
+            type: string
+          description: Environment name to SecretsManager document id
       required:
         - name
     WorkspaceIntegration:
@@ -1541,6 +1591,12 @@ components:
           type: string
         auth_hashi_vault_path:
           type: string
+        secretsmanager_id:
+          type: string
+          description: the ID of the SecretsManager object
+        secretsmanager_key:
+          type: string
+          description: the key/path/name of the secret within the vault
       required:
         - integration_type
         - is_active
