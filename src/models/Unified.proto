@@ -56,6 +56,8 @@ message Connection {
 	optional string auth_hashi_vault_path = 16; // the HashiCorp Vault path for the stored auth field
 	optional string last_healthy_at = 17;
 	optional string last_unhealthy_at = 18;
+	optional string secretsmanager_id = 19; // the ID of the SecretsManager object
+	optional string secretsmanager_key = 20; // the key/path/name of the secret within the vault
 }
 
 message IntegrationSupport {
@@ -316,6 +318,18 @@ message Plan {
 	optional bool dedicated_channel = 17; // Dedicated Slack/Discord channel
 }
 
+message SecretsManager {
+	optional string id = 1;
+	optional string created_at = 2;
+	optional string updated_at = 3;
+	string type = 4;
+	string name = 5;
+	optional string workspace_id = 6;
+	Record<string, string> auth = 7; // secrets-manager specific authentication values
+	repeated string environments = 8;
+	repeated string dcs = 9; // data-regions
+}
+
 // The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
 
 message User {
@@ -443,6 +457,8 @@ message Workspace {
 	optional string clickhouse_password = 62;
 	optional bool auto_join = 63;
 	optional string jwt_secret = 64;
+	optional string default_secretsmanager_id = 65; // Default SecretsManager document id for new credentials
+	map<string, string> default_secretsmanager_env_ids = 66; // Environment name to SecretsManager document id
 }
 
 message WorkspaceIntegrationAuth {
@@ -483,5 +499,7 @@ message WorkspaceIntegration {
 	optional string auth_azure_keyvault_id = 25;
 	optional string auth_gcp_secret_name = 26;
 	optional string auth_hashi_vault_path = 27;
+	optional string secretsmanager_id = 28; // the ID of the SecretsManager object
+	optional string secretsmanager_key = 29; // the key/path/name of the secret within the vault
 }
 
