@@ -1099,6 +1099,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'auth', label: 'Authentication' },
     { category: 'metadata', label: 'Metadata' },
     { category: 'passthrough', label: 'Passthrough' },
-    { category: 'signing', label: 'E-Signature' }
+    { category: 'signing', label: 'E-Signature' },
+    { category: 'clubs', label: 'Clubs' }
 ];
 
