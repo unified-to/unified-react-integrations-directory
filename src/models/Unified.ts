@@ -452,7 +452,12 @@ export const ObjectType = [
 	'shipping_tracking',
 	'signing_document',
 	'signing_signatory',
-	'signing_template'
+	'signing_template',
+	'clubs_group',
+	'clubs_member',
+	'clubs_activity',
+	'clubs_location',
+	'clubs_event'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
