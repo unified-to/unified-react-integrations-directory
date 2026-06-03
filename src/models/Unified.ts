@@ -490,6 +490,15 @@ export const RegionSyncType = [
 
 export type TRegionSyncType = typeof RegionSyncType[number];
 
+export const SecretsManagerType = [
+	'aws',
+	'azure',
+	'gcp',
+	'hashicorp'
+] as const;
+
+export type TSecretsManagerType = typeof SecretsManagerType[number];
+
 export const SupportInboundType = [
 	'supported-required',
 	'supported',
@@ -557,21 +566,6 @@ export const WorkspaceEventType = [
 ] as const;
 
 export type TWorkspaceEventType = typeof WorkspaceEventType[number];
-
-export const SecretsManagerType = [
-	'export',
-	'id',
-	'created_at',
-	'updated_at',
-	'type',
-	'name',
-	'workspace_id',
-	'auth',
-	'environments',
-	'dcs'
-] as const;
-
-export type TSecretsManagerType = typeof SecretsManagerType[number];
 
 export interface IApiCall {
 	id?: string; // Unique identifier for this API call
