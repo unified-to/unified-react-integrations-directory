@@ -1081,6 +1081,18 @@ export interface IWorkspaceIpAllowlistEntry {
 	expires_at?: (string | Date | number);
 }
 
+export interface ISecretsManager {
+	id?: string;
+	created_at?: (string | Date | number);
+	updated_at?: (string | Date | number);
+	type: TSecretsManagerType;
+	name: string;
+	workspace_id?: string;
+	auth: IRecord<string, string>;
+	environments?: string[];
+	dcs?: string[];
+}
+
 export const CATEGORIES: ICategories[] = [
     { category: 'crm', label: 'CRM' },
     { category: 'martech', label: 'Marketing' },
