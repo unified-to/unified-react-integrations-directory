@@ -1924,7 +1924,7 @@ input SecretsManager_Input {
 """
 secrets-manager specific authentication values
 """
-	auth: Record<string, string>_Input!
+	auth: Map_string_string!
 	environments: [String]
 """
 data-regions
@@ -1942,7 +1942,7 @@ type SecretsManager {
 """
 secrets-manager specific authentication values
 """
-	auth: Record<string, string>!
+	auth: Map_string_string!
 	environments: [String]
 """
 data-regions
