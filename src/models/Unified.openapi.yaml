@@ -50,6 +50,7 @@ components:
       - shipping
       - assessment
       - signing
+      - clubs
     IntegrationPermission:
       type: string
       enum:
@@ -295,6 +296,16 @@ components:
       - signing_signatory_read
       - signing_signatory_write
       - signing_template_read
+      - clubs_group_read
+      - clubs_group_write
+      - clubs_member_read
+      - clubs_member_write
+      - clubs_activity_read
+      - clubs_activity_write
+      - clubs_location_read
+      - clubs_location_write
+      - clubs_event_read
+      - clubs_eent_write
     IntegrationSupportWebhookType:
       type: string
       enum:
@@ -310,15 +321,6 @@ components:
       - ON_HOLD
       - VALIDATING
       - REJECTED
-    RegionSyncType:
-      type: string
-      enum:
-      - workspace
-      - workspace-secrets
-      - workspaceintegrations
-      - users
-      - keys
-      - notifications
     ObjectType:
       type: string
       enum:
@@ -454,11 +456,25 @@ components:
       - signing_document
       - signing_signatory
       - signing_template
+      - clubs_group
+      - clubs_member
+      - clubs_activity
+      - clubs_location
+      - clubs_event
     PlanTerm:
       type: string
       enum:
       - monthly
       - yearly
+    RegionSyncType:
+      type: string
+      enum:
+      - workspace
+      - workspace-secrets
+      - workspaceintegrations
+      - users
+      - keys
+      - notifications
     SupportInboundType:
       type: string
       enum:
