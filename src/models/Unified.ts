@@ -927,7 +927,7 @@ export interface ISecretsManager {
 	workspace_id?: string;
 	auth: IRecord<string, string>;
 	environments?: string[];
-	dcs?: string[];
+	dcs?: string[]; // data-regions
 }
 
 export interface IUser {
