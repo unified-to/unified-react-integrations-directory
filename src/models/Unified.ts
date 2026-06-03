@@ -558,6 +558,21 @@ export const WorkspaceEventType = [
 
 export type TWorkspaceEventType = typeof WorkspaceEventType[number];
 
+export const SecretsManagerType = [
+	'export',
+	'id',
+	'created_at',
+	'updated_at',
+	'type',
+	'name',
+	'workspace_id',
+	'auth',
+	'environments',
+	'dcs'
+] as const;
+
+export type TSecretsManagerType = typeof SecretsManagerType[number];
+
 export interface IApiCall {
 	id?: string; // Unique identifier for this API call
 	created_at?: (string | Date | number); // The date that this object was created
