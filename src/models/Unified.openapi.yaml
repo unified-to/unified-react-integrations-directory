@@ -1221,7 +1221,9 @@ components:
         workspace_id:
           type: string
         auth:
-          $ref: "#/components/schemas/Record<string, string>"
+          type: object
+          additionalProperties:
+            type: string
           description: secrets-manager specific authentication values
         environments:
           $ref: "#/components/schemas/strings"
