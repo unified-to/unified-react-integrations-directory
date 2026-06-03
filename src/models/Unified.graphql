@@ -298,7 +298,7 @@ enum ENUM_IntegrationPermission {
 	clubs_location_read
 	clubs_location_write
 	clubs_event_read
-	clubs_eent_write
+	clubs_event_write
 }
 
 enum ENUM_IntegrationSupportWebhookType {
@@ -470,6 +470,13 @@ enum ENUM_RegionSyncType {
 	notifications
 }
 
+enum ENUM_SecretsManagerType {
+	aws
+	azure
+	gcp
+	hashicorp
+}
+
 enum ENUM_SupportInboundType {
 	supported-required
 	supported
@@ -561,6 +568,15 @@ input Map_string_string_Input {
 }
 
 type Map_string_string {
+}
+
+"""
+generated model for Map(id,string)
+"""
+input Map_string_id_Input {
+}
+
+type Map_string_id {
 }
 
 """
@@ -818,7 +834,7 @@ input Map_IntegrationPermission_string_Input {
 	clubs_location_read: String!
 	clubs_location_write: String!
 	clubs_event_read: String!
-	clubs_eent_write: String!
+	clubs_event_write: String!
 }
 
 type Map_IntegrationPermission_string {
@@ -1073,7 +1089,7 @@ type Map_IntegrationPermission_string {
 	clubs_location_read: String!
 	clubs_location_write: String!
 	clubs_event_read: String!
-	clubs_eent_write: String!
+	clubs_event_write: String!
 }
 
 """
@@ -1112,6 +1128,14 @@ the Google Cloud Secret Manager name for the stored auth field
 the HashiCorp Vault path for the stored auth field
 """
 	auth_hashi_vault_path: String
+"""
+the ID of the SecretsManager object
+"""
+	secretsmanager_id: ID
+"""
+the key/path/name of the secret within the vault
+"""
+	secretsmanager_key: String
 }
 
 type Connection {
@@ -1166,6 +1190,14 @@ the HashiCorp Vault path for the stored auth field
 	auth_hashi_vault_path: String
 	last_healthy_at: DateTime
 	last_unhealthy_at: DateTime
+"""
+the ID of the SecretsManager object
+"""
+	secretsmanager_id: ID
+"""
+the key/path/name of the secret within the vault
+"""
+	secretsmanager_key: String
 }
 
 """
@@ -1882,6 +1914,42 @@ Dedicated Slack/Discord channel
 	dedicated_channel: Boolean
 }
 
+input SecretsManager_Input {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	type: ENUM_SecretsManagerType!
+	name: String!
+	workspace_id: ID
+"""
+secrets-manager specific authentication values
+"""
+	auth: Record<string, string>_Input!
+	environments: [String]
+"""
+data-regions
+"""
+	dcs: [String]
+}
+
+type SecretsManager {
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	type: ENUM_SecretsManagerType!
+	name: String!
+	workspace_id: ID
+"""
+secrets-manager specific authentication values
+"""
+	auth: Record<string, string>!
+	environments: [String]
+"""
+data-regions
+"""
+	dcs: [String]
+}
+
 """
 The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
 """
@@ -2127,6 +2195,14 @@ Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance
 	clickhouse_password: String
 	auto_join: Boolean
 	jwt_secret: String
+"""
+Default SecretsManager document id for new credentials
+"""
+	default_secretsmanager_id: ID
+"""
+Environment name to SecretsManager document id
+"""
+	default_secretsmanager_env_ids: Map_string_id
 }
 
 type Workspace {
@@ -2230,6 +2306,14 @@ Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance
 	clickhouse_password: String
 	auto_join: Boolean
 	jwt_secret: String
+"""
+Default SecretsManager document id for new credentials
+"""
+	default_secretsmanager_id: ID
+"""
+Environment name to SecretsManager document id
+"""
+	default_secretsmanager_env_ids: Map_string_id
 }
 
 input WorkspaceIntegration_Input {
@@ -2284,6 +2368,14 @@ authentication environment
 	auth_azure_keyvault_id: String
 	auth_gcp_secret_name: String
 	auth_hashi_vault_path: String
+"""
+the ID of the SecretsManager object
+"""
+	secretsmanager_id: ID
+"""
+the key/path/name of the secret within the vault
+"""
+	secretsmanager_key: String
 }
 
 type WorkspaceIntegration {
@@ -2338,6 +2430,14 @@ authentication environment
 	auth_azure_keyvault_id: String
 	auth_gcp_secret_name: String
 	auth_hashi_vault_path: String
+"""
+the ID of the SecretsManager object
+"""
+	secretsmanager_id: ID
+"""
+the key/path/name of the secret within the vault
+"""
+	secretsmanager_key: String
 }
 
 input WorkspaceIntegrationAuth_Input {
