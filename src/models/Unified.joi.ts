@@ -1131,7 +1131,7 @@ export const joiSecretsManager = Joi.object({
 	type: joiSecretsManagerType.required(),
 	name: Joi.string().allow('').required(),
 	workspace_id: Joi.string().allow(null, '').optional(),
-	auth: joiRecord<string, string>.description('secrets-manager specific authentication values').required(),
+	auth: Joi.object().pattern(Joi.string(), Joi.string().optional().allow(null,'')).description('secrets-manager specific authentication values').required(),
 	environments: Joi.array().items(Joi.string().allow(null, '')).optional(),
 	dcs: Joi.array().items(Joi.string().allow(null, '')).description('data-regions').optional(),
 }).label('SecretsManager');
