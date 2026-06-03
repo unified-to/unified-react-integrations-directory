@@ -927,7 +927,7 @@ export interface ISecretsManager {
 	type: TSecretsManagerType;
 	name: string;
 	workspace_id?: string;
-	auth: IRecord<string, string>; // secrets-manager specific authentication values
+	auth: { [path in string]?: string }; // secrets-manager specific authentication values
 	environments?: string[];
 	dcs?: string[]; // data-regions
 }
