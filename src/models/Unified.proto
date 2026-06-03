@@ -325,7 +325,7 @@ message SecretsManager {
 	string type = 4;
 	string name = 5;
 	optional string workspace_id = 6;
-	Record<string, string> auth = 7; // secrets-manager specific authentication values
+	map<string, string> auth = 7; // secrets-manager specific authentication values
 	repeated string environments = 8;
 	repeated string dcs = 9; // data-regions
 }
