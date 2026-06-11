@@ -45,7 +45,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'shipping',
 	'assessment',
 	'signing',
-	'clubs');
+	'clubs',
+	'datastore');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_account_read',
@@ -299,7 +300,15 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'clubs_location_read',
 	'clubs_location_write',
 	'clubs_event_read',
-	'clubs_event_write');
+	'clubs_event_write',
+	'datastore_database_read',
+	'datastore_database_write',
+	'datastore_table_read',
+	'datastore_table_write',
+	'datastore_record_read',
+	'datastore_record_write',
+	'datastore_query_read',
+	'datastore_query_write');
 
 export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'virtual',
@@ -451,7 +460,11 @@ export const joiObjectType = Joi.string().valid(
 	'clubs_member',
 	'clubs_activity',
 	'clubs_location',
-	'clubs_event');
+	'clubs_event',
+	'datastore_database',
+	'datastore_table',
+	'datastore_record',
+	'datastore_query');
 
 export const joiPlanTerm = Joi.string().valid(
 	'monthly',
@@ -486,7 +499,8 @@ export const joiWebhookDatabaseType = Joi.string().valid(
 	'postgres',
 	'mssql',
 	'mariadb',
-	'supabase');
+	'supabase',
+	'snowflake');
 
 export const joiWebhookDataType = Joi.string().valid(
 	'INITIAL-PARTIAL',
@@ -780,6 +794,14 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	clubs_location_write: Joi.string().allow(null, '').optional(),
 	clubs_event_read: Joi.string().allow(null, '').optional(),
 	clubs_event_write: Joi.string().allow(null, '').optional(),
+	datastore_database_read: Joi.string().allow(null, '').optional(),
+	datastore_database_write: Joi.string().allow(null, '').optional(),
+	datastore_table_read: Joi.string().allow(null, '').optional(),
+	datastore_table_write: Joi.string().allow(null, '').optional(),
+	datastore_record_read: Joi.string().allow(null, '').optional(),
+	datastore_record_write: Joi.string().allow(null, '').optional(),
+	datastore_query_read: Joi.string().allow(null, '').optional(),
+	datastore_query_write: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
@@ -1026,6 +1048,12 @@ export const joiIntegrationSupport = Joi.object({
 	list_reference: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_reference: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_account_id: joiSupportInboundType.allow(null).optional(),
+	list_database_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_database_id: joiSupportInboundType.allow(null).optional(),
+	native_webhook_database_id: joiSupportInboundType.allow(null).optional(),
+	list_table_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_table_id: joiSupportInboundType.allow(null).optional(),
+	native_webhook_table_id: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
