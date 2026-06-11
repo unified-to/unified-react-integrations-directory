@@ -862,6 +862,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_database_id?: TSupportInboundType;
 	native_webhook_database_id?: TSupportInboundType;
 	list_table_id?: TSupportInboundType;
+	virtual_webhook_table_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
