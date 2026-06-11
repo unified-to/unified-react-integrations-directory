@@ -51,6 +51,7 @@ components:
       - assessment
       - signing
       - clubs
+      - datastore
     IntegrationPermission:
       type: string
       enum:
@@ -306,6 +307,14 @@ components:
       - clubs_location_write
       - clubs_event_read
       - clubs_event_write
+      - datastore_database_read
+      - datastore_database_write
+      - datastore_table_read
+      - datastore_table_write
+      - datastore_record_read
+      - datastore_record_write
+      - datastore_query_read
+      - datastore_query_write
     IntegrationSupportWebhookType:
       type: string
       enum:
@@ -461,6 +470,10 @@ components:
       - clubs_activity
       - clubs_location
       - clubs_event
+      - datastore_database
+      - datastore_table
+      - datastore_record
+      - datastore_query
     PlanTerm:
       type: string
       enum:
@@ -502,6 +515,7 @@ components:
       - mssql
       - mariadb
       - supabase
+      - snowflake
     WebhookDataType:
       type: string
       enum:
@@ -1067,6 +1081,18 @@ components:
         virtual_webhook_reference:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_account_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_database_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_database_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_database_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_table_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_table_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_table_id:
           $ref: "#/components/schemas/SupportInboundType"
       required:
 
