@@ -49,7 +49,8 @@ export const IntegrationCategory = [
 	'shipping',
 	'assessment',
 	'signing',
-	'clubs'
+	'clubs',
+	'datastore'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
