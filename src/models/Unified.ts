@@ -858,6 +858,7 @@ export interface IIntegrationSupport {
 	list_reference?: TSupportInboundType;
 	virtual_webhook_reference?: TSupportInboundType;
 	virtual_webhook_account_id?: TSupportInboundType;
+	list_database_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
