@@ -467,7 +467,11 @@ export const ObjectType = [
 	'clubs_member',
 	'clubs_activity',
 	'clubs_location',
-	'clubs_event'
+	'clubs_event',
+	'datastore_database',
+	'datastore_table',
+	'datastore_record',
+	'datastore_query'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
