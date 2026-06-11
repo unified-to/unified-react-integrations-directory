@@ -306,7 +306,15 @@ export const IntegrationPermission = [
 	'clubs_location_read',
 	'clubs_location_write',
 	'clubs_event_read',
-	'clubs_event_write'
+	'clubs_event_write',
+	'datastore_database_read',
+	'datastore_database_write',
+	'datastore_table_read',
+	'datastore_table_write',
+	'datastore_record_read',
+	'datastore_record_write',
+	'datastore_query_read',
+	'datastore_query_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
