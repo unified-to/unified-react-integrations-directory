@@ -44,6 +44,7 @@ enum ENUM_IntegrationCategory {
 	assessment
 	signing
 	clubs
+	datastore
 }
 
 enum ENUM_IntegrationPermission {
@@ -299,6 +300,14 @@ enum ENUM_IntegrationPermission {
 	clubs_location_write
 	clubs_event_read
 	clubs_event_write
+	datastore_database_read
+	datastore_database_write
+	datastore_table_read
+	datastore_table_write
+	datastore_record_read
+	datastore_record_write
+	datastore_query_read
+	datastore_query_write
 }
 
 enum ENUM_IntegrationSupportWebhookType {
@@ -454,6 +463,10 @@ enum ENUM_ObjectType {
 	clubs_activity
 	clubs_location
 	clubs_event
+	datastore_database
+	datastore_table
+	datastore_record
+	datastore_query
 }
 
 enum ENUM_PlanTerm {
@@ -495,6 +508,7 @@ enum ENUM_WebhookDatabaseType {
 	mssql
 	mariadb
 	supabase
+	snowflake
 }
 
 enum ENUM_WebhookDataType {
@@ -835,6 +849,14 @@ input Map_IntegrationPermission_string_Input {
 	clubs_location_write: String!
 	clubs_event_read: String!
 	clubs_event_write: String!
+	datastore_database_read: String!
+	datastore_database_write: String!
+	datastore_table_read: String!
+	datastore_table_write: String!
+	datastore_record_read: String!
+	datastore_record_write: String!
+	datastore_query_read: String!
+	datastore_query_write: String!
 }
 
 type Map_IntegrationPermission_string {
@@ -1090,6 +1112,14 @@ type Map_IntegrationPermission_string {
 	clubs_location_write: String!
 	clubs_event_read: String!
 	clubs_event_write: String!
+	datastore_database_read: String!
+	datastore_database_write: String!
+	datastore_table_read: String!
+	datastore_table_write: String!
+	datastore_record_read: String!
+	datastore_record_write: String!
+	datastore_query_read: String!
+	datastore_query_write: String!
 }
 
 """
@@ -1608,6 +1638,12 @@ objects that we map from in the integration
 	list_reference: ENUM_SupportInboundType
 	virtual_webhook_reference: ENUM_SupportInboundType
 	virtual_webhook_account_id: ENUM_SupportInboundType
+	list_database_id: ENUM_SupportInboundType
+	virtual_webhook_database_id: ENUM_SupportInboundType
+	native_webhook_database_id: ENUM_SupportInboundType
+	list_table_id: ENUM_SupportInboundType
+	virtual_webhook_table_id: ENUM_SupportInboundType
+	native_webhook_table_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1779,6 +1815,12 @@ objects that we map from in the integration
 	list_reference: ENUM_SupportInboundType
 	virtual_webhook_reference: ENUM_SupportInboundType
 	virtual_webhook_account_id: ENUM_SupportInboundType
+	list_database_id: ENUM_SupportInboundType
+	virtual_webhook_database_id: ENUM_SupportInboundType
+	native_webhook_database_id: ENUM_SupportInboundType
+	list_table_id: ENUM_SupportInboundType
+	virtual_webhook_table_id: ENUM_SupportInboundType
+	native_webhook_table_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
