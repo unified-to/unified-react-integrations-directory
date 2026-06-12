@@ -7,8 +7,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { CATEGORIES } from './models/Unified';
+function normalizeTheme(value) {
+    if (!value) {
+        return 'auto';
+    }
+    const normalized = value.toLowerCase().trim();
+    if (normalized === 'dark' || normalized.startsWith('dark')) {
+        return 'dark';
+    }
+    if (normalized === 'light' || normalized.startsWith('light')) {
+        return 'light';
+    }
+    return 'auto';
+}
+function getThemeFromUrl() {
+    if (typeof window === 'undefined') {
+        return undefined;
+    }
+    return new URLSearchParams(window.location.search).get('theme') || undefined;
+}
 const MAP_REGION = {
     us: 'https://api.unified.to',
     us_beta: 'https://api-beta.unified.to',
@@ -28,6 +47,8 @@ export default function UnifiedDirectory(props) {
     const [selectedCategory, setCategory] = useState('');
     const [loading, setLoading] = useState(undefined);
     const [search, setSearch] = useState('');
+    const resolvedTheme = useMemo(() => normalizeTheme(props.theme || getThemeFromUrl()), [props.theme]);
+    const themeClass = resolvedTheme === 'light' ? 'unified-theme-light' : '';
     useEffect(() => {
         if (!loading && !INTEGRATIONS.length) {
             setLoading(true);
@@ -81,6 +102,9 @@ export default function UnifiedDirectory(props) {
         if (props.lang) {
             url += `&lang=${props.lang}`;
         }
+        if (resolvedTheme !== 'auto') {
+            url += `&theme=${encodeURIComponent(resolvedTheme)}`;
+        }
         url += `&success_redirect=${encodeURIComponent(props.success_redirect || '')}`;
         url += `&failure_redirect=${encodeURIComponent(props.failure_redirect || '')}`;
         return url;
@@ -107,7 +131,7 @@ export default function UnifiedDirectory(props) {
             }
         });
     }
-    return (React.createElement("div", { className: "unified" },
+    const directory = (React.createElement("div", { className: `unified${themeClass ? ` ${themeClass}` : ''}` },
         !props.nostyle && React.createElement("style", null, "@import url(https://api.unified.to/docs/unified.css)"),
         !props.notabs && CATEGORIES && CATEGORIES.length > 0 && filter(INTEGRATIONS).length && !loading && (React.createElement("div", { className: "unified_menu" },
             React.createElement("button", { className: `unified_button unified_button_all ${selectedCategory ? '' : ' active'}`, onClick: () => setCategory('') }, "All"),
@@ -126,5 +150,9 @@ export default function UnifiedDirectory(props) {
                             React.createElement("span", null, CATEGORY_MAP[cat])))))))),
             loading !== undefined && filter(INTEGRATIONS).length === 0 && React.createElement("div", { className: "unified_vendor" }, "No integrations available"))),
         loading && React.createElement("div", { className: "unified_loading" }, "Loading...")));
+    if (resolvedTheme === 'dark') {
+        return React.createElement("div", { className: "dark-theme" }, directory);
+    }
+    return directory;
 }
 //# sourceMappingURL=UnifiedReactDirectory.js.map

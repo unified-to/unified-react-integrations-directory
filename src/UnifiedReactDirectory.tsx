@@ -1,5 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { TIntegrationCategory, CATEGORIES } from './models/Unified';
+
+type UnifiedTheme = 'dark' | 'light' | 'auto';
+
+function normalizeTheme(value?: string | null): UnifiedTheme {
+    if (!value) {
+        return 'auto';
+    }
+    const normalized = value.toLowerCase().trim();
+    if (normalized === 'dark' || normalized.startsWith('dark')) {
+        return 'dark';
+    }
+    if (normalized === 'light' || normalized.startsWith('light')) {
+        return 'light';
+    }
+    return 'auto';
+}
+
+function getThemeFromUrl(): string | undefined {
+    if (typeof window === 'undefined') {
+        return undefined;
+    }
+    return new URLSearchParams(window.location.search).get('theme') || undefined;
+}
 
 interface IIntegration {
     type: string;
@@ -25,6 +48,7 @@ interface UnifiedDirectoryProps {
     notabs?: boolean;
     nocategories?: boolean;
     dc?: 'us' | 'eu' | 'au';
+    theme?: string;
 }
 
 const MAP_REGION = {
@@ -51,6 +75,10 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const [selectedCategory, setCategory] = useState<TIntegrationCategory | ''>('');
     const [loading, setLoading] = useState<boolean | undefined>(undefined);
     const [search, setSearch] = useState<string>('');
+
+    const resolvedTheme = useMemo(() => normalizeTheme(props.theme || getThemeFromUrl()), [props.theme]);
+
+    const themeClass = resolvedTheme === 'light' ? 'unified-theme-light' : '';
 
     useEffect(() => {
         if (!loading && !INTEGRATIONS.length) {
@@ -109,6 +137,9 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
         if (props.lang) {
             url += `&lang=${props.lang}`;
         }
+        if (resolvedTheme !== 'auto') {
+            url += `&theme=${encodeURIComponent(resolvedTheme)}`;
+        }
 
         url += `&success_redirect=${encodeURIComponent(props.success_redirect || '')}`;
         url += `&failure_redirect=${encodeURIComponent(props.failure_redirect || '')}`;
@@ -140,8 +171,8 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
         }
     }
 
-    return (
-        <div className="unified">
+    const directory = (
+        <div className={`unified${themeClass ? ` ${themeClass}` : ''}`}>
             {!props.nostyle && <style>@import url(https://api.unified.to/docs/unified.css)</style>}
             {!props.notabs && CATEGORIES && CATEGORIES.length > 0 && filter(INTEGRATIONS).length && !loading && (
                 <div className="unified_menu">
@@ -187,4 +218,10 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
             {loading && <div className="unified_loading">Loading...</div>}
         </div>
     );
+
+    if (resolvedTheme === 'dark') {
+        return <div className="dark-theme">{directory}</div>;
+    }
+
+    return directory;
 }

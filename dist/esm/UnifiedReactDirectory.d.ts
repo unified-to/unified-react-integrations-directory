@@ -14,6 +14,7 @@ interface UnifiedDirectoryProps {
     notabs?: boolean;
     nocategories?: boolean;
     dc?: 'us' | 'eu' | 'au';
+    theme?: string;
 }
 export default function UnifiedDirectory(props: UnifiedDirectoryProps): React.JSX.Element;
 export {};

@@ -54,6 +54,7 @@ The following are the `props` that can be passed to the component:
     notabs?: boolean;       // Do not display tabs in the embedded directory
     nocategories?: boolean; // Do not display category badges for each integration
     dc?: 'us'|'eu';         // data-region
+    theme?: string;         // Theme mode: 'dark', 'light', or omit for auto-detect (also reads ?theme= from URL)
 
 
 }
