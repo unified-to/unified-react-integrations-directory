@@ -1077,8 +1077,6 @@ export interface IWorkspaceIntegration {
 	updated_at?: (string | Date | number);
 	workspace_id?: string;
 	integration_type: string;
-	client_id?: string; //  @deprecated: use auth.client_id instead
-	client_secret?: string; // @deprecated: use auth.client_secret instead
 	consumer_key?: string; // @deprecated: use auth.consumer_key instead
 	consumer_secret?: string; // @deprecated: use auth.consumer_secret instead
 	is_active: boolean;
