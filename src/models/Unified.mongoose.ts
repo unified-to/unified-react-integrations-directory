@@ -4,6 +4,9 @@
 
 import { SchemaTypes } from 'mongoose';
 
+export const schema = {
+};
+
 export const schemaApiCall = {
 	connection_id: { type: SchemaTypes.ObjectId, index: true, ref: 'Connection' },
 	workspace_id: { type: SchemaTypes.ObjectId, index: true, ref: 'Workspace' },
@@ -66,11 +69,7 @@ export const schemaConnection = {
 	categories: { type: [ String ], enum: [ 'passthrough', 'hris', 'ats', 'auth', 'crm', 'enrich', 'martech', 'ticketing', 'uc', 'accounting', 'storage', 'commerce', 'payment', 'genai', 'messaging', 'kms', 'task', 'scim', 'lms', 'repo', 'metadata', 'calendar', 'verification', 'ads', 'forms', 'shipping', 'assessment', 'signing', 'clubs', 'datastore' ], index: true }, // The Integration categories that this connection supports
 	auth: { type: schemaConnectionAuth },
 	is_paused: { type: Boolean }, // Whether this integration has exceed the monthly limit of the plan
-	auth_aws_arn: { type: String }, // the AWS ARN / secretID for the stored auth field
 	environment: { type: String, default: 'Production' },
-	auth_azure_keyvault_id: { type: String }, // the Azure Key Vault ID for the stored auth field
-	auth_gcp_secret_name: { type: String }, // the Google Cloud Secret Manager name for the stored auth field
-	auth_hashi_vault_path: { type: String }, // the HashiCorp Vault path for the stored auth field
 	last_healthy_at: { type: Date },
 	last_unhealthy_at: { type: Date },
 	secretsmanager_id: { type: SchemaTypes.ObjectId, ref: 'SecretsManager' }, // the ID of the SecretsManager object
@@ -284,12 +283,18 @@ export const schemaNotification = {
 export const schemaSecretsManager = {
 	created_at: { type: Date },
 	updated_at: { type: Date },
-	type: { type: String, enum: [ 'aws', 'azure', 'gcp', 'hashicorp' ] },
+	type: { type: String, enum: [ 'aws', 'azure', 'gcp', 'hashicorp', 'composio' ] },
 	name: { type: String },
 	workspace_id: { type: SchemaTypes.ObjectId, index: true, ref: 'Workspace' },
 	auth: { type: Object }, // secrets-manager specific authentication values
-	environments: { type: [ String ] },
 	dcs: { type: [ String ] }, // data-regions
+};
+
+export const schemaSecretsManagerInstructions = {
+	type: { type: String, enum: [ 'aws', 'azure', 'gcp', 'hashicorp', 'composio' ] },
+	key: { type: String },
+	label: { type: String },
+	instructions: { type: String },
 };
 
 export const schemaUser = {
@@ -354,11 +359,6 @@ export const schemaWorkspace = {
 	secret: { type: String }, // Workspace API secret
 	ip_allowlist: { type: [ schemaWorkspaceIpAllowlistEntry ] },
 	restrict_ips: { type: Boolean },
-	aws_region: { type: String },
-	aws_key: { type: String },
-	aws_secret: { type: String },
-	auth_aws_external_id: { type: String }, // External ID will be the identifier used by the customer to verify the role assumption.
-	auth_aws_arn: { type: String }, // ARN will be used to assume the role for the workspace's AWS resources. (i.e. secret manager)
 	datadog_apikey: { type: String },
 	datadog_site: { type: String },
 	environments: { type: [ String ] }, // a list of authentication environments for the workspace integrations
@@ -383,18 +383,6 @@ export const schemaWorkspace = {
 	saml_only_login: { type: Boolean }, // if true, only allow SAML login
 	sync_objects: { type: [ String ], enum: [ 'workspace', 'workspace-secrets', 'workspaceintegrations', 'users', 'keys', 'notifications' ] },
 	sync_parent_dc: { type: String }, // us, eu, au
-	azure_keyvault_url: { type: String },
-	azure_tenant_id: { type: String },
-	azure_client_id: { type: String },
-	azure_client_secret: { type: String },
-	gcp_project_id: { type: String },
-	gcp_client_email: { type: String },
-	gcp_private_key: { type: String },
-	hashicorp_vault_url: { type: String },
-	hashicorp_vault_token: { type: String },
-	hashicorp_vault_namespace: { type: String },
-	hashicorp_vault_kv_mount: { type: String },
-	hashicorp_vault_kv_version: { type: String }, // 1 or 2
 	grafana_apikey: { type: String },
 	grafana_site: { type: String },
 	grafana_username: { type: String }, // Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
@@ -423,10 +411,6 @@ export const schemaWorkspaceIntegration = {
 	updated_at: { type: Date },
 	workspace_id: { type: SchemaTypes.ObjectId, index: true, ref: 'Workspace' },
 	integration_type: { type: String },
-	client_id: { type: String }, //  @deprecated: use auth.client_id instead
-	client_secret: { type: String }, // @deprecated: use auth.client_secret instead
-	consumer_key: { type: String }, // @deprecated: use auth.consumer_key instead
-	consumer_secret: { type: String }, // @deprecated: use auth.consumer_secret instead
 	is_active: { type: Boolean },
 	api_url: { type: String },
 	authorize_url: { type: String },
@@ -441,10 +425,6 @@ export const schemaWorkspaceIntegration = {
 	dev_api_key: { type: String }, // @deprecated: use auth.dev_api_key instead
 	overriden_scopes: { type: Object },
 	auth: { type: schemaWorkspaceIntegrationAuth },
-	auth_aws_arn: { type: String },
-	auth_azure_keyvault_id: { type: String },
-	auth_gcp_secret_name: { type: String },
-	auth_hashi_vault_path: { type: String },
 	secretsmanager_id: { type: SchemaTypes.ObjectId, ref: 'SecretsManager' }, // the ID of the SecretsManager object
 	secretsmanager_key: { type: String }, // the key/path/name of the secret within the vault
 };
