@@ -482,7 +482,8 @@ export const joiSecretsManagerType = Joi.string().valid(
 	'aws',
 	'azure',
 	'gcp',
-	'hashicorp');
+	'hashicorp',
+	'composio');
 
 export const joiSupportInboundType = Joi.string().valid(
 	'supported-required',
@@ -804,6 +805,9 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	datastore_query_write: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
+export const joi = Joi.object({
+}).label('');
+
 export const joiApiCall = Joi.object({
 	id: Joi.string().allow(null, '').description('Unique identifier for this API call').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).description('The date that this object was created').meta( { readonly: true }).optional(),
@@ -871,11 +875,7 @@ export const joiConnection = Joi.object({
 	categories: Joi.array().items(joiIntegrationCategory).description('The Integration categories that this connection supports').required(),
 	auth: joiConnectionAuth.allow(null).optional(),
 	is_paused: Joi.boolean().allow(null).description('Whether this integration has exceed the monthly limit of the plan').meta( { readonly: true }).optional(),
-	auth_aws_arn: Joi.string().allow(null, '').description('the AWS ARN / secretID for the stored auth field').optional(),
 	environment: Joi.string().allow(null, '').default('Production').optional(),
-	auth_azure_keyvault_id: Joi.string().allow(null, '').description('the Azure Key Vault ID for the stored auth field').optional(),
-	auth_gcp_secret_name: Joi.string().allow(null, '').description('the Google Cloud Secret Manager name for the stored auth field').optional(),
-	auth_hashi_vault_path: Joi.string().allow(null, '').description('the HashiCorp Vault path for the stored auth field').optional(),
 	last_healthy_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
 	last_unhealthy_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
 	secretsmanager_id: Joi.string().allow(null, '').description('the ID of the SecretsManager object').optional(),
@@ -1160,9 +1160,15 @@ export const joiSecretsManager = Joi.object({
 	name: Joi.string().allow('').required(),
 	workspace_id: Joi.string().allow(null, '').optional(),
 	auth: Joi.object().pattern(Joi.string(), Joi.string().optional().allow(null,'')).description('secrets-manager specific authentication values').required(),
-	environments: Joi.array().items(Joi.string().allow(null, '')).optional(),
 	dcs: Joi.array().items(Joi.string().allow(null, '')).description('data-regions').optional(),
 }).label('SecretsManager');
+
+export const joiSecretsManagerInstructions = Joi.object({
+	type: joiSecretsManagerType.allow(null).optional(),
+	key: Joi.string().allow('').required(),
+	label: Joi.string().allow('').required(),
+	instructions: Joi.string().allow(null, '').optional(),
+}).label('SecretsManagerInstructions');
 
 export const joiUser = Joi.object({
 	id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
@@ -1235,11 +1241,6 @@ export const joiWorkspace = Joi.object({
 	secret: Joi.string().allow(null, '').description('Workspace API secret').meta( { readonly: true }).optional(),
 	ip_allowlist: Joi.array().items(joiWorkspaceIpAllowlistEntry).optional(),
 	restrict_ips: Joi.boolean().allow(null).optional(),
-	aws_region: Joi.string().allow(null, '').optional(),
-	aws_key: Joi.string().allow(null, '').optional(),
-	aws_secret: Joi.string().allow(null, '').optional(),
-	auth_aws_external_id: Joi.string().allow(null, '').description('External ID will be the identifier used by the customer to verify the role assumption.').optional(),
-	auth_aws_arn: Joi.string().allow(null, '').description('ARN will be used to assume the role for the workspace\'s AWS resources. (i.e. secret manager)').optional(),
 	datadog_apikey: Joi.string().allow(null, '').optional(),
 	datadog_site: Joi.string().allow(null, '').optional(),
 	environments: Joi.array().items(Joi.string().allow(null, '')).description('a list of authentication environments for the workspace integrations').optional(),
@@ -1264,18 +1265,6 @@ export const joiWorkspace = Joi.object({
 	saml_only_login: Joi.boolean().allow(null).description('if true, only allow SAML login').optional(),
 	sync_objects: Joi.array().items(joiRegionSyncType).optional(),
 	sync_parent_dc: Joi.string().allow(null, '').description('us, eu, au').optional(),
-	azure_keyvault_url: Joi.string().allow(null, '').optional(),
-	azure_tenant_id: Joi.string().allow(null, '').optional(),
-	azure_client_id: Joi.string().allow(null, '').optional(),
-	azure_client_secret: Joi.string().allow(null, '').optional(),
-	gcp_project_id: Joi.string().allow(null, '').optional(),
-	gcp_client_email: Joi.string().allow(null, '').optional(),
-	gcp_private_key: Joi.string().allow(null, '').optional(),
-	hashicorp_vault_url: Joi.string().allow(null, '').optional(),
-	hashicorp_vault_token: Joi.string().allow(null, '').optional(),
-	hashicorp_vault_namespace: Joi.string().allow(null, '').optional(),
-	hashicorp_vault_kv_mount: Joi.string().allow(null, '').optional(),
-	hashicorp_vault_kv_version: Joi.string().allow(null, '').description('1 or 2').optional(),
 	grafana_apikey: Joi.string().allow(null, '').optional(),
 	grafana_site: Joi.string().allow(null, '').optional(),
 	grafana_username: Joi.string().allow(null, '').description('Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)').optional(),
@@ -1305,10 +1294,6 @@ export const joiWorkspaceIntegration = Joi.object({
 	updated_at: Joi.date().allow(null).optional(),
 	workspace_id: Joi.string().allow(null, '').optional(),
 	integration_type: Joi.string().allow('').required(),
-	client_id: Joi.string().allow(null, '').description(' @deprecated: use auth.client_id instead').optional(),
-	client_secret: Joi.string().allow(null, '').description('@deprecated: use auth.client_secret instead').optional(),
-	consumer_key: Joi.string().allow(null, '').description('@deprecated: use auth.consumer_key instead').optional(),
-	consumer_secret: Joi.string().allow(null, '').description('@deprecated: use auth.consumer_secret instead').optional(),
 	is_active: Joi.boolean().required(),
 	api_url: Joi.string().allow(null, '').optional(),
 	authorize_url: Joi.string().allow(null, '').optional(),
@@ -1323,10 +1308,6 @@ export const joiWorkspaceIntegration = Joi.object({
 	dev_api_key: Joi.string().allow(null, '').description('@deprecated: use auth.dev_api_key instead').optional(),
 	overriden_scopes: joimap_IntegrationPermission_string.allow(null).optional(),
 	auth: joiWorkspaceIntegrationAuth.allow(null).optional(),
-	auth_aws_arn: Joi.string().allow(null, '').optional(),
-	auth_azure_keyvault_id: Joi.string().allow(null, '').optional(),
-	auth_gcp_secret_name: Joi.string().allow(null, '').optional(),
-	auth_hashi_vault_path: Joi.string().allow(null, '').optional(),
 	secretsmanager_id: Joi.string().allow(null, '').description('the ID of the SecretsManager object').optional(),
 	secretsmanager_key: Joi.string().allow(null, '').description('the key/path/name of the secret within the vault').optional(),
 }).label('WorkspaceIntegration');
