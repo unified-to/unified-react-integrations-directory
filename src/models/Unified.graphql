@@ -1123,12 +1123,6 @@ type Map_IntegrationPermission_string {
 	datastore_query_write: String!
 }
 
-input _Input {
-}
-
-type  {
-}
-
 """
 A connection represents a specific authentication of an integration.
 """
@@ -2307,22 +2301,10 @@ input WorkspaceIntegration_Input {
 	base_url: String
 	prompt_region: Boolean
 """
-@deprecated: use auth.pem instead
-"""
-	pem: String
-"""
-@deprecated: use auth.pem instead
-"""
-	key: String
-"""
 authentication environment
 """
 	environment: String
 	categories: [ENUM_IntegrationCategory]
-"""
-@deprecated: use auth.dev_api_key instead
-"""
-	dev_api_key: String
 	overriden_scopes: Map_IntegrationPermission_string
 	auth: WorkspaceIntegrationAuth_Input
 """
@@ -2349,22 +2331,10 @@ type WorkspaceIntegration {
 	base_url: String
 	prompt_region: Boolean
 """
-@deprecated: use auth.pem instead
-"""
-	pem: String
-"""
-@deprecated: use auth.pem instead
-"""
-	key: String
-"""
 authentication environment
 """
 	environment: String
 	categories: [ENUM_IntegrationCategory]
-"""
-@deprecated: use auth.dev_api_key instead
-"""
-	dev_api_key: String
 	overriden_scopes: Map_IntegrationPermission_string
 	auth: WorkspaceIntegrationAuth
 """
