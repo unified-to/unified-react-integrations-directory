@@ -1044,7 +1044,6 @@ export interface IWorkspace {
 	saml_only_login?: boolean; // if true, only allow SAML login
 	sync_objects?: ( TRegionSyncType )[];
 	sync_parent_dc?: string; // us, eu, au
-	hashicorp_vault_kv_version?: string; // 1 or 2
 	grafana_apikey?: string;
 	grafana_site?: string;
 	grafana_username?: string; // Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
