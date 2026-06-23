@@ -4,9 +4,6 @@
 
 import { SchemaTypes } from 'mongoose';
 
-export const schema = {
-};
-
 export const schemaApiCall = {
 	connection_id: { type: SchemaTypes.ObjectId, index: true, ref: 'Connection' },
 	workspace_id: { type: SchemaTypes.ObjectId, index: true, ref: 'Workspace' },
@@ -418,11 +415,8 @@ export const schemaWorkspaceIntegration = {
 	refresh_url: { type: String },
 	base_url: { type: String },
 	prompt_region: { type: Boolean },
-	pem: { type: String }, // @deprecated: use auth.pem instead
-	key: { type: String }, // @deprecated: use auth.pem instead
 	environment: { type: String, default: 'Production' }, // authentication environment
 	categories: { type: [ String ], enum: [ 'passthrough', 'hris', 'ats', 'auth', 'crm', 'enrich', 'martech', 'ticketing', 'uc', 'accounting', 'storage', 'commerce', 'payment', 'genai', 'messaging', 'kms', 'task', 'scim', 'lms', 'repo', 'metadata', 'calendar', 'verification', 'ads', 'forms', 'shipping', 'assessment', 'signing', 'clubs', 'datastore' ] },
-	dev_api_key: { type: String }, // @deprecated: use auth.dev_api_key instead
 	overriden_scopes: { type: Object },
 	auth: { type: schemaWorkspaceIntegrationAuth },
 	secretsmanager_id: { type: SchemaTypes.ObjectId, ref: 'SecretsManager' }, // the ID of the SecretsManager object
