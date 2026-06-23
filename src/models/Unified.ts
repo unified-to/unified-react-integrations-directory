@@ -507,7 +507,8 @@ export const SecretsManagerType = [
 	'aws',
 	'azure',
 	'gcp',
-	'hashicorp'
+	'hashicorp',
+	'composio'
 ] as const;
 
 export type TSecretsManagerType = typeof SecretsManagerType[number];
@@ -1077,7 +1078,6 @@ export interface IWorkspaceIntegration {
 	updated_at?: (string | Date | number);
 	workspace_id?: string;
 	integration_type: string;
-	consumer_secret?: string; // @deprecated: use auth.consumer_secret instead
 	is_active: boolean;
 	api_url?: string;
 	authorize_url?: string;
