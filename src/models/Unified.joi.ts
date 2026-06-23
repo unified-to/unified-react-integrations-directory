@@ -805,9 +805,6 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	datastore_query_write: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
-export const joi = Joi.object({
-}).label('');
-
 export const joiApiCall = Joi.object({
 	id: Joi.string().allow(null, '').description('Unique identifier for this API call').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).description('The date that this object was created').meta( { readonly: true }).optional(),
@@ -1301,11 +1298,8 @@ export const joiWorkspaceIntegration = Joi.object({
 	refresh_url: Joi.string().uri().allow(null, '').optional(),
 	base_url: Joi.string().allow(null, '').optional(),
 	prompt_region: Joi.boolean().allow(null).optional(),
-	pem: Joi.string().allow(null, '').description('@deprecated: use auth.pem instead').optional(),
-	key: Joi.string().allow(null, '').description('@deprecated: use auth.pem instead').optional(),
 	environment: Joi.string().allow(null, '').default('Production').description('authentication environment').optional(),
 	categories: Joi.array().items(joiIntegrationCategory).optional(),
-	dev_api_key: Joi.string().allow(null, '').description('@deprecated: use auth.dev_api_key instead').optional(),
 	overriden_scopes: joimap_IntegrationPermission_string.allow(null).optional(),
 	auth: joiWorkspaceIntegrationAuth.allow(null).optional(),
 	secretsmanager_id: Joi.string().allow(null, '').description('the ID of the SecretsManager object').optional(),
