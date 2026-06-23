@@ -4,9 +4,6 @@ syntax = "proto3";
 
 import "google/protobuf/struct.proto";
 
-message  {
-}
-
 // An authentication object that represents a specific authorized user's connection to an integration.
 
 message ConnectionAuth {
@@ -478,14 +475,11 @@ message WorkspaceIntegration {
 	optional string refresh_url = 10;
 	optional string base_url = 11;
 	optional bool prompt_region = 12;
-	optional string pem = 13; // @deprecated: use auth.pem instead
-	optional string key = 14; // @deprecated: use auth.pem instead
-	optional string environment = 15; // authentication environment Default value: Production
-	repeated string categories = 16;
-	optional string dev_api_key = 17; // @deprecated: use auth.dev_api_key instead
-	map<string, string> overriden_scopes = 18;
-	optional WorkspaceIntegrationAuth auth = 19;
-	optional string secretsmanager_id = 20; // the ID of the SecretsManager object
-	optional string secretsmanager_key = 21; // the key/path/name of the secret within the vault
+	optional string environment = 13; // authentication environment Default value: Production
+	repeated string categories = 14;
+	map<string, string> overriden_scopes = 15;
+	optional WorkspaceIntegrationAuth auth = 16;
+	optional string secretsmanager_id = 17; // the ID of the SecretsManager object
+	optional string secretsmanager_key = 18; // the key/path/name of the secret within the vault
 }
 
