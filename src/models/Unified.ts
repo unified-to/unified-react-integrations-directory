@@ -1044,7 +1044,6 @@ export interface IWorkspace {
 	saml_only_login?: boolean; // if true, only allow SAML login
 	sync_objects?: ( TRegionSyncType )[];
 	sync_parent_dc?: string; // us, eu, au
-	gcp_project_id?: string;
 	gcp_client_email?: string;
 	gcp_private_key?: string;
 	hashicorp_vault_url?: string;
