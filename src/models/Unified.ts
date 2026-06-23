@@ -949,7 +949,7 @@ export interface ISecretsManager {
 }
 
 export interface ISecretsManagerInstructions {
-	type: TSecretsManagerType;
+	type?: TSecretsManagerType;
 	key: string;
 	label: string;
 	instructions?: string;
