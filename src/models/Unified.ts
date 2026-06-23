@@ -623,7 +623,6 @@ export interface IConnection {
 	auth?: IConnectionAuth;
 	is_paused?: boolean; // Whether this integration has exceed the monthly limit of the plan
 	environment?: string;
-	auth_hashi_vault_path?: string; // the HashiCorp Vault path for the stored auth field
 	last_healthy_at?: (string | Date | number);
 	last_unhealthy_at?: (string | Date | number);
 	secretsmanager_id?: string; // the ID of the SecretsManager object
