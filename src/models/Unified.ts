@@ -622,7 +622,6 @@ export interface IConnection {
 	categories: ( TIntegrationCategory )[]; // The Integration categories that this connection supports
 	auth?: IConnectionAuth;
 	is_paused?: boolean; // Whether this integration has exceed the monthly limit of the plan
-	auth_aws_arn?: string; // the AWS ARN / secretID for the stored auth field
 	environment?: string;
 	auth_azure_keyvault_id?: string; // the Azure Key Vault ID for the stored auth field
 	auth_gcp_secret_name?: string; // the Google Cloud Secret Manager name for the stored auth field
