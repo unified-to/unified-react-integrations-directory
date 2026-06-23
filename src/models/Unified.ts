@@ -1020,7 +1020,6 @@ export interface IWorkspace {
 	secret?: string; // Workspace API secret
 	ip_allowlist?: IWorkspaceIpAllowlistEntry[];
 	restrict_ips?: boolean;
-	aws_region?: string;
 	aws_key?: string;
 	aws_secret?: string;
 	auth_aws_external_id?: string; // External ID will be the identifier used by the customer to verify the role assumption.
