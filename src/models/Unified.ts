@@ -1111,6 +1111,14 @@ export interface IWorkspaceIpAllowlistEntry {
 	expires_at?: (string | Date | number);
 }
 
+export interface ISecretsManagerInstructions {
+	type: TSecretsManagerType;
+	auth: I{;
+	key: string;
+	label: string;
+	instructions?: string;
+}
+
 export const CATEGORIES: ICategories[] = [
     { category: 'crm', label: 'CRM' },
     { category: 'martech', label: 'Marketing' },
