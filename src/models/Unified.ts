@@ -1020,7 +1020,6 @@ export interface IWorkspace {
 	secret?: string; // Workspace API secret
 	ip_allowlist?: IWorkspaceIpAllowlistEntry[];
 	restrict_ips?: boolean;
-	auth_aws_arn?: string; // ARN will be used to assume the role for the workspace's AWS resources. (i.e. secret manager)
 	datadog_apikey?: string;
 	datadog_site?: string;
 	environments?: string[]; // a list of authentication environments for the workspace integrations
