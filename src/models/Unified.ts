@@ -1077,7 +1077,6 @@ export interface IWorkspaceIntegration {
 	dev_api_key?: string; // @deprecated: use auth.dev_api_key instead
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
 	auth?: IWorkspaceIntegrationAuth;
-	auth_aws_arn?: string;
 	auth_azure_keyvault_id?: string;
 	auth_gcp_secret_name?: string;
 	auth_hashi_vault_path?: string;
