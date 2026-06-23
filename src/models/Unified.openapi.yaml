@@ -530,12 +530,6 @@ components:
       - updated
       - created
       - deleted
-    :
-      type: object
-      properties:
-
-      required:
-
     Connection:
       type: object
       description: A connection represents a specific authentication of an integration.
@@ -1548,21 +1542,12 @@ components:
           type: string
         prompt_region:
           type: boolean
-        pem:
-          type: string
-          description: @deprecated: use auth.pem instead
-        key:
-          type: string
-          description: @deprecated: use auth.pem instead
         environment:
           type: string
           description: authentication environment
           default: "Production"
         categories:
           $ref: "#/components/schemas/IntegrationCategories"
-        dev_api_key:
-          type: string
-          description: @deprecated: use auth.dev_api_key instead
         overriden_scopes:
           type: object
           additionalProperties:
