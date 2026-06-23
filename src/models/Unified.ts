@@ -1044,7 +1044,6 @@ export interface IWorkspace {
 	saml_only_login?: boolean; // if true, only allow SAML login
 	sync_objects?: ( TRegionSyncType )[];
 	sync_parent_dc?: string; // us, eu, au
-	hashicorp_vault_url?: string;
 	hashicorp_vault_token?: string;
 	hashicorp_vault_namespace?: string;
 	hashicorp_vault_kv_mount?: string;
