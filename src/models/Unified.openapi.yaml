@@ -495,6 +495,7 @@ components:
       - azure
       - gcp
       - hashicorp
+      - composio
     SupportInboundType:
       type: string
       enum:
@@ -529,6 +530,12 @@ components:
       - updated
       - created
       - deleted
+    :
+      type: object
+      properties:
+
+      required:
+
     Connection:
       type: object
       description: A connection represents a specific authentication of an integration.
@@ -564,21 +571,9 @@ components:
         is_paused:
           type: boolean
           description: Whether this integration has exceed the monthly limit of the plan
-        auth_aws_arn:
-          type: string
-          description: the AWS ARN / secretID for the stored auth field
         environment:
           type: string
           default: "Production"
-        auth_azure_keyvault_id:
-          type: string
-          description: the Azure Key Vault ID for the stored auth field
-        auth_gcp_secret_name:
-          type: string
-          description: the Google Cloud Secret Manager name for the stored auth field
-        auth_hashi_vault_path:
-          type: string
-          description: the HashiCorp Vault path for the stored auth field
         last_healthy_at:
           type: string
           format: date-time
@@ -1251,8 +1246,6 @@ components:
           additionalProperties:
             type: string
           description: secrets-manager specific authentication values
-        environments:
-          $ref: "#/components/schemas/strings"
         dcs:
           $ref: "#/components/schemas/strings"
           description: data-regions
@@ -1260,6 +1253,20 @@ components:
         - type
         - name
         - auth
+    SecretsManagerInstructions:
+      type: object
+      properties:
+        type:
+          $ref: "#/components/schemas/SecretsManagerType"
+        key:
+          type: string
+        label:
+          type: string
+        instructions:
+          type: string
+      required:
+        - key
+        - label
     User:
       type: object
       description: The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
@@ -1426,18 +1433,6 @@ components:
           $ref: "#/components/schemas/WorkspaceIpAllowlistEntries"
         restrict_ips:
           type: boolean
-        aws_region:
-          type: string
-        aws_key:
-          type: string
-        aws_secret:
-          type: string
-        auth_aws_external_id:
-          type: string
-          description: External ID will be the identifier used by the customer to verify the role assumption.
-        auth_aws_arn:
-          type: string
-          description: ARN will be used to assume the role for the workspace's AWS resources. (i.e. secret manager)
         datadog_apikey:
           type: string
         datadog_site:
@@ -1494,31 +1489,6 @@ components:
         sync_parent_dc:
           type: string
           description: us, eu, au
-        azure_keyvault_url:
-          type: string
-        azure_tenant_id:
-          type: string
-        azure_client_id:
-          type: string
-        azure_client_secret:
-          type: string
-        gcp_project_id:
-          type: string
-        gcp_client_email:
-          type: string
-        gcp_private_key:
-          type: string
-        hashicorp_vault_url:
-          type: string
-        hashicorp_vault_token:
-          type: string
-        hashicorp_vault_namespace:
-          type: string
-        hashicorp_vault_kv_mount:
-          type: string
-        hashicorp_vault_kv_version:
-          type: string
-          description: 1 or 2
         grafana_apikey:
           type: string
         grafana_site:
@@ -1564,18 +1534,6 @@ components:
           type: string
         integration_type:
           type: string
-        client_id:
-          type: string
-          description:  @deprecated: use auth.client_id instead
-        client_secret:
-          type: string
-          description: @deprecated: use auth.client_secret instead
-        consumer_key:
-          type: string
-          description: @deprecated: use auth.consumer_key instead
-        consumer_secret:
-          type: string
-          description: @deprecated: use auth.consumer_secret instead
         is_active:
           type: boolean
         api_url:
@@ -1611,14 +1569,6 @@ components:
             $ref: "#/components/schemas/IntegrationPermission"
         auth:
           $ref: "#/components/schemas/WorkspaceIntegrationAuth"
-        auth_aws_arn:
-          type: string
-        auth_azure_keyvault_id:
-          type: string
-        auth_gcp_secret_name:
-          type: string
-        auth_hashi_vault_path:
-          type: string
         secretsmanager_id:
           type: string
           description: the ID of the SecretsManager object
