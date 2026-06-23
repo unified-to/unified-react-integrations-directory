@@ -1072,7 +1072,6 @@ export interface IWorkspaceIntegration {
 	prompt_region?: boolean;
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
-	dev_api_key?: string; // @deprecated: use auth.dev_api_key instead
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
 	auth?: IWorkspaceIntegrationAuth;
 	secretsmanager_id?: string; // the ID of the SecretsManager object
