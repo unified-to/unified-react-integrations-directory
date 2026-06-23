@@ -948,6 +948,13 @@ export interface ISecretsManager {
 	dcs?: string[]; // data-regions
 }
 
+export interface ISecretsManagerInstructions {
+	type: TSecretsManagerType;
+	key: string;
+	label: string;
+	instructions?: string;
+}
+
 export interface IUser {
 	id?: string;
 	created_at?: (string | Date | number);
@@ -1109,14 +1116,6 @@ export interface IWorkspaceIpAllowlistEntry {
 	ip_address: string;
 	name?: string;
 	expires_at?: (string | Date | number);
-}
-
-export interface ISecretsManagerInstructions {
-	type: TSecretsManagerType;
-	auth: I{;
-	key: string;
-	label: string;
-	instructions?: string;
 }
 
 export const CATEGORIES: ICategories[] = [
