@@ -4,6 +4,9 @@ syntax = "proto3";
 
 import "google/protobuf/struct.proto";
 
+message  {
+}
+
 // An authentication object that represents a specific authorized user's connection to an integration.
 
 message ConnectionAuth {
@@ -49,15 +52,11 @@ message Connection {
 	repeated string categories = 9; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata, calendar, verification, ads, forms, shipping, assessment, signing, clubs, datastore
 	optional ConnectionAuth auth = 10;
 	optional bool is_paused = 11; // Whether this integration has exceed the monthly limit of the plan
-	optional string auth_aws_arn = 12; // the AWS ARN / secretID for the stored auth field
-	optional string environment = 13;
-	optional string auth_azure_keyvault_id = 14; // the Azure Key Vault ID for the stored auth field
-	optional string auth_gcp_secret_name = 15; // the Google Cloud Secret Manager name for the stored auth field
-	optional string auth_hashi_vault_path = 16; // the HashiCorp Vault path for the stored auth field
-	optional string last_healthy_at = 17;
-	optional string last_unhealthy_at = 18;
-	optional string secretsmanager_id = 19; // the ID of the SecretsManager object
-	optional string secretsmanager_key = 20; // the key/path/name of the secret within the vault
+	optional string environment = 12;
+	optional string last_healthy_at = 13;
+	optional string last_unhealthy_at = 14;
+	optional string secretsmanager_id = 15; // the ID of the SecretsManager object
+	optional string secretsmanager_key = 16; // the key/path/name of the secret within the vault
 }
 
 message IntegrationSupport {
@@ -332,8 +331,14 @@ message SecretsManager {
 	string name = 5;
 	optional string workspace_id = 6;
 	map<string, string> auth = 7; // secrets-manager specific authentication values
-	repeated string environments = 8;
-	repeated string dcs = 9; // data-regions
+	repeated string dcs = 8; // data-regions
+}
+
+message SecretsManagerInstructions {
+	optional string type = 1;
+	string key = 2;
+	string label = 3;
+	optional string instructions = 4;
 }
 
 // The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
@@ -413,58 +418,41 @@ message Workspace {
 	optional string secret = 12; // Workspace API secret
 	repeated WorkspaceIpAllowlistEntry ip_allowlist = 13;
 	optional bool restrict_ips = 14;
-	optional string aws_region = 15;
-	optional string aws_key = 16;
-	optional string aws_secret = 17;
-	optional string auth_aws_external_id = 18; // External ID will be the identifier used by the customer to verify the role assumption.
-	optional string auth_aws_arn = 19; // ARN will be used to assume the role for the workspace's AWS resources. (i.e. secret manager)
-	optional string datadog_apikey = 20;
-	optional string datadog_site = 21;
-	repeated string environments = 22; // a list of authentication environments for the workspace integrations
-	repeated string add_ons = 23;
-	optional google.protobuf.Struct checklist = 24;
-	optional string plan_term = 25; // monthly or yearly Valid values: monthly, yearly Default value: monthly
-	optional string stripe_canceling_at = 26;
-	optional string domain = 27; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
-	optional string event_webhook_url = 28;
-	repeated string event_webhook_events = 29;
-	optional string custom_auth_domain = 30;
-	optional bool custom_auth_domain_valid = 31;
-	optional string custom_api_domain = 32;
-	optional bool slow_fields_opt_in = 33;
-	optional string notion_verification_token = 34;
-	optional string favicon_url = 35;
-	optional bool is_baa = 36;
-	optional string saml_integration_type = 37;
-	optional string saml_idp_url = 38;
-	optional string saml_idp_entity_id = 39;
-	optional string saml_pem = 40; // the PEM X.509 certificate in Base64 ASCII format
-	optional bool saml_only_login = 41; // if true, only allow SAML login
-	repeated string sync_objects = 42;
-	optional string sync_parent_dc = 43; // us, eu, au
-	optional string azure_keyvault_url = 44;
-	optional string azure_tenant_id = 45;
-	optional string azure_client_id = 46;
-	optional string azure_client_secret = 47;
-	optional string gcp_project_id = 48;
-	optional string gcp_client_email = 49;
-	optional string gcp_private_key = 50;
-	optional string hashicorp_vault_url = 51;
-	optional string hashicorp_vault_token = 52;
-	optional string hashicorp_vault_namespace = 53;
-	optional string hashicorp_vault_kv_mount = 54;
-	optional string hashicorp_vault_kv_version = 55; // 1 or 2
-	optional string grafana_apikey = 56;
-	optional string grafana_site = 57;
-	optional string grafana_username = 58; // Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
-	optional string grafana_auth_type = 59;
-	optional string clickhouse_url = 60;
-	optional string clickhouse_username = 61;
-	optional string clickhouse_password = 62;
-	optional bool auto_join = 63;
-	optional string jwt_secret = 64;
-	optional string default_secretsmanager_id = 65; // Default SecretsManager document id for new credentials
-	map<string, string> default_secretsmanager_env_ids = 66; // Environment name to SecretsManager document id
+	optional string datadog_apikey = 15;
+	optional string datadog_site = 16;
+	repeated string environments = 17; // a list of authentication environments for the workspace integrations
+	repeated string add_ons = 18;
+	optional google.protobuf.Struct checklist = 19;
+	optional string plan_term = 20; // monthly or yearly Valid values: monthly, yearly Default value: monthly
+	optional string stripe_canceling_at = 21;
+	optional string domain = 22; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
+	optional string event_webhook_url = 23;
+	repeated string event_webhook_events = 24;
+	optional string custom_auth_domain = 25;
+	optional bool custom_auth_domain_valid = 26;
+	optional string custom_api_domain = 27;
+	optional bool slow_fields_opt_in = 28;
+	optional string notion_verification_token = 29;
+	optional string favicon_url = 30;
+	optional bool is_baa = 31;
+	optional string saml_integration_type = 32;
+	optional string saml_idp_url = 33;
+	optional string saml_idp_entity_id = 34;
+	optional string saml_pem = 35; // the PEM X.509 certificate in Base64 ASCII format
+	optional bool saml_only_login = 36; // if true, only allow SAML login
+	repeated string sync_objects = 37;
+	optional string sync_parent_dc = 38; // us, eu, au
+	optional string grafana_apikey = 39;
+	optional string grafana_site = 40;
+	optional string grafana_username = 41; // Required when `grafana_auth_type` is `basic` (e.g. Grafana Cloud user / instance id)
+	optional string grafana_auth_type = 42;
+	optional string clickhouse_url = 43;
+	optional string clickhouse_username = 44;
+	optional string clickhouse_password = 45;
+	optional bool auto_join = 46;
+	optional string jwt_secret = 47;
+	optional string default_secretsmanager_id = 48; // Default SecretsManager document id for new credentials
+	map<string, string> default_secretsmanager_env_ids = 49; // Environment name to SecretsManager document id
 }
 
 message WorkspaceIntegrationAuth {
@@ -483,29 +471,21 @@ message WorkspaceIntegration {
 	optional string updated_at = 3;
 	optional string workspace_id = 4;
 	string integration_type = 5;
-	optional string client_id = 6; //  @deprecated: use auth.client_id instead
-	optional string client_secret = 7; // @deprecated: use auth.client_secret instead
-	optional string consumer_key = 8; // @deprecated: use auth.consumer_key instead
-	optional string consumer_secret = 9; // @deprecated: use auth.consumer_secret instead
-	bool is_active = 10;
-	optional string api_url = 11;
-	optional string authorize_url = 12;
-	optional string token_url = 13;
-	optional string refresh_url = 14;
-	optional string base_url = 15;
-	optional bool prompt_region = 16;
-	optional string pem = 17; // @deprecated: use auth.pem instead
-	optional string key = 18; // @deprecated: use auth.pem instead
-	optional string environment = 19; // authentication environment Default value: Production
-	repeated string categories = 20;
-	optional string dev_api_key = 21; // @deprecated: use auth.dev_api_key instead
-	map<string, string> overriden_scopes = 22;
-	optional WorkspaceIntegrationAuth auth = 23;
-	optional string auth_aws_arn = 24;
-	optional string auth_azure_keyvault_id = 25;
-	optional string auth_gcp_secret_name = 26;
-	optional string auth_hashi_vault_path = 27;
-	optional string secretsmanager_id = 28; // the ID of the SecretsManager object
-	optional string secretsmanager_key = 29; // the key/path/name of the secret within the vault
+	bool is_active = 6;
+	optional string api_url = 7;
+	optional string authorize_url = 8;
+	optional string token_url = 9;
+	optional string refresh_url = 10;
+	optional string base_url = 11;
+	optional bool prompt_region = 12;
+	optional string pem = 13; // @deprecated: use auth.pem instead
+	optional string key = 14; // @deprecated: use auth.pem instead
+	optional string environment = 15; // authentication environment Default value: Production
+	repeated string categories = 16;
+	optional string dev_api_key = 17; // @deprecated: use auth.dev_api_key instead
+	map<string, string> overriden_scopes = 18;
+	optional WorkspaceIntegrationAuth auth = 19;
+	optional string secretsmanager_id = 20; // the ID of the SecretsManager object
+	optional string secretsmanager_key = 21; // the key/path/name of the secret within the vault
 }
 
