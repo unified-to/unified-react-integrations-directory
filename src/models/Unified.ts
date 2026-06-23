@@ -1044,7 +1044,6 @@ export interface IWorkspace {
 	saml_only_login?: boolean; // if true, only allow SAML login
 	sync_objects?: ( TRegionSyncType )[];
 	sync_parent_dc?: string; // us, eu, au
-	azure_keyvault_url?: string;
 	azure_tenant_id?: string;
 	azure_client_id?: string;
 	azure_client_secret?: string;
