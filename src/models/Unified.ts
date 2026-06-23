@@ -1070,7 +1070,6 @@ export interface IWorkspaceIntegration {
 	refresh_url?: string;
 	base_url?: string;
 	prompt_region?: boolean;
-	key?: string; // @deprecated: use auth.pem instead
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
 	dev_api_key?: string; // @deprecated: use auth.dev_api_key instead
