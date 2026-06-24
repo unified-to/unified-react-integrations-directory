@@ -1119,6 +1119,8 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_source:
           $ref: "#/components/schemas/SupportInboundType"
+        list_dimension:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
@@ -1578,6 +1580,9 @@ components:
           type: string
         prompt_region:
           type: boolean
+        auth_type:
+          $ref: "#/components/schemas/IntegrationAuthType"
+          description: the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
         environment:
           type: string
           description: authentication environment
