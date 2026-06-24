@@ -981,6 +981,14 @@ export interface ISecretsManagerInstructions {
 	instructions?: string;
 }
 
+export interface ISecretsManagerSecret {
+	id?: string; // maps to secretsmanager_id in ISecretsManager
+	created_at?: (string | Date | number);
+	updated_at?: (string | Date | number);
+	name?: string;
+	description?: string;
+}
+
 export interface IUser {
 	id?: string;
 	created_at?: (string | Date | number);
@@ -1119,14 +1127,6 @@ export interface IWorkspaceIpAllowlistEntry {
 	ip_address: string;
 	name?: string;
 	expires_at?: (string | Date | number);
-}
-
-export interface ISecretsManagerSecret {
-	id?: string; // maps to secretsmanager_id in ISecretsManager
-	created_at?: (string | Date | number);
-	updated_at?: (string | Date | number);
-	name: string;
-	description?: string;
 }
 
 export const CATEGORIES: ICategories[] = [
