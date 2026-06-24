@@ -46,6 +46,7 @@ components:
       - calendar
       - verification
       - ads
+      - analytics
       - forms
       - shipping
       - assessment
@@ -281,6 +282,14 @@ components:
       - ads_insertionorder_write
       - ads_target_read
       - ads_promoted_read
+      - analytics_property_read
+      - analytics_property_write
+      - analytics_event_read
+      - analytics_event_write
+      - analytics_session_read
+      - analytics_visitor_read
+      - analytics_visitor_write
+      - analytics_report_read
       - forms_form_read
       - forms_form_write
       - forms_submission_read
@@ -455,6 +464,11 @@ components:
       - ads_insertionorder
       - ads_target
       - ads_promoted
+      - analytics_property
+      - analytics_event
+      - analytics_session
+      - analytics_visitor
+      - analytics_report
       - forms_form
       - forms_submission
       - shipping_carrier
@@ -1082,6 +1096,26 @@ components:
         virtual_webhook_table_id:
           $ref: "#/components/schemas/SupportInboundType"
         native_webhook_table_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_property_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_visitor_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_session_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_dimension:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_property_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_property_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_session_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_session_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_visitor_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        native_webhook_visitor_id:
           $ref: "#/components/schemas/SupportInboundType"
       required:
 
