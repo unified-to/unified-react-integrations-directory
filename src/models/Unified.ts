@@ -1102,6 +1102,7 @@ export interface IWorkspaceIntegration {
 	auth?: IWorkspaceIntegrationAuth;
 	secretsmanager_id?: string; // the ID of the SecretsManager object
 	secretsmanager_key?: string; // the key/path/name of the secret within the vault
+	auth_type?: TIntegrationAuthType; // the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
 }
 
 export interface IWorkspaceIntegrationAuth {
