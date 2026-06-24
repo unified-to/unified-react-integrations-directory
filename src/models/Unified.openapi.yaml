@@ -1299,6 +1299,24 @@ components:
       required:
         - key
         - label
+    SecretsManagerSecret:
+      type: object
+      properties:
+        id:
+          type: string
+          description: maps to secretsmanager_id in ISecretsManager
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+      required:
+
     User:
       type: object
       description: The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
