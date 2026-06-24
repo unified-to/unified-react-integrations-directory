@@ -1646,13 +1646,14 @@ objects that we map from in the integration
 	list_property_id: ENUM_SupportInboundType
 	list_visitor_id: ENUM_SupportInboundType
 	list_session_id: ENUM_SupportInboundType
-	list_dimension: ENUM_SupportInboundType
 	virtual_webhook_property_id: ENUM_SupportInboundType
 	native_webhook_property_id: ENUM_SupportInboundType
 	virtual_webhook_session_id: ENUM_SupportInboundType
 	native_webhook_session_id: ENUM_SupportInboundType
 	virtual_webhook_visitor_id: ENUM_SupportInboundType
 	native_webhook_visitor_id: ENUM_SupportInboundType
+	list_medium: ENUM_SupportInboundType
+	list_source: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1833,13 +1834,14 @@ objects that we map from in the integration
 	list_property_id: ENUM_SupportInboundType
 	list_visitor_id: ENUM_SupportInboundType
 	list_session_id: ENUM_SupportInboundType
-	list_dimension: ENUM_SupportInboundType
 	virtual_webhook_property_id: ENUM_SupportInboundType
 	native_webhook_property_id: ENUM_SupportInboundType
 	virtual_webhook_session_id: ENUM_SupportInboundType
 	native_webhook_session_id: ENUM_SupportInboundType
 	virtual_webhook_visitor_id: ENUM_SupportInboundType
 	native_webhook_visitor_id: ENUM_SupportInboundType
+	list_medium: ENUM_SupportInboundType
+	list_source: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
