@@ -1076,13 +1076,14 @@ export const joiIntegrationSupport = Joi.object({
 	list_property_id: joiSupportInboundType.allow(null).optional(),
 	list_visitor_id: joiSupportInboundType.allow(null).optional(),
 	list_session_id: joiSupportInboundType.allow(null).optional(),
-	list_dimension: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_property_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_property_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_session_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_session_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_visitor_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_visitor_id: joiSupportInboundType.allow(null).optional(),
+	list_medium: joiSupportInboundType.allow(null).optional(),
+	list_source: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
