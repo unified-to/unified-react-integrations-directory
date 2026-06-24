@@ -2027,6 +2027,28 @@ type SecretsManagerInstructions {
 	instructions: String
 }
 
+input SecretsManagerSecret_Input {
+"""
+maps to secretsmanager_id in ISecretsManager
+"""
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	name: String
+	description: String
+}
+
+type SecretsManagerSecret {
+"""
+maps to secretsmanager_id in ISecretsManager
+"""
+	id: ID
+	created_at: DateTime
+	updated_at: DateTime
+	name: String
+	description: String
+}
+
 """
 The User object represents you on the system. A user can belong to multiple workspaces (ie. organizations).
 """
