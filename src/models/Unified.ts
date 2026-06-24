@@ -884,6 +884,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_session_id?: TSupportInboundType;
 	native_webhook_session_id?: string;
 	virtual_webhook_visitor_id?: TSupportInboundType;
+	native_webhook_visitor_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
