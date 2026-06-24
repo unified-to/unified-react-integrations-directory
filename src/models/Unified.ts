@@ -880,6 +880,7 @@ export interface IIntegrationSupport {
 	list_session_id?: TSupportInboundType;
 	list_dimension?: TSupportInboundType;
 	virtual_webhook_property_id?: TSupportInboundType;
+	native_webhook_property_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
