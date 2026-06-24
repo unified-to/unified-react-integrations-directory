@@ -1121,6 +1121,14 @@ export interface IWorkspaceIpAllowlistEntry {
 	expires_at?: (string | Date | number);
 }
 
+export interface ISecretsManagerSecret {
+	id?: string; // maps to secretsmanager_id in ISecretsManager
+	created_at?: (string | Date | number);
+	updated_at?: (string | Date | number);
+	name: string;
+	description?: string;
+}
+
 export const CATEGORIES: ICategories[] = [
     { category: 'crm', label: 'CRM' },
     { category: 'martech', label: 'Marketing' },
