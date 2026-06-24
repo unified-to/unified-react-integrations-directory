@@ -45,6 +45,7 @@ export const IntegrationCategory = [
 	'calendar',
 	'verification',
 	'ads',
+	'analytics',
 	'forms',
 	'shipping',
 	'assessment',
