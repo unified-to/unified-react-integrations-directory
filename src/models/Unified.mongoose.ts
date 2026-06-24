@@ -306,6 +306,13 @@ export const schemaSecretsManagerInstructions = {
 	instructions: { type: String },
 };
 
+export const schemaSecretsManagerSecret = {
+	created_at: { type: Date },
+	updated_at: { type: Date },
+	name: { type: String },
+	description: { type: String },
+};
+
 export const schemaUser = {
 	name: { type: String },
 	email: { type: String, index: true },
