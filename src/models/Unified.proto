@@ -231,13 +231,14 @@ message IntegrationSupport {
 	optional string list_property_id = 172;
 	optional string list_visitor_id = 173;
 	optional string list_session_id = 174;
-	optional string list_dimension = 175;
-	optional string virtual_webhook_property_id = 176;
-	optional string native_webhook_property_id = 177;
-	optional string virtual_webhook_session_id = 178;
-	optional string native_webhook_session_id = 179;
-	optional string virtual_webhook_visitor_id = 180;
-	optional string native_webhook_visitor_id = 181;
+	optional string virtual_webhook_property_id = 175;
+	optional string native_webhook_property_id = 176;
+	optional string virtual_webhook_session_id = 177;
+	optional string native_webhook_session_id = 178;
+	optional string virtual_webhook_visitor_id = 179;
+	optional string native_webhook_visitor_id = 180;
+	optional string list_medium = 181;
+	optional string list_source = 182;
 }
 
 // Informational object for supported integrations.
