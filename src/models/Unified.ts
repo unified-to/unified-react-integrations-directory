@@ -878,7 +878,6 @@ export interface IIntegrationSupport {
 	list_property_id?: TSupportInboundType;
 	list_visitor_id?: TSupportInboundType;
 	list_session_id?: TSupportInboundType;
-	list_dimension?: TSupportInboundType;
 	virtual_webhook_property_id?: TSupportInboundType;
 	native_webhook_property_id?: TSupportInboundType;
 	virtual_webhook_session_id?: TSupportInboundType;
@@ -887,7 +886,6 @@ export interface IIntegrationSupport {
 	native_webhook_visitor_id?: TSupportInboundType;
 	list_medium?: TSupportInboundType;
 	list_source?: TSupportInboundType;
-	list_dimension?: TSupportInboundType;
 }
 
 export interface IInvoice {
