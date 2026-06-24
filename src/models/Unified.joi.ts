@@ -1201,6 +1201,14 @@ export const joiSecretsManagerInstructions = Joi.object({
 	instructions: Joi.string().allow(null, '').optional(),
 }).label('SecretsManagerInstructions');
 
+export const joiSecretsManagerSecret = Joi.object({
+	id: Joi.string().allow(null, '').description('maps to secretsmanager_id in ISecretsManager').optional(),
+	created_at: Joi.date().allow(null).optional(),
+	updated_at: Joi.date().allow(null).optional(),
+	name: Joi.string().allow(null, '').optional(),
+	description: Joi.string().allow(null, '').optional(),
+}).label('SecretsManagerSecret');
+
 export const joiUser = Joi.object({
 	id: Joi.string().allow(null, '').meta( { readonly: true }).optional(),
 	created_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
