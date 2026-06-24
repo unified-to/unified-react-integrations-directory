@@ -877,7 +877,8 @@ export interface IIntegrationSupport {
 	native_webhook_table_id?: TSupportInboundType;
 	list_property_id?: TSupportInboundType;
 	list_visitor_id?: TSupportInboundType;
-	list_session_id: TSupportInboundType;
+	list_session_id?: TSupportInboundType;
+	list_dimension?: TSupportInboundType;
 }
 
 export interface IInvoice {
