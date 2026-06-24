@@ -239,6 +239,7 @@ message IntegrationSupport {
 	optional string native_webhook_visitor_id = 180;
 	optional string list_medium = 181;
 	optional string list_source = 182;
+	optional string list_dimension = 183;
 }
 
 // Informational object for supported integrations.
@@ -486,11 +487,12 @@ message WorkspaceIntegration {
 	optional string refresh_url = 10;
 	optional string base_url = 11;
 	optional bool prompt_region = 12;
-	optional string environment = 13; // authentication environment Default value: Production
-	repeated string categories = 14;
-	map<string, string> overriden_scopes = 15;
-	optional WorkspaceIntegrationAuth auth = 16;
-	optional string secretsmanager_id = 17; // the ID of the SecretsManager object
-	optional string secretsmanager_key = 18; // the key/path/name of the secret within the vault
+	optional string auth_type = 13; // the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist) Valid values: oauth1, oauth2, other, token
+	optional string environment = 14; // authentication environment Default value: Production
+	repeated string categories = 15;
+	map<string, string> overriden_scopes = 16;
+	optional WorkspaceIntegrationAuth auth = 17;
+	optional string secretsmanager_id = 18; // the ID of the SecretsManager object
+	optional string secretsmanager_key = 19; // the key/path/name of the secret within the vault
 }
 
