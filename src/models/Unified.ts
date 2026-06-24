@@ -886,6 +886,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_visitor_id?: TSupportInboundType;
 	native_webhook_visitor_id?: TSupportInboundType;
 	list_medium?: TSupportInboundType;
+	list_source?: TSupportInboundType;
 }
 
 export interface IInvoice {
