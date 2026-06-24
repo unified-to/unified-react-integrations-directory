@@ -1103,8 +1103,6 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_session_id:
           $ref: "#/components/schemas/SupportInboundType"
-        list_dimension:
-          $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_property_id:
           $ref: "#/components/schemas/SupportInboundType"
         native_webhook_property_id:
@@ -1116,6 +1114,10 @@ components:
         virtual_webhook_visitor_id:
           $ref: "#/components/schemas/SupportInboundType"
         native_webhook_visitor_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_medium:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_source:
           $ref: "#/components/schemas/SupportInboundType"
       required:
 
