@@ -1084,6 +1084,7 @@ export const joiIntegrationSupport = Joi.object({
 	native_webhook_visitor_id: joiSupportInboundType.allow(null).optional(),
 	list_medium: joiSupportInboundType.allow(null).optional(),
 	list_source: joiSupportInboundType.allow(null).optional(),
+	list_dimension: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
@@ -1331,6 +1332,7 @@ export const joiWorkspaceIntegration = Joi.object({
 	refresh_url: Joi.string().uri().allow(null, '').optional(),
 	base_url: Joi.string().allow(null, '').optional(),
 	prompt_region: Joi.boolean().allow(null).optional(),
+	auth_type: joiIntegrationAuthType.allow(null).description('the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force \'token\' even when Unified OAUTH credentials exist)').optional(),
 	environment: Joi.string().allow(null, '').default('Production').description('authentication environment').optional(),
 	categories: Joi.array().items(joiIntegrationCategory).optional(),
 	overriden_scopes: joimap_IntegrationPermission_string.allow(null).optional(),
