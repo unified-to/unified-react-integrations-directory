@@ -248,13 +248,14 @@ export const schemaIntegrationSupport = {
 	list_property_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_visitor_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_session_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
-	list_dimension: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	virtual_webhook_property_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	native_webhook_property_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	virtual_webhook_session_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	native_webhook_session_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	virtual_webhook_visitor_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	native_webhook_visitor_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	list_medium: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	list_source: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
