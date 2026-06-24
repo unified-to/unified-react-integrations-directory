@@ -256,6 +256,7 @@ export const schemaIntegrationSupport = {
 	native_webhook_visitor_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_medium: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_source: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	list_dimension: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
@@ -426,6 +427,7 @@ export const schemaWorkspaceIntegration = {
 	refresh_url: { type: String },
 	base_url: { type: String },
 	prompt_region: { type: Boolean },
+	auth_type: { type: String, enum: [ 'oauth1', 'oauth2', 'other', 'token' ] }, // the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
 	environment: { type: String, default: 'Production' }, // authentication environment
 	categories: { type: [ String ], enum: [ 'passthrough', 'hris', 'ats', 'auth', 'crm', 'enrich', 'martech', 'ticketing', 'uc', 'accounting', 'storage', 'commerce', 'payment', 'genai', 'messaging', 'kms', 'task', 'scim', 'lms', 'repo', 'metadata', 'calendar', 'verification', 'ads', 'analytics', 'forms', 'shipping', 'assessment', 'signing', 'clubs', 'datastore' ] },
 	overriden_scopes: { type: Object },
