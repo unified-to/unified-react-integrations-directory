@@ -1654,6 +1654,7 @@ objects that we map from in the integration
 	native_webhook_visitor_id: ENUM_SupportInboundType
 	list_medium: ENUM_SupportInboundType
 	list_source: ENUM_SupportInboundType
+	list_dimension: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1842,6 +1843,7 @@ objects that we map from in the integration
 	native_webhook_visitor_id: ENUM_SupportInboundType
 	list_medium: ENUM_SupportInboundType
 	list_source: ENUM_SupportInboundType
+	list_dimension: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
@@ -2353,6 +2355,10 @@ input WorkspaceIntegration_Input {
 	base_url: String
 	prompt_region: Boolean
 """
+the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
+"""
+	auth_type: ENUM_IntegrationAuthType
+"""
 authentication environment
 """
 	environment: String
@@ -2382,6 +2388,10 @@ type WorkspaceIntegration {
 	refresh_url: String
 	base_url: String
 	prompt_region: Boolean
+"""
+the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
+"""
+	auth_type: ENUM_IntegrationAuthType
 """
 authentication environment
 """
