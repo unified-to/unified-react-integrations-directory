@@ -147,6 +147,7 @@ enum ENUM_IntegrationPermission {
 	crm_lead_write
 	crm_pipeline_read
 	crm_pipeline_write
+	crm_picklist_read
 	martech_list_read
 	martech_list_write
 	martech_member_read
@@ -387,6 +388,7 @@ enum ENUM_ObjectType {
 	crm_event
 	crm_lead
 	crm_pipeline
+	crm_picklist
 	hris_employee
 	hris_group
 	hris_payslip
@@ -710,6 +712,7 @@ input Map_IntegrationPermission_string_Input {
 	crm_lead_write: String!
 	crm_pipeline_read: String!
 	crm_pipeline_write: String!
+	crm_picklist_read: String!
 	martech_list_read: String!
 	martech_list_write: String!
 	martech_member_read: String!
@@ -981,6 +984,7 @@ type Map_IntegrationPermission_string {
 	crm_lead_write: String!
 	crm_pipeline_read: String!
 	crm_pipeline_write: String!
+	crm_picklist_read: String!
 	martech_list_read: String!
 	martech_list_write: String!
 	martech_member_read: String!
