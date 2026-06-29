@@ -155,6 +155,7 @@ export const IntegrationPermission = [
 	'crm_lead_write',
 	'crm_pipeline_read',
 	'crm_pipeline_write',
+	'crm_picklist_read',
 	'martech_list_read',
 	'martech_list_write',
 	'martech_member_read',
