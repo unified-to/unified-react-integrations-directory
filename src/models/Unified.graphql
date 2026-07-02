@@ -59,6 +59,8 @@ enum ENUM_IntegrationPermission {
 	accounting_invoice_write
 	accounting_bill_read
 	accounting_bill_write
+	accounting_vendorcredit_read
+	accounting_vendorcredit_write
 	accounting_creditmemo_read
 	accounting_creditmemo_write
 	accounting_contact_read
@@ -342,6 +344,7 @@ enum ENUM_ObjectType {
 	accounting_contact
 	accounting_invoice
 	accounting_bill
+	accounting_vendorcredit
 	accounting_creditmemo
 	accounting_taxrate
 	accounting_organization
@@ -624,6 +627,8 @@ input Map_IntegrationPermission_string_Input {
 	accounting_invoice_write: String!
 	accounting_bill_read: String!
 	accounting_bill_write: String!
+	accounting_vendorcredit_read: String!
+	accounting_vendorcredit_write: String!
 	accounting_creditmemo_read: String!
 	accounting_creditmemo_write: String!
 	accounting_contact_read: String!
@@ -896,6 +901,8 @@ type Map_IntegrationPermission_string {
 	accounting_invoice_write: String!
 	accounting_bill_read: String!
 	accounting_bill_write: String!
+	accounting_vendorcredit_read: String!
+	accounting_vendorcredit_write: String!
 	accounting_creditmemo_read: String!
 	accounting_creditmemo_write: String!
 	accounting_contact_read: String!
