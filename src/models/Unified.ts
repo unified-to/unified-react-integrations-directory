@@ -358,6 +358,7 @@ export const ObjectType = [
 	'accounting_contact',
 	'accounting_invoice',
 	'accounting_bill',
+	'accounting_vendorcredit',
 	'accounting_creditmemo',
 	'accounting_taxrate',
 	'accounting_organization',
