@@ -434,6 +434,7 @@ export const schemaWorkspaceIntegration = {
 	refresh_url: { type: String },
 	base_url: { type: String },
 	prompt_region: { type: Boolean },
+	use_unified_redirect: { type: Boolean },
 	auth_type: { type: String, enum: [ 'oauth1', 'oauth2', 'other', 'token' ] }, // the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
 	environment: { type: String, default: 'Production' }, // authentication environment
 	categories: { type: [ String ], enum: [ 'passthrough', 'hris', 'ats', 'auth', 'crm', 'enrich', 'martech', 'ticketing', 'uc', 'accounting', 'storage', 'commerce', 'payment', 'genai', 'messaging', 'kms', 'task', 'scim', 'lms', 'repo', 'metadata', 'calendar', 'verification', 'ads', 'analytics', 'forms', 'shipping', 'assessment', 'signing', 'clubs', 'datastore' ] },
