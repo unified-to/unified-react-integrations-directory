@@ -1116,6 +1116,7 @@ export interface IWorkspaceIntegration {
 	auth?: IWorkspaceIntegrationAuth;
 	secretsmanager_id?: string; // the ID of the SecretsManager object
 	secretsmanager_key?: string; // the key/path/name of the secret within the vault
+	use_unified_redirect?: boolean;
 }
 
 export interface IWorkspaceIntegrationAuth {
