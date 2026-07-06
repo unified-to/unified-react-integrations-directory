@@ -1348,6 +1348,7 @@ export const joiWorkspaceIntegration = Joi.object({
 	refresh_url: Joi.string().uri().allow(null, '').optional(),
 	base_url: Joi.string().allow(null, '').optional(),
 	prompt_region: Joi.boolean().allow(null).optional(),
+	use_unified_redirect: Joi.boolean().allow(null).optional(),
 	auth_type: joiIntegrationAuthType.allow(null).description('the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force \'token\' even when Unified OAUTH credentials exist)').optional(),
 	environment: Joi.string().allow(null, '').default('Production').description('authentication environment').optional(),
 	categories: Joi.array().items(joiIntegrationCategory).optional(),
