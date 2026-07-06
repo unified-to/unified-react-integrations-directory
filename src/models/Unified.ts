@@ -1109,6 +1109,7 @@ export interface IWorkspaceIntegration {
 	refresh_url?: string;
 	base_url?: string;
 	prompt_region?: boolean;
+	use_unified_redirect?: boolean;
 	auth_type?: TIntegrationAuthType; // the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
 	environment?: string; // authentication environment
 	categories?: ( TIntegrationCategory )[];
@@ -1116,7 +1117,6 @@ export interface IWorkspaceIntegration {
 	auth?: IWorkspaceIntegrationAuth;
 	secretsmanager_id?: string; // the ID of the SecretsManager object
 	secretsmanager_key?: string; // the key/path/name of the secret within the vault
-	use_unified_redirect?: boolean;
 }
 
 export interface IWorkspaceIntegrationAuth {
