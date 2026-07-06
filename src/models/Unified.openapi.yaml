@@ -1609,6 +1609,8 @@ components:
           type: string
         prompt_region:
           type: boolean
+        use_unified_redirect:
+          type: boolean
         auth_type:
           $ref: "#/components/schemas/IntegrationAuthType"
           description: the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
