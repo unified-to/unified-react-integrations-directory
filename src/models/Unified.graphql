@@ -2387,6 +2387,7 @@ input WorkspaceIntegration_Input {
 	refresh_url: String
 	base_url: String
 	prompt_region: Boolean
+	use_unified_redirect: Boolean
 """
 the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
 """
@@ -2421,6 +2422,7 @@ type WorkspaceIntegration {
 	refresh_url: String
 	base_url: String
 	prompt_region: Boolean
+	use_unified_redirect: Boolean
 """
 the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
 """
