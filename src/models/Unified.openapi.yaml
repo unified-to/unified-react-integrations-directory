@@ -1132,6 +1132,8 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         list_dimension:
           $ref: "#/components/schemas/SupportInboundType"
+        list_goal:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
