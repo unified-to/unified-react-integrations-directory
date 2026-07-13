@@ -257,6 +257,7 @@ export const schemaIntegrationSupport = {
 	list_medium: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_source: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_dimension: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	list_goal: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
