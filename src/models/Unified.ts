@@ -196,6 +196,8 @@ export const IntegrationPermission = [
 	'hris_benefit_write',
 	'hris_bankaccount_read',
 	'hris_bankaccount_write',
+	'hris_document_read',
+	'hris_document_write',
 	'uc_call_read',
 	'uc_contact_read',
 	'uc_contact_write',
