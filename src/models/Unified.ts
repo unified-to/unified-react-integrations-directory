@@ -892,6 +892,7 @@ export interface IIntegrationSupport {
 	list_medium?: TSupportInboundType;
 	list_source?: TSupportInboundType;
 	list_dimension?: TSupportInboundType;
+	list_goal?: TSupportInboundType;
 }
 
 export interface IInvoice {
