@@ -240,6 +240,7 @@ message IntegrationSupport {
 	optional string list_medium = 181;
 	optional string list_source = 182;
 	optional string list_dimension = 183;
+	optional string list_goal = 184;
 }
 
 // Informational object for supported integrations.
