@@ -1681,6 +1681,7 @@ objects that we map from in the integration
 	list_source: ENUM_SupportInboundType
 	list_dimension: ENUM_SupportInboundType
 	list_goal: ENUM_SupportInboundType
+	list_role_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1871,6 +1872,7 @@ objects that we map from in the integration
 	list_source: ENUM_SupportInboundType
 	list_dimension: ENUM_SupportInboundType
 	list_goal: ENUM_SupportInboundType
+	list_role_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
