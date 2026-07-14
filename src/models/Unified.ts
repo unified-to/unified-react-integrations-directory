@@ -422,6 +422,7 @@ export const ObjectType = [
 	'hris_benefit',
 	'hris_bankaccount',
 	'hris_document',
+	'hris_taxonomy',
 	'martech_list',
 	'martech_member',
 	'martech_campaign',
