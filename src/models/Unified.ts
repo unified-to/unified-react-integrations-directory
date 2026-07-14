@@ -198,6 +198,8 @@ export const IntegrationPermission = [
 	'hris_bankaccount_write',
 	'hris_document_read',
 	'hris_document_write',
+	'hris_taxonomy_read',
+	'hris_taxonomy_write',
 	'uc_call_read',
 	'uc_contact_read',
 	'uc_contact_write',
