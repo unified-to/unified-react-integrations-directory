@@ -1104,6 +1104,7 @@ export const joiIntegrationSupport = Joi.object({
 	list_source: joiSupportInboundType.allow(null).optional(),
 	list_dimension: joiSupportInboundType.allow(null).optional(),
 	list_goal: joiSupportInboundType.allow(null).optional(),
+	list_role_id: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
