@@ -900,6 +900,7 @@ export interface IIntegrationSupport {
 	list_dimension?: TSupportInboundType;
 	list_goal?: TSupportInboundType;
 	list_role_id?: TSupportInboundType;
+	list_effective_status?: TSupportInboundType;
 }
 
 export interface IInvoice {
