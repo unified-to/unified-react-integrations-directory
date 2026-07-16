@@ -242,6 +242,7 @@ message IntegrationSupport {
 	optional string list_dimension = 183;
 	optional string list_goal = 184;
 	optional string list_role_id = 185;
+	optional string list_effective_status = 186;
 }
 
 // Informational object for supported integrations.
