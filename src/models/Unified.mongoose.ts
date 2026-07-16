@@ -259,6 +259,7 @@ export const schemaIntegrationSupport = {
 	list_dimension: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_goal: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_role_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	list_effective_status: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
