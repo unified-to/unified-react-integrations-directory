@@ -266,16 +266,17 @@ message Integration {
 	optional string web_url = 16; // URL for the software vendor
 	optional string rate_limit_description = 17;
 	optional bool beta = 18; // This integration is new and is still considered "beta"
-	map<string, IntegrationSupport> support = 19;
-	optional string tested_at = 20;
-	optional google.protobuf.Struct sandbox = 21;
-	optional google.protobuf.Struct partnership = 22;
-	optional google.protobuf.Struct saml = 23;
-	optional string description = 24;
-	optional google.protobuf.Struct api = 25;
-	optional bool featured = 26;
-	optional int32 popularity = 27;
-	optional int32 active_healthy_connections = 28;
+	optional bool requires_cname = 19; // OAuth requires a custom API domain (CNAME) for provider verification
+	map<string, IntegrationSupport> support = 20;
+	optional string tested_at = 21;
+	optional google.protobuf.Struct sandbox = 22;
+	optional google.protobuf.Struct partnership = 23;
+	optional google.protobuf.Struct saml = 24;
+	optional string description = 25;
+	optional google.protobuf.Struct api = 26;
+	optional bool featured = 27;
+	optional int32 popularity = 28;
+	optional int32 active_healthy_connections = 29;
 }
 
 message Invoice {
