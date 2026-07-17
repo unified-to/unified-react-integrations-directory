@@ -735,6 +735,9 @@ components:
         beta:
           type: boolean
           description: This integration is new and is still considered "beta"
+        requires_cname:
+          type: boolean
+          description: OAuth requires a custom API domain (CNAME) for provider verification
         support:
           type: object
           additionalProperties:
