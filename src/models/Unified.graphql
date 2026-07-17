@@ -1402,6 +1402,10 @@ URL for the software vendor
 This integration is new and is still considered "beta"
 """
 	beta: Boolean
+"""
+OAuth requires a custom API domain (CNAME) for provider verification
+"""
+	requires_cname: Boolean
 	support: Map_string_IntegrationSupport
 	tested_at: DateTime
 	sandbox: object
@@ -1481,6 +1485,10 @@ URL for the software vendor
 This integration is new and is still considered "beta"
 """
 	beta: Boolean
+"""
+OAuth requires a custom API domain (CNAME) for provider verification
+"""
+	requires_cname: Boolean
 	support: Map_string_IntegrationSupport
 	tested_at: DateTime
 	sandbox: object
