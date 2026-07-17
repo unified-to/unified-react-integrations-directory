@@ -702,7 +702,7 @@ export interface IIntegration {
 	web_url?: string; // URL for the software vendor
 	rate_limit_description?: string;
 	beta?: boolean; // This integration is new and is still considered "beta"
-	requires_cname?: boolean;
+	requires_cname?: boolean; // OAuth requires a custom API domain (CNAME) for provider verification
 	support?: { [path in string]?: IIntegrationSupport };
 	tested_at?: (string | Date | number);
 	sandbox?: unknown;
