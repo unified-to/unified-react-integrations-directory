@@ -712,6 +712,7 @@ export interface IIntegration {
 	featured?: boolean;
 	popularity?: number;
 	active_healthy_connections?: number;
+	requires_cname?: boolean;
 }
 
 export interface IIntegrationSupport {
