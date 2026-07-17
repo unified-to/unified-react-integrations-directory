@@ -1127,6 +1127,7 @@ export const joiIntegration = Joi.object({
 	web_url: Joi.string().uri().allow(null, '').description('URL for the software vendor').optional(),
 	rate_limit_description: Joi.string().allow(null, '').optional(),
 	beta: Joi.boolean().allow(null).description('This integration is new and is still considered "beta"').optional(),
+	requires_cname: Joi.boolean().allow(null).description('OAuth requires a custom API domain (CNAME) for provider verification').optional(),
 	support: Joi.object().pattern(Joi.string(), joiIntegrationSupport.optional().allow(null)).allow(null).optional(),
 	tested_at: Joi.date().allow(null).optional(),
 	sandbox: Joi.any().allow(null).optional(),
