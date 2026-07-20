@@ -217,6 +217,7 @@ export const IntegrationPermission = [
 	'messaging_message_read',
 	'messaging_message_write',
 	'messaging_channel_read',
+	'messaging_channel_write',
 	'messaging_event_read',
 	'messaging_event_write',
 	'kms_space_read',
