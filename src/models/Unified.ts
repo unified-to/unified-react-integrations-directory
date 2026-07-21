@@ -853,13 +853,13 @@ export interface IIntegrationSupport {
 	virtual_webhook_shipment_id?: TSupportInboundType;
 	native_webhook_shipment_id?: TSupportInboundType;
 	list_label_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_label_id?: TSupportInboundType;
 	native_webhook_label_id?: TSupportInboundType;
 	list_member_id?: TSupportInboundType;
 	virtual_webhook_member_id?: TSupportInboundType;
 	native_webhook_member_id?: TSupportInboundType;
 	list_content_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_course_id?: TSupportInboundType;
 	native_webhook_course_id?: TSupportInboundType;
 	virtual_webhook_student_id?: TSupportInboundType;
