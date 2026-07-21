@@ -859,6 +859,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_member_id?: TSupportInboundType;
 	native_webhook_member_id?: TSupportInboundType;
 	list_content_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_course_id?: TSupportInboundType;
 	native_webhook_course_id?: TSupportInboundType;
 	virtual_webhook_student_id?: TSupportInboundType;
@@ -872,7 +873,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_payment_id?: TSupportInboundType;
 	list_fulltext?: TSupportInboundType;
 	list_io_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_io_id?: TSupportInboundType;
 	native_webhook_io_id?: TSupportInboundType;
 	list_size?: TSupportInboundType;
