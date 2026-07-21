@@ -830,6 +830,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_item_variant_id?: TSupportInboundType;
 	virtual_webhook_calendar_id?: TSupportInboundType;
 	virtual_webhook_lead_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	list_payslip_id?: TSupportInboundType;
 	list_benefit_id?: TSupportInboundType;
 	list_saleschannel_id?: TSupportInboundType;
@@ -839,7 +840,6 @@ export interface IIntegrationSupport {
 	list_group_id?: TSupportInboundType;
 	virtual_webhook_campaign_id?: TSupportInboundType;
 	virtual_webhook_ad_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_group_id?: TSupportInboundType;
 	list_form_id?: TSupportInboundType;
 	virtual_webhook_form_id?: TSupportInboundType;
