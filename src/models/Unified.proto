@@ -244,6 +244,7 @@ message IntegrationSupport {
 	optional string list_goal = 185;
 	optional string list_role_id = 186;
 	optional string list_effective_status = 187;
+	optional string virtual_webhook_assigned_user_id = 188;
 }
 
 // Informational object for supported integrations.
