@@ -892,6 +892,7 @@ export interface IIntegrationSupport {
 	list_visitor_id?: TSupportInboundType;
 	list_session_id?: TSupportInboundType;
 	virtual_webhook_property_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	native_webhook_property_id?: TSupportInboundType;
 	virtual_webhook_session_id?: TSupportInboundType;
 	native_webhook_session_id?: TSupportInboundType;
@@ -903,7 +904,6 @@ export interface IIntegrationSupport {
 	list_goal?: TSupportInboundType;
 	list_role_id?: TSupportInboundType;
 	list_effective_status?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
