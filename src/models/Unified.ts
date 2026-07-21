@@ -775,6 +775,7 @@ export interface IIntegrationSupport {
 	search_domain?: TSupportInboundType;
 	list_event_id?: TSupportInboundType;
 	list_start_gte?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	list_end_lt?: TSupportInboundType;
 	list_lead_id?: TSupportInboundType;
 	list_call_id?: TSupportInboundType;
@@ -786,7 +787,6 @@ export interface IIntegrationSupport {
 	list_category_id?: TSupportInboundType;
 	list_package_id?: TSupportInboundType;
 	list_expand?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	native_webhook_parent_id?: TSupportInboundType;
 	native_webhook_project_id?: TSupportInboundType;
 	native_webhook_company_id?: TSupportInboundType;
