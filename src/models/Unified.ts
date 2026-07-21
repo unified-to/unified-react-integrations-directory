@@ -767,6 +767,7 @@ export interface IIntegrationSupport {
 	list_repo_id?: TSupportInboundType;
 	list_org_id?: TSupportInboundType;
 	list_calendar_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	list_task_id?: TSupportInboundType;
 	search_twitter?: TSupportInboundType;
 	search_name?: TSupportInboundType;
@@ -775,7 +776,6 @@ export interface IIntegrationSupport {
 	search_domain?: TSupportInboundType;
 	list_event_id?: TSupportInboundType;
 	list_start_gte?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	list_end_lt?: TSupportInboundType;
 	list_lead_id?: TSupportInboundType;
 	list_call_id?: TSupportInboundType;
