@@ -729,6 +729,7 @@ export interface IIntegrationSupport {
 	list_sort_by_updated_at?: TSupportInboundType;
 	list_updated_gte?: TSupportInboundType;
 	list_user_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	list_user_mentioned_id?: TSupportInboundType;
 	list_customer_id?: TSupportInboundType;
 	list_company_id?: TSupportInboundType;
@@ -739,7 +740,6 @@ export interface IIntegrationSupport {
 	list_job_id?: TSupportInboundType;
 	list_invoice_id?: TSupportInboundType;
 	list_order?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	list_query?: TSupportInboundType;
 	list_limit?: TSupportInboundType;
 	list_offset?: TSupportInboundType;
