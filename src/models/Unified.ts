@@ -903,6 +903,7 @@ export interface IIntegrationSupport {
 	list_goal?: TSupportInboundType;
 	list_role_id?: TSupportInboundType;
 	list_effective_status?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
