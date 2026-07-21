@@ -806,13 +806,13 @@ export interface IIntegrationSupport {
 	virtual_webhook_ticket_id?: TSupportInboundType;
 	virtual_webhook_expand?: TSupportInboundType;
 	virtual_webhook_status?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_start_gte?: TSupportInboundType;
 	virtual_webhook_end_lt?: TSupportInboundType;
 	virtual_webhook_task_id?: TSupportInboundType;
 	virtual_webhook_space_id?: TSupportInboundType;
 	virtual_webhook_repo_id?: TSupportInboundType;
 	virtual_webhook_project_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_pipeline_id?: TSupportInboundType;
 	virtual_webhook_page_id?: TSupportInboundType;
 	virtual_webhook_org_id?: TSupportInboundType;
