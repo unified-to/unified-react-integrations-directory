@@ -839,6 +839,7 @@ export interface IIntegrationSupport {
 	list_group_id?: TSupportInboundType;
 	virtual_webhook_campaign_id?: TSupportInboundType;
 	virtual_webhook_ad_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_group_id?: TSupportInboundType;
 	list_form_id?: TSupportInboundType;
 	virtual_webhook_form_id?: TSupportInboundType;
@@ -847,7 +848,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_order_id?: TSupportInboundType;
 	native_webhook_order_id?: TSupportInboundType;
 	list_carrier_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_carrier_id?: TSupportInboundType;
 	native_webhook_carrier_id?: TSupportInboundType;
 	list_shipment_id?: TSupportInboundType;
