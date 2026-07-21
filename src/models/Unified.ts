@@ -876,6 +876,7 @@ export interface IIntegrationSupport {
 	native_webhook_io_id?: TSupportInboundType;
 	list_size?: TSupportInboundType;
 	list_template_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_template_id?: TSupportInboundType;
 	native_webhook_template_id?: TSupportInboundType;
 	native_webhook_list_id?: TSupportInboundType;
@@ -884,7 +885,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_account_id?: TSupportInboundType;
 	list_database_id?: TSupportInboundType;
 	virtual_webhook_database_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	native_webhook_database_id?: TSupportInboundType;
 	list_table_id?: TSupportInboundType;
 	virtual_webhook_table_id?: TSupportInboundType;
