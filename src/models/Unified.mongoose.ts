@@ -261,6 +261,7 @@ export const schemaIntegrationSupport = {
 	list_goal: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_role_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_effective_status: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	virtual_webhook_assigned_user_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
