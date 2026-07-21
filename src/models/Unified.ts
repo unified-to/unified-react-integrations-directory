@@ -751,6 +751,7 @@ export interface IIntegrationSupport {
 	list_parent_id?: TSupportInboundType;
 	list_account_id?: TSupportInboundType;
 	list_item_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	list_space_id?: TSupportInboundType;
 	list_channel_id?: TSupportInboundType;
 	list_page_id?: TSupportInboundType;
@@ -759,7 +760,6 @@ export interface IIntegrationSupport {
 	list_project_id?: TSupportInboundType;
 	list_item_variant_id?: TSupportInboundType;
 	list_raw_fields?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	list_student_id?: TSupportInboundType;
 	list_class_id?: TSupportInboundType;
 	list_instructor_id?: TSupportInboundType;
