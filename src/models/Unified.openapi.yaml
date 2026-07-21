@@ -222,6 +222,7 @@ components:
       - messaging_message_read
       - messaging_message_write
       - messaging_channel_read
+      - messaging_channel_write
       - messaging_event_read
       - messaging_event_write
       - kms_space_read
@@ -798,6 +799,8 @@ components:
         list_updated_gte:
           $ref: "#/components/schemas/SupportInboundType"
         list_user_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_assigned_user_id:
           $ref: "#/components/schemas/SupportInboundType"
         list_user_mentioned_id:
           $ref: "#/components/schemas/SupportInboundType"
