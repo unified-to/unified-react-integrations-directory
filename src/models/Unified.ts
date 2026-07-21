@@ -739,6 +739,7 @@ export interface IIntegrationSupport {
 	list_job_id?: TSupportInboundType;
 	list_invoice_id?: TSupportInboundType;
 	list_order?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	list_query?: TSupportInboundType;
 	list_limit?: TSupportInboundType;
 	list_offset?: TSupportInboundType;
@@ -751,7 +752,6 @@ export interface IIntegrationSupport {
 	list_parent_id?: TSupportInboundType;
 	list_account_id?: TSupportInboundType;
 	list_item_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	list_space_id?: TSupportInboundType;
 	list_channel_id?: TSupportInboundType;
 	list_page_id?: TSupportInboundType;
