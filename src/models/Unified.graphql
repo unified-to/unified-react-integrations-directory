@@ -209,6 +209,7 @@ enum ENUM_IntegrationPermission {
 	messaging_message_read
 	messaging_message_write
 	messaging_channel_read
+	messaging_channel_write
 	messaging_event_read
 	messaging_event_write
 	kms_space_read
@@ -783,6 +784,7 @@ input Map_IntegrationPermission_string_Input {
 	messaging_message_read: String!
 	messaging_message_write: String!
 	messaging_channel_read: String!
+	messaging_channel_write: String!
 	messaging_event_read: String!
 	messaging_event_write: String!
 	kms_space_read: String!
@@ -1061,6 +1063,7 @@ type Map_IntegrationPermission_string {
 	messaging_message_read: String!
 	messaging_message_write: String!
 	messaging_channel_read: String!
+	messaging_channel_write: String!
 	messaging_event_read: String!
 	messaging_event_write: String!
 	kms_space_read: String!
@@ -1517,6 +1520,7 @@ objects that we map from in the integration
 	list_sort_by_updated_at: ENUM_SupportInboundType
 	list_updated_gte: ENUM_SupportInboundType
 	list_user_id: ENUM_SupportInboundType
+	list_assigned_user_id: ENUM_SupportInboundType
 	list_user_mentioned_id: ENUM_SupportInboundType
 	list_customer_id: ENUM_SupportInboundType
 	list_company_id: ENUM_SupportInboundType
@@ -1709,6 +1713,7 @@ objects that we map from in the integration
 	list_sort_by_updated_at: ENUM_SupportInboundType
 	list_updated_gte: ENUM_SupportInboundType
 	list_user_id: ENUM_SupportInboundType
+	list_assigned_user_id: ENUM_SupportInboundType
 	list_user_mentioned_id: ENUM_SupportInboundType
 	list_customer_id: ENUM_SupportInboundType
 	list_company_id: ENUM_SupportInboundType
