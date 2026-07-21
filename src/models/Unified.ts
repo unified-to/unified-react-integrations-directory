@@ -786,6 +786,7 @@ export interface IIntegrationSupport {
 	list_category_id?: TSupportInboundType;
 	list_package_id?: TSupportInboundType;
 	list_expand?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	native_webhook_parent_id?: TSupportInboundType;
 	native_webhook_project_id?: TSupportInboundType;
 	native_webhook_company_id?: TSupportInboundType;
@@ -796,7 +797,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_updated_gte?: TSupportInboundType;
 	virtual_webhook_limit?: TSupportInboundType;
 	virtual_webhook_channel_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_parent_id?: TSupportInboundType;
 	virtual_webhook_contact_id?: TSupportInboundType;
 	virtual_webhook_deal_id?: TSupportInboundType;
