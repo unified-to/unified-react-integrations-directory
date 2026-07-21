@@ -759,6 +759,7 @@ export interface IIntegrationSupport {
 	list_project_id?: TSupportInboundType;
 	list_item_variant_id?: TSupportInboundType;
 	list_raw_fields?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	list_student_id?: TSupportInboundType;
 	list_class_id?: TSupportInboundType;
 	list_instructor_id?: TSupportInboundType;
@@ -767,7 +768,6 @@ export interface IIntegrationSupport {
 	list_repo_id?: TSupportInboundType;
 	list_org_id?: TSupportInboundType;
 	list_calendar_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	list_task_id?: TSupportInboundType;
 	search_twitter?: TSupportInboundType;
 	search_name?: TSupportInboundType;
