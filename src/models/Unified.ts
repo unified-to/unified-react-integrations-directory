@@ -821,6 +821,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_item_id?: TSupportInboundType;
 	virtual_webhook_fields?: TSupportInboundType;
 	virtual_webhook_event_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_customer_id?: TSupportInboundType;
 	virtual_webhook_collection_id?: TSupportInboundType;
 	virtual_webhook_candidate_id?: TSupportInboundType;
@@ -830,7 +831,6 @@ export interface IIntegrationSupport {
 	virtual_webhook_item_variant_id?: TSupportInboundType;
 	virtual_webhook_calendar_id?: TSupportInboundType;
 	virtual_webhook_lead_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	list_payslip_id?: TSupportInboundType;
 	list_benefit_id?: TSupportInboundType;
 	list_saleschannel_id?: TSupportInboundType;
