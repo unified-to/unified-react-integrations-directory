@@ -872,11 +872,11 @@ export interface IIntegrationSupport {
 	virtual_webhook_payment_id?: TSupportInboundType;
 	list_fulltext?: TSupportInboundType;
 	list_io_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_io_id?: TSupportInboundType;
 	native_webhook_io_id?: TSupportInboundType;
 	list_size?: TSupportInboundType;
 	list_template_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_template_id?: TSupportInboundType;
 	native_webhook_template_id?: TSupportInboundType;
 	native_webhook_list_id?: TSupportInboundType;
