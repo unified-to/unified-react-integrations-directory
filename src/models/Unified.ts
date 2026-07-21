@@ -847,13 +847,13 @@ export interface IIntegrationSupport {
 	virtual_webhook_order_id?: TSupportInboundType;
 	native_webhook_order_id?: TSupportInboundType;
 	list_carrier_id?: TSupportInboundType;
+	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_carrier_id?: TSupportInboundType;
 	native_webhook_carrier_id?: TSupportInboundType;
 	list_shipment_id?: TSupportInboundType;
 	virtual_webhook_shipment_id?: TSupportInboundType;
 	native_webhook_shipment_id?: TSupportInboundType;
 	list_label_id?: TSupportInboundType;
-	list_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_label_id?: TSupportInboundType;
 	native_webhook_label_id?: TSupportInboundType;
 	list_member_id?: TSupportInboundType;
