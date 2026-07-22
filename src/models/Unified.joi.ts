@@ -47,7 +47,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'assessment',
 	'signing',
 	'clubs',
-	'datastore');
+	'datastore',
+	'cdp');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_account_read',
@@ -325,7 +326,19 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'datastore_record_read',
 	'datastore_record_write',
 	'datastore_query_read',
-	'datastore_query_write');
+	'datastore_query_write',
+	'cdp_profile_read',
+	'cdp_profile_write',
+	'cdp_segment_read',
+	'cdp_segment_write',
+	'cdp_event_read',
+	'cdp_event_write',
+	'cdp_source_read',
+	'cdp_source_write',
+	'cdp_destination_read',
+	'cdp_destination_write',
+	'cdp_activation_read',
+	'cdp_activation_write');
 
 export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'virtual',
@@ -490,7 +503,13 @@ export const joiObjectType = Joi.string().valid(
 	'datastore_database',
 	'datastore_table',
 	'datastore_record',
-	'datastore_query');
+	'datastore_query',
+	'cdp_profile',
+	'cdp_segment',
+	'cdp_event',
+	'cdp_source',
+	'cdp_destination',
+	'cdp_activation');
 
 export const joiPlanTerm = Joi.string().valid(
 	'monthly',
@@ -845,6 +864,18 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	datastore_record_write: Joi.string().allow(null, '').optional(),
 	datastore_query_read: Joi.string().allow(null, '').optional(),
 	datastore_query_write: Joi.string().allow(null, '').optional(),
+	cdp_profile_read: Joi.string().allow(null, '').optional(),
+	cdp_profile_write: Joi.string().allow(null, '').optional(),
+	cdp_segment_read: Joi.string().allow(null, '').optional(),
+	cdp_segment_write: Joi.string().allow(null, '').optional(),
+	cdp_event_read: Joi.string().allow(null, '').optional(),
+	cdp_event_write: Joi.string().allow(null, '').optional(),
+	cdp_source_read: Joi.string().allow(null, '').optional(),
+	cdp_source_write: Joi.string().allow(null, '').optional(),
+	cdp_destination_read: Joi.string().allow(null, '').optional(),
+	cdp_destination_write: Joi.string().allow(null, '').optional(),
+	cdp_activation_read: Joi.string().allow(null, '').optional(),
+	cdp_activation_write: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
@@ -1097,6 +1128,7 @@ export const joiIntegrationSupport = Joi.object({
 	list_property_id: joiSupportInboundType.allow(null).optional(),
 	list_visitor_id: joiSupportInboundType.allow(null).optional(),
 	list_session_id: joiSupportInboundType.allow(null).optional(),
+	list_profile_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_property_id: joiSupportInboundType.allow(null).optional(),
 	native_webhook_property_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_session_id: joiSupportInboundType.allow(null).optional(),
