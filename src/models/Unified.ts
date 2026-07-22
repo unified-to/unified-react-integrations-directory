@@ -507,7 +507,13 @@ export const ObjectType = [
 	'datastore_database',
 	'datastore_table',
 	'datastore_record',
-	'datastore_query'
+	'datastore_query',
+	'cdp_profile',
+	'cdp_segment',
+	'cdp_event',
+	'cdp_source',
+	'cdp_destination',
+	'cdp_activation'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
