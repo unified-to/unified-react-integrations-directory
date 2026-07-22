@@ -46,6 +46,7 @@ enum ENUM_IntegrationCategory {
 	signing
 	clubs
 	datastore
+	cdp
 }
 
 enum ENUM_IntegrationPermission {
@@ -325,6 +326,18 @@ enum ENUM_IntegrationPermission {
 	datastore_record_write
 	datastore_query_read
 	datastore_query_write
+	cdp_profile_read
+	cdp_profile_write
+	cdp_segment_read
+	cdp_segment_write
+	cdp_event_read
+	cdp_event_write
+	cdp_source_read
+	cdp_source_write
+	cdp_destination_read
+	cdp_destination_write
+	cdp_activation_read
+	cdp_activation_write
 }
 
 enum ENUM_IntegrationSupportWebhookType {
@@ -493,6 +506,12 @@ enum ENUM_ObjectType {
 	datastore_table
 	datastore_record
 	datastore_query
+	cdp_profile
+	cdp_segment
+	cdp_event
+	cdp_source
+	cdp_destination
+	cdp_activation
 }
 
 enum ENUM_PlanTerm {
@@ -900,6 +919,18 @@ input Map_IntegrationPermission_string_Input {
 	datastore_record_write: String!
 	datastore_query_read: String!
 	datastore_query_write: String!
+	cdp_profile_read: String!
+	cdp_profile_write: String!
+	cdp_segment_read: String!
+	cdp_segment_write: String!
+	cdp_event_read: String!
+	cdp_event_write: String!
+	cdp_source_read: String!
+	cdp_source_write: String!
+	cdp_destination_read: String!
+	cdp_destination_write: String!
+	cdp_activation_read: String!
+	cdp_activation_write: String!
 }
 
 type Map_IntegrationPermission_string {
@@ -1179,6 +1210,18 @@ type Map_IntegrationPermission_string {
 	datastore_record_write: String!
 	datastore_query_read: String!
 	datastore_query_write: String!
+	cdp_profile_read: String!
+	cdp_profile_write: String!
+	cdp_segment_read: String!
+	cdp_segment_write: String!
+	cdp_event_read: String!
+	cdp_event_write: String!
+	cdp_source_read: String!
+	cdp_source_write: String!
+	cdp_destination_read: String!
+	cdp_destination_write: String!
+	cdp_activation_read: String!
+	cdp_activation_write: String!
 }
 
 """
@@ -1683,6 +1726,7 @@ objects that we map from in the integration
 	list_property_id: ENUM_SupportInboundType
 	list_visitor_id: ENUM_SupportInboundType
 	list_session_id: ENUM_SupportInboundType
+	list_profile_id: ENUM_SupportInboundType
 	virtual_webhook_property_id: ENUM_SupportInboundType
 	native_webhook_property_id: ENUM_SupportInboundType
 	virtual_webhook_session_id: ENUM_SupportInboundType
@@ -1877,6 +1921,7 @@ objects that we map from in the integration
 	list_property_id: ENUM_SupportInboundType
 	list_visitor_id: ENUM_SupportInboundType
 	list_session_id: ENUM_SupportInboundType
+	list_profile_id: ENUM_SupportInboundType
 	virtual_webhook_property_id: ENUM_SupportInboundType
 	native_webhook_property_id: ENUM_SupportInboundType
 	virtual_webhook_session_id: ENUM_SupportInboundType
