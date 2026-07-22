@@ -924,6 +924,7 @@ export interface IIntegrationSupport {
 	list_role_id?: TSupportInboundType;
 	list_effective_status?: TSupportInboundType;
 	virtual_webhook_assigned_user_id?: TSupportInboundType;
+	list_profile_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
