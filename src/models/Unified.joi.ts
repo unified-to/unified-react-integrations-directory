@@ -1142,6 +1142,7 @@ export const joiIntegrationSupport = Joi.object({
 	list_role_id: joiSupportInboundType.allow(null).optional(),
 	list_effective_status: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_assigned_user_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_profile_id: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
