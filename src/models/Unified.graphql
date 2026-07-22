@@ -1740,6 +1740,7 @@ objects that we map from in the integration
 	list_role_id: ENUM_SupportInboundType
 	list_effective_status: ENUM_SupportInboundType
 	virtual_webhook_assigned_user_id: ENUM_SupportInboundType
+	virtual_webhook_profile_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1935,6 +1936,7 @@ objects that we map from in the integration
 	list_role_id: ENUM_SupportInboundType
 	list_effective_status: ENUM_SupportInboundType
 	virtual_webhook_assigned_user_id: ENUM_SupportInboundType
+	virtual_webhook_profile_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
