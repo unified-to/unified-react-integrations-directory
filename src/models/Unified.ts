@@ -1197,6 +1197,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'signing', label: 'E-Signature' },
     { category: 'clubs', label: 'Clubs' },
     { category: 'datastore', label: 'Datastore' },
-    { category: 'analytics', label: 'Analytics' }
+    { category: 'analytics', label: 'Analytics' },
+    { category: 'cdp', label: 'Customer Data Platform' }
 ];
 
