@@ -1173,6 +1173,8 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_assigned_user_id:
           $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_profile_id:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
