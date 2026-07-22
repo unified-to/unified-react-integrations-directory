@@ -333,7 +333,19 @@ export const IntegrationPermission = [
 	'datastore_record_read',
 	'datastore_record_write',
 	'datastore_query_read',
-	'datastore_query_write'
+	'datastore_query_write',
+	'cdp_profile_read',
+	'cdp_profile_write',
+	'cdp_segment_read',
+	'cdp_segment_write',
+	'cdp_event_read',
+	'cdp_event_write',
+	'cdp_source_read',
+	'cdp_source_write',
+	'cdp_destination_read',
+	'cdp_destination_write',
+	'cdp_activation_read',
+	'cdp_activation_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
