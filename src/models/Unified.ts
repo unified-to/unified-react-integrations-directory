@@ -1163,6 +1163,7 @@ export interface IWorkspaceIntegrationAuth {
 	key?: string; // the private KEY X.509 certificate in Base64 ASCII format
 	dev_api_key?: string;
 	saml_idp_url?: string; // the SAML IdP SSO/login URL for end-user SAML login
+	saml_idp_entity_id?: string; // the SAML IdP issuer/entity ID
 }
 
 export interface IWorkspaceIpAllowlistEntry {
