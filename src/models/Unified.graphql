@@ -19,6 +19,7 @@ enum ENUM_IntegrationCategory {
 	hris
 	ats
 	auth
+	saml
 	crm
 	enrich
 	martech
@@ -2540,6 +2541,18 @@ the private KEY X.509 certificate in Base64 ASCII format
 """
 	key: String
 	dev_api_key: String
+"""
+the SAML IdP SSO/login URL for end-user SAML login
+"""
+	saml_idp_url: String
+"""
+the SAML IdP issuer/entity ID
+"""
+	saml_idp_entity_id: String
+"""
+the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format
+"""
+	saml_pem: String
 }
 
 type WorkspaceIntegrationAuth {
@@ -2556,6 +2569,18 @@ the private KEY X.509 certificate in Base64 ASCII format
 """
 	key: String
 	dev_api_key: String
+"""
+the SAML IdP SSO/login URL for end-user SAML login
+"""
+	saml_idp_url: String
+"""
+the SAML IdP issuer/entity ID
+"""
+	saml_idp_entity_id: String
+"""
+the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format
+"""
+	saml_pem: String
 }
 
 input WorkspaceIpAllowlistEntry_Input {
