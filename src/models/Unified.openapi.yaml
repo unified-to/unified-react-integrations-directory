@@ -32,6 +32,7 @@ components:
       - hris
       - ats
       - auth
+      - saml
       - crm
       - enrich
       - martech
@@ -1697,6 +1698,15 @@ components:
           description: the private KEY X.509 certificate in Base64 ASCII format
         dev_api_key:
           type: string
+        saml_idp_url:
+          type: string
+          description: the SAML IdP SSO/login URL for end-user SAML login
+        saml_idp_entity_id:
+          type: string
+          description: the SAML IdP issuer/entity ID
+        saml_pem:
+          type: string
+          description: the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format
       required:
 
     WorkspaceIpAllowlistEntry:
