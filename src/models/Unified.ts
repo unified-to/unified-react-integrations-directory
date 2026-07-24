@@ -25,6 +25,7 @@ export const IntegrationCategory = [
 	'hris',
 	'ats',
 	'auth',
+	'saml',
 	'crm',
 	'enrich',
 	'martech',
