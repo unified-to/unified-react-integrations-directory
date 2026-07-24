@@ -1164,6 +1164,7 @@ export interface IWorkspaceIntegrationAuth {
 	dev_api_key?: string;
 	saml_idp_url?: string; // the SAML IdP SSO/login URL for end-user SAML login
 	saml_idp_entity_id?: string; // the SAML IdP issuer/entity ID
+	saml_pem?: string; // the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format
 }
 
 export interface IWorkspaceIpAllowlistEntry {
