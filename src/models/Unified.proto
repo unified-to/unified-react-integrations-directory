@@ -46,7 +46,7 @@ message Connection {
 	optional string integration_name = 6;
 	optional string external_xref = 7; // customer's user ID
 	repeated string permissions = 8;
-	repeated string categories = 9; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata, calendar, verification, ads, analytics, forms, shipping, assessment, signing, clubs, datastore, cdp
+	repeated string categories = 9; // The Integration categories that this connection supports Valid values: passthrough, hris, ats, auth, saml, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata, calendar, verification, ads, analytics, forms, shipping, assessment, signing, clubs, datastore, cdp
 	optional ConnectionAuth auth = 10;
 	optional bool is_paused = 11; // Whether this integration has exceed the monthly limit of the plan
 	optional string environment = 12;
@@ -257,7 +257,7 @@ message Integration {
 	optional string updated_at = 3; // YYYY-MM-DD
 	string name = 4; // The integration's name
 	optional bool is_active = 5; // Is this integration active in this workspace
-	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata, calendar, verification, ads, analytics, forms, shipping, assessment, signing, clubs, datastore, cdp
+	repeated string categories = 6; // The categories of support solutions that this integration has Valid values: passthrough, hris, ats, auth, saml, crm, enrich, martech, ticketing, uc, accounting, storage, commerce, payment, genai, messaging, kms, task, scim, lms, repo, metadata, calendar, verification, ads, analytics, forms, shipping, assessment, signing, clubs, datastore, cdp
 	optional string api_docs_url = 7; // The URL of the integration's API documentation
 	optional string logo_url = 8; // The URL of the integration's logo
 	optional bool in_progress = 9; // If this integration is not yet available as it is currently being built by unified.to
@@ -488,6 +488,9 @@ message WorkspaceIntegrationAuth {
 	optional string pem = 5; // the PEM X.509 certificate in Base64 ASCII format
 	optional string key = 6; // the private KEY X.509 certificate in Base64 ASCII format
 	optional string dev_api_key = 7;
+	optional string saml_idp_url = 8; // the SAML IdP SSO/login URL for end-user SAML login
+	optional string saml_idp_entity_id = 9; // the SAML IdP issuer/entity ID
+	optional string saml_pem = 10; // the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format
 }
 
 message WorkspaceIntegration {
