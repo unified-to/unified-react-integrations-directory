@@ -21,6 +21,7 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'hris',
 	'ats',
 	'auth',
+	'saml',
 	'crm',
 	'enrich',
 	'martech',
@@ -1384,6 +1385,9 @@ export const joiWorkspaceIntegrationAuth = Joi.object({
 	pem: Joi.string().allow(null, '').description('the PEM X.509 certificate in Base64 ASCII format').optional(),
 	key: Joi.string().allow(null, '').description('the private KEY X.509 certificate in Base64 ASCII format').optional(),
 	dev_api_key: Joi.string().allow(null, '').optional(),
+	saml_idp_url: Joi.string().allow(null, '').description('the SAML IdP SSO/login URL for end-user SAML login').optional(),
+	saml_idp_entity_id: Joi.string().allow(null, '').description('the SAML IdP issuer/entity ID').optional(),
+	saml_pem: Joi.string().allow(null, '').description('the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format').optional(),
 }).label('WorkspaceIntegrationAuth');
 
 export const joiWorkspaceIntegration = Joi.object({
