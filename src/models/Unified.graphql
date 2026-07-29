@@ -281,6 +281,8 @@ enum ENUM_IntegrationPermission {
 	ads_organization_write
 	ads_creative_read
 	ads_creative_write
+	ads_asset_read
+	ads_asset_write
 	ads_insertionorder_read
 	ads_insertionorder_write
 	ads_target_read
@@ -480,6 +482,7 @@ enum ENUM_ObjectType {
 	ads_report
 	ads_group
 	ads_creative
+	ads_asset
 	ads_insertionorder
 	ads_target
 	ads_promoted
@@ -874,6 +877,8 @@ input Map_IntegrationPermission_string_Input {
 	ads_organization_write: String!
 	ads_creative_read: String!
 	ads_creative_write: String!
+	ads_asset_read: String!
+	ads_asset_write: String!
 	ads_insertionorder_read: String!
 	ads_insertionorder_write: String!
 	ads_target_read: String!
@@ -1165,6 +1170,8 @@ type Map_IntegrationPermission_string {
 	ads_organization_write: String!
 	ads_creative_read: String!
 	ads_creative_write: String!
+	ads_asset_read: String!
+	ads_asset_write: String!
 	ads_insertionorder_read: String!
 	ads_insertionorder_write: String!
 	ads_target_read: String!
