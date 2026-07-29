@@ -289,6 +289,8 @@ export const IntegrationPermission = [
 	'ads_organization_write',
 	'ads_creative_read',
 	'ads_creative_write',
+	'ads_asset_read',
+	'ads_asset_write',
 	'ads_insertionorder_read',
 	'ads_insertionorder_write',
 	'ads_target_read',
