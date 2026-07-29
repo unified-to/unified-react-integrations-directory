@@ -494,6 +494,7 @@ export const ObjectType = [
 	'ads_report',
 	'ads_group',
 	'ads_creative',
+	'ads_asset',
 	'ads_insertionorder',
 	'ads_target',
 	'ads_promoted',
