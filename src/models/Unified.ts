@@ -313,6 +313,7 @@ export const IntegrationPermission = [
 	'shipping_label_write',
 	'shipping_tracking_read',
 	'shipping_rate_read',
+	'shipping_rate_write',
 	'shipping_carrier_read',
 	'signing_document_read',
 	'signing_document_write',
