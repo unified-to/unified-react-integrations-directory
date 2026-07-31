@@ -953,6 +953,7 @@ export interface IIssue {
 	ticket_ref: string;
 	size?: number; // 1-5, 1 is lowest
 	importance?: number; // 1-5, 1 is lowest
+	customer_note?: string;
 }
 
 export interface INotification {
