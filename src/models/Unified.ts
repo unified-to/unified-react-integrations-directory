@@ -677,6 +677,7 @@ export interface IConnection {
 	last_unhealthy_at?: (string | Date | number);
 	secretsmanager_id?: string; // the ID of the SecretsManager object
 	secretsmanager_key?: string; // the key/path/name of the secret within the vault
+	last_unhealthy_code?: string;
 }
 
 export interface IConnectionAuth {
