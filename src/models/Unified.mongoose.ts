@@ -267,6 +267,7 @@ export const schemaIntegrationSupport = {
 	virtual_webhook_profile_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_segment_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_cycle_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	virtual_webhook_cycle_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
