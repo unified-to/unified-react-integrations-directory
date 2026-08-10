@@ -1235,6 +1235,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'datastore', label: 'Datastore' },
     { category: 'analytics', label: 'Analytics' },
     { category: 'cdp', label: 'Customer Data Platform' },
-    { category: 'saml', label: 'SAML SSO Authentication' }
+    { category: 'saml', label: 'SAML SSO Authentication' },
+    { category: 'performance', label: 'Performance Management' }
 ];
 
