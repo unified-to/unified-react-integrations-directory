@@ -61,6 +61,7 @@ components:
       - clubs
       - datastore
       - cdp
+      - performance
     IntegrationPermission:
       type: string
       enum:
@@ -105,6 +106,12 @@ components:
       - payment_payment_write
       - accounting_cashflow_read
       - accounting_cashflow_write
+      - accounting_quote_read
+      - accounting_quote_write
+      - accounting_agedreceivable_read
+      - accounting_agedpayable_read
+      - accounting_project_read
+      - accounting_project_write
       - payment_payout_read
       - payment_refund_read
       - payment_link_read
@@ -318,6 +325,7 @@ components:
       - shipping_label_write
       - shipping_tracking_read
       - shipping_rate_read
+      - shipping_rate_write
       - shipping_carrier_read
       - signing_document_read
       - signing_document_write
@@ -354,6 +362,13 @@ components:
       - cdp_destination_write
       - cdp_activation_read
       - cdp_activation_write
+      - performance_cycle_read
+      - performance_review_read
+      - performance_review_write
+      - performance_goal_read
+      - performance_goal_write
+      - performance_feedback_read
+      - performance_feedback_write
     IntegrationSupportWebhookType:
       type: string
       enum:
@@ -392,6 +407,10 @@ components:
       - accounting_category
       - accounting_expense
       - accounting_cashflow
+      - accounting_quote
+      - accounting_agedreceivable
+      - accounting_agedpayable
+      - accounting_project
       - payment_payment
       - payment_link
       - payment_payout
@@ -529,6 +548,10 @@ components:
       - cdp_source
       - cdp_destination
       - cdp_activation
+      - performance_cycle
+      - performance_review
+      - performance_goal
+      - performance_feedback
     PlanTerm:
       type: string
       enum:
@@ -629,6 +652,9 @@ components:
         last_unhealthy_at:
           type: string
           format: date-time
+        last_unhealthy_code:
+          type: string
+          description: The HTTP status code that caused the last unhealthy status
         secretsmanager_id:
           type: string
           description: the ID of the SecretsManager object
@@ -1179,6 +1205,10 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_profile_id:
           $ref: "#/components/schemas/SupportInboundType"
+        list_segment_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_cycle_id:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
@@ -1230,6 +1260,8 @@ components:
         importance:
           type: integer
           description: 1-5, 1 is lowest
+        customer_note:
+          type: string
       required:
         - title
         - status
