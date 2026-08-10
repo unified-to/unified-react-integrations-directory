@@ -356,7 +356,14 @@ export const IntegrationPermission = [
 	'cdp_destination_read',
 	'cdp_destination_write',
 	'cdp_activation_read',
-	'cdp_activation_write'
+	'cdp_activation_write',
+	'performance_cycle_read',
+	'performance_review_read',
+	'performance_review_write',
+	'performance_goal_read',
+	'performance_goal_write',
+	'performance_feedback_read',
+	'performance_feedback_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
