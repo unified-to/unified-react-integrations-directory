@@ -250,6 +250,7 @@ message IntegrationSupport {
 	optional string virtual_webhook_profile_id = 190;
 	optional string list_segment_id = 191;
 	optional string list_cycle_id = 192;
+	optional string virtual_webhook_cycle_id = 193;
 }
 
 // Informational object for supported integrations.
