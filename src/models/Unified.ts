@@ -955,6 +955,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_assigned_user_id?: TSupportInboundType;
 	virtual_webhook_profile_id?: TSupportInboundType;
 	list_segment_id?: TSupportInboundType;
+	list_cycle_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
