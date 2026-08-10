@@ -541,7 +541,11 @@ export const ObjectType = [
 	'cdp_event',
 	'cdp_source',
 	'cdp_destination',
-	'cdp_activation'
+	'cdp_activation',
+	'performance_cycle',
+	'performance_review',
+	'performance_goal',
+	'performance_feedback'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
