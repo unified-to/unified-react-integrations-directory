@@ -1189,6 +1189,7 @@ export const joiIntegrationSupport = Joi.object({
 	virtual_webhook_profile_id: joiSupportInboundType.allow(null).optional(),
 	list_segment_id: joiSupportInboundType.allow(null).optional(),
 	list_cycle_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_cycle_id: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
