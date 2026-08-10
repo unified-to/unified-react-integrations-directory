@@ -49,7 +49,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'signing',
 	'clubs',
 	'datastore',
-	'cdp');
+	'cdp',
+	'performance');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_account_read',
@@ -93,6 +94,12 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'payment_payment_write',
 	'accounting_cashflow_read',
 	'accounting_cashflow_write',
+	'accounting_quote_read',
+	'accounting_quote_write',
+	'accounting_agedreceivable_read',
+	'accounting_agedpayable_read',
+	'accounting_project_read',
+	'accounting_project_write',
 	'payment_payout_read',
 	'payment_refund_read',
 	'payment_link_read',
@@ -306,6 +313,7 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'shipping_label_write',
 	'shipping_tracking_read',
 	'shipping_rate_read',
+	'shipping_rate_write',
 	'shipping_carrier_read',
 	'signing_document_read',
 	'signing_document_write',
@@ -341,7 +349,14 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'cdp_destination_read',
 	'cdp_destination_write',
 	'cdp_activation_read',
-	'cdp_activation_write');
+	'cdp_activation_write',
+	'performance_cycle_read',
+	'performance_review_read',
+	'performance_review_write',
+	'performance_goal_read',
+	'performance_goal_write',
+	'performance_feedback_read',
+	'performance_feedback_write');
 
 export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'virtual',
@@ -377,6 +392,10 @@ export const joiObjectType = Joi.string().valid(
 	'accounting_category',
 	'accounting_expense',
 	'accounting_cashflow',
+	'accounting_quote',
+	'accounting_agedreceivable',
+	'accounting_agedpayable',
+	'accounting_project',
 	'payment_payment',
 	'payment_link',
 	'payment_payout',
@@ -513,7 +532,11 @@ export const joiObjectType = Joi.string().valid(
 	'cdp_event',
 	'cdp_source',
 	'cdp_destination',
-	'cdp_activation');
+	'cdp_activation',
+	'performance_cycle',
+	'performance_review',
+	'performance_goal',
+	'performance_feedback');
 
 export const joiPlanTerm = Joi.string().valid(
 	'monthly',
@@ -633,6 +656,12 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	payment_payment_write: Joi.string().allow(null, '').optional(),
 	accounting_cashflow_read: Joi.string().allow(null, '').optional(),
 	accounting_cashflow_write: Joi.string().allow(null, '').optional(),
+	accounting_quote_read: Joi.string().allow(null, '').optional(),
+	accounting_quote_write: Joi.string().allow(null, '').optional(),
+	accounting_agedreceivable_read: Joi.string().allow(null, '').optional(),
+	accounting_agedpayable_read: Joi.string().allow(null, '').optional(),
+	accounting_project_read: Joi.string().allow(null, '').optional(),
+	accounting_project_write: Joi.string().allow(null, '').optional(),
 	payment_payout_read: Joi.string().allow(null, '').optional(),
 	payment_refund_read: Joi.string().allow(null, '').optional(),
 	payment_link_read: Joi.string().allow(null, '').optional(),
@@ -846,6 +875,7 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	shipping_label_write: Joi.string().allow(null, '').optional(),
 	shipping_tracking_read: Joi.string().allow(null, '').optional(),
 	shipping_rate_read: Joi.string().allow(null, '').optional(),
+	shipping_rate_write: Joi.string().allow(null, '').optional(),
 	shipping_carrier_read: Joi.string().allow(null, '').optional(),
 	signing_document_read: Joi.string().allow(null, '').optional(),
 	signing_document_write: Joi.string().allow(null, '').optional(),
@@ -882,6 +912,13 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	cdp_destination_write: Joi.string().allow(null, '').optional(),
 	cdp_activation_read: Joi.string().allow(null, '').optional(),
 	cdp_activation_write: Joi.string().allow(null, '').optional(),
+	performance_cycle_read: Joi.string().allow(null, '').optional(),
+	performance_review_read: Joi.string().allow(null, '').optional(),
+	performance_review_write: Joi.string().allow(null, '').optional(),
+	performance_goal_read: Joi.string().allow(null, '').optional(),
+	performance_goal_write: Joi.string().allow(null, '').optional(),
+	performance_feedback_read: Joi.string().allow(null, '').optional(),
+	performance_feedback_write: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
@@ -954,6 +991,7 @@ export const joiConnection = Joi.object({
 	environment: Joi.string().allow(null, '').default('Production').optional(),
 	last_healthy_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
 	last_unhealthy_at: Joi.date().allow(null).meta( { readonly: true }).optional(),
+	last_unhealthy_code: Joi.string().allow(null, '').description('The HTTP status code that caused the last unhealthy status').optional(),
 	secretsmanager_id: Joi.string().allow(null, '').description('the ID of the SecretsManager object').optional(),
 	secretsmanager_key: Joi.string().allow(null, '').description('the key/path/name of the secret within the vault').optional(),
 }).label('Connection').description('A connection represents a specific authentication of an integration.');
@@ -1149,6 +1187,8 @@ export const joiIntegrationSupport = Joi.object({
 	list_effective_status: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_assigned_user_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_profile_id: joiSupportInboundType.allow(null).optional(),
+	list_segment_id: joiSupportInboundType.allow(null).optional(),
+	list_cycle_id: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
@@ -1204,6 +1244,7 @@ export const joiIssue = Joi.object({
 	ticket_ref: Joi.string().allow('').required(),
 	size: Joi.number().allow(null).description('1-5, 1 is lowest').optional(),
 	importance: Joi.number().allow(null).description('1-5, 1 is lowest').optional(),
+	customer_note: Joi.string().allow(null, '').optional(),
 }).label('Issue');
 
 export const joiNotification = Joi.object({
