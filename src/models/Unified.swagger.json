@@ -45,6 +45,12 @@
 				"payment_payment_write",
 				"accounting_cashflow_read",
 				"accounting_cashflow_write",
+				"accounting_quote_read",
+				"accounting_quote_write",
+				"accounting_agedreceivable_read",
+				"accounting_agedpayable_read",
+				"accounting_project_read",
+				"accounting_project_write",
 				"payment_payout_read",
 				"payment_refund_read",
 				"payment_link_read",
@@ -258,6 +264,7 @@
 				"shipping_label_write",
 				"shipping_tracking_read",
 				"shipping_rate_read",
+				"shipping_rate_write",
 				"shipping_carrier_read",
 				"signing_document_read",
 				"signing_document_write",
@@ -293,7 +300,14 @@
 				"cdp_destination_read",
 				"cdp_destination_write",
 				"cdp_activation_read",
-				"cdp_activation_write"
+				"cdp_activation_write",
+				"performance_cycle_read",
+				"performance_review_read",
+				"performance_review_write",
+				"performance_goal_read",
+				"performance_goal_write",
+				"performance_feedback_read",
+				"performance_feedback_write"
 			]
 		},
 		"ApiCall": {
