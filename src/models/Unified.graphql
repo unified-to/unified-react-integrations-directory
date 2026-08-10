@@ -48,6 +48,7 @@ enum ENUM_IntegrationCategory {
 	clubs
 	datastore
 	cdp
+	performance
 }
 
 enum ENUM_IntegrationPermission {
@@ -92,6 +93,12 @@ enum ENUM_IntegrationPermission {
 	payment_payment_write
 	accounting_cashflow_read
 	accounting_cashflow_write
+	accounting_quote_read
+	accounting_quote_write
+	accounting_agedreceivable_read
+	accounting_agedpayable_read
+	accounting_project_read
+	accounting_project_write
 	payment_payout_read
 	payment_refund_read
 	payment_link_read
@@ -305,6 +312,7 @@ enum ENUM_IntegrationPermission {
 	shipping_label_write
 	shipping_tracking_read
 	shipping_rate_read
+	shipping_rate_write
 	shipping_carrier_read
 	signing_document_read
 	signing_document_write
@@ -341,6 +349,13 @@ enum ENUM_IntegrationPermission {
 	cdp_destination_write
 	cdp_activation_read
 	cdp_activation_write
+	performance_cycle_read
+	performance_review_read
+	performance_review_write
+	performance_goal_read
+	performance_goal_write
+	performance_feedback_read
+	performance_feedback_write
 }
 
 enum ENUM_IntegrationSupportWebhookType {
@@ -379,6 +394,10 @@ enum ENUM_ObjectType {
 	accounting_category
 	accounting_expense
 	accounting_cashflow
+	accounting_quote
+	accounting_agedreceivable
+	accounting_agedpayable
+	accounting_project
 	payment_payment
 	payment_link
 	payment_payout
@@ -516,6 +535,10 @@ enum ENUM_ObjectType {
 	cdp_source
 	cdp_destination
 	cdp_activation
+	performance_cycle
+	performance_review
+	performance_goal
+	performance_feedback
 }
 
 enum ENUM_PlanTerm {
@@ -688,6 +711,12 @@ input Map_IntegrationPermission_string_Input {
 	payment_payment_write: String!
 	accounting_cashflow_read: String!
 	accounting_cashflow_write: String!
+	accounting_quote_read: String!
+	accounting_quote_write: String!
+	accounting_agedreceivable_read: String!
+	accounting_agedpayable_read: String!
+	accounting_project_read: String!
+	accounting_project_write: String!
 	payment_payout_read: String!
 	payment_refund_read: String!
 	payment_link_read: String!
@@ -901,6 +930,7 @@ input Map_IntegrationPermission_string_Input {
 	shipping_label_write: String!
 	shipping_tracking_read: String!
 	shipping_rate_read: String!
+	shipping_rate_write: String!
 	shipping_carrier_read: String!
 	signing_document_read: String!
 	signing_document_write: String!
@@ -937,6 +967,13 @@ input Map_IntegrationPermission_string_Input {
 	cdp_destination_write: String!
 	cdp_activation_read: String!
 	cdp_activation_write: String!
+	performance_cycle_read: String!
+	performance_review_read: String!
+	performance_review_write: String!
+	performance_goal_read: String!
+	performance_goal_write: String!
+	performance_feedback_read: String!
+	performance_feedback_write: String!
 }
 
 type Map_IntegrationPermission_string {
@@ -981,6 +1018,12 @@ type Map_IntegrationPermission_string {
 	payment_payment_write: String!
 	accounting_cashflow_read: String!
 	accounting_cashflow_write: String!
+	accounting_quote_read: String!
+	accounting_quote_write: String!
+	accounting_agedreceivable_read: String!
+	accounting_agedpayable_read: String!
+	accounting_project_read: String!
+	accounting_project_write: String!
 	payment_payout_read: String!
 	payment_refund_read: String!
 	payment_link_read: String!
@@ -1194,6 +1237,7 @@ type Map_IntegrationPermission_string {
 	shipping_label_write: String!
 	shipping_tracking_read: String!
 	shipping_rate_read: String!
+	shipping_rate_write: String!
 	shipping_carrier_read: String!
 	signing_document_read: String!
 	signing_document_write: String!
@@ -1230,6 +1274,13 @@ type Map_IntegrationPermission_string {
 	cdp_destination_write: String!
 	cdp_activation_read: String!
 	cdp_activation_write: String!
+	performance_cycle_read: String!
+	performance_review_read: String!
+	performance_review_write: String!
+	performance_goal_read: String!
+	performance_goal_write: String!
+	performance_feedback_read: String!
+	performance_feedback_write: String!
 }
 
 """
@@ -1252,6 +1303,10 @@ The Integration categories that this connection supports
 	categories: [ENUM_IntegrationCategory]!
 	auth: ConnectionAuth_Input
 	environment: String
+"""
+The HTTP status code that caused the last unhealthy status
+"""
+	last_unhealthy_code: String
 """
 the ID of the SecretsManager object
 """
@@ -1298,6 +1353,10 @@ Whether this integration has exceed the monthly limit of the plan
 	environment: String
 	last_healthy_at: DateTime
 	last_unhealthy_at: DateTime
+"""
+The HTTP status code that caused the last unhealthy status
+"""
+	last_unhealthy_code: String
 """
 the ID of the SecretsManager object
 """
@@ -1749,6 +1808,8 @@ objects that we map from in the integration
 	list_effective_status: ENUM_SupportInboundType
 	virtual_webhook_assigned_user_id: ENUM_SupportInboundType
 	virtual_webhook_profile_id: ENUM_SupportInboundType
+	list_segment_id: ENUM_SupportInboundType
+	list_cycle_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -1945,6 +2006,8 @@ objects that we map from in the integration
 	list_effective_status: ENUM_SupportInboundType
 	virtual_webhook_assigned_user_id: ENUM_SupportInboundType
 	virtual_webhook_profile_id: ENUM_SupportInboundType
+	list_segment_id: ENUM_SupportInboundType
+	list_cycle_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
@@ -1982,6 +2045,7 @@ input Issue_Input {
 1-5, 1 is lowest
 """
 	importance: Int
+	customer_note: String
 }
 
 type Issue {
@@ -2003,6 +2067,7 @@ type Issue {
 1-5, 1 is lowest
 """
 	importance: Int
+	customer_note: String
 }
 
 input Permission_Input {
