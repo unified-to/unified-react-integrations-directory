@@ -456,6 +456,7 @@ export const ObjectType = [
 	'hris_location',
 	'hris_device',
 	'hris_timeshift',
+	'hris_attendance',
 	'hris_deduction',
 	'hris_benefit',
 	'hris_bankaccount',
