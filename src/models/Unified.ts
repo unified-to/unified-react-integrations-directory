@@ -193,6 +193,8 @@ export const IntegrationPermission = [
 	'hris_timeoff_write',
 	'hris_timeshift_read',
 	'hris_timeshift_write',
+	'hris_attendance_read',
+	'hris_attendance_write',
 	'hris_company_read',
 	'hris_company_write',
 	'hris_location_read',
