@@ -185,6 +185,8 @@ enum ENUM_IntegrationPermission {
 	hris_timeoff_write
 	hris_timeshift_read
 	hris_timeshift_write
+	hris_attendance_read
+	hris_attendance_write
 	hris_company_read
 	hris_company_write
 	hris_location_read
@@ -440,6 +442,7 @@ enum ENUM_ObjectType {
 	hris_location
 	hris_device
 	hris_timeshift
+	hris_attendance
 	hris_deduction
 	hris_benefit
 	hris_bankaccount
@@ -803,6 +806,8 @@ input Map_IntegrationPermission_string_Input {
 	hris_timeoff_write: String!
 	hris_timeshift_read: String!
 	hris_timeshift_write: String!
+	hris_attendance_read: String!
+	hris_attendance_write: String!
 	hris_company_read: String!
 	hris_company_write: String!
 	hris_location_read: String!
@@ -1110,6 +1115,8 @@ type Map_IntegrationPermission_string {
 	hris_timeoff_write: String!
 	hris_timeshift_read: String!
 	hris_timeshift_write: String!
+	hris_attendance_read: String!
+	hris_attendance_write: String!
 	hris_company_read: String!
 	hris_company_write: String!
 	hris_location_read: String!
