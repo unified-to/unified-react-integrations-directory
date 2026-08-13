@@ -418,6 +418,8 @@ export const ObjectType = [
 	'accounting_agedreceivable',
 	'accounting_agedpayable',
 	'accounting_project',
+	'accounting_bankfeedaccount',
+	'accounting_bankfeedtransaction',
 	'payment_payment',
 	'payment_link',
 	'payment_payout',
