@@ -923,7 +923,6 @@ export interface IIntegrationSupport {
 	native_webhook_type?: TSupportInboundType;
 	virtual_webhook_link_id?: TSupportInboundType;
 	virtual_webhook_bill_id?: TSupportInboundType;
-	list_bankfeedaccount_id?: TSupportInboundType;
 	virtual_webhook_invoice_id?: TSupportInboundType;
 	list_bill_id?: TSupportInboundType;
 	virtual_webhook_benefit_id?: TSupportInboundType;
@@ -943,6 +942,7 @@ export interface IIntegrationSupport {
 	list_database_id?: TSupportInboundType;
 	virtual_webhook_database_id?: TSupportInboundType;
 	native_webhook_database_id?: TSupportInboundType;
+	list_bankfeedaccount_id?: TSupportInboundType;
 	list_table_id?: TSupportInboundType;
 	virtual_webhook_table_id?: TSupportInboundType;
 	native_webhook_table_id?: TSupportInboundType;
