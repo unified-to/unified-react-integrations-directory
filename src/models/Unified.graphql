@@ -99,6 +99,10 @@ enum ENUM_IntegrationPermission {
 	accounting_agedpayable_read
 	accounting_project_read
 	accounting_project_write
+	accounting_bankfeedaccount_read
+	accounting_bankfeedaccount_write
+	accounting_bankfeedtransaction_read
+	accounting_bankfeedtransaction_write
 	payment_payout_read
 	payment_refund_read
 	payment_link_read
@@ -400,6 +404,8 @@ enum ENUM_ObjectType {
 	accounting_agedreceivable
 	accounting_agedpayable
 	accounting_project
+	accounting_bankfeedaccount
+	accounting_bankfeedtransaction
 	payment_payment
 	payment_link
 	payment_payout
@@ -720,6 +726,10 @@ input Map_IntegrationPermission_string_Input {
 	accounting_agedpayable_read: String!
 	accounting_project_read: String!
 	accounting_project_write: String!
+	accounting_bankfeedaccount_read: String!
+	accounting_bankfeedaccount_write: String!
+	accounting_bankfeedtransaction_read: String!
+	accounting_bankfeedtransaction_write: String!
 	payment_payout_read: String!
 	payment_refund_read: String!
 	payment_link_read: String!
@@ -1029,6 +1039,10 @@ type Map_IntegrationPermission_string {
 	accounting_agedpayable_read: String!
 	accounting_project_read: String!
 	accounting_project_write: String!
+	accounting_bankfeedaccount_read: String!
+	accounting_bankfeedaccount_write: String!
+	accounting_bankfeedtransaction_read: String!
+	accounting_bankfeedtransaction_write: String!
 	payment_payout_read: String!
 	payment_refund_read: String!
 	payment_link_read: String!
@@ -1818,6 +1832,8 @@ objects that we map from in the integration
 	list_segment_id: ENUM_SupportInboundType
 	list_cycle_id: ENUM_SupportInboundType
 	virtual_webhook_cycle_id: ENUM_SupportInboundType
+	list_bankfeedaccount_id: ENUM_SupportInboundType
+	virtual_webhook_bankfeedaccount_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -2017,6 +2033,8 @@ objects that we map from in the integration
 	list_segment_id: ENUM_SupportInboundType
 	list_cycle_id: ENUM_SupportInboundType
 	virtual_webhook_cycle_id: ENUM_SupportInboundType
+	list_bankfeedaccount_id: ENUM_SupportInboundType
+	virtual_webhook_bankfeedaccount_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
