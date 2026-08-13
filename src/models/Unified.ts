@@ -948,6 +948,7 @@ export interface IIntegrationSupport {
 	list_property_id?: TSupportInboundType;
 	list_visitor_id?: TSupportInboundType;
 	list_session_id?: TSupportInboundType;
+	list_bankfeedaccount_id?: TSupportInboundType;
 	list_profile_id?: TSupportInboundType;
 	virtual_webhook_property_id?: TSupportInboundType;
 	native_webhook_property_id?: TSupportInboundType;
@@ -959,7 +960,6 @@ export interface IIntegrationSupport {
 	list_source?: TSupportInboundType;
 	list_dimension?: TSupportInboundType;
 	list_goal?: TSupportInboundType;
-	list_bankfeedaccount_id?: TSupportInboundType;
 	list_role_id?: TSupportInboundType;
 	list_effective_status?: TSupportInboundType;
 	virtual_webhook_assigned_user_id?: TSupportInboundType;
