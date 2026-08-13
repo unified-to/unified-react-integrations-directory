@@ -931,7 +931,6 @@ export interface IIntegrationSupport {
 	list_io_id?: TSupportInboundType;
 	virtual_webhook_io_id?: TSupportInboundType;
 	native_webhook_io_id?: TSupportInboundType;
-	list_bankfeedaccount_id?: TSupportInboundType;
 	list_size?: TSupportInboundType;
 	list_template_id?: TSupportInboundType;
 	virtual_webhook_template_id?: TSupportInboundType;
@@ -954,6 +953,7 @@ export interface IIntegrationSupport {
 	native_webhook_property_id?: TSupportInboundType;
 	virtual_webhook_session_id?: TSupportInboundType;
 	native_webhook_session_id?: TSupportInboundType;
+	list_bankfeedaccount_id?: TSupportInboundType;
 	virtual_webhook_visitor_id?: TSupportInboundType;
 	native_webhook_visitor_id?: TSupportInboundType;
 	list_medium?: TSupportInboundType;
