@@ -112,6 +112,10 @@ components:
       - accounting_agedpayable_read
       - accounting_project_read
       - accounting_project_write
+      - accounting_bankfeedaccount_read
+      - accounting_bankfeedaccount_write
+      - accounting_bankfeedtransaction_read
+      - accounting_bankfeedtransaction_write
       - payment_payout_read
       - payment_refund_read
       - payment_link_read
@@ -413,6 +417,8 @@ components:
       - accounting_agedreceivable
       - accounting_agedpayable
       - accounting_project
+      - accounting_bankfeedaccount
+      - accounting_bankfeedtransaction
       - payment_payment
       - payment_link
       - payment_payout
@@ -1213,6 +1219,10 @@ components:
         list_cycle_id:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_cycle_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        list_bankfeedaccount_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_bankfeedaccount_id:
           $ref: "#/components/schemas/SupportInboundType"
       required:
 
