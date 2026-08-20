@@ -1151,6 +1151,7 @@ export interface IWorkspace {
 	stripe_canceling_at?: (string | Date | number);
 	domain?: string; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 	event_webhook_url?: string;
+	event_webhook_env_urls?: { [path in string]?: string }; // Environment name to event webhook URL
 	event_webhook_events?: ( TWorkspaceEventType )[];
 	custom_auth_domain?: string;
 	custom_auth_domain_valid?: boolean;
@@ -1162,7 +1163,6 @@ export interface IWorkspace {
 	saml_integration_type?: string;
 	saml_idp_url?: string;
 	saml_idp_entity_id?: string;
-	event_webhook_env_urls?: { [path in string]?: string }; // Environment name to event webhook URL
 	saml_pem?: string; // the PEM X.509 certificate in Base64 ASCII format
 	saml_only_login?: boolean; // if true, only allow SAML login
 	sync_objects?: ( TRegionSyncType )[];
