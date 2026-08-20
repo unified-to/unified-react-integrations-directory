@@ -1162,6 +1162,7 @@ export interface IWorkspace {
 	saml_integration_type?: string;
 	saml_idp_url?: string;
 	saml_idp_entity_id?: string;
+	event_webhook_env_urls?: { [path in string]?: string }; // Environment name to event webhook URL
 	saml_pem?: string; // the PEM X.509 certificate in Base64 ASCII format
 	saml_only_login?: boolean; // if true, only allow SAML login
 	sync_objects?: ( TRegionSyncType )[];
@@ -1177,7 +1178,6 @@ export interface IWorkspace {
 	jwt_secret?: string;
 	default_secretsmanager_id?: string; // Default SecretsManager document id for new credentials
 	default_secretsmanager_env_ids?: { [path in string]?: string }; // Environment name to SecretsManager document id
-	event_webhook_env_urls?: { [path in string]?: string }; // Environment name to event webhook URL
 }
 
 export interface IWorkspaceIntegration {
