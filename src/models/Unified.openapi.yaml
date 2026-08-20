@@ -583,6 +583,12 @@ components:
       - gcp
       - hashicorp
       - composio
+      - 1password
+      - bitwarden
+      - doppler
+      - akeyless
+      - pipedream
+      - alibabacloud
     SupportInboundType:
       type: string
       enum:
@@ -1611,6 +1617,11 @@ components:
           description: when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
         event_webhook_url:
           type: string
+        event_webhook_env_urls:
+          type: object
+          additionalProperties:
+            type: string
+          description: Environment name to event webhook URL
         event_webhook_events:
           $ref: "#/components/schemas/WorkspaceEventTypes"
         custom_auth_domain:
