@@ -570,6 +570,12 @@ enum ENUM_SecretsManagerType {
 	gcp
 	hashicorp
 	composio
+	1password
+	bitwarden
+	doppler
+	akeyless
+	pipedream
+	alibabacloud
 }
 
 enum ENUM_SupportInboundType {
@@ -2425,6 +2431,10 @@ when set, users of the same domain will auto-join this workspace.  must not be g
 """
 	domain: String
 	event_webhook_url: String
+"""
+Environment name to event webhook URL
+"""
+	event_webhook_env_urls: Map_string_string
 	event_webhook_events: [ENUM_WorkspaceEventType]
 	custom_auth_domain: String
 	custom_auth_domain_valid: Boolean
@@ -2510,6 +2520,10 @@ when set, users of the same domain will auto-join this workspace.  must not be g
 """
 	domain: String
 	event_webhook_url: String
+"""
+Environment name to event webhook URL
+"""
+	event_webhook_env_urls: Map_string_string
 	event_webhook_events: [ENUM_WorkspaceEventType]
 	custom_auth_domain: String
 	custom_auth_domain_valid: Boolean
