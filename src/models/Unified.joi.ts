@@ -564,7 +564,13 @@ export const joiSecretsManagerType = Joi.string().valid(
 	'azure',
 	'gcp',
 	'hashicorp',
-	'composio');
+	'composio',
+	'1password',
+	'bitwarden',
+	'doppler',
+	'akeyless',
+	'pipedream',
+	'alibabacloud');
 
 export const joiSupportInboundType = Joi.string().valid(
 	'supported-required',
@@ -1413,6 +1419,7 @@ export const joiWorkspace = Joi.object({
 	stripe_canceling_at: Joi.date().allow(null).optional(),
 	domain: Joi.string().allow(null, '').description('when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains').optional(),
 	event_webhook_url: Joi.string().uri().allow(null, '').optional(),
+	event_webhook_env_urls: Joi.object().pattern(Joi.string(), Joi.string().optional().allow(null,'')).allow(null).description('Environment name to event webhook URL').optional(),
 	event_webhook_events: Joi.array().items(joiWorkspaceEventType).optional(),
 	custom_auth_domain: Joi.string().allow(null, '').optional(),
 	custom_auth_domain_valid: Joi.boolean().allow(null).optional(),
