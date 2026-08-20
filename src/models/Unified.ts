@@ -589,7 +589,13 @@ export const SecretsManagerType = [
 	'azure',
 	'gcp',
 	'hashicorp',
-	'composio'
+	'composio',
+	'1password',
+	'bitwarden',
+	'doppler',
+	'akeyless',
+	'pipedream',
+	'alibabacloud'
 ] as const;
 
 export type TSecretsManagerType = typeof SecretsManagerType[number];
