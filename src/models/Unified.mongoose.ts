@@ -306,7 +306,7 @@ export const schemaNotification = {
 export const schemaSecretsManager = {
 	created_at: { type: Date },
 	updated_at: { type: Date },
-	type: { type: String, enum: [ 'aws', 'azure', 'gcp', 'hashicorp', 'composio' ] },
+	type: { type: String, enum: [ 'aws', 'azure', 'gcp', 'hashicorp', 'composio', '1password', 'bitwarden', 'doppler', 'akeyless', 'pipedream', 'alibabacloud' ] },
 	name: { type: String },
 	workspace_id: { type: SchemaTypes.ObjectId, index: true, ref: 'Workspace' },
 	auth: { type: Object }, // secrets-manager specific authentication values
@@ -314,7 +314,7 @@ export const schemaSecretsManager = {
 };
 
 export const schemaSecretsManagerInstructions = {
-	type: { type: String, enum: [ 'aws', 'azure', 'gcp', 'hashicorp', 'composio' ] },
+	type: { type: String, enum: [ 'aws', 'azure', 'gcp', 'hashicorp', 'composio', '1password', 'bitwarden', 'doppler', 'akeyless', 'pipedream', 'alibabacloud' ] },
 	key: { type: String },
 	label: { type: String },
 	instructions: { type: String },
@@ -398,6 +398,7 @@ export const schemaWorkspace = {
 	stripe_canceling_at: { type: Date },
 	domain: { type: String }, // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 	event_webhook_url: { type: String },
+	event_webhook_env_urls: { type: Object }, // Environment name to event webhook URL
 	event_webhook_events: { type: [ String ], enum: [ 'USER_CREATED', 'USER_DELETED', 'CONNECTION_HEALTHY', 'CONNECTION_UNHEALTHY', 'CONNECTION_CREATED', 'CONNECTION_UPDATED', 'CONNECTION_DELETED', 'CONNECTION_PAUSED', 'CONNECTION_UNPAUSED', 'INTEGRATION_ACTIVATED', 'INTEGRATION_DEACTIVATED', 'INTEGRATION_UPDATED', 'WORKSPACE_UPDATED', 'WORKSPACE_OVER_LIMIT', 'WORKSPACE_80PERCENT_LIMIT', 'WEBHOOK_CREATED', 'WEBHOOK_DELETED', 'WEBHOOK_UNHEALTHY', 'WEBHOOK_PAUSED', 'WEBHOOK_UNPAUSED' ] },
 	custom_auth_domain: { type: String },
 	custom_auth_domain_valid: { type: Boolean },
