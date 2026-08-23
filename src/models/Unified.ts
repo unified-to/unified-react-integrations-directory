@@ -372,7 +372,15 @@ export const IntegrationPermission = [
 	'performance_goal_read',
 	'performance_goal_write',
 	'performance_feedback_read',
-	'performance_feedback_write'
+	'performance_feedback_write',
+	'social_post_read',
+	'social_post_write',
+	'social_profile_read',
+	'social_profile_write',
+	'social_review_read',
+	'social_review_write',
+	'social_insight_read',
+	'social_insight_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
