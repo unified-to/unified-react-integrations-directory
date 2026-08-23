@@ -80,6 +80,8 @@ export const IntegrationPermission = [
 	'accounting_expense_write',
 	'accounting_taxrate_read',
 	'accounting_taxrate_write',
+	'accounting_paymentterm_read',
+	'accounting_paymentterm_write',
 	'accounting_organization_read',
 	'accounting_order_read',
 	'accounting_order_write',
