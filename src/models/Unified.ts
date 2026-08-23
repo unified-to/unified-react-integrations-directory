@@ -403,6 +403,7 @@ export const ObjectType = [
 	'accounting_vendorcredit',
 	'accounting_creditmemo',
 	'accounting_taxrate',
+	'accounting_paymentterm',
 	'accounting_organization',
 	'accounting_order',
 	'accounting_salesorder',
