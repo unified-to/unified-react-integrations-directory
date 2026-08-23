@@ -564,7 +564,15 @@ export const ObjectType = [
 	'performance_cycle',
 	'performance_review',
 	'performance_goal',
-	'performance_feedback'
+	'performance_feedback',
+	'social_post_read',
+	'social_post_write',
+	'social_profile_read',
+	'social_profile_write',
+	'social_review_read',
+	'social_review_write',
+	'social_insight_read',
+	'social_insight_write'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
