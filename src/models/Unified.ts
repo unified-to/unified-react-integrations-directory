@@ -1272,6 +1272,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'analytics', label: 'Analytics' },
     { category: 'cdp', label: 'Customer Data Platform' },
     { category: 'saml', label: 'SAML SSO Authentication' },
-    { category: 'performance', label: 'Performance Management' }
+    { category: 'performance', label: 'Performance Management' },
+    { category: 'social', label: 'Social Media' }
 ];
 
