@@ -21,7 +21,6 @@ components:
     IntegrationAuthType:
       type: string
       enum:
-      - oauth1
       - oauth2
       - other
       - token
@@ -62,6 +61,7 @@ components:
       - datastore
       - cdp
       - performance
+      - social
     IntegrationPermission:
       type: string
       enum:
@@ -85,6 +85,8 @@ components:
       - accounting_expense_write
       - accounting_taxrate_read
       - accounting_taxrate_write
+      - accounting_paymentterm_read
+      - accounting_paymentterm_write
       - accounting_organization_read
       - accounting_order_read
       - accounting_order_write
@@ -375,6 +377,14 @@ components:
       - performance_goal_write
       - performance_feedback_read
       - performance_feedback_write
+      - social_post_read
+      - social_post_write
+      - social_profile_read
+      - social_profile_write
+      - social_review_read
+      - social_review_write
+      - social_insight_read
+      - social_insight_write
     IntegrationSupportWebhookType:
       type: string
       enum:
@@ -402,6 +412,7 @@ components:
       - accounting_vendorcredit
       - accounting_creditmemo
       - accounting_taxrate
+      - accounting_paymentterm
       - accounting_organization
       - accounting_order
       - accounting_salesorder
@@ -561,6 +572,10 @@ components:
       - performance_review
       - performance_goal
       - performance_feedback
+      - social_post
+      - social_profile
+      - social_review
+      - social_insight
     PlanTerm:
       type: string
       enum:
