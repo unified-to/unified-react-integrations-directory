@@ -8,7 +8,6 @@ enum ENUM_ApiCallType {
 }
 
 enum ENUM_IntegrationAuthType {
-	oauth1
 	oauth2
 	other
 	token
@@ -49,6 +48,7 @@ enum ENUM_IntegrationCategory {
 	datastore
 	cdp
 	performance
+	social
 }
 
 enum ENUM_IntegrationPermission {
@@ -72,6 +72,8 @@ enum ENUM_IntegrationPermission {
 	accounting_expense_write
 	accounting_taxrate_read
 	accounting_taxrate_write
+	accounting_paymentterm_read
+	accounting_paymentterm_write
 	accounting_organization_read
 	accounting_order_read
 	accounting_order_write
@@ -362,6 +364,14 @@ enum ENUM_IntegrationPermission {
 	performance_goal_write
 	performance_feedback_read
 	performance_feedback_write
+	social_post_read
+	social_post_write
+	social_profile_read
+	social_profile_write
+	social_review_read
+	social_review_write
+	social_insight_read
+	social_insight_write
 }
 
 enum ENUM_IntegrationSupportWebhookType {
@@ -389,6 +399,7 @@ enum ENUM_ObjectType {
 	accounting_vendorcredit
 	accounting_creditmemo
 	accounting_taxrate
+	accounting_paymentterm
 	accounting_organization
 	accounting_order
 	accounting_salesorder
@@ -548,6 +559,10 @@ enum ENUM_ObjectType {
 	performance_review
 	performance_goal
 	performance_feedback
+	social_post
+	social_profile
+	social_review
+	social_insight
 }
 
 enum ENUM_PlanTerm {
@@ -705,6 +720,8 @@ input Map_IntegrationPermission_string_Input {
 	accounting_expense_write: String!
 	accounting_taxrate_read: String!
 	accounting_taxrate_write: String!
+	accounting_paymentterm_read: String!
+	accounting_paymentterm_write: String!
 	accounting_organization_read: String!
 	accounting_order_read: String!
 	accounting_order_write: String!
@@ -995,6 +1012,14 @@ input Map_IntegrationPermission_string_Input {
 	performance_goal_write: String!
 	performance_feedback_read: String!
 	performance_feedback_write: String!
+	social_post_read: String!
+	social_post_write: String!
+	social_profile_read: String!
+	social_profile_write: String!
+	social_review_read: String!
+	social_review_write: String!
+	social_insight_read: String!
+	social_insight_write: String!
 }
 
 type Map_IntegrationPermission_string {
@@ -1018,6 +1043,8 @@ type Map_IntegrationPermission_string {
 	accounting_expense_write: String!
 	accounting_taxrate_read: String!
 	accounting_taxrate_write: String!
+	accounting_paymentterm_read: String!
+	accounting_paymentterm_write: String!
 	accounting_organization_read: String!
 	accounting_order_read: String!
 	accounting_order_write: String!
@@ -1308,6 +1335,14 @@ type Map_IntegrationPermission_string {
 	performance_goal_write: String!
 	performance_feedback_read: String!
 	performance_feedback_write: String!
+	social_post_read: String!
+	social_post_write: String!
+	social_profile_read: String!
+	social_profile_write: String!
+	social_review_read: String!
+	social_review_write: String!
+	social_insight_read: String!
+	social_insight_write: String!
 }
 
 """
