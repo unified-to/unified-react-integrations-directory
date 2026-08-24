@@ -24,6 +24,8 @@
 				"accounting_expense_write",
 				"accounting_taxrate_read",
 				"accounting_taxrate_write",
+				"accounting_paymentterm_read",
+				"accounting_paymentterm_write",
 				"accounting_organization_read",
 				"accounting_order_read",
 				"accounting_order_write",
@@ -313,7 +315,15 @@
 				"performance_goal_read",
 				"performance_goal_write",
 				"performance_feedback_read",
-				"performance_feedback_write"
+				"performance_feedback_write",
+				"social_post_read",
+				"social_post_write",
+				"social_profile_read",
+				"social_profile_write",
+				"social_review_read",
+				"social_review_write",
+				"social_insight_read",
+				"social_insight_write"
 			]
 		},
 		"ApiCall": {
