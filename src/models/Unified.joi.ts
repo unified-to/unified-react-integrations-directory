@@ -11,7 +11,6 @@ export const joiApiCallType = Joi.string().valid(
 	'mcp');
 
 export const joiIntegrationAuthType = Joi.string().valid(
-	'oauth1',
 	'oauth2',
 	'other',
 	'token');
@@ -50,7 +49,8 @@ export const joiIntegrationCategory = Joi.string().valid(
 	'clubs',
 	'datastore',
 	'cdp',
-	'performance');
+	'performance',
+	'social');
 
 export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_account_read',
@@ -73,6 +73,8 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'accounting_expense_write',
 	'accounting_taxrate_read',
 	'accounting_taxrate_write',
+	'accounting_paymentterm_read',
+	'accounting_paymentterm_write',
 	'accounting_organization_read',
 	'accounting_order_read',
 	'accounting_order_write',
@@ -362,7 +364,15 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'performance_goal_read',
 	'performance_goal_write',
 	'performance_feedback_read',
-	'performance_feedback_write');
+	'performance_feedback_write',
+	'social_post_read',
+	'social_post_write',
+	'social_profile_read',
+	'social_profile_write',
+	'social_review_read',
+	'social_review_write',
+	'social_insight_read',
+	'social_insight_write');
 
 export const joiIntegrationSupportWebhookType = Joi.string().valid(
 	'virtual',
@@ -387,6 +397,7 @@ export const joiObjectType = Joi.string().valid(
 	'accounting_vendorcredit',
 	'accounting_creditmemo',
 	'accounting_taxrate',
+	'accounting_paymentterm',
 	'accounting_organization',
 	'accounting_order',
 	'accounting_salesorder',
@@ -545,7 +556,11 @@ export const joiObjectType = Joi.string().valid(
 	'performance_cycle',
 	'performance_review',
 	'performance_goal',
-	'performance_feedback');
+	'performance_feedback',
+	'social_post',
+	'social_profile',
+	'social_review',
+	'social_insight');
 
 export const joiPlanTerm = Joi.string().valid(
 	'monthly',
@@ -650,6 +665,8 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	accounting_expense_write: Joi.string().allow(null, '').optional(),
 	accounting_taxrate_read: Joi.string().allow(null, '').optional(),
 	accounting_taxrate_write: Joi.string().allow(null, '').optional(),
+	accounting_paymentterm_read: Joi.string().allow(null, '').optional(),
+	accounting_paymentterm_write: Joi.string().allow(null, '').optional(),
 	accounting_organization_read: Joi.string().allow(null, '').optional(),
 	accounting_order_read: Joi.string().allow(null, '').optional(),
 	accounting_order_write: Joi.string().allow(null, '').optional(),
@@ -940,6 +957,14 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	performance_goal_write: Joi.string().allow(null, '').optional(),
 	performance_feedback_read: Joi.string().allow(null, '').optional(),
 	performance_feedback_write: Joi.string().allow(null, '').optional(),
+	social_post_read: Joi.string().allow(null, '').optional(),
+	social_post_write: Joi.string().allow(null, '').optional(),
+	social_profile_read: Joi.string().allow(null, '').optional(),
+	social_profile_write: Joi.string().allow(null, '').optional(),
+	social_review_read: Joi.string().allow(null, '').optional(),
+	social_review_write: Joi.string().allow(null, '').optional(),
+	social_insight_read: Joi.string().allow(null, '').optional(),
+	social_insight_write: Joi.string().allow(null, '').optional(),
 }).label('map_IntegrationPermission_string');
 
 export const joiApiCall = Joi.object({
