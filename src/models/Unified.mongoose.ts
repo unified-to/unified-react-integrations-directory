@@ -270,6 +270,8 @@ export const schemaIntegrationSupport = {
 	virtual_webhook_cycle_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	list_bankfeedaccount_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 	virtual_webhook_bankfeedaccount_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	list_post_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
+	virtual_webhook_post_id: { type: String, enum: [ 'supported-required', 'supported', 'not-supported' ] },
 };
 
 export const schemaInvoice = {
