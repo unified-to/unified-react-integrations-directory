@@ -1245,6 +1245,10 @@ components:
           $ref: "#/components/schemas/SupportInboundType"
         virtual_webhook_bankfeedaccount_id:
           $ref: "#/components/schemas/SupportInboundType"
+        list_post_id:
+          $ref: "#/components/schemas/SupportInboundType"
+        virtual_webhook_post_id:
+          $ref: "#/components/schemas/SupportInboundType"
       required:
 
     Invoice:
