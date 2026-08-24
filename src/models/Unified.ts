@@ -990,6 +990,7 @@ export interface IIntegrationSupport {
 	list_bankfeedaccount_id?: TSupportInboundType;
 	virtual_webhook_bankfeedaccount_id?: TSupportInboundType;
 	list_post_id?: TSupportInboundType;
+	virtual_webhook_post_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
