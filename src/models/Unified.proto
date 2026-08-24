@@ -253,6 +253,8 @@ message IntegrationSupport {
 	optional string virtual_webhook_cycle_id = 193;
 	optional string list_bankfeedaccount_id = 194;
 	optional string virtual_webhook_bankfeedaccount_id = 195;
+	optional string list_post_id = 196;
+	optional string virtual_webhook_post_id = 197;
 }
 
 // Informational object for supported integrations.
