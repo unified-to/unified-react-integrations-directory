@@ -1875,6 +1875,8 @@ objects that we map from in the integration
 	virtual_webhook_cycle_id: ENUM_SupportInboundType
 	list_bankfeedaccount_id: ENUM_SupportInboundType
 	virtual_webhook_bankfeedaccount_id: ENUM_SupportInboundType
+	list_post_id: ENUM_SupportInboundType
+	virtual_webhook_post_id: ENUM_SupportInboundType
 }
 
 type IntegrationSupport {
@@ -2076,6 +2078,8 @@ objects that we map from in the integration
 	virtual_webhook_cycle_id: ENUM_SupportInboundType
 	list_bankfeedaccount_id: ENUM_SupportInboundType
 	virtual_webhook_bankfeedaccount_id: ENUM_SupportInboundType
+	list_post_id: ENUM_SupportInboundType
+	virtual_webhook_post_id: ENUM_SupportInboundType
 }
 
 input Invoice_Input {
