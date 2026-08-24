@@ -12,7 +12,6 @@ export const ApiCallType = [
 export type TApiCallType = typeof ApiCallType[number];
 
 export const IntegrationAuthType = [
-	'oauth1',
 	'oauth2',
 	'other',
 	'token'
