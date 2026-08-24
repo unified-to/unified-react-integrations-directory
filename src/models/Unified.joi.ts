@@ -1238,6 +1238,8 @@ export const joiIntegrationSupport = Joi.object({
 	virtual_webhook_cycle_id: joiSupportInboundType.allow(null).optional(),
 	list_bankfeedaccount_id: joiSupportInboundType.allow(null).optional(),
 	virtual_webhook_bankfeedaccount_id: joiSupportInboundType.allow(null).optional(),
+	list_post_id: joiSupportInboundType.allow(null).optional(),
+	virtual_webhook_post_id: joiSupportInboundType.allow(null).optional(),
 }).label('IntegrationSupport');
 
 export const joiIntegration = Joi.object({
