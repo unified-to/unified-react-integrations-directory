@@ -464,7 +464,7 @@ export const ObjectType = [
 	'crm_event',
 	'crm_lead',
 	'crm_pipeline',
-	'crm_picklist',
+	'crm_taxonomy',
 	'hris_employee',
 	'hris_group',
 	'hris_payslip',
