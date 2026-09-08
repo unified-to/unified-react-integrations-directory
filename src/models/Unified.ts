@@ -1138,7 +1138,6 @@ export interface IWebhookData {
 	data: unknown[]; // The data array will contact an array of specific objects according to the webhook's connection. (eg. CRM Contacts)
 	webhook: IWebhook; // The webhook object
 	nonce: string; // random string
-	sig?: string; // @deprecated; use sig256 instead
 	sig256?: string; // HMAC-SHA256(workspace.secret, data + nonce)
 	type: TWebhookDataType;
 	external_xref?: string;
