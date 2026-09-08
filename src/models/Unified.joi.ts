@@ -165,7 +165,7 @@ export const joiIntegrationPermission = Joi.string().valid(
 	'crm_lead_write',
 	'crm_pipeline_read',
 	'crm_pipeline_write',
-	'crm_picklist_read',
+	'crm_taxonomy_read',
 	'martech_list_read',
 	'martech_list_write',
 	'martech_member_read',
@@ -448,7 +448,7 @@ export const joiObjectType = Joi.string().valid(
 	'crm_event',
 	'crm_lead',
 	'crm_pipeline',
-	'crm_picklist',
+	'crm_taxonomy',
 	'hris_employee',
 	'hris_group',
 	'hris_payslip',
@@ -757,7 +757,7 @@ export const joimap_IntegrationPermission_string = Joi.object({
 	crm_lead_write: Joi.string().allow(null, '').optional(),
 	crm_pipeline_read: Joi.string().allow(null, '').optional(),
 	crm_pipeline_write: Joi.string().allow(null, '').optional(),
-	crm_picklist_read: Joi.string().allow(null, '').optional(),
+	crm_taxonomy_read: Joi.string().allow(null, '').optional(),
 	martech_list_read: Joi.string().allow(null, '').optional(),
 	martech_list_write: Joi.string().allow(null, '').optional(),
 	martech_member_read: Joi.string().allow(null, '').optional(),
@@ -1410,7 +1410,6 @@ export const joiWebhookData = Joi.object({
 	data: Joi.array().items(Joi.any()).description('The data array will contact an array of specific objects according to the webhook\'s connection. (eg. CRM Contacts)').required(),
 	webhook: joiWebhook.description('The webhook object').required(),
 	nonce: Joi.string().allow('').description('random string').required(),
-	sig: Joi.string().allow(null, '').description('@deprecated; use sig256 instead').optional(),
 	sig256: Joi.string().allow(null, '').description('HMAC-SHA256(workspace.secret, data + nonce)').optional(),
 	type: joiWebhookDataType.required(),
 	external_xref: Joi.string().allow(null, '').optional(),
@@ -1486,6 +1485,7 @@ export const joiWorkspaceIntegrationAuth = Joi.object({
 	saml_idp_url: Joi.string().allow(null, '').description('the SAML IdP SSO/login URL for end-user SAML login').optional(),
 	saml_idp_entity_id: Joi.string().allow(null, '').description('the SAML IdP issuer/entity ID').optional(),
 	saml_pem: Joi.string().allow(null, '').description('the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format').optional(),
+	needs_pkce: Joi.boolean().allow(null).description('opt-in PKCE for OAuth2 when the integration app or org requires it').optional(),
 }).label('WorkspaceIntegrationAuth');
 
 export const joiWorkspaceIntegration = Joi.object({
