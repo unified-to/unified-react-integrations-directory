@@ -991,6 +991,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_bankfeedaccount_id?: TSupportInboundType;
 	list_post_id?: TSupportInboundType;
 	virtual_webhook_post_id?: TSupportInboundType;
+	list_approver_user_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
