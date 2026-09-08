@@ -992,6 +992,7 @@ export interface IIntegrationSupport {
 	list_post_id?: TSupportInboundType;
 	virtual_webhook_post_id?: TSupportInboundType;
 	list_approver_user_id?: TSupportInboundType;
+	virtual_webhook_approver_user_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
