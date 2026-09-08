@@ -164,7 +164,7 @@ enum ENUM_IntegrationPermission {
 	crm_lead_write
 	crm_pipeline_read
 	crm_pipeline_write
-	crm_picklist_read
+	crm_taxonomy_read
 	martech_list_read
 	martech_list_write
 	martech_member_read
@@ -450,7 +450,7 @@ enum ENUM_ObjectType {
 	crm_event
 	crm_lead
 	crm_pipeline
-	crm_picklist
+	crm_taxonomy
 	hris_employee
 	hris_group
 	hris_payslip
@@ -812,7 +812,7 @@ input Map_IntegrationPermission_string_Input {
 	crm_lead_write: String!
 	crm_pipeline_read: String!
 	crm_pipeline_write: String!
-	crm_picklist_read: String!
+	crm_taxonomy_read: String!
 	martech_list_read: String!
 	martech_list_write: String!
 	martech_member_read: String!
@@ -1135,7 +1135,7 @@ type Map_IntegrationPermission_string {
 	crm_lead_write: String!
 	crm_pipeline_read: String!
 	crm_pipeline_write: String!
-	crm_picklist_read: String!
+	crm_taxonomy_read: String!
 	martech_list_read: String!
 	martech_list_write: String!
 	martech_member_read: String!
@@ -2409,10 +2409,6 @@ random string
 """
 	nonce: String!
 """
-@deprecated; use sig256 instead
-"""
-	sig: String
-"""
 HMAC-SHA256(workspace.secret, data + nonce)
 """
 	sig256: String
@@ -2433,10 +2429,6 @@ The webhook object
 random string
 """
 	nonce: String!
-"""
-@deprecated; use sig256 instead
-"""
-	sig: String
 """
 HMAC-SHA256(workspace.secret, data + nonce)
 """
@@ -2705,6 +2697,10 @@ the SAML IdP issuer/entity ID
 the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format
 """
 	saml_pem: String
+"""
+opt-in PKCE for OAuth2 when the integration app or org requires it
+"""
+	needs_pkce: Boolean
 }
 
 type WorkspaceIntegrationAuth {
@@ -2733,6 +2729,10 @@ the SAML IdP issuer/entity ID
 the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format
 """
 	saml_pem: String
+"""
+opt-in PKCE for OAuth2 when the integration app or org requires it
+"""
+	needs_pkce: Boolean
 }
 
 input WorkspaceIpAllowlistEntry_Input {
