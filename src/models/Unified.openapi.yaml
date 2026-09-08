@@ -177,7 +177,7 @@ components:
       - crm_lead_write
       - crm_pipeline_read
       - crm_pipeline_write
-      - crm_picklist_read
+      - crm_taxonomy_read
       - martech_list_read
       - martech_list_write
       - martech_member_read
@@ -463,7 +463,7 @@ components:
       - crm_event
       - crm_lead
       - crm_pipeline
-      - crm_picklist
+      - crm_taxonomy
       - hris_employee
       - hris_group
       - hris_payslip
@@ -1562,9 +1562,6 @@ components:
         nonce:
           type: string
           description: random string
-        sig:
-          type: string
-          description: @deprecated; use sig256 instead
         sig256:
           type: string
           description: HMAC-SHA256(workspace.secret, data + nonce)
@@ -1787,6 +1784,9 @@ components:
         saml_pem:
           type: string
           description: the SAML IdP signing certificate; PEM X.509 in Base64 ASCII format
+        needs_pkce:
+          type: boolean
+          description: opt-in PKCE for OAuth2 when the integration app or org requires it
       required:
 
     WorkspaceIpAllowlistEntry:
