@@ -416,7 +416,6 @@ export const ObjectType = [
 	'accounting_order',
 	'accounting_salesorder',
 	'accounting_purchaseorder',
-	'accounting_report',
 	'accounting_balancesheet',
 	'accounting_profitloss',
 	'accounting_trialbalance',
