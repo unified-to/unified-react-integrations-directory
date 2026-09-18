@@ -991,6 +991,7 @@ export interface IIntegrationSupport {
 	list_approver_user_id?: TSupportInboundType;
 	virtual_webhook_approver_user_id?: TSupportInboundType;
 	virtual_webhook_effective_status?: TSupportInboundType;
+	native_webhook_updated_gte?: TSupportInboundType;
 }
 
 export interface IInvoice {
