@@ -1189,11 +1189,11 @@ export interface IWorkspace {
 	clickhouse_url?: string;
 	clickhouse_username?: string;
 	clickhouse_password?: string;
+	clickhouse_table?: string; // Destination table for external ClickHouse API-call logging (e.g. my_logs or default.my_logs)
 	auto_join?: boolean;
 	jwt_secret?: string;
 	default_secretsmanager_id?: string; // Default SecretsManager document id for new credentials
 	default_secretsmanager_env_ids?: { [path in string]?: string }; // Environment name to SecretsManager document id
-	clickhouse_table?: string; // Destination table for external ClickHouse API-call logging (e.g. my_logs or default.my_logs)
 }
 
 export interface IWorkspaceIntegration {
