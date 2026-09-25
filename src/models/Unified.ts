@@ -89,6 +89,8 @@ export const IntegrationPermission = [
 	'accounting_purchaseorder_write',
 	'accounting_salesorder_read',
 	'accounting_salesorder_write',
+	'accounting_salesreceipt_read',
+	'accounting_salesreceipt_write',
 	'accounting_trialbalance_read',
 	'accounting_trialbalance_write',
 	'accounting_profitloss_read',
