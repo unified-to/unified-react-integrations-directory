@@ -423,6 +423,7 @@ export const ObjectType = [
 	'accounting_organization',
 	'accounting_order',
 	'accounting_salesorder',
+	'accounting_salesreceipt',
 	'accounting_purchaseorder',
 	'accounting_balancesheet',
 	'accounting_profitloss',
