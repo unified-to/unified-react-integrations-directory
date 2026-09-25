@@ -1125,18 +1125,18 @@ export interface IWebhook {
 	connection_id: string;
 	hook_url?: string; // The URL of the webhook
 	object_type: TObjectType; // The object to return (eg. CRM "contact")
-	interval?: number; // The interval (in minutes) to check for updated/new objets. 
-	checked_at: (string | Date | number); // The last date/time that a check was done on this object
+	interval?: number; // Virtual webhooks only. How often (in minutes) Unified.to checks for new or updated records. Minimum 1 on paid plans, 60 on free. Ignored for native webhooks.
+	checked_at: (string | Date | number); // Read-only. The time Unified.to last recorded a check on this webhook. Behaviour varies by webhook implementation, so don't use this field to tell whether a webhook is still running. Use is_healthy, and subscribe to WEBHOOK_UNHEALTHY on the notifications webhook, to monitor health.
 	integration_type: string;
 	environment?: string;
-	event: TWebhookEvent;
-	runs?: string[]; // An array of the most revent virtual webhook runs
+	event: TWebhookEvent; // The event to subscribe to. "deleted" is supported on native webhooks, and on virtual webhooks where the integration supports it. Check the integration's Feature Support tab.
+	runs?: string[]; // An array of the most recent virtual webhook runs
 	fields?: string;
-	webhook_type?: TIntegrationSupportWebhookType;
+	webhook_type?: TIntegrationSupportWebhookType; // "native" registers with the integration, which sends events as they happen. "virtual" checks for changes on "interval". Optional on create; if omitted, Unified.to picks a supported type for the object. Requesting a type the integration doesn't support returns 400. Set on create only: changes sent on update are ignored without an error. Delete and recreate the webhook to change type.
 	meta?: unknown;
-	is_healthy?: boolean;
+	is_healthy?: boolean; // Read-only. True while the webhook can operate or recover; a transient failure may still be retrying. False after retries are exhausted or a non-retryable failure such as broken connection auth. Cannot be reset; recreate the webhook.
 	page_max_limit?: number;
-	filters?: { [path in string]?: string };
+	filters?: { [path in string]?: string }; // Supported on virtual webhooks, and on native webhooks for many integrations. Check the integration's Feature Support tab for which filters apply. Filters the integration doesn't support are accepted but have no effect. Some integrations require a filter; if it's missing, create returns an error naming the integration and the filter.
 	db_type?: TWebhookDatabaseType;
 	db_url?: string;
 	db_schema?: string;
