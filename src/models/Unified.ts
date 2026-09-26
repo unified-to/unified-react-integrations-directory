@@ -432,6 +432,7 @@ export const ObjectType = [
 	'accounting_trialbalance',
 	'accounting_category',
 	'accounting_expense',
+	'accounting_purchasereceipt',
 	'accounting_cashflow',
 	'accounting_quote',
 	'accounting_agedreceivable',
