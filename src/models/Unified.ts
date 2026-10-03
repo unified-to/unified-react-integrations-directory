@@ -515,6 +515,7 @@ export const ObjectType = [
 	'genai_task',
 	'genai_agent',
 	'genai_organization',
+	'genai_skill',
 	'messaging_message',
 	'messaging_channel',
 	'messaging_event',
