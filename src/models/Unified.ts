@@ -1220,6 +1220,31 @@ export interface IWorkspace {
 	default_secretsmanager_env_ids?: { [path in string]?: string }; // Environment name to SecretsManager document id
 }
 
+export interface IWorkspaceIntegration {
+	id?: string;
+	created_at?: (string | Date | number);
+	updated_at?: (string | Date | number);
+	workspace_id?: string;
+	integration_type: string;
+	is_active: boolean;
+	api_url?: string;
+	authorize_url?: string;
+	token_url?: string;
+	refresh_url?: string;
+	base_url?: string;
+	prompt_region?: boolean;
+	use_unified_redirect?: boolean;
+	auth_type?: TIntegrationAuthType; // the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
+	environment?: string; // authentication environment
+	categories?: ( TIntegrationCategory )[];
+	overriden_scopes?: { [path in TIntegrationPermission]?: string };
+	success_redirect?: string; // Post-OAuth success URL for marketplace installs (e.g. HighLevel). Used by `/oauth/code/{workspace}/{env}/{integration}`.
+	failure_redirect?: string; // Post-OAuth failure URL for marketplace installs. Used by `/oauth/code/{workspace}/{env}/{integration}`.
+	auth?: IWorkspaceIntegrationAuth;
+	secretsmanager_id?: string; // the ID of the SecretsManager object
+	secretsmanager_key?: string; // the key/path/name of the secret within the vault
+}
+
 export interface IWorkspaceIntegrationAuth {
 	client_id?: string;
 	client_secret?: string;
