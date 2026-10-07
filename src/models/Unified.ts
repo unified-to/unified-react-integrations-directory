@@ -864,6 +864,7 @@ export interface IIntegrationSupport {
 	list_org_id?: TSupportInboundType;
 	list_calendar_id?: TSupportInboundType;
 	list_task_id?: TSupportInboundType;
+	list_agent_id?: TSupportInboundType;
 	search_twitter?: TSupportInboundType;
 	search_name?: TSupportInboundType;
 	search_linkedinurl?: TSupportInboundType;
