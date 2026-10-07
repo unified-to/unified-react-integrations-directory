@@ -811,6 +811,10 @@ export interface IIntegration {
 	active_healthy_connections?: number;
 }
 
+export interface IIntegrationSupport {
+	methods?: { [path in string]?: boolean };
+}
+
 export interface IInvoice {
 	stripe_id: string;
 	created_at: (string | Date | number);
