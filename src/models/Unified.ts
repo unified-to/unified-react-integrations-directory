@@ -1022,6 +1022,7 @@ export interface IIntegrationSupport {
 	virtual_webhook_effective_status?: TSupportInboundType;
 	native_webhook_updated_gte?: TSupportInboundType;
 	list_destination_id?: TSupportInboundType;
+	list_email?: TSupportInboundType;
 }
 
 export interface IInvoice {
