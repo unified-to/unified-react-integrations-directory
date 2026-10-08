@@ -498,6 +498,8 @@ export const ObjectType = [
 	'hris_bankaccount',
 	'hris_document',
 	'hris_taxonomy',
+	'hris_payroll',
+	'hris_paycode',
 	'martech_list',
 	'martech_member',
 	'martech_campaign',
