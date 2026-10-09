@@ -521,6 +521,8 @@ export const ObjectType = [
 	'uc_call',
 	'uc_comment',
 	'uc_recording',
+	'uc_scorecard',
+	'uc_scorecardtemplate',
 	'enrich_person',
 	'enrich_company',
 	'storage_file',
