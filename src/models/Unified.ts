@@ -227,6 +227,8 @@ export const IntegrationPermission = [
 	'hris_payroll_write',
 	'hris_paycode_read',
 	'hris_paycode_write',
+	'hris_earning_read',
+	'hris_earning_write',
 	'uc_call_read',
 	'uc_contact_read',
 	'uc_contact_write',
