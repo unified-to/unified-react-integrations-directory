@@ -500,6 +500,7 @@ export const ObjectType = [
 	'hris_bankaccount',
 	'hris_document',
 	'hris_taxonomy',
+	'hris_job',
 	'hris_payroll',
 	'hris_paycode',
 	'martech_list',
