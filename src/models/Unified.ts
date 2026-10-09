@@ -505,6 +505,7 @@ export const ObjectType = [
 	'hris_job',
 	'hris_payroll',
 	'hris_paycode',
+	'hris_earning',
 	'martech_list',
 	'martech_member',
 	'martech_campaign',
