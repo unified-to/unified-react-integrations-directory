@@ -54,7 +54,8 @@ export const IntegrationCategory = [
 	'datastore',
 	'cdp',
 	'performance',
-	'social'
+	'social',
+	'legal'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
