@@ -620,7 +620,11 @@ export const ObjectType = [
 	'social_post',
 	'social_profile',
 	'social_review',
-	'social_insight'
+	'social_insight',
+	'legal_matter',
+	'legal_practicearea',
+	'legal_timeentry',
+	'legal_expense'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
@@ -1042,6 +1046,10 @@ export interface IIntegrationSupport {
 	native_webhook_updated_gte?: TSupportInboundType;
 	list_destination_id?: TSupportInboundType;
 	list_email?: TSupportInboundType;
+	list_matter_id?: TSupportInboundType;
+	virtual_webhook_matter_id?: TSupportInboundType;
+	list_practicearea_id?: TSupportInboundType;
+	virtual_webhook_practicearea_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
