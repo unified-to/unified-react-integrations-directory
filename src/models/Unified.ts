@@ -403,7 +403,15 @@ export const IntegrationPermission = [
 	'social_review_read',
 	'social_review_write',
 	'social_insight_read',
-	'social_insight_write'
+	'social_insight_write',
+	'legal_matter_read',
+	'legal_matter_write',
+	'legal_practicearea_read',
+	'legal_practicearea_write',
+	'legal_timeentry_read',
+	'legal_timeentry_write',
+	'legal_expense_read',
+	'legal_expense_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
