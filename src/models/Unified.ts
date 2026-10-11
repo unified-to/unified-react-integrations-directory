@@ -1084,6 +1084,9 @@ export interface IIntegrationSupport {
 	virtual_webhook_matter_id?: TSupportInboundType;
 	list_practicearea_id?: TSupportInboundType;
 	virtual_webhook_practicearea_id?: TSupportInboundType;
+	list_region_id?: TSupportInboundType;
+	list_instance_id?: TSupportInboundType;
+	list_service_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
