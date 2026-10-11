@@ -625,7 +625,19 @@ export const ObjectType = [
 	'legal_matter',
 	'legal_practicearea',
 	'legal_timeentry',
-	'legal_expense'
+	'legal_expense',
+	'compute_instance',
+	'compute_template',
+	'compute_gputype',
+	'compute_region',
+	'compute_volume',
+	'compute_snapshot',
+	'compute_usage',
+	'compute_key',
+	'compute_service',
+	'compute_deployment',
+	'compute_domain',
+	'compute_envvar'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
