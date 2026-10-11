@@ -412,7 +412,28 @@ export const IntegrationPermission = [
 	'legal_timeentry_read',
 	'legal_timeentry_write',
 	'legal_expense_read',
-	'legal_expense_write'
+	'legal_expense_write',
+	'compute_instance_read',
+	'compute_instance_write',
+	'compute_template_read',
+	'compute_template_write',
+	'compute_gputype_read',
+	'compute_region_read',
+	'compute_volume_read',
+	'compute_volume_write',
+	'compute_snapshot_read',
+	'compute_snapshot_write',
+	'compute_usage_read',
+	'compute_key_read',
+	'compute_key_write',
+	'compute_service_read',
+	'compute_service_write',
+	'compute_deployment_read',
+	'compute_deployment_write',
+	'compute_domain_read',
+	'compute_domain_write',
+	'compute_envvar_read',
+	'compute_envvar_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
