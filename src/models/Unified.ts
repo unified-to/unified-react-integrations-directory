@@ -56,7 +56,8 @@ export const IntegrationCategory = [
 	'performance',
 	'social',
 	'legal',
-	'compute'
+	'compute',
+	'healthcare'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
@@ -781,7 +782,7 @@ export interface IApiCall {
 	ip_address?: string;
 	type: TApiCallType; // The type of API Call being logged
 	method: string;
-	environment?: string;
+	environment?: string; // @default Production
 	webhook_id?: string;
 	is_billable?: boolean;
 	user_agent?: string;
@@ -806,7 +807,7 @@ export interface IConnection {
 	categories: ( TIntegrationCategory )[]; // The Integration categories that this connection supports
 	auth?: IConnectionAuth;
 	is_paused?: boolean; // Whether this integration has exceed the monthly limit of the plan
-	environment?: string;
+	environment?: string; // @default Production
 	last_healthy_at?: (string | Date | number);
 	last_unhealthy_at?: (string | Date | number);
 	last_unhealthy_code?: string; // The HTTP status code that caused the last unhealthy status
@@ -1198,7 +1199,7 @@ export interface IUser {
 	email: string;
 	workspace_id: string; // The current workspace
 	workspace_ids: string[]; // A list of all of the user's workspaces
-	environment?: string;
+	environment?: string; // @default Production
 	meta?: unknown;
 }
 
@@ -1213,7 +1214,7 @@ export interface IWebhook {
 	interval?: number; // Virtual webhooks only. How often (in minutes) Unified.to checks for new or updated records. Minimum 1 on paid plans, 60 on free. Ignored for native webhooks.
 	checked_at: (string | Date | number); // Read-only. The time Unified.to last recorded a check on this webhook. Behaviour varies by webhook implementation, so don't use this field to tell whether a webhook is still running. Use is_healthy, and subscribe to WEBHOOK_UNHEALTHY on the notifications webhook, to monitor health.
 	integration_type: string;
-	environment?: string;
+	environment?: string; // @default Production
 	event: TWebhookEvent; // The event to subscribe to. "deleted" is supported on native webhooks, and on virtual webhooks where the integration supports it. Check the integration's Feature Support tab.
 	runs?: string[]; // An array of the most recent virtual webhook runs
 	fields?: string;
@@ -1259,7 +1260,7 @@ export interface IWorkspace {
 	environments?: string[]; // a list of authentication environments for the workspace integrations
 	add_ons?: string[];
 	checklist?: unknown;
-	plan_term?: TPlanTerm; // monthly or yearly
+	plan_term?: TPlanTerm; // monthly or yearly @default monthly
 	stripe_canceling_at?: (string | Date | number);
 	domain?: string; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 	event_webhook_url?: string;
@@ -1287,7 +1288,7 @@ export interface IWorkspace {
 	clickhouse_username?: string;
 	clickhouse_password?: string;
 	clickhouse_table?: string; // Destination table for external ClickHouse API-call logging (e.g. my_logs or default.my_logs)
-	auto_join?: boolean;
+	auto_join?: boolean; // @default true
 	jwt_secret?: string;
 	default_secretsmanager_id?: string; // Default SecretsManager document id for new credentials
 	default_secretsmanager_env_ids?: { [path in string]?: string }; // Environment name to SecretsManager document id
@@ -1308,7 +1309,7 @@ export interface IWorkspaceIntegration {
 	prompt_region?: boolean;
 	use_unified_redirect?: boolean;
 	auth_type?: TIntegrationAuthType; // the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
-	environment?: string; // authentication environment
+	environment?: string; // authentication environment @default Production
 	categories?: ( TIntegrationCategory )[];
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
 	success_redirect?: string; // Post-OAuth success URL for marketplace installs (e.g. HighLevel). Used by `/oauth/code/{workspace}/{env}/{integration}`.
