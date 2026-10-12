@@ -1122,6 +1122,9 @@ export interface IIntegrationSupport {
 	list_instance_id?: TSupportInboundType;
 	list_service_id?: TSupportInboundType;
 	list_patient_id?: TSupportInboundType;
+	virtual_webhook_patient_id?: TSupportInboundType;
+	list_practitioner_id?: TSupportInboundType;
+	virtual_webhook_practitioner_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
