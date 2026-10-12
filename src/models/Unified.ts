@@ -1412,6 +1412,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'performance', label: 'Performance Management' },
     { category: 'social', label: 'Social Media' },
     { category: 'legal', label: 'Legal Practice Management' },
-    { category: 'compute', label: 'Compute & Hosting' }
+    { category: 'compute', label: 'Compute & Hosting' },
+    { category: 'healthcare', label: 'Healthcare' }
 ];
 
