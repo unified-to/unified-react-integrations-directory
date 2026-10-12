@@ -434,7 +434,29 @@ export const IntegrationPermission = [
 	'compute_domain_read',
 	'compute_domain_write',
 	'compute_envvar_read',
-	'compute_envvar_write'
+	'compute_envvar_write',
+	'healthcare_patient_read',
+	'healthcare_patient_write',
+	'healthcare_practitioner_read',
+	'healthcare_practitioner_write',
+	'healthcare_location_read',
+	'healthcare_location_write',
+	'healthcare_appointment_read',
+	'healthcare_appointment_write',
+	'healthcare_slot_read',
+	'healthcare_slot_write',
+	'healthcare_encounter_read',
+	'healthcare_encounter_write',
+	'healthcare_condition_read',
+	'healthcare_condition_write',
+	'healthcare_allergy_read',
+	'healthcare_allergy_write',
+	'healthcare_medication_read',
+	'healthcare_medication_write',
+	'healthcare_observation_read',
+	'healthcare_observation_write',
+	'healthcare_immunization_read',
+	'healthcare_immunization_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
