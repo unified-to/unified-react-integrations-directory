@@ -1121,6 +1121,7 @@ export interface IIntegrationSupport {
 	list_region_id?: TSupportInboundType;
 	list_instance_id?: TSupportInboundType;
 	list_service_id?: TSupportInboundType;
+	list_patient_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
