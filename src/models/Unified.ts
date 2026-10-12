@@ -659,7 +659,18 @@ export const ObjectType = [
 	'compute_service',
 	'compute_deployment',
 	'compute_domain',
-	'compute_envvar'
+	'compute_envvar',
+	'healthcare_patient',
+	'healthcare_practitioner',
+	'healthcare_location',
+	'healthcare_appointment',
+	'healthcare_slot',
+	'healthcare_encounter',
+	'healthcare_condition',
+	'healthcare_allergy',
+	'healthcare_medication',
+	'healthcare_observation',
+	'healthcare_immunization'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
