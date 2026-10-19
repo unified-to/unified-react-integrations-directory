@@ -256,6 +256,8 @@ export const IntegrationPermission = [
 	'genai_organization_write',
 	'genai_skill_read',
 	'genai_skill_write',
+	'genai_memory_read',
+	'genai_memory_write',
 	'messaging_message_read',
 	'messaging_message_write',
 	'messaging_channel_read',
