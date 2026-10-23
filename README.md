@@ -42,10 +42,10 @@ The following are the `props` that can be passed to the component:
 ```ts
 {
     workspaceId: string;    // your workspace_id found at https://app.unified.to/settings/api
-    categories?: string[];  // An array of integration categories to limit the list of integrations (crm, ats, hr, uc,. ticketing, martech)
+    categories?: string[];  // An array of integration categories to limit the list of integrations (crm, ats, hr, uc,. ticketing, martech); defaults to the categories of `scopes`
     external_xref?: string; // Your ID for the account/user that is signed into your application
     state?: string;         // A state string that will be sent back to your success URL
-    scopes?: string[];      // An array of Unified.to permission scopes to request from OAUTH2-based integrations found at https://unified.to/apidocs#unified_object_connection
+    scopes?: string[];      // An array of Unified.to permission scopes to request (e.g. crm_event_read), found at https://unified.to/apidocs#unified_object_connection; defaults to the permissions enabled on each integration in your workspace
     success_redirect?: string;  // The URL where you want the user to be redirect to after a successful authentication. The Integration ID will be appended with (id=) to this URL, as will the state provided
     failure_redirect?: string;  // The URL where you want the user to be redirect to after an unsuccessful or aborted authorization.  An 'error' variable will be appended.
     nostyle?: boolean;

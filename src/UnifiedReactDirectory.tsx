@@ -68,6 +68,12 @@ const CATEGORY_MAP: { [path in TIntegrationCategory]?: string } = CATEGORIES.red
     {} as { [path in TIntegrationCategory]: string }
 );
 
+/** The categories of permission scopes (`crm_event_read` is `crm`), so the directory only lists integrations that can grant them. */
+function categoriesFromScopes(scopes?: string[]) {
+    const categories = (scopes || []).map((scope) => scope.split('_')[0] as TIntegrationCategory).filter((c) => CATEGORY_MAP[c]);
+    return [...new Set(categories)];
+}
+
 export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const API_URL = MAP_REGION[(props.dc as keyof typeof MAP_REGION) || 'us'] || MAP_REGION['us'];
     const [INTEGRATIONS, setIntegrations] = useState<IIntegration[]>([]);
@@ -75,6 +81,9 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
     const [selectedCategory, setCategory] = useState<TIntegrationCategory | ''>('');
     const [loading, setLoading] = useState<boolean | undefined>(undefined);
     const [search, setSearch] = useState<string>('');
+
+    // `categories` wins; otherwise list only the integrations in the categories of the requested `scopes`
+    const categories = useMemo(() => (props.categories?.length ? props.categories : categoriesFromScopes(props.scopes)), [props.categories, props.scopes]);
 
     const resolvedTheme = useMemo(() => normalizeTheme(props.theme || getThemeFromUrl()), [props.theme]);
 
@@ -95,7 +104,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
                                 integration.name.toLowerCase().includes(search.toLowerCase()) ||
                                 integration.type.toLowerCase().includes(search.toLowerCase())) &&
                             CATEGORY_MAP[c] &&
-                            (!props.categories?.length || props.categories.indexOf(c) !== -1)
+                            (!categories.length || categories.indexOf(c) !== -1)
                         ) {
                             _CATEGORIES.push(c);
                         }
@@ -113,7 +122,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
                 setLoading(false);
             });
         }
-    }, [props.categories]);
+    }, [categories]);
 
     function filter(integrations: IIntegration[]) {
         return integrations?.filter((integration) => !selectedCategory || integration.categories.indexOf(selectedCategory) !== -1) || [];
@@ -149,7 +158,7 @@ export default function UnifiedDirectory(props: UnifiedDirectoryProps) {
 
     async function load_data() {
         const url = `${API_URL}/unified/integration/workspace/${props.workspaceId || props.workspace_id}?summary=1${
-            props.categories?.length ? '&categories=' + props.categories.join(',') : ''
+            categories.length ? '&categories=' + categories.join(',') : ''
         }${props.environment === 'Production' || !props.environment ? '' : '&env=' + encodeURIComponent(props.environment)}`;
 
         try {
