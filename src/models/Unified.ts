@@ -233,6 +233,7 @@ export const IntegrationPermission = [
 	'hris_earning_read',
 	'hris_earning_write',
 	'uc_call_read',
+	'uc_call_write',
 	'uc_contact_read',
 	'uc_contact_write',
 	'uc_comment_read',
