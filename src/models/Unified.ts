@@ -708,7 +708,13 @@ export const ObjectType = [
 	'healthcare_allergy',
 	'healthcare_medication',
 	'healthcare_observation',
-	'healthcare_immunization'
+	'healthcare_immunization',
+	'healthcare_document',
+	'healthcare_coverage',
+	'healthcare_procedure',
+	'healthcare_report',
+	'healthcare_careplan',
+	'healthcare_goal'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
