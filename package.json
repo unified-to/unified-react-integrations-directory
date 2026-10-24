@@ -6,7 +6,8 @@
         "publish": "npm publish",
         "build": "npm run build:esm && npm run build:cjs",
         "build:esm": "tsc --outDir dist/esm",
-        "build:cjs": "tsc --module commonjs --outDir dist/cjs"
+        "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+        "test": "vitest run"
     },
     "repository": {
         "type": "git",
@@ -22,11 +23,15 @@
     },
     "homepage": "https://github.com/unified-to/unified-react-integrations-directory#readme",
     "devDependencies": {
+        "@testing-library/dom": "^10.4.0",
+        "@testing-library/react": "^16.3.0",
         "@types/react": "^19.2.2",
+        "jsdom": "^26.1.0",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
         "tslib": "^2.8.1",
-        "typescript": "^5.9.3"
+        "typescript": "^5.9.3",
+        "vitest": "^3.2.4"
     },
     "peerDependencies": {
         "react": "^19.0.0"
