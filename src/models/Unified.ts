@@ -1328,6 +1328,7 @@ export interface IWorkspace {
 	custom_auth_domain?: string;
 	custom_auth_domain_valid?: boolean;
 	custom_api_domain?: string;
+	custom_api_domain_valid?: boolean;
 	slow_fields_opt_in?: boolean;
 	notion_verification_token?: string;
 	favicon_url?: string;
