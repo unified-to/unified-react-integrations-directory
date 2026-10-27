@@ -1314,6 +1314,7 @@ export interface IWorkspace {
 	secret?: string; // Workspace API secret
 	ip_allowlist?: IWorkspaceIpAllowlistEntry[];
 	restrict_ips?: boolean;
+	trusted_domains?: string[]; // Hostnames allowed for Auth/SAML login success_redirect and failure_redirect (e.g. app.example.com). When set, absolute redirects must match one of these hosts.
 	datadog_apikey?: string;
 	datadog_site?: string;
 	environments?: string[]; // a list of authentication environments for the workspace integrations
