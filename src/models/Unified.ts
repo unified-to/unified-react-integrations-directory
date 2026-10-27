@@ -1376,7 +1376,8 @@ export interface IWorkspaceIntegration {
 	use_unified_redirect?: boolean;
 	auth_type?: TIntegrationAuthType; // the authentication method to use for this workspace integration; when set, it overrides the default auth-method selection (e.g. force 'token' even when Unified OAUTH credentials exist)
 	environment?: string; // authentication environment @default Production
-	categories?: ( TIntegrationCategory )[];
+	categories?: ( TIntegrationCategory )[]; // derived from `permissions` (plus the auth, passthrough and saml categories, which have no permissions)
+	permissions?: { [path in TIntegrationPermission]?: ( TIntegrationPermission )[] }; // the unified permission scopes enabled for this integration; requested when an authorization URL omits `scopes`
 	overriden_scopes?: { [path in TIntegrationPermission]?: string };
 	success_redirect?: string; // Post-OAuth success URL for marketplace installs (e.g. HighLevel). Used by `/oauth/code/{workspace}/{env}/{integration}`.
 	failure_redirect?: string; // Post-OAuth failure URL for marketplace installs. Used by `/oauth/code/{workspace}/{env}/{integration}`.
