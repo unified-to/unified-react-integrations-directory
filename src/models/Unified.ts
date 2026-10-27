@@ -636,6 +636,8 @@ export const ObjectType = [
 	'calendar_link',
 	'calendar_recording',
 	'calendar_webinar',
+	'calendar_room',
+	'calendar_location',
 	'ads_organization',
 	'ads_ad',
 	'ads_campaign',
@@ -1139,6 +1141,7 @@ export interface IIntegrationSupport {
 	list_destination_id?: TSupportInboundType;
 	list_email?: TSupportInboundType;
 	list_matter_id?: TSupportInboundType;
+	list_room_id?: TSupportInboundType;
 	virtual_webhook_matter_id?: TSupportInboundType;
 	list_practicearea_id?: TSupportInboundType;
 	virtual_webhook_practicearea_id?: TSupportInboundType;
