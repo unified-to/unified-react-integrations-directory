@@ -319,6 +319,8 @@ export const IntegrationPermission = [
 	'calendar_recording_write',
 	'calendar_webinar_read',
 	'calendar_webinar_write',
+	'calendar_room_read',
+	'calendar_location_read',
 	'enrich_person_read',
 	'enrich_company_read',
 	'ads_ad_read',
