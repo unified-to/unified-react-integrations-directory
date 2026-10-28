@@ -40,6 +40,11 @@ const CATEGORY_MAP = CATEGORIES.reduce((acc, category) => {
     acc[category.category] = category.label;
     return acc;
 }, {});
+/** The categories of permission scopes (`crm_event_read` is `crm`), so the directory only lists integrations that can grant them. */
+function categoriesFromScopes(scopes) {
+    const categories = (scopes || []).map((scope) => scope.split('_')[0]).filter((c) => CATEGORY_MAP[c]);
+    return [...new Set(categories)];
+}
 export default function UnifiedDirectory(props) {
     const API_URL = MAP_REGION[props.dc || 'us'] || MAP_REGION['us'];
     const [INTEGRATIONS, setIntegrations] = useState([]);
@@ -47,6 +52,8 @@ export default function UnifiedDirectory(props) {
     const [selectedCategory, setCategory] = useState('');
     const [loading, setLoading] = useState(undefined);
     const [search, setSearch] = useState('');
+    // `categories` wins; otherwise list only the integrations in the categories of the requested `scopes`
+    const categories = useMemo(() => { var _a; return (((_a = props.categories) === null || _a === void 0 ? void 0 : _a.length) ? props.categories : categoriesFromScopes(props.scopes)); }, [props.categories, props.scopes]);
     const resolvedTheme = useMemo(() => normalizeTheme(props.theme || getThemeFromUrl()), [props.theme]);
     const themeClass = resolvedTheme === 'light' ? 'unified-theme-light' : '';
     useEffect(() => {
@@ -59,12 +66,11 @@ export default function UnifiedDirectory(props) {
                 data.forEach((integration) => {
                     var _a;
                     (_a = integration.categories) === null || _a === void 0 ? void 0 : _a.forEach((c) => {
-                        var _a;
                         if ((!search ||
                             integration.name.toLowerCase().includes(search.toLowerCase()) ||
                             integration.type.toLowerCase().includes(search.toLowerCase())) &&
                             CATEGORY_MAP[c] &&
-                            (!((_a = props.categories) === null || _a === void 0 ? void 0 : _a.length) || props.categories.indexOf(c) !== -1)) {
+                            (!categories.length || categories.indexOf(c) !== -1)) {
                             _CATEGORIES.push(c);
                         }
                     });
@@ -80,7 +86,7 @@ export default function UnifiedDirectory(props) {
                 setLoading(false);
             });
         }
-    }, [props.categories]);
+    }, [categories]);
     function filter(integrations) {
         return (integrations === null || integrations === void 0 ? void 0 : integrations.filter((integration) => !selectedCategory || integration.categories.indexOf(selectedCategory) !== -1)) || [];
     }
@@ -111,8 +117,7 @@ export default function UnifiedDirectory(props) {
     }
     function load_data() {
         return __awaiter(this, void 0, void 0, function* () {
-            var _a;
-            const url = `${API_URL}/unified/integration/workspace/${props.workspaceId || props.workspace_id}?summary=1${((_a = props.categories) === null || _a === void 0 ? void 0 : _a.length) ? '&categories=' + props.categories.join(',') : ''}${props.environment === 'Production' || !props.environment ? '' : '&env=' + encodeURIComponent(props.environment)}`;
+            const url = `${API_URL}/unified/integration/workspace/${props.workspaceId || props.workspace_id}?summary=1${categories.length ? '&categories=' + categories.join(',') : ''}${props.environment === 'Production' || !props.environment ? '' : '&env=' + encodeURIComponent(props.environment)}`;
             try {
                 const response = yield fetch(url, {
                     method: 'GET',
