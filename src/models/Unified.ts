@@ -474,7 +474,21 @@ export const IntegrationPermission = [
 	'healthcare_careplan_read',
 	'healthcare_careplan_write',
 	'healthcare_goal_read',
-	'healthcare_goal_write'
+	'healthcare_goal_write',
+	'property_listing_read',
+	'property_listing_write',
+	'property_unittype_read',
+	'property_guest_read',
+	'property_guest_write',
+	'property_reservation_read',
+	'property_reservation_write',
+	'property_availability_read',
+	'property_quote_read',
+	'property_quote_write',
+	'property_review_read',
+	'property_review_write',
+	'property_conversation_read',
+	'property_conversation_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
