@@ -57,7 +57,8 @@ export const IntegrationCategory = [
 	'social',
 	'legal',
 	'compute',
-	'healthcare'
+	'healthcare',
+	'property'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
@@ -1443,6 +1444,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'social', label: 'Social Media' },
     { category: 'legal', label: 'Legal Practice Management' },
     { category: 'compute', label: 'Compute & Hosting' },
-    { category: 'healthcare', label: 'Healthcare' }
+    { category: 'healthcare', label: 'Healthcare' },
+    { category: 'property', label: 'Property Management' }
 ];
 
