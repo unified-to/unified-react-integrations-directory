@@ -1384,6 +1384,12 @@ export interface IWorkspace {
 	clickhouse_username?: string;
 	clickhouse_password?: string;
 	clickhouse_table?: string; // Destination table for external ClickHouse API-call logging (e.g. my_logs or default.my_logs)
+	splunk_url?: string; // Splunk HTTP Event Collector base URL (e.g. https://http-inputs-acme.splunkcloud.com); /services/collector/event is appended
+	splunk_token?: string; // Splunk HTTP Event Collector token
+	splunk_index?: string; // Optional Splunk index; the token's default index when empty
+	syslog_host?: string; // Syslog server host name or IP
+	syslog_port?: number; // Syslog server port (e.g. 6514 for TLS, 514 for TCP/UDP)
+	syslog_protocol?: string; // tls, tcp, udp
 	auto_join?: boolean; // @default true
 	jwt_secret?: string;
 	default_secretsmanager_id?: string; // Default SecretsManager document id for new credentials
