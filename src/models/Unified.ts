@@ -1175,8 +1175,8 @@ export interface IIntegrationSupport {
 	virtual_webhook_patient_id?: TSupportInboundType;
 	list_practitioner_id?: TSupportInboundType;
 	virtual_webhook_practitioner_id?: TSupportInboundType;
-	list_listing_id: TSupportInboundType;
-	virtual_webhook_listing_id: TSupportInboundType;
+	list_listing_id?: TSupportInboundType;
+	virtual_webhook_listing_id?: TSupportInboundType;
 	list_unittype_id: TSupportInboundType;
 	list_reservation_id: TSupportInboundType;
 	virtual_webhook_reservation_id: TSupportInboundType;
