@@ -1177,11 +1177,11 @@ export interface IIntegrationSupport {
 	virtual_webhook_practitioner_id?: TSupportInboundType;
 	list_listing_id?: TSupportInboundType;
 	virtual_webhook_listing_id?: TSupportInboundType;
-	list_unittype_id: TSupportInboundType;
-	list_reservation_id: TSupportInboundType;
-	virtual_webhook_reservation_id: TSupportInboundType;
-	list_guest_id: TSupportInboundType;
-	virtual_webhook_guest_id: TSupportInboundType;
+	list_unittype_id?: TSupportInboundType;
+	list_reservation_id?: TSupportInboundType;
+	virtual_webhook_reservation_id?: TSupportInboundType;
+	list_guest_id?: TSupportInboundType;
+	virtual_webhook_guest_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
