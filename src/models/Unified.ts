@@ -733,7 +733,15 @@ export const ObjectType = [
 	'healthcare_procedure',
 	'healthcare_report',
 	'healthcare_careplan',
-	'healthcare_goal'
+	'healthcare_goal',
+	'property_listing',
+	'property_unittype',
+	'property_guest',
+	'property_reservation',
+	'property_availability',
+	'property_quote',
+	'property_review',
+	'property_conversation'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
@@ -1167,6 +1175,13 @@ export interface IIntegrationSupport {
 	virtual_webhook_patient_id?: TSupportInboundType;
 	list_practitioner_id?: TSupportInboundType;
 	virtual_webhook_practitioner_id?: TSupportInboundType;
+	list_listing_id: TSupportInboundType;
+	virtual_webhook_listing_id: TSupportInboundType;
+	list_unittype_id: TSupportInboundType;
+	list_reservation_id: TSupportInboundType;
+	virtual_webhook_reservation_id: TSupportInboundType;
+	list_guest_id: TSupportInboundType;
+	virtual_webhook_guest_id: TSupportInboundType;
 }
 
 export interface IInvoice {
