@@ -1359,6 +1359,7 @@ export interface IWorkspace {
 	add_ons?: string[];
 	checklist?: unknown;
 	plan_term?: TPlanTerm; // monthly or yearly @default monthly
+	billing_locale?: string; // Stripe Customer preferred locale for invoices, receipts, and billing emails (e.g. en, en-GB, zh). @default en
 	stripe_canceling_at?: (string | Date | number);
 	domain?: string; // when set, users of the same domain will auto-join this workspace.  must not be gmail.com or other public domains
 	event_webhook_url?: string;
