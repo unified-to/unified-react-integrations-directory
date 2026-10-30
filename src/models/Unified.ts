@@ -143,6 +143,8 @@ export const IntegrationPermission = [
 	'commerce_itemvariant_write',
 	'commerce_reservation_read',
 	'commerce_reservation_write',
+	'commerce_return_read',
+	'commerce_return_write',
 	'commerce_availability_read',
 	'commerce_availability_write',
 	'verification_package_read',
