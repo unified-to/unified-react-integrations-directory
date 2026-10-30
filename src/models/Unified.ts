@@ -555,6 +555,7 @@ export const ObjectType = [
 	'commerce_saleschannel',
 	'commerce_itemvariant',
 	'commerce_reservation',
+	'commerce_return',
 	'commerce_availability',
 	'verification_package',
 	'verification_request',
