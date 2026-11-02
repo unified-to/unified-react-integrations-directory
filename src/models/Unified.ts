@@ -491,7 +491,17 @@ export const IntegrationPermission = [
 	'property_review_read',
 	'property_review_write',
 	'property_conversation_read',
-	'property_conversation_write'
+	'property_conversation_write',
+	'plm_part_read',
+	'plm_part_write',
+	'plm_bomline_read',
+	'plm_bomline_write',
+	'plm_document_read',
+	'plm_document_write',
+	'plm_change_read',
+	'plm_change_write',
+	'plm_category_read',
+	'plm_category_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
@@ -745,7 +755,12 @@ export const ObjectType = [
 	'property_availability',
 	'property_quote',
 	'property_review',
-	'property_conversation'
+	'property_conversation',
+	'plm_part',
+	'plm_bomline',
+	'plm_document',
+	'plm_change',
+	'plm_category'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
