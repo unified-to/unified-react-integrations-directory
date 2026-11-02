@@ -58,7 +58,8 @@ export const IntegrationCategory = [
 	'legal',
 	'compute',
 	'healthcare',
-	'property'
+	'property',
+	'plm'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
@@ -1185,6 +1186,8 @@ export interface IIntegrationSupport {
 	virtual_webhook_reservation_id?: TSupportInboundType;
 	list_guest_id?: TSupportInboundType;
 	virtual_webhook_guest_id?: TSupportInboundType;
+	list_part_id?: TSupportInboundType;
+	virtual_webhook_part_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
@@ -1484,6 +1487,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'legal', label: 'Legal Practice Management' },
     { category: 'compute', label: 'Compute & Hosting' },
     { category: 'healthcare', label: 'Healthcare' },
-    { category: 'property', label: 'Property Management' }
+    { category: 'property', label: 'Property Management' },
+    { category: 'plm', label: 'Product Lifecycle Management' }
 ];
 
