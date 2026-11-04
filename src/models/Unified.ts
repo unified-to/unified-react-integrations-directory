@@ -668,6 +668,8 @@ export const ObjectType = [
 	'calendar_link',
 	'calendar_recording',
 	'calendar_webinar',
+	'calendar_bot',
+	'calendar_botevent',
 	'calendar_room',
 	'calendar_location',
 	'ads_organization',
