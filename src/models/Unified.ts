@@ -623,6 +623,7 @@ export const ObjectType = [
 	'ticketing_customer',
 	'ticketing_category',
 	'uc_contact',
+	'uc_fax',
 	'uc_call',
 	'uc_comment',
 	'uc_recording',
