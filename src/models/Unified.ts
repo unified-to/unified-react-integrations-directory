@@ -240,6 +240,8 @@ export const IntegrationPermission = [
 	'uc_call_write',
 	'uc_contact_read',
 	'uc_contact_write',
+	'uc_fax_read',
+	'uc_fax_write',
 	'uc_comment_read',
 	'uc_comment_write',
 	'uc_recording_read',
