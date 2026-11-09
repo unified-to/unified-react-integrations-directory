@@ -422,6 +422,8 @@ export const IntegrationPermission = [
 	'social_review_write',
 	'social_insight_read',
 	'social_insight_write',
+	'social_comment_read',
+	'social_comment_write',
 	'legal_matter_read',
 	'legal_matter_write',
 	'legal_practicearea_read',
