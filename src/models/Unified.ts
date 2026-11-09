@@ -1048,6 +1048,7 @@ export interface IIntegrationSupport {
 	search_email?: TSupportInboundType;
 	search_domain?: TSupportInboundType;
 	list_event_id?: TSupportInboundType;
+	list_meeting_url?: TSupportInboundType;
 	list_start_gte?: TSupportInboundType;
 	list_end_lt?: TSupportInboundType;
 	list_lead_id?: TSupportInboundType;
