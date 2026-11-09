@@ -726,6 +726,7 @@ export const ObjectType = [
 	'social_profile',
 	'social_review',
 	'social_insight',
+	'social_comment',
 	'legal_matter',
 	'legal_practicearea',
 	'legal_timeentry',
