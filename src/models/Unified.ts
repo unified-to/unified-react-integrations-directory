@@ -1407,7 +1407,9 @@ export interface IWorkspace {
 	slow_fields_opt_in?: boolean;
 	notion_verification_token?: string;
 	favicon_url?: string;
-	is_baa?: boolean;
+	is_baa?: boolean; // Sensitive workspace: support access consent always expires (at most 24 hours after it is given), and Unified never validates its connections from outside the production cluster. Set by Unified admins only.
+	allow_support_access?: boolean; // Unified support may access this workspace (test its connections, sign in as its users, see connection details) unless it is false. Unset means allowed, except in sensitive (is_baa) workspaces, which need an explicit true that always expires. Set by the workspace admin.
+	allow_support_access_expires_at?: (string | Date | number); // When support access consent ends. Unset means it stays on until the workspace admin turns it off. For sensitive workspaces it is always set, at most 24 hours ahead.
 	saml_integration_type?: string;
 	saml_idp_url?: string;
 	saml_idp_entity_id?: string;
