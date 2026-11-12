@@ -557,7 +557,7 @@ export const ObjectType = [
 	'accounting_category',
 	'accounting_expense',
 	'accounting_expensereport',
-	'accounting_purchasereport',
+	'accounting_purchasereceipt',
 	'accounting_cashflow',
 	'accounting_quote',
 	'accounting_agedreceivable',
