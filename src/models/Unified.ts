@@ -1431,6 +1431,7 @@ export interface IWorkspace {
 	syslog_host?: string; // Syslog server host name or IP
 	syslog_port?: number; // Syslog server port (e.g. 6514 for TLS, 514 for TCP/UDP)
 	syslog_protocol?: string; // tls, tcp, udp
+	api_log_retention_days?: number; // Days to keep API call logs; must not exceed the plan's retention. Unset uses the plan's retention
 	auto_join?: boolean; // @default true
 	jwt_secret?: string;
 	default_secretsmanager_id?: string; // Default SecretsManager document id for new credentials
