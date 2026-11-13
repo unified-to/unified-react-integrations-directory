@@ -918,6 +918,7 @@ export interface IApiCall {
 	user_agent?: string;
 	unified_response_time?: number;
 	endapi_response_time?: number;
+	query_params?: string[]; // Names of the query-string parameters sent with this API call (eg. updated_gte, offset). Values are not stored.
 }
 
 export interface ICategories {
