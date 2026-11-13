@@ -512,7 +512,15 @@ export const IntegrationPermission = [
 	'plm_change_read',
 	'plm_change_write',
 	'plm_category_read',
-	'plm_category_write'
+	'plm_category_write',
+	'qms_issue_read',
+	'qms_issue_write',
+	'qms_action_read',
+	'qms_action_write',
+	'qms_inspection_read',
+	'qms_inspection_write',
+	'qms_audit_read',
+	'qms_audit_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
@@ -777,7 +785,11 @@ export const ObjectType = [
 	'plm_bomline',
 	'plm_document',
 	'plm_change',
-	'plm_category'
+	'plm_category',
+	'qms_issue',
+	'qms_action',
+	'qms_inspection',
+	'qms_audit'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
@@ -1221,6 +1233,8 @@ export interface IIntegrationSupport {
 	virtual_webhook_guest_id?: TSupportInboundType;
 	list_part_id?: TSupportInboundType;
 	virtual_webhook_part_id?: TSupportInboundType;
+	list_issue_id?: TSupportInboundType;
+	virtual_webhook_issue_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
@@ -1524,6 +1538,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'compute', label: 'Compute & Hosting' },
     { category: 'healthcare', label: 'Healthcare' },
     { category: 'property', label: 'Property Management' },
-    { category: 'plm', label: 'Product Lifecycle Management' }
+    { category: 'plm', label: 'Product Lifecycle Management' },
+    { category: 'qms', label: 'Quality Management' }
 ];
 
