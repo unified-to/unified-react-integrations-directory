@@ -60,7 +60,8 @@ export const IntegrationCategory = [
 	'healthcare',
 	'property',
 	'plm',
-	'qms'
+	'qms',
+	'fhir'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
