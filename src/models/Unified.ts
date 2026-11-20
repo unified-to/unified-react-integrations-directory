@@ -1262,6 +1262,8 @@ export interface IIntegrationSupport {
 	virtual_webhook_part_id?: TSupportInboundType;
 	list_issue_id?: TSupportInboundType;
 	virtual_webhook_issue_id?: TSupportInboundType;
+	list_vehicle_id?: TSupportInboundType;
+	virtual_webhook_vehicle_id?: TSupportInboundType;
 }
 
 export interface IInvoice {
@@ -1566,6 +1568,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'healthcare', label: 'Healthcare' },
     { category: 'property', label: 'Property Management' },
     { category: 'plm', label: 'Product Lifecycle Management' },
-    { category: 'qms', label: 'Quality Management' }
+    { category: 'qms', label: 'Quality Management' },
+    { category: 'dms', label: 'Dealer Management' }
 ];
 
