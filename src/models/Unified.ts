@@ -524,7 +524,21 @@ export const IntegrationPermission = [
 	'qms_inspection_read',
 	'qms_inspection_write',
 	'qms_audit_read',
-	'qms_audit_write'
+	'qms_audit_write',
+	'dms_vehicle_read',
+	'dms_vehicle_write',
+	'dms_vehiclesale_read',
+	'dms_vehiclesale_write',
+	'dms_repairorder_read',
+	'dms_repairorder_write',
+	'dms_appointment_read',
+	'dms_appointment_write',
+	'dms_part_read',
+	'dms_part_write',
+	'dms_partsale_read',
+	'dms_partsale_write',
+	'dms_opcode_read',
+	'dms_opcode_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
