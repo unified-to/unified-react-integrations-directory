@@ -61,6 +61,7 @@ export const IntegrationCategory = [
 	'property',
 	'plm',
 	'qms',
+	'dms',
 	'fhir'
 ] as const;
 
