@@ -794,7 +794,14 @@ export const ObjectType = [
 	'qms_issue',
 	'qms_action',
 	'qms_inspection',
-	'qms_audit'
+	'qms_audit',
+	'dms_vehicle',
+	'dms_vehiclesale',
+	'dms_repairorder',
+	'dms_appointment',
+	'dms_part',
+	'dms_partsale',
+	'dms_opcode'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
