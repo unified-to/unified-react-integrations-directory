@@ -816,7 +816,12 @@ export const ObjectType = [
 	'dms_appointment',
 	'dms_part',
 	'dms_partsale',
-	'dms_opcode'
+	'dms_opcode',
+	'printing_product',
+	'printing_template',
+	'printing_file',
+	'printing_quote',
+	'printing_order'
 ] as const;
 
 export type TObjectType = typeof ObjectType[number];
