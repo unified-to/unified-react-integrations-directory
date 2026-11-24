@@ -62,7 +62,8 @@ export const IntegrationCategory = [
 	'plm',
 	'qms',
 	'dms',
-	'fhir'
+	'fhir',
+	'printing'
 ] as const;
 
 export type TIntegrationCategory = typeof IntegrationCategory[number];
