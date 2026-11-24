@@ -539,7 +539,17 @@ export const IntegrationPermission = [
 	'dms_partsale_read',
 	'dms_partsale_write',
 	'dms_opcode_read',
-	'dms_opcode_write'
+	'dms_opcode_write',
+	'printing_product_read',
+	'printing_product_write',
+	'printing_template_read',
+	'printing_template_write',
+	'printing_file_read',
+	'printing_file_write',
+	'printing_quote_read',
+	'printing_quote_write',
+	'printing_order_read',
+	'printing_order_write'
 ] as const;
 
 export type TIntegrationPermission = typeof IntegrationPermission[number];
@@ -1575,6 +1585,7 @@ export const CATEGORIES: ICategories[] = [
     { category: 'property', label: 'Property Management' },
     { category: 'plm', label: 'Product Lifecycle Management' },
     { category: 'qms', label: 'Quality Management' },
-    { category: 'dms', label: 'Dealer Management' }
+    { category: 'dms', label: 'Dealer Management' },
+    { category: 'printing', label: 'Printing' }
 ];
 
