@@ -934,7 +934,8 @@ export const WorkspaceEventType = [
 	'WEBHOOK_DELETED',
 	'WEBHOOK_UNHEALTHY',
 	'WEBHOOK_PAUSED',
-	'WEBHOOK_UNPAUSED'
+	'WEBHOOK_UNPAUSED',
+	'UNIFIED_PERSON_MERGED'
 ] as const;
 
 export type TWorkspaceEventType = typeof WorkspaceEventType[number];
